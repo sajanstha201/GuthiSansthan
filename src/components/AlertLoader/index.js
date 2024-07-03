@@ -19,4 +19,3 @@ export {NewLoader} from './NewLoader'
 export default {activate_loader,showAlert}
 export {AlertBox} from './AlertBox'
 export {LoaderBox} from './LoaderBox'
-export {NewLoader} from './NewLoader'

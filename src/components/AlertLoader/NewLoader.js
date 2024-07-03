@@ -1,4 +1,3 @@
-import './NewLoader.css'; // Import existing CSS file (optional)
 
 export const NewLoader = () => {
     return (

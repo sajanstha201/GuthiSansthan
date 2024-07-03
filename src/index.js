@@ -5,13 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AppProvider } from './context/AppProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n/i18n';
+import { HashRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <HashRouter>
+    <I18nextProvider i18n={i18n}>
     <AppProvider>
-    <App />
+      <App />
     </AppProvider>
+    </I18nextProvider>
+    </HashRouter>
   </React.StrictMode>
 );
 

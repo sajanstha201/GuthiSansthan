@@ -1,8 +1,5 @@
 
-import { PopDiv } from "../DisplayInfo.js"
-import { TemplePdfViewer } from "./TemplePdfViewer.js"
 import { TempleImage } from "./TempleImage.js"
-import { useIsMobile } from "../../context/ScreenInfo.js"
 import { useMediaQuery } from "@mui/material"
 export const TempleDispalyMain=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
@@ -36,7 +33,11 @@ export const TempleDispalyMain=()=>{
     const patanDurbarSquare=new Temple({
         imageUrl:'/PatanDurbarSquare/image.png',
         nepaliName:'Patan Durbar Square',
-        nepaliFileUrl:''
+        englishName:'Patan English',
+        newariName:'Patan Newari',
+        nepaliFileUrl:'/PatanDurbarSquare/NepaliDescription.txt',
+        englishFileUrl:'/PatanDurbarSquare/EnglishDescription.txt',
+        newariFileUrl:'/PatanDurbarSquare/NewariDescription.txt'
     })
     const janakiTemple=new Temple({
         imageUrl:'/JanakiTemple/images.jpeg',
@@ -48,6 +49,10 @@ export const TempleDispalyMain=()=>{
     return(
         <div className="w-full flex justify-center">
             <div className={`${isMobile?'flex-col h-[60vh]':'flex-row'} w-[80%]  bg-gray-200 m-2 rounded-lg flex  overflow-x-auto`}>
+                <TempleImage templeObject={pashupathiTemple}/>
+                <TempleImage templeObject={bouddhanath}/>
+                <TempleImage templeObject={patanDurbarSquare}/>
+                <TempleImage templeObject={janakiTemple}/>
                 <TempleImage templeObject={pashupathiTemple}/>
                 <TempleImage templeObject={bouddhanath}/>
                 <TempleImage templeObject={patanDurbarSquare}/>

@@ -1,1 +1,2 @@
-export {NavbarMain} from './NavbarMain'
+export {Footer} from './Footer'
+export {HeaderMain} from './HeaderMain'

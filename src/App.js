@@ -5,9 +5,12 @@ import { Footer,HeaderMain } from './components/Navbar';
 import { HashRouter as Router, Routes,Route, HashRouter } from 'react-router-dom';
 import { Testing } from './webpage';
 import { ContactUs } from './webpage/ContactUs';
+import { AlertBox, LoaderBox } from './components/AlertLoader';
 function App() {
   return (
     <div className="App">
+      <AlertBox/>
+      <LoaderBox/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/>
       <div className='min-h-[90vh]'> 

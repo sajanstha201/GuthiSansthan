@@ -11,9 +11,9 @@ import { HashRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HashRouter>//this is for routing
-      <I18nextProvider i18n={i18n}>//this is for language translation
-        <AppProvider>//this is for useContext
+     <HashRouter>  {/* this is for routing */}
+       <I18nextProvider i18n={i18n}> {/* this is for language translation */}
+        <AppProvider>{/* this is for useContext */}
           <App />
         </AppProvider>
       </I18nextProvider>

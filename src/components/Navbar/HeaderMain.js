@@ -7,10 +7,10 @@ export const HeaderMain=()=>{
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     const {i18n}=useTranslation()
     return(
-        <div className="w-full h-[10vh] flex flex-row justify-between items-center p-5 bg-gray-400">
-            <div>
-            <h1>This is navbar</h1>
-            </div>
+        <div className="w-full h-[10vh] flex flex-row justify-between items-center p-5 bg-gray-400 absolute top-0 z-10">
+            <Link to='/'> 
+            <h2>LOGO</h2>
+            </Link>
             <div>
             <Link to='/contact-us'>Contact us</Link>
             </div>

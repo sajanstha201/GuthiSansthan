@@ -13,7 +13,7 @@ function App() {
       <LoaderBox/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/>
-      <div className='min-h-[90vh]'> 
+      <div className='min-h-[90vh] mt-[10vh]'> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<TempleDispalyMain/>}/>

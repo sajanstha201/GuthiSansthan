@@ -5,7 +5,9 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useState } from 'react';
 import {showAlert} from '../components/AlertLoader/index'
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 export const ContactUs = () => {
+  const {t}=useTranslation()
     const [mapLoaded, setMapLoaded] = useState(false);
     const defaultCenter = {
       lat: 27.681505372996934,
@@ -22,7 +24,7 @@ export const ContactUs = () => {
     };
   return (
 <div className="bg-100 flex flex-col items-center justify-center verflow-hidden ">
-<h1 className="text-3xl font-bold tracking-wide m-16">Contact Us</h1>
+<h1 className="text-3xl font-bold tracking-wide m-16">{t('contact-us')}</h1>
     <div className="bg-white flex  lg:flex-row  sm:flex-col rounded-lg justify-center align-center gap-10">
             <div id="map" className=' '>
             <LoadScript googleMapsApiKey="AIzaSyDR-Piy7y9bIfz9HzE_dN_TAXJbM9UtA24">
@@ -39,7 +41,7 @@ export const ContactUs = () => {
          <div className='flex h-full items-start justify-center flex-col lg:mt-24 sm:mt-6 m-16'>
               <div className=' text-sm flex px-5 gap-4'>
                   <IoLocationSharp className='h-6 w-6'/>
-                <p className='hover:underline'>Head Office, M8JH+M52 Lalitpur, Nepal</p>
+                <p className='hover:underline'>{t('head-office-address')}</p>
               </div>
               <div className=' text-sm flex px-5 gap-4'>
               

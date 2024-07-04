@@ -1,4 +1,4 @@
-import {ImageSlider} from '../components/DisplayInfo'
+import {ImageSlider, NepalFlagSlider} from '../components/DisplayInfo'
 import pashupathi from '../media/TempleInformation/pashupati.jpeg'
 import bouddhnath from '../media/TempleInformation/bouddhanath.jpeg'
 import patandurbarsquare from '../media/TempleInformation/patandurbarsquare.png'
@@ -10,7 +10,9 @@ export const Testing=()=>{
         <div>
         <ImageSlider imagesList={[pashupathi,bouddhnath,patandurbarsquare,janaki]}/>
         </div>
-        
+        <div>
+            <NepalFlagSlider content={'my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.'}/>
+        </div>
         </>
     )
 }

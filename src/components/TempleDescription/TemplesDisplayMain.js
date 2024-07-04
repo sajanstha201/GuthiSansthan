@@ -1,7 +1,8 @@
 
+import { BackAndFrontTemple } from "./BackAndFrontTemple.js"
 import { TempleImage } from "./TempleImage.js"
 import { useMediaQuery } from "@mui/material"
-export const TempleDispalyMain=()=>{
+export const TemplesDisplayMain=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     class Temple{
         constructor({imageUrl,nepaliName,englishName,newariName,mithilaName,nepaliFileUrl,englishFileUrl,newariFileUrl,mithilaFileUrl}){
@@ -49,14 +50,10 @@ export const TempleDispalyMain=()=>{
     return(
         <div className="w-full flex justify-center">
             <div className={`${isMobile?'flex-col h-[60vh]':'flex-row'} w-[80%]  bg-gray-200 m-2 rounded-lg flex  overflow-x-auto`}>
-                <TempleImage templeObject={pashupathiTemple}/>
-                <TempleImage templeObject={bouddhanath}/>
-                <TempleImage templeObject={patanDurbarSquare}/>
-                <TempleImage templeObject={janakiTemple}/>
-                <TempleImage templeObject={pashupathiTemple}/>
-                <TempleImage templeObject={bouddhanath}/>
-                <TempleImage templeObject={patanDurbarSquare}/>
-                <TempleImage templeObject={janakiTemple}/>
+                <BackAndFrontTemple templeObject={pashupathiTemple}/>
+                <BackAndFrontTemple templeObject={bouddhanath}/>
+                <BackAndFrontTemple templeObject={patanDurbarSquare}/>
+                <BackAndFrontTemple templeObject={janakiTemple}/>
             </div>
         </div>
     )

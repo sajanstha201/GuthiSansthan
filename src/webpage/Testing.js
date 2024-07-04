@@ -11,7 +11,7 @@ export const Testing=()=>{
         <ImageSlider imagesList={[pashupathi,bouddhnath,patandurbarsquare,janaki]}/>
         </div>
         <div>
-            <NepalFlagSlider content={'my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.my name is sajan shrestha.'}/>
+            <NepalFlagSlider/>
         </div>
         </>
     )

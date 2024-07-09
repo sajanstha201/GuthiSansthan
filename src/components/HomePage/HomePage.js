@@ -2,6 +2,7 @@ import { useMediaQuery } from "@mui/material"
 import { useTranslation } from "react-i18next"
 import { NepalFlagSlider } from "./NepalFlagSlider"
 import homebg from '../../media/Maskgroup.png'
+import { Link } from "react-router-dom"
 
 export const HomePage=()=>{
     const {t}=useTranslation()
@@ -17,7 +18,9 @@ export const HomePage=()=>{
             <div className="h-[90vh] flex flex-col items-center justify-center" >
                 <NepalFlagSlider/>
                 <div className="flex w-full items-start relative">
-                <div className=" text-white font-bold bg-blue-800 p-3 px-5 rounded-full absolute left-[10%]  cursor-pointer hover:bg-blue-900">{t('sign-in')}</div>
+                    <Link to='/sign-in'className="no-underline text-white font-bold bg-blue-800 p-3 px-5 rounded-full absolute left-[10%]  cursor-pointer hover:bg-blue-900">
+                    {t('sign-in')}
+                    </Link>
                 </div>
                 
             </div>

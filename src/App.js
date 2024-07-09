@@ -8,6 +8,7 @@ import { ContactUs } from './webpage/ContactUs';
 import { AlertBox, LoaderBox } from './components/AlertLoader';
 import { ArticleDisplay } from './components/HomePage/TempleDescription';
 import { ServicePage } from './components/ServicePage/ServicePage';
+import { Login, Signin } from './components/LoginSignin';
 function App() {
   const location=useLocation()
   const isFirstPage=location.pathname.startsWith('/')
@@ -26,6 +27,8 @@ function App() {
             <Route path='/services' element={<ServicePage/>}/>
             <Route path='/about-us' element={<AboutUs/>}/>
             <Route path='/contact-us' element={<ContactUs/>}/>
+            <Route path='/log-in' element={<Login/>}/>
+            <Route path='/sign-in' element={<Signin/>}/>
           </Routes>
       </div>
       {/* <Footer/> */}

@@ -10,7 +10,7 @@ export const ArticleDisplay=()=>{
                 setIsRemoveHidden(false)
                 setTimeout(()=>setIsRemoveHidden(true),2000)
             }}
-            className={` absolute flex items-center justify-center h-screen w-screen z-20 bg-gray-200 bg-opacity-50 transition-all duration-500`} style={{top:'-100%'}}>
+            className={` absolute flex items-center justify-center h-screen w-screen z-20 bg-gray-200 bg-opacity-50 transition-all duration-500`} style={{top:'-200%'}}>
             <div className={` overflow-hidden flex items-center justify-center  w-screen  left-0 bg-opacity-80 top-0 transition-all duration-500`} >
                     <div className="bg-white p-10 rounded shadow relative w-1/2 flex flex-col items-center justify-center">
                         <img id='temple-img' className=" bg-black"></img>
@@ -20,7 +20,7 @@ export const ArticleDisplay=()=>{
                                 onMouseEnter={()=>setIsRemoveHidden(false)}
                                 onMouseLeave={()=>setIsRemoveHidden(true)}
                                 onClick={()=>{
-                                    document.getElementById('temple-article-div').style.top='-100%'
+                                    document.getElementById('temple-article-div').style.top='-200%'
                                 }}
                                 className={`${isMobile?'w-[20px] h-[20px]':'w-[30px] h-[30px]'} bg-red-600 rounded-full flex items-center justify-center cursor-pointer border-2 border-black`}>x</div>
                         </div>

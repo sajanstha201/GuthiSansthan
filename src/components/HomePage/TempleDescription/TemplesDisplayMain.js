@@ -48,8 +48,8 @@ export const TemplesDisplayMain=()=>{
         englishFileUrl:''
     })
     return(
-        <div className="w-full flex justify-center">
-            <div className={`${isMobile?'flex-col h-[60vh]':'flex-row'} w-[80%]  bg-gray-200 m-2 rounded-lg flex  overflow-x-auto`}>
+        <div className="w-full h-full flex justify-center">
+            <div className={`${isMobile?'flex-col h-full':'flex-row'} w-[80%]  bg-gray-200 m-2 rounded-lg flex  overflow-x-auto`}>
                 <BackAndFrontTemple templeObject={pashupathiTemple}/>
                 <BackAndFrontTemple templeObject={bouddhanath}/>
                 <BackAndFrontTemple templeObject={patanDurbarSquare}/>

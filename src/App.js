@@ -14,10 +14,7 @@ function App() {
       <LoaderBox/>
       <ArticleDisplay/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
-      <div className='h-[10vh]'>
-      <HeaderMain/>
-      </div>
-      
+      <HeaderMain/> 
       <div className='min-h-[90vh]'> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>

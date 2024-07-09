@@ -5,6 +5,8 @@ import nepaliFlag from '../../media/FlagInfo/NepalFlag.png'
 import newariFlag from '../../media/FlagInfo/NewariFlag.png'
 import englishFlag from '../../media/FlagInfo/EnglishFlag.svg'
 import mithilaFlag from '../../media/FlagInfo/MithilaFlag.png'
+import guthiLogo from '../../media/guthi sansthan.png'
+import nepalLogo from '../../media/nepalLogo.png'
 export const HeaderTop=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
@@ -12,9 +14,9 @@ export const HeaderTop=()=>{
     const {t}=useTranslation()
     return(
         <div className={`${isMobile?'flex-col ':'flex-row  px-20 h-[100px]'} flex w-screen justify-between items-center p-2 `}>
-            <div>
-                Nepal LOGO
-                guthi logo
+            <div className="w-full h-full flex-row flex">
+                <img className="w-[100px] h-full"src={nepalLogo}/>
+                <img className="w-[100px] h-full" src={guthiLogo}/>
             </div>
             <div className={`${isMobile?'w-full flex-col':'w-[50%] flex-row'} flex h-full items-center justify-center px-10`}>
                 <div className={`${isMobile?'w-full h-[100px]':'w-[70%] h-full'} relative  flex items-center justify-center`}>
@@ -35,7 +37,7 @@ export const HeaderTop=()=>{
                         onClick={()=>{setSelectLanguage('mithila');i18n.changeLanguage('mithila')}}>
                         <img src={mithilaFlag} className="max-h-full max-w-full"></img></div>
                 </div>
-                <div className={`${isMobile?'':'w-[30%]'} bg-gray-50 p-2 px-3 mx-4 rounded-full hover:bg-gray-200 cursor-pointer shadow-sm font-bold`}>
+                <div className={`${isMobile?'':'w-[20%]'} bg-red-600 text-white p-2 px-3 mx-4 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
                     {t('donate')}
                 </div>
             </div>

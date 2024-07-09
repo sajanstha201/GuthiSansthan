@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import nepalFlagGif from '../../media/Flag_of_Nepal.gif'
-import {TemplesDisplayMain} from '../TempleDescription/'
+import {TemplesDisplayMain} from './TempleDescription'
 import { useTranslation } from 'react-i18next'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
@@ -8,7 +8,7 @@ export const NepalFlagSlider=({content})=>{
     return(
         <>
         <div className={` flex flex-row items-center relative w-full h-[40vh] m-2`} onMouseLeave={()=>{setIsHover(false)}}>
-            <div className={`${isHover?'left-[-30%]':''} absolute left-0 text-[100px] font-bold w-[60%] p-[10%] transition-left duration-1000`}>
+            <div className={`${isHover?'left-[-30%] opacity-0':''} absolute left-0 text-[100px] text-white font-bold w-[60%] p-[10%] transition-left duration-1000`}>
                 {t('welcome-to-guthi-sansthan')}
             </div>
             <img 

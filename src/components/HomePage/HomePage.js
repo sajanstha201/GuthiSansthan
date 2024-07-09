@@ -17,7 +17,7 @@ export const HomePage=()=>{
             <div className="h-[90vh] flex flex-col items-center justify-center" >
                 <NepalFlagSlider/>
                 <div className="flex w-full items-start relative">
-                <div className=" text-white font-bold bg-blue-800 p-3 px-5 rounded-full absolute left-[10%] my-10 cursor-pointer hover:bg-blue-900">Sign In</div>
+                <div className=" text-white font-bold bg-blue-800 p-3 px-5 rounded-full absolute left-[10%]  cursor-pointer hover:bg-blue-900">{t('sign-in')}</div>
                 </div>
                 
             </div>

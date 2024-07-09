@@ -10,7 +10,7 @@ export const ArticleDisplay=()=>{
                 setIsRemoveHidden(false)
                 setTimeout(()=>setIsRemoveHidden(true),2000)
             }}
-            className={` absolute flex items-center justify-center h-screen w-screen z-20 bg-gray-200 bg-opacity-50 transition-all duration-500`} style={{top:'-200%'}}>
+            className={` fixed flex items-center justify-center h-[100vh] w-screen z-20 bg-gray-200 bg-opacity-50 transition-all duration-500`} style={{top:'-200%'}}>
             <div className={` overflow-hidden flex items-center justify-center  w-screen  left-0 bg-opacity-80 top-0 transition-all duration-500`} >
                     <div className="bg-white p-10 rounded shadow relative w-1/2 flex flex-col items-center justify-center">
                         <img id='temple-img' className=" bg-black"></img>

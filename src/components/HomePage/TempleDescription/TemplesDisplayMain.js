@@ -3,7 +3,7 @@ import { BackAndFrontTemple } from "./BackAndFrontTemple.js"
 
 import { useMediaQuery } from "@mui/material"
 export const TemplesDisplayMain=()=>{
-    const isMobile=useMediaQuery('(max-width:800px)')
+    const isMobile=useMediaQuery('(max-width:600px)')
     class Temple{
         constructor({imageUrl,nepaliName,englishName,newariName,mithilaName,nepaliFileUrl,englishFileUrl,newariFileUrl,mithilaFileUrl}){
             this.imageUrl=imageUrl
@@ -19,7 +19,7 @@ export const TemplesDisplayMain=()=>{
     }
     const pashupathiTemple=new Temple(
         {
-            imageUrl:'/Pashupathi/images.jpeg',
+            imageUrl:'/Pashupathi/images.png',
             nepaliName:'Pashupathinath Temple',
             nepaliFileUrl:'/Bouddhanath/sajan shrestha  MIT  Resume.pdf',
             
@@ -41,7 +41,7 @@ export const TemplesDisplayMain=()=>{
         newariFileUrl:'/PatanDurbarSquare/NewariDescription.txt'
     })
     const janakiTemple=new Temple({
-        imageUrl:'/JanakiTemple/images.jpeg',
+        imageUrl:'/JanakiTemple/images.png',
         nepaliName:'Janaki Temple',
         englishName:'sajan shrestha',
         nepaliFileUrl:'',
@@ -49,7 +49,7 @@ export const TemplesDisplayMain=()=>{
     })
     return(
         <div className="w-full h-full flex justify-center">
-            <div className={`${isMobile?'flex-col h-full':'flex-row'} w-[80%]  bg-gray-200 m-2 rounded-lg flex  overflow-x-auto`}>
+            <div className={`${isMobile?'flex-col ':'flex-row h-full'} w-full rounded-lg flex  overflow-x-auto`}>
                 <BackAndFrontTemple templeObject={pashupathiTemple}/>
                 <BackAndFrontTemple templeObject={bouddhanath}/>
                 <BackAndFrontTemple templeObject={patanDurbarSquare}/>

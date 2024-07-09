@@ -13,8 +13,8 @@ i18n
         'newari':{translation:newariTranslation},
         'mithila':{translation:mithilaTranslation}
     },
-    lng:'english',
-    fallbackLng:'english',
+    lng:'nepali',
+    fallbackLng:'nepali',
     interpolation: {
         escapeValue: false
       }

@@ -17,7 +17,7 @@ export const NepalFlagSlider=({content})=>{
             onMouseEnter={()=>{setIsHover(true)}}
             src={nepalFlagGif} 
             className={`${isHover?' left-[10%]':'left-[60%]'} absolute w-[30vh] h-full z-10  transition-all duration-300 ease-in-out`}></img>
-            <div className={`${isHover?'left-[10%]  ':'left-[100%] w-0'}  pl-[20%] w-[90%] h-[50%] bg-white absolute transition-left duration-500 ease-in-out flex items-center justify-center align-text overflow-auto`}>
+            <div className={`${isHover?'left-[10%]  ':'left-[100%] w-0'} max-w-[90%] h-[50%] pl-[13%] bg-white absolute transition-left duration-500 ease-in-out flex items-center justify-center align-text `}>
                     <TemplesDisplayMain/>
             </div>
         </div>

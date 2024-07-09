@@ -14,7 +14,7 @@ export const HeaderTop=()=>{
     const {i18n}=useTranslation()
     const {t}=useTranslation()
     return(
-        <div className={`${isMobile?'flex-col ':'flex-row  px-20 h-[100px]'} flex w-screen justify-between items-center p-2 linear-gradient(to right, #FFFFFF, #FF9900)`}>
+        <div className={`${isMobile?'flex-col ':'flex-row  px-20 h-[100px]'} flex w-screen justify-between items-center p-2 `} style={{background: 'linear-gradient(to right, #FFFFFF, #FF9900)',}}>
             <Link to='/' className={`${isMobile?'flex-col':'flex-row'} w-full h-full flex-row flex`}>
                 <img className="w-[100px] h-full"src={nepalLogo}/>
                 <img className="w-[100px] h-full" src={guthiLogo}/>

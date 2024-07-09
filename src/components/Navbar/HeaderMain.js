@@ -8,7 +8,7 @@ export const HeaderMain=()=>{
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     const {i18n}=useTranslation()
     return(
-        <div className="top-0">
+        <div className="top-0 shadow-lg flex justify-center bg-white h-full">
         <HeaderTop></HeaderTop>
         {/* <HeaderButtom/> */}
         </div>

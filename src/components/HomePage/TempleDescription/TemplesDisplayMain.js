@@ -1,6 +1,6 @@
 
 import { BackAndFrontTemple } from "./BackAndFrontTemple.js"
-import { TempleImage } from "./TempleImage.js"
+
 import { useMediaQuery } from "@mui/material"
 export const TemplesDisplayMain=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')

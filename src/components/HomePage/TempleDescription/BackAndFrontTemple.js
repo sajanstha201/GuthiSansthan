@@ -14,8 +14,8 @@ export const BackAndFrontTemple = ({ templeObject }) => {
         document.getElementById('temple-article-div').style.top='0'
     }
     return (
-        <div className="flex items-center justify-center py-2 h-full" onClick={displayTemple}>
-            <div className={`bg-black h-full flex items-center justify-center m-1 ${isMobile?'min-w-[200px]':'min-w-[300px]'}`}>
+        <div className="flex items-center justify-center  h-full" onClick={displayTemple}>
+            <div className={`h-full flex items-center justify-center ${isMobile?'min-w-[200px]':'min-w-[300px]'}`}>
             <img src={images(`.${templeObject.imageUrl}`)} alt={templeObject.nepaliName} className="max-w-full max-h-full "/>
             </div>
             

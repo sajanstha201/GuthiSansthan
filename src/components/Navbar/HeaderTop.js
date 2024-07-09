@@ -18,7 +18,7 @@ export const HeaderTop=()=>{
                 <img className="w-[100px] h-full"src={nepalLogo}/>
                 <img className="w-[100px] h-full" src={guthiLogo}/>
             </div>
-            <div className={`${isMobile?'w-full flex-col':'w-[50%] flex-row'} flex h-full items-center justify-center px-10`}>
+            <div className={`${isMobile?'w-full flex-col':'w-[100%] flex-row'} flex h-full items-center justify-center `}>
                 <div className={`${isMobile?'w-full h-[100px]':'w-[70%] h-full'} relative  flex items-center justify-center`}>
                     <div 
                         className={`${selectLanguage==='nepali'?'h-[50px] w-[50px] border-black border-2':'h-[40px] w-[40px]'} absolute left-[10%] bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`} 
@@ -37,7 +37,7 @@ export const HeaderTop=()=>{
                         onClick={()=>{setSelectLanguage('mithila');i18n.changeLanguage('mithila')}}>
                         <img src={mithilaFlag} className="max-h-full max-w-full"></img></div>
                 </div>
-                <div className={`${isMobile?'':'w-[20%]'} bg-red-600 text-white p-2 px-3 mx-4 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
+                <div className={`${isMobile?'':'w-[25%]'} bg-red-600 text-white p-2 px-3 mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
                     {t('donate')}
                 </div>
             </div>

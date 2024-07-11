@@ -1,6 +1,7 @@
 import img from '../../media/AboutUsPage/Temple-manakamana.jpg'
 import { useMediaQuery } from '@mui/material'
 import { useTranslation } from 'react-i18next'
+import { displayMoreDescription } from '../DisplayInfo/MoreDescription'
 export const RightAndDuties=()=>{
     const {t}=useTranslation()
     const isMobile=useMediaQuery('(max-width:800px)')
@@ -13,7 +14,9 @@ export const RightAndDuties=()=>{
             </div>
             <div className={`${isMobile?'w-full text-center':'w-[60%] left-align'}  flex flex-col text-left p-5 items-center `}>
             {!isMobile&&<h1>{t('right-and-duties')}</h1>}
-            {t('intro')}            </div>
+            {t('intro')} 
+            {t('intro')}<div onClick={()=>{displayMoreDescription(img,t('right-and-duties'),t('intro'));}} className='cursor-pointer underline text-blue-600'>more info</div>
+            </div>
         </div>
         </>
     )

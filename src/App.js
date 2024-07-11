@@ -10,6 +10,7 @@ import { AlertBox, LoaderBox } from './components/AlertLoader';
 import { ArticleDisplay } from './components/HomePage/TempleDescription';
 import { ServicePage } from './components/ServicePage/ServicePage';
 import { Login, Signin } from './components/LoginSignin';
+import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
 function App() {
   const location=useLocation()
   const isFirstPage=location.pathname.startsWith('/')
@@ -18,6 +19,7 @@ function App() {
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>
+      <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
   

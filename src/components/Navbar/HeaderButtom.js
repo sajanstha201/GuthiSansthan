@@ -4,16 +4,16 @@ export const HeaderButtom=()=>{
     const {t}=useTranslation()
     return(
         <div className="w-full  flex flex-row  items-center justify-center bg-red-700 p-2 gap-6">
-            <Link to='/' className="no-underline font-bold text-xl text-white">
+            <Link to='/' className="no-underline font-bold md:text-xl sm:text-[10px] text-white">
             {t('home')}
             </Link>
-            <Link to='/services' className="no-underline font-bold text-xl text-white">
+            <Link to='/services' className="no-underline font-bold md:text-xl sm:text-[10px text-white">
             {t('our-services')}
             </Link>
-            <Link to='/about-us' className="no-underline font-bold text-xl text-white">
+            <Link to='/about-us' className="no-underline font-bold md:text-xl sm:text-[10px text-white">
             {t('about-us')}
             </Link>
-            <Link to='/contact-us' className="no-underline font-bold text-xl text-white">
+            <Link to='/contact-us' className="no-underline font-bold md:text-xl sm:text-[10px text-white">
             {t('contact-us')}
             </Link>
         </div>

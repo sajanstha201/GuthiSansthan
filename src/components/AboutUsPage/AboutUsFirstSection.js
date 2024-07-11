@@ -13,9 +13,9 @@ export const AboutUsFirstSection = ({ onLinkClick }) => {
     const {t}=useTranslation()
     const isMobile = useMediaQuery('(max-width:800px)');
     return (
-        <div className='flex items-center flex-col'>
+        <div className='flex items-center flex-col mb-6'>
             <div style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-                className='w-full text-[60px] font-bold text-white h-[30vh] flex justify-center items-center'>
+                className={`${isMobile?'text-[30px]':'text-[60px]'} w-full  font-bold text-white h-[30vh] flex justify-center items-center`}>
                {t('about-us')}
             </div>
             <div className={`${isMobile?'w-[95%] gap-7':'w-[75%] gap-16'} flex flex-wrap items-center justify-center  mt-12`}>

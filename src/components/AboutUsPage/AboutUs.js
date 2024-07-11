@@ -36,23 +36,26 @@ export const AboutUs = () => {
     };
 
     return (
-        <div>
+        <div className='flex flex-col items-center'>
             <AboutUsFirstSection onLinkClick={handleLinkClick} />
-            <div id='about-us-introduction' ref={introRef}>
-                <Introduction />
+            <div className='flex w-[85%] flex-col'>
+                <div id='about-us-introduction' ref={introRef}>
+                    <Introduction />
+                </div>
+                <div id='about-us-historical-background' className="flex justify-end"ref={histoRef}>
+                    <HistoricalBackGround />
+                </div>
+                <div id='about-us-right-and-duties' ref={rightsRef}>
+                    <RightAndDuties />
+                </div>
+                <div id='about-us-organizational-structure' ref={orgRef}>
+                    <OrganizationalStructure />
+                </div>
+                <div id='about-us-objectives' ref={objRef}>
+                    <Objectives />
+                </div>
             </div>
-            <div id='about-us-historical-background' ref={histoRef}>
-                <HistoricalBackGround />
-            </div>
-            <div id='about-us-right-and-duties' ref={rightsRef}>
-                <RightAndDuties />
-            </div>
-            <div id='about-us-organizational-structure' ref={orgRef}>
-                <OrganizationalStructure />
-            </div>
-            <div id='about-us-objectives' ref={objRef}>
-                <Objectives />
-            </div>
+
         </div>
     );
 };

@@ -37,6 +37,7 @@ export const AboutUs = () => {
                 objRef.current.scrollIntoView({ behavior: 'smooth' });
                 break;
             default:
+                setSectionSelected('')
                 break;
         }
     };

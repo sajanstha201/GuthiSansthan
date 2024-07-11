@@ -10,9 +10,9 @@ export const MoreDescriptionDiv=()=>{
                 setIsRemoveHidden(false)
                 setTimeout(()=>setIsRemoveHidden(true),2000)
             }}
-            className={` fixed flex items-center justify-center h-[100vh] w-screen z-20 bg-gray-200 bg-opacity-90 transition-all duration-500`} style={{top:'-200%'}}>
-            <div className={` overflow-hidden flex items-center justify-center  w-screen  left-0 bg-opacity-80 top-0 transition-all duration-500`} >
-                    <div className="bg-white p-10 rounded shadow relative w-1/2 flex flex-col items-center justify-center">
+            className={` fixed flex items-center justify-center h-[100vh] w-screen z-20 bg-gray-200 bg-opacity-100 transition-all duration-500 overflow-auto`} style={{top:'-200%'}}>
+            <div className={` overflow-auto flex items-center justify-center h-screen  w-screen  left-0 bg-opacity-80 top-0 transition-all duration-500`} >
+                    <div className={`${isMobile?'w-[90%]':'w-[50%]'} bg-white h-[90%] p-10 rounded shadow relative  flex flex-col items-center justify-center overflow-auto`}>
                         <h1 id='more-description-heading'></h1>
                         <img id='more-description-img' className=" bg-black"></img>
                         <div className=" absolute right-2 top-2 flex flex-row">

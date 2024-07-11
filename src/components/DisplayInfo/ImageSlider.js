@@ -3,7 +3,7 @@ export const ImageSlider=({imagesList})=>{
     const [imageIndexSelected,setImageIndexSelected]=useState(0)
     useEffect(()=>{
         const newIndex=(imageIndexSelected+1)%imagesList.length
-        setTimeout(()=>setImageIndexSelected(newIndex),4000)
+        setTimeout(()=>setImageIndexSelected(newIndex),1000)
     },[imageIndexSelected])
     return(
         <>

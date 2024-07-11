@@ -8,10 +8,10 @@ import './NepalFlagSlider.css'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     useEffect(()=>{
-        if(isMobile){
-            if(isHover) setTimeout(()=>{setIsHover(false)},5000)
-                else setTimeout(()=>{setIsHover(true)},1000)
-        }        
+        // if(isMobile){
+        //     if(isHover) setTimeout(()=>{setIsHover(false)},5000)
+        //         else setTimeout(()=>{setIsHover(true)},1000)
+        // }        
     })
     const {t}=useTranslation()
     const isMobile=useMediaQuery('(max-width:1000px)')

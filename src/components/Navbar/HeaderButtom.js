@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export const HeaderButtom=()=>{
     const {t}=useTranslation()
     return(
-        <div className="w-full  flex flex-row  items-center justify-center bg-[#1B286F] p-2 gap-6">
+        <div className="w-full  flex flex-row  items-center justify-center bg-red-700 p-2 gap-6">
             <Link to='/' className="no-underline font-bold text-xl text-white">
             {t('home')}
             </Link>

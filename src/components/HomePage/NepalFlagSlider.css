@@ -1,9 +1,7 @@
 .feature-div{
     width: 200px;
     height: '100%';
-    display: flex;
     justify-items: center;
-    align-items: center;
     font-size:25px;
     font-weight: bold;
     color: white;

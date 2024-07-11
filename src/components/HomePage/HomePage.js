@@ -18,7 +18,7 @@ export const HomePage=()=>{
             <div className="h-[90vh] flex flex-col items-center justify-center" >
                 <NepalFlagSlider/>
                 <div className="flex w-full items-start relative">
-                    <Link to='/sign-in'className="no-underline text-white font-bold bg-blue-800 p-3 px-5 rounded-full absolute left-[10%]  cursor-pointer hover:bg-blue-900">
+                    <Link to='/sign-in'className={`${isMobile?'text-[10px] p-2 px-3 ':'p-3 px-5 '} no-underline text-white font-bold bg-blue-800 rounded-full absolute left-[10%]  cursor-pointer hover:bg-blue-900`}>
                     {t('sign-in')}
                     </Link>
                 </div>

@@ -12,7 +12,7 @@ export const NepalFlagSlider=({content})=>{
     return(
         <>
         <div className={` flex flex-row items-center relative w-full h-[40vh] m-2 overflow-hidden`} onMouseLeave={()=>{setIsHover(false)}}>
-            <div className={`${isMobile?'text-[60px]':'text-[90px]'} ${isHover?'left-[-30%] opacity-0':''} absolute left-0  text-white font-bold w-[60%] p-[10%] transition-left duration-500 font-reggaeOne`}>
+            <div className={`${isMobile?'text-[30px]':'text-[90px]'} ${isHover?'left-[-30%] opacity-0':''} absolute left-0  text-white font-bold w-[60%] p-[10%] transition-left duration-500 font-reggaeOne`}>
                 {t('welcome-to-guthi-sansthan')}
             </div>
             <img 

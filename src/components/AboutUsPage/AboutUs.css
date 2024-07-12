@@ -8,6 +8,9 @@
     border-radius: 10px;
     text-decoration: none;
 }
+.about-us-img-div:hover{
+    transform: scale(1.01);
+}
 .about-us-img-div-mobile{
     color: #1B286F;
     font-weight: bold;

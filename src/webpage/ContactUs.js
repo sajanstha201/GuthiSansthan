@@ -6,8 +6,10 @@ import { useState } from 'react';
 import {showAlert} from '../components/AlertLoader/index'
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from '@mui/material';
 export const ContactUs = () => {
   const {t}=useTranslation()
+  const isMobile=useMediaQuery('(max-width:800px)')
     const [mapLoaded, setMapLoaded] = useState(false);
     const defaultCenter = {
       lat: 27.681505372996934,
@@ -25,7 +27,7 @@ export const ContactUs = () => {
   return (
 <div className="bg-100 flex flex-col items-center justify-center verflow-hidden ">
 <h1 className="text-3xl font-bold tracking-wide m-16">{t('contact-us')}</h1>
-    <div className="bg-white flex  lg:flex-row  sm:flex-col rounded-lg justify-center align-center gap-10">
+    <div className={`${isMobile?'flex-col':'flex-row '} bg-white flex   rounded-lg justify-center align-center gap-10`}>
             <div id="map" className=' '>
             <LoadScript googleMapsApiKey="AIzaSyDR-Piy7y9bIfz9HzE_dN_TAXJbM9UtA24">
             <GoogleMap

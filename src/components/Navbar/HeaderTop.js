@@ -22,17 +22,17 @@ export const HeaderTop=()=>{
             <div className={`${isMobile?'gap-2':' gap-7'} w-[70%] flex-row flex h-full items-center justify-center `}>
                 <div className={`${isMobile?' h-[100px] gap-2':' h-full gap-7'} w-[70%] flex items-center justify-end `}>
                     <div 
-                        className={`${selectLanguage==='nepali'?`${isMobile?'h-[25px] w-[25px] border-black border-2':'h-[50px] w-[50px] border-black border-2'}`:`${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}`}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`} 
+                        className={`${selectLanguage==='nepali'?`transform scale-125 transition-transform border-black border-2`:''} ${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`} 
                         onClick={()=>{setSelectLanguage('nepali');i18n.changeLanguage('nepali')}}>
                         <img src={nepaliFlag} className="max-h-full max-w-full"></img></div>
                     <div 
-                        className={`${selectLanguage==='newari'?`${isMobile?'h-[25px] w-[25px] border-black border-2':'h-[50px] w-[50px] border-black border-2'}`:`${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}`}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`}                        onClick={()=>{setSelectLanguage('newari');i18n.changeLanguage('newari')}}>
+                        className={`${selectLanguage==='newari'?`transform scale-125 transition-transform border-black border-2`:''} ${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`}                        onClick={()=>{setSelectLanguage('newari');i18n.changeLanguage('newari')}}>
                         <img src={newariFlag} className="max-h-full max-w-full"></img></div>
                     <div 
-                        className={`${selectLanguage==='english'?`${isMobile?'h-[25px] w-[25px] border-black border-2':'h-[50px] w-[50px] border-black border-2'}`:`${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}`}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`}                        onClick={()=>{setSelectLanguage('english');i18n.changeLanguage('english')}}>
+                        className={`${selectLanguage==='english'?`transform scale-125 transition-transform border-black border-2`:''} ${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`}                        onClick={()=>{setSelectLanguage('english');i18n.changeLanguage('english')}}>
                         <img src={englishFlag} className="max-h-full max-w-full"></img></div>
                     <div 
-                        className={`${selectLanguage==='mithila'?`${isMobile?'h-[25px] w-[25px] border-black border-2':'h-[50px] w-[50px] border-black border-2'}`:`${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}`}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`}                        onClick={()=>{setSelectLanguage('mithila');i18n.changeLanguage('mithila')}}>
+                        className={`${selectLanguage==='mithila'?`transform scale-125 transition-transform border-black border-2`:''} ${isMobile?'h-[25px] w-[25px]':'h-[50px] w-[50px]'}  bg-gray-50 rounded-full shadow-md cursor-pointer transition-all overflow-hidden items-center flex justify-center`}                        onClick={()=>{setSelectLanguage('mithila');i18n.changeLanguage('mithila')}}>
                         <img src={mithilaFlag} className="max-h-full max-w-full"></img></div>
                 </div> 
                 <div className={`${isMobile?'text-[10px] h-[25px] w-[30%]':'h-[50%] w-[10%]'}  bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>

@@ -18,23 +18,23 @@ export const AboutUs = () => {
         switch (section) {
             case 'about-us-introduction':
                 setSectionSelected('introduction')
-                introRef.current.scrollIntoView({ behavior: 'smooth' });
+                introRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-historical-background':
                 setSectionSelected('historical-background')
-                histoRef.current.scrollIntoView({ behavior: 'smooth' });
+                histoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-right-and-duties':
                 setSectionSelected('right-and-duties')
-                rightsRef.current.scrollIntoView({ behavior: 'smooth' });
+                rightsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-organizational-structure':
                 setSectionSelected('organizational-structure')
-                orgRef.current.scrollIntoView({ behavior: 'smooth' });
+                orgRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-objectives':
                 setSectionSelected('objectives')
-                objRef.current.scrollIntoView({ behavior: 'smooth' });
+                objRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             default:
                 setSectionSelected('')

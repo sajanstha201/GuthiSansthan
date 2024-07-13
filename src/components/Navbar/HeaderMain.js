@@ -11,7 +11,8 @@ export const HeaderMain=()=>{
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     const {i18n}=useTranslation()
     return(
-        <div className="top-0 shadow-lg flex  flex-col justify-center bg-white">
+        <div className={`${location.pathname==='/'?'':'shadow-lg'} top-0  flex  flex-col justify-center z-10 relative`}>
+            
         <HeaderTop></HeaderTop>
         {!isFirstPage&&<HeaderButtom/> }
         </div>

@@ -11,11 +11,18 @@ import { ArticleDisplay } from './components/HomePage/TempleDescription';
 import { ServicePage } from './components/ServicePage/ServicePage';
 import { Login, Signin } from './components/LoginSignin';
 import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
+import bgVideo from './media/HomePage/My Movie.mp4'
 function App() {
   const location=useLocation()
   const isFirstPage=location.pathname.startsWith('/')
   return (
-    <div className="App ">
+    <div className={`App relative ${location.pathname===''?'':''}`}>
+      {location.pathname==='/'&&<><video autoPlay loop muted className="video-background absolute inset-0 w-full h-full object-cover">
+        <source src={bgVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20"></div></>
+      }
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>

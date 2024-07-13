@@ -1,45 +1,36 @@
-import { useMediaQuery } from "@mui/material"
-import { useTranslation } from "react-i18next"
-import { NepalFlagSlider } from "./NepalFlagSlider"
-import homebg from '../../media/Maskgroup.png'
-import { Link } from "react-router-dom"
+import React from "react";
+import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import { NepalFlagSlider } from "./NepalFlagSlider";
+import { Link, useLocation } from "react-router-dom";
+import homeBgVideo from '../../media/HomePage/My Movie.mp4';
 
-export const HomePage=()=>{
-    const {t}=useTranslation()
-    const isMobile=useMediaQuery('(max-width:800px)')
-    return(
-        <>
-        <div className="relative"style={{ backgroundImage: `url(${homebg})`,
-            width: '100%',
-            height: '100%',        
-            backgroundSize: 'cover',
-            backgroundPosition: 'center' }}>
-            <div className=" absolute inset-0 h-full w-full  bg-black opacity-20"></div>
-            <div className="h-[90vh] flex flex-col items-center justify-center" >
-                <NepalFlagSlider/>
-                <div className="flex w-full items-start relative">
-                    <Link to='/sign-in'className={`${isMobile?'text-[10px] p-2 px-3 ':'p-3 px-5 '} no-underline text-white font-bold bg-blue-800 rounded-full absolute left-[10%]  cursor-pointer hover:bg-blue-900`}>
-                    {t('sign-in')}
-                    </Link>
-                </div>
-                
-            </div>
+export const HomePage = () => {
+  const { t } = useTranslation();
+  const isMobile = useMediaQuery('(max-width:800px)');
+  const location=useLocation()
+  return (
+    <div className="relative h-screen">
+      {/* {location.pathname!=='/'&&<video autoPlay loop muted className="video-background absolute inset-0 w-full h-full object-cover">
+        <source src={homeBgVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20"></div>
+      } */}
+      
+      <div className="flex flex-col items-center justify-center h-full relative z-10">
+        <NepalFlagSlider />
+        <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'}  gap-4 px-5 w-full`}>
+          <Link
+            to="/sign-in"
+            className={`${
+              isMobile ? 'text-xs p-2 px-3' : 'p-3 px-5'
+            } no-underline text-white font-bold bg-blue-800 rounded-full cursor-pointer hover:bg-blue-900`}
+          >
+            {t('sign-in')}
+          </Link>
         </div>
-        
-        </>
-        // <div className="w-full h-full flex flex-row" >
-        //     <div className="w-[50%] h-full flex flex-col px-[5%] py-[10%]">
-        //         <div className="text-[60px] h-[50%] flex items-center">
-        //         {t('welcome-to-guthi-sansthan')}
-        //         </div>
-        //         <div className={`${isMobile?'flex-col ':'flex-row '} h-[50%] flex w-full justify-center gap-7 mt-5`}>
-        //                 <button className="bg-gray-50 hover:bg-gray-300 p-3 px-5 rounded-full flex items-center justify-center text-xl font-bold">{t('sign-in')}</button>
-        //                 <button className="bg-gray-50 hover:bg-gray-300 p-3 px-5 rounded-full flex items-center justify-center text-xl font-bold">{t('our-service')}</button>
-        //         </div>
-        //     </div>
-        //     <div className="w-[50%]">
-        //         alsfkjl
-        //     </div>   
-        // </div>
-    )
-}
+      </div>
+    </div>
+  );
+};

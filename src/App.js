@@ -21,7 +21,7 @@ function App() {
         <source src={bgVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20"></div></>
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20" ></div></>
       }
       <AlertBox/>
       <LoaderBox/>
@@ -29,7 +29,6 @@ function App() {
       <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
-  
       <div > 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>

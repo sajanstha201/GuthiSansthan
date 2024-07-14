@@ -13,13 +13,14 @@ export const AboutUsFirstSection = ({ onLinkClick }) => {
     const {t}=useTranslation()
     const isMobile = useMediaQuery('(max-width:800px)');
     return (
-        <div className='flex items-center flex-col mb-6 w-full'>
-            <div style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-                className={`${isMobile?'text-[30px]':'text-[60px]'} w-full  font-bold text-white h-[30vh] flex justify-center items-center`}>
+        <div className='flex items-center flex-col mb-6 w-full '>
+            <div 
+                className={`${isMobile?'text-[30px] h-[30vh]':'text-[60px] h-[30vh]'} w-full  font-bold text-white  flex justify-center items-center`}>
                {t('about-us')}
             </div>
-            <div className={`${isMobile?'w-[95%] gap-7':'w-[75%] gap-16'} flex flex-wrap items-center justify-center  mt-12`}>
-                <div className={`relative overflow-hidden shadow-lg   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+            <div className={`${isMobile?'w-[95%]':'w-[80%] '} backdrop-blur-sm p-5 rounded-md shadow-lg`}>
+                <div className={`${isMobile?'gap-7':' gap-16'} w-8/10 h-8/10 flex flex-wrap items-center justify-center backdrop-blur-lg rounded-md `}>
+                <div className={`relative overflow-hidden shadow-lg   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'} `}>
                     <div onClick={() => onLinkClick('about-us-introduction')} className={`emerge  ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
                             <img src={introImg} alt="Introduction" className='' />
                             {t('introduction')}
@@ -49,6 +50,9 @@ export const AboutUsFirstSection = ({ onLinkClick }) => {
                         {t('objectives')}
                     </div>
                 </div>
+
+                </div>
+
             </div>
         </div>
     );

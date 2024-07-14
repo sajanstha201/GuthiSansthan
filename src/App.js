@@ -30,7 +30,7 @@ function App() {
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
   
-      <div className=''> 
+      <div > 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>}/>

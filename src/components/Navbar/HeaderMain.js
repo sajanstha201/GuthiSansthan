@@ -5,13 +5,15 @@ import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { HeaderTop,HeaderButtom } from "./"
 import { useLocation } from "react-router-dom"
+import { useMediaQuery } from "@mui/material"
 export const HeaderMain=()=>{
     const location=useLocation()
-    const isFirstPage=location.pathname === '/'||location.pathname==='/log-in'||location.pathname==='/sign-in'
+    const isMobile=useMediaQuery('(max-width:1000px)')
+    const isFirstPage=location.pathname === '/'||location.pathname==='/log-in'||location.pathname==='/sign-in'||!(isMobile)
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     const {i18n}=useTranslation()
     return(
-        <div className={`${location.pathname==='/'?'':'shadow-lg'} top-0  flex  flex-col justify-center z-10 relative`}>
+        <div className={`${location.pathname==='/'?'':''} top-0  flex  flex-col justify-center z-10 relative`}>
             
         <HeaderTop></HeaderTop>
         {!isFirstPage&&<HeaderButtom/> }

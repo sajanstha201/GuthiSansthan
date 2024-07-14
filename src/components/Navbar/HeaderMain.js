@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom"
 import { useMediaQuery } from "@mui/material"
 export const HeaderMain=()=>{
     const location=useLocation()
-    const isMobile=useMediaQuery('(max-width:1000px)')
+    const isMobile=useMediaQuery('(max-width:1200px)')
     const isFirstPage=location.pathname === '/'||location.pathname==='/log-in'||location.pathname==='/sign-in'||!(isMobile)
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     const {i18n}=useTranslation()

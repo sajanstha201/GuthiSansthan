@@ -8,60 +8,52 @@ import {RightAndDuties} from './RightAndDuties';
 import aboutUsbackimg from '../../media/AboutUsPage/durbar-palace-square-bhaktapur-nepal.png';
 
 export const AboutUs = () => {
-    const introRef = useRef(null);
-    const histoRef = useRef(null);
-    const rightsRef = useRef(null);
-    const orgRef = useRef(null);
-    const objRef = useRef(null);
+    const aboutRef=useRef();
     const [sectionSelected,setSectionSelected]=useState('')
 
     const handleLinkClick = (section) => {
         switch (section) {
             case 'about-us-introduction':
                 setSectionSelected('introduction')
-                introRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-historical-background':
                 setSectionSelected('historical-background')
-                histoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-right-and-duties':
                 setSectionSelected('right-and-duties')
-                rightsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-organizational-structure':
                 setSectionSelected('organizational-structure')
-                orgRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             case 'about-us-objectives':
                 setSectionSelected('objectives')
-                objRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', });
                 break;
             default:
                 setSectionSelected('')
                 break;
         }
+        setTimeout(()=>aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', }),200)
     };
 
     return (
         <>
         <div className=' fixed w-screen h-screen top-0 -z-10 ' style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-        <div className='flex flex-col items-center ' >
-            <AboutUsFirstSection onLinkClick={handleLinkClick} />
-            <div className='flex w-[85%] flex-col '>
-                <div id='about-us-introduction' ref={introRef} className={`${sectionSelected!=='introduction'?'hidden':''}`}>
+        <div className='flex flex-col items-center '  >
+            <AboutUsFirstSection onLinkClick={handleLinkClick} aboutRef={aboutRef} />
+            <div className='flex w-[85%] flex-col ' ref={aboutRef}>
+                <div id='about-us-introduction'className={`${sectionSelected!=='introduction'?'hidden':''}`}>
                     <Introduction />
                 </div>
-                <div id='about-us-historical-background' className={`${sectionSelected!=='historical-background'?'hidden':''} flex justify-end`}ref={histoRef}>
+                <div id='about-us-historical-background' className={`${sectionSelected!=='historical-background'?'hidden':''} flex justify-end`}>
                     <HistoricalBackGround />
                 </div>
-                <div id='about-us-right-and-duties' className={`${sectionSelected!=='right-and-duties'?'hidden':''}`} ref={rightsRef}>
+                <div id='about-us-right-and-duties' className={`${sectionSelected!=='right-and-duties'?'hidden':''}`}>
                     <RightAndDuties />
                 </div>
-                <div id='about-us-organizational-structure' ref={orgRef} className={`${sectionSelected!=='organizational-structure'?'hidden':''}`}>
+                <div id='about-us-organizational-structure'  className={`${sectionSelected!=='organizational-structure'?'hidden':''}`}>
                     <OrganizationalStructure />
                 </div>
-                <div id='about-us-objectives' ref={objRef} className={`${sectionSelected!=='objectives'?'hidden':''}`}>
+                <div id='about-us-objectives'  className={`${sectionSelected!=='objectives'?'hidden':''}`}>
                     <Objectives />
                 </div>
             </div>

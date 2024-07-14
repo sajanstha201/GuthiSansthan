@@ -10,7 +10,7 @@ import nepalLogo from '../../media/nepalLogo.png'
 import { Link, useLocation } from "react-router-dom"
 import { HeaderButtom } from "./HeaderButtom"
 export const HeaderTop=()=>{
-    const isMobile=useMediaQuery('(max-width:1000px)')
+    const isMobile=useMediaQuery('(max-width:1200px)')
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     const {i18n}=useTranslation()
     const {t}=useTranslation()

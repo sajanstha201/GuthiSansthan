@@ -1,5 +1,5 @@
 .about-us-img-div{
-    color: #1B286F;
+    color: white;
     font-weight: bold;
     font-size: larger;
     width: 300px;
@@ -7,6 +7,8 @@
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     text-decoration: none;
+}
+.about-us-img-div div{
 }
 .about-us-img-div:hover{
     transform: scale(1.01);
@@ -34,4 +36,7 @@
     height: 70%;
     width: 100%;
     margin-bottom: 10px;
+}
+.blurred-border{
+    
 }

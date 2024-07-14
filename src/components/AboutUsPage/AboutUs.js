@@ -5,6 +5,7 @@ import {Introduction} from './Introduction';
 import {Objectives} from './Objectives';
 import {OrganizationalStructure} from './OrganizationalStructure';
 import {RightAndDuties} from './RightAndDuties';
+import aboutUsbackimg from '../../media/AboutUsPage/durbar-palace-square-bhaktapur-nepal.png';
 
 export const AboutUs = () => {
     const introRef = useRef(null);
@@ -43,9 +44,11 @@ export const AboutUs = () => {
     };
 
     return (
-        <div className='flex flex-col items-center'>
+        <>
+        <div className=' fixed w-screen h-screen top-0 -z-10 ' style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className='flex flex-col items-center ' >
             <AboutUsFirstSection onLinkClick={handleLinkClick} />
-            <div className='flex w-[85%] flex-col'>
+            <div className='flex w-[85%] flex-col '>
                 <div id='about-us-introduction' ref={introRef} className={`${sectionSelected!=='introduction'?'hidden':''}`}>
                     <Introduction />
                 </div>
@@ -64,5 +67,7 @@ export const AboutUs = () => {
             </div>
 
         </div>
+        </>
+ 
     );
 };

@@ -81,31 +81,35 @@ export const HeaderTop=()=>{
                         {selectLanguage==='english'&&<img src={englishFlag} className="max-h-full max-w-full"></img>}
                         {selectLanguage==='mithila'&&<img src={mithilaFlag} className="max-h-full max-w-full"></img>}
                     </div>
-                    <div className={`${languageOptionHidden?'hidden':''} absolute flex flex-col left-0 top-[100%] items-start w-[120px] z-10 gap-3 bg-gray-100 rounded-md p-1`}>
+                    <div className={`${languageOptionHidden?'hidden':''} absolute flex flex-col -left-1 top-[80%] items-start w-[70px] z-10 gap-3 rounded-md bg-red-700 p-2`}>
+                        <div className="flex flex-row items-centern justify-center gap-2">
                         <div 
                             className={`cursor-pointer transition-all overflow-hidden items-center flex justify-center gap-2`} 
                             onClick={()=>{setSelectLanguage('nepali');i18n.changeLanguage('nepali');setLanguageOptionHidden(true)}}>
-                            <img src={nepaliFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[60px] w-[60px]'} max-h-full max-w-full `}></img>
-                            <div className="text-black">Nepali</div>
+                            <img src={nepaliFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[30px] w-[30px]'} max-h-full max-w-full `}></img>
+                            {/* <div className="text-black">Nepali</div> */}
                             </div>
 
                         <div 
                             className={`cursor-pointer transition-all overflow-hidden items-center flex justify-center gap-2`}                        
                             onClick={()=>{setSelectLanguage('newari');i18n.changeLanguage('newari');setLanguageOptionHidden(true)}}>
-                            <img src={newariFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[60px] w-[60px]'} max-h-full max-w-full  `}></img>
-                            <div className={`text-black`}>Newari</div>
+                            <img src={newariFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[30px] w-[30px]'} max-h-full max-w-full  `}></img>
+                            {/* <div className={`text-black`}>Newari</div> */}
                             </div>
+                        </div>
+                        <div className="flex flex-row items-centern justify-center gap-2">
                         <div 
                             className={` cursor-pointer transition-all overflow-hidden items-center flex justify-center gap-2`}                        
                             onClick={()=>{setSelectLanguage('english');i18n.changeLanguage('english');setLanguageOptionHidden(true)}}>
-                            <img src={englishFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[60px] w-[60px]'} max-h-full max-w-full  `}></img>
-                            <div className={`text-black`}>English</div>
+                            <img src={englishFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[30px] w-[30px]'} max-h-full max-w-full  `}></img>
+                            {/* <div className={`text-black`}>English</div> */}
                             </div>
                         <div 
                             className={` cursor-pointer transition-all overflow-hidden items-center flex justify-center gap-2`}                        
                             onClick={()=>{setSelectLanguage('mithila');i18n.changeLanguage('mithila');setLanguageOptionHidden(true)}}>
-                            <img src={mithilaFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[60px] w-[60px]'} max-h-full max-w-full `}></img>
-                            <div className={`text-black`}>Mithila</div>
+                            <img src={mithilaFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[30px] w-[30px]'} max-h-full max-w-full `}></img>
+                            {/* <div className={`text-black`}>Mithila</div> */}
+                            </div>
                             </div>
                     </div>
                 </div>

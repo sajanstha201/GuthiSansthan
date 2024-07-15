@@ -91,7 +91,7 @@ export const HeaderTop=()=>{
 
                         <div 
                             className={`cursor-pointer transition-all overflow-hidden items-center flex justify-center gap-2`}                        
-                            onClick={()=>{console.log('slkfsjdfl'); setSelectLanguage('newari');i18n.changeLanguage('newari');setLanguageOptionHidden(true)}}>
+                            onClick={()=>{setSelectLanguage('newari');i18n.changeLanguage('newari');setLanguageOptionHidden(true)}}>
                             <img src={newariFlag} className={`${isMobile?'h-[30px] w-[30px]':'h-[60px] w-[60px]'} max-h-full max-w-full  `}></img>
                             <div className={`text-black`}>Newari</div>
                             </div>

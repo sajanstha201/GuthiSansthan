@@ -21,6 +21,7 @@
     "password":"पासवर्ड",
     "confirm-password":"पासवर्ड पुष्टि गर्नुहोस्",
     "already-have-an-account":"पहिले नै खाता छ",
-    "sign-up":"साइन अप गर्नुहोस्"
+    "sign-up":"साइन अप गर्नुहोस्",
+    "log-in":"login गर्नुहोस्"
 
 }

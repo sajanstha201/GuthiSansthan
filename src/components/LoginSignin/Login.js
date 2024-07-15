@@ -1,10 +1,16 @@
 import React from 'react';
 import bgImage from '../../media/LoginSignin/rectangle.png'
 import nepalLandmark from '../../media/LoginSignin/nepalLandmark.png'
+import { useMediaQuery } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 export const Login = () => {
+    const isMobile=useMediaQuery('(max-width:800px)')
+    const {t}=useTranslation()
     return (
-  
+        <>
+        <div className="fixed h-screen w-screen -z-10 top-0" style={{backgroundImage:`url(${bgImage})`}}></div>
+        
         <div
             className="bg-cover bg-center h-screen "
             style={{ backgroundImage: `url(${bgImage})`, backgroundAttachment: 'fixed' }}
@@ -12,9 +18,9 @@ export const Login = () => {
            
                 
 
-                <div className='flex items-center justify-center gap-5 h-[80vh] flex-col md:flex-row lg:flex-row'>
-                    <div  >
-                      <img src={nepalLandmark}  className=' h-100 sm:w-[400px] w-400  md:w-500   lg:w-500 sm:mt-[50px]  '></img>
+                <div className={`${isMobile?'':'h-[80vh]'} flex items-center justify-center gap-5  flex-col md:flex-row lg:flex-row`}>
+                <div className={`${isMobile?'w-[200px]':'w-[500px]'} `} >
+                      <img src={nepalLandmark}  ></img>
                     </div>
                     
                     <div className='flex flex-col item-center justify-center'>
@@ -30,7 +36,7 @@ export const Login = () => {
                          
                             <br/>
                              <div className='item-end justify-end'>
-                                <button className='border rounded-full w-[120px] h-[40px] font-bold text-white bg-blue-600 text-align-center'><h5> Sign In</h5></button>
+                                <button className=' rounded-full w-[120px] h-[40px] font-bold text-white bg-blue-600 text-align-center'><h5>{t('log-in')} </h5></button>
                              </div>
                               
                     </div>
@@ -44,5 +50,6 @@ export const Login = () => {
           
            
         </div>
+        </>
     );
 };

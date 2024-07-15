@@ -18,7 +18,7 @@ export const HomePage = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20"></div>
       } */}
       
-      <div className="flex flex-col items-center justify-center h-full relative z-10">
+      <div className="flex flex-col items-center justify-center h-full relative">
         <NepalFlagSlider />
         <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'}  gap-4 px-5 w-full`}>
           <Link

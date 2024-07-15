@@ -1,54 +1,71 @@
+import React from 'react';
 import bgImage from '../../media/LoginSignin/rectangle.png'
 import nepalLandmark from '../../media/LoginSignin/nepalLandmark.png'
-import { Link } from 'react-router-dom'
-import { useMediaQuery } from '@mui/material'
-import { useTranslation } from 'react-i18next'
-export const Signin=()=>{
-    const isMobile=useMediaQuery('(max-width:800px)')
-    const {t}=useTranslation()
-    return(
-        <>
-    <div class="flex justify-center flex-col items-center h-screen w-full bg-red-400 px-1 gap-3" style={{backgroundImage:`url(${bgImage})`}}>
-           <h1 class="text-4xl font-bold tracker-tighter text-white">{t('create-an-account')}</h1>
-            
-           <div class="flex flex-wrap w-full  md:w-2/3 flex-shrink-0 relative ">
-                <div class="  hiden lg:absolute h-96 w-96 -top-16 -left-44 lg:w-fit lg:h-fit"> <img src={nepalLandmark} height="550" width="550"/></div>
-                <div class=" w-full bg-white h-96 flex justify-end">
-                       <div class="  h-full w-full lg:w-2/3 py-10 px-16 lg:px-24 flex flex-col gap-2">
-                            <div class={` ${isMobile?'flex-col':'flex-row'} flex  w-full  `}>
-                                   <div class="w-full flex flex-col px-2">
-                                        <label class="font-semibold text-lg">{t('first-name')}</label>
-                                        <input type="text" class="rounded-md border border-zinc-700 h-8"/>
-                                   </div>
-                                   <div class="w-full flex flex-col px-2 ">
-                                        <label class=" font-semibold text-lg">{t('last-name')}</label>
-                                        <input type="text" class="rounded-md border border-zinc-700 h-8"/>
-                                   </div>
-                            </div>
-                            <div class="w-full flex flex-col px-2 ">
-                                <label class=" font-semibold text-lg">{t('email')} </label>
-                                <input type="email" class="rounded-md border border-zinc-700 h-8"/>
-                           </div>
-                           <div class={`${isMobile?'flex-col':'flex-row'} flex w-full  `}>
-                                <div class="w-full flex flex-col px-2">
-                                    <label class="font-semibold text-lg">{t('password')} </label>
-                                    <input type="password" class="rounded-md border border-zinc-700 h-8"/>
-                                </div>
-                                <div class="w-full flex flex-col px-2 ">
-                                    <label class=" font-semibold text-lg">{t('confirm-password')}</label>
-                                    <input type="password" class="rounded-md border border-zinc-700 h-8"/>
-                                </div>
 
-                         </div>
-                         <Link to='/log-in'className='w-full items-center justify-center'>
-                         {t('already-have-an-account')}
-                                </Link>
-                          <button type="submit" class="rounded-2xl text-white font-semibold bg-[#24327E] w-fit px-8 py-2 absolute right-24 -bottom-4" >{t('sign-up')}</button>
+export const Signin = () => {
+    return (
+  
+        <div
+            className="bg-cover bg-center h-screen "
+            style={{ backgroundImage: `url(${bgImage})`, backgroundAttachment: 'fixed' }}
+        >
+           
+                
+
+                <div className='flex items-center justify-center gap-3 h-[80vh] flex-col md:flex-row lg:flex-row  mx-[20px]'>
+                    <div  >
+                      <img src={nepalLandmark}  className=' h-100 sm:w-[400px] w-500  md:w-500   lg:w-500 sm:mt-[50px]  '></img>
                     </div>
+                    
+                    <div className='flex flex-col item-center justify-center'>
+                    <div className='text-white flex item-center justify-center'>
+                    <h1>Create an Account</h1>
                 </div>
-           </div>
+                    <div className='flex flex-col text-white gap-3'>
+                        
+                        <div className='flex gap-3'>
+                            <div className='flex flex-col'>
+                                <label><h5>First Name</h5></label>
+                            <input type="text" className='border-2 border-white rounded-md p-2 w-[200px] md:w-[200px] lg:w-[300px] text-black' placeholder ="First Name" />
+                            </div>
+                            <div className='flex flex-col'>
+                                <label><h5>Last Name</h5></label>
+                            <input type="text" className='border-2 border-white rounded-md p-2 w-[200px] md:w-[200px] lg:w-[300px] text-black' placeholder ="Last Name" />
+                            </div>
+                        </div>
 
-    </div>
-        </>
-    )
-}
+                        <div className='flex flex-col items-center justify-center'>
+                            <label><h5>Email</h5></label>
+                            <input type="text" className='border-2 border-white rounded-md p-2 w-[200px] md:w-[200px] lg:w-[500px] text-black' placeholder ="Email" />
+                        </div>
+
+                        <div className='flex gap-3'>
+                            <div className='flex flex-col'>
+                                <label><h5>Password</h5></label>
+                            <input type="text" className='border-2 border-white rounded-md p-2 w-[200px] md:w-[200px] lg:w-[300px] text-black' placeholder ="Password" />
+                            </div>
+                            <div className='flex flex-col'>
+                                <label><h5>Confirm Password</h5></label>
+                            <input type="text" className='border-2 border-white rounded-md p-2 w-[200px] md:w-[200px] lg:w-[300px] text-black' placeholder ="Confirm Password" />
+                            </div>
+                        </div>
+
+                        <div className='item-end justify-end mt-5'>
+                                <button className='border rounded-full w-[120px] h-[40px] font-bold text-white bg-blue-600 text-align-center'><h5> Log In</h5></button>
+                             </div>
+                          
+                         
+                              
+                    </div>
+                    
+                    </div>
+
+
+
+                </div>
+
+          
+           
+        </div>
+    );
+};

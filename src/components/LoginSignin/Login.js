@@ -4,51 +4,45 @@ import nepalLandmark from '../../media/LoginSignin/nepalLandmark.png'
 
 export const Login = () => {
     return (
+  
         <div
-            className="bg-cover bg-center h-screen"
+            className="bg-cover bg-center h-screen "
             style={{ backgroundImage: `url(${bgImage})`, backgroundAttachment: 'fixed' }}
         >
-            <div className="container flex justify-center items-center h-full">
-                <div className="row">
-                    <div className="col-12 mb-[120px]">
-                        <div className="relative">
-                            <img
-                                src={nepalLandmark}
-                                className="img-fluid rounded float-start absolute w-[440px] h-auto"
-                                alt="..."
-                            />
-                        </div>
-                        <div className="ml-[140px]">
-                            <h1 className="text-white font-bold ml-[280px]">Welcome Back !</h1>
-                        </div>
-                        <div className="bg-white flex flex-col justify-center rounded-3 w-[600px] ml-[300px] h-[300px]">
-                            <div className="mb-5 ml-[180px] bod">
-                                <label>Name</label>
-                                <br />
-                                <input type="text" className="rounded-3 w-[300px] h-[40px] border border-black" />
-                                <br />
-                                <br />
-                                <label>Password</label>
-                                <br />
-                                <input type="password" className="rounded-3 w-[300px] h-[40px] border border-black" />
-                            </div>
-                        </div>
+           
+                
+
+                <div className='flex items-center justify-center gap-5 h-[80vh] flex-col md:flex-row lg:flex-row'>
+                    <div  >
+                      <img src={nepalLandmark}  className=' h-100 sm:w-[400px] w-400  md:w-500   lg:w-500 sm:mt-[50px]  '></img>
                     </div>
-                    <div className="flex justify-end absolute" style={{ marginTop: '330px' }}>
-                        <button
-                            className="rounded-pill absolute font-bold text-white"
-                            style={{
-                                width: '120px',
-                                height: '45px',
-                                backgroundColor: 'rgb(59, 34, 181)',
-                                marginRight: '120px',
-                            }}
-                        >
-                            <h5>Log In</h5>
-                        </button>
-                    </div>
+                    
+                    <div className='flex flex-col item-center justify-center'>
+                    <div className='text-white flex item-center justify-center'>
+                    <h1>Welcome Back!</h1>
                 </div>
-            </div>
+                    <div className='flex flex-col text-white '>
+                        
+                            <div> <label  className='items-start justify-start'>Name</label>            </div>
+                            <div>  <input type='text' className='text-black w-[350px] h-8 rounded'></input>       </div>
+                            <div> <label>Password</label>           </div>
+                            <div> <input    className='text-black  w-[350px] h-8 rounded'></input> </div>
+                         
+                            <br/>
+                             <div className='item-end justify-end'>
+                                <button className='border rounded-full w-[120px] h-[40px] font-bold text-white bg-blue-600 text-align-center'><h5> Sign In</h5></button>
+                             </div>
+                              
+                    </div>
+                    
+                    </div>
+
+
+
+                </div>
+
+          
+           
         </div>
     );
 };

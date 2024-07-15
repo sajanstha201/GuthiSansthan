@@ -18,36 +18,43 @@ export const AboutUsFirstSection = ({ onLinkClick }) => {
                 className={`${isMobile?'text-[30px] h-[30vh]':'text-[60px] h-[30vh]'} w-full  font-bold text-white  flex justify-center items-center`}>
                {t('about-us')}
             </div>
-            <div className={`${isMobile?'w-[95%]':'w-[80%] '} backdrop-blur-sm p-5 rounded-md shadow-lg`}>
-                <div className={`${isMobile?'gap-7':' gap-16'} w-8/10 h-8/10 flex flex-wrap items-center justify-center backdrop-blur-lg rounded-md `}>
-                <div className={`relative overflow-hidden shadow-lg   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'} `}>
-                    <div onClick={() => onLinkClick('about-us-introduction')} className={`emerge  ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+            <div className={`${isMobile?'w-[95%]':'w-[80%] '}  p-5 rounded-md `}>
+                <div className={`${isMobile?'gap-7':' gap-10'} w-8/10 h-8/10 flex flex-wrap items-center justify-center  rounded-md `}>
+                <div className={` overflow-hidden    ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'} `}>
+                    <div onClick={() => onLinkClick('about-us-introduction')} className={`emerge `}>
                             <img src={introImg} alt="Introduction" className='' />
-                            {t('introduction')}
+                            <div className={`${isMobile?'text-[15px]':'text-[30px]'} font-bold  absolute w-full h-1/2 z-10 top-0 flex items-center justify-center `}>{t('introduction')}</div>
+                            
                     </div>
                 </div>
-                <div className={`relative overflow-hidden shadow-lg   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
-                    <div onClick={() => onLinkClick('about-us-historical-background')} className={`emerge ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
-                        <img src={histoImg} alt="Historical Background" />
-                        {t('historical-background')}
+                <div className={` overflow-hidden  ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+                    <div onClick={() => onLinkClick('about-us-historical-background')} className={` emerge `}>
+                        <img src={histoImg} alt="Historical Background" className=''/>
+                        <div className={`${isMobile?'text-[15px]':'text-[30px]'} font-bold  absolute h-1/2 w-full z-10 top-0 flex items-center justify-center `}>{t('historical-background')}</div>
                     </div>
                 </div>
-                <div className={`relative overflow-hidden shadow-lg   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
-                    <div onClick={() => onLinkClick('about-us-right-and-duties')} className={`emerge ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+                <div className={` overflow-hidden   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+                    <div onClick={() => onLinkClick('about-us-right-and-duties')} className={`emerge `}>
                         <img src={rightImg} alt="Right and Duties" />
-                        {t('right-and-duties')}
+                        <div className={`${isMobile?'text-[15px]':'text-[30px]'} font-bold  absolute h-1/2 w-full z-10 top-0 flex items-center justify-center `}>{t('right-and-duties')}</div>
+
+                        
                     </div>
                 </div>
-                <div className={`relative overflow-hidden shadow-lg   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
-                    <div onClick={() => onLinkClick('about-us-organizational-structure')} className={`emerge ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+                <div className={` overflow-hidden    ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+                    <div onClick={() => onLinkClick('about-us-organizational-structure')} className={`emerge `}>
                         <img src={orgImg} alt="Organizational Structure" />
-                        {t('organizational-structure')}
+                        <div className={`${isMobile?'text-[15px]':'text-[30px]'} font-bold  absolute h-1/2 w-full z-10 top-0 flex items-center justify-center `}>{t('organizational-structure')}</div>
+
+                        
                     </div>
                 </div>
-                <div className={`relative overflow-hidden shadow-lg   ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
-                    <div onClick={() => onLinkClick('about-us-objectives')} className={`emerge ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+                <div className={`relative overflow-hidden    ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'}`}>
+                    <div onClick={() => onLinkClick('about-us-objectives')} className={`emerge `}>
                         <img src={objImg} alt="Objective" />
-                        {t('objectives')}
+                        <div className={`${isMobile?'text-[15px]':'text-[30px]'} font-bold absolute h-1/2 w-full z-10 top-0 flex items-center justify-center `}>{t('objectives')}</div>
+
+                        
                     </div>
                 </div>
 

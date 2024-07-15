@@ -37,7 +37,7 @@ export const AboutUs = () => {
 
     return (
         <>
-        <div className=' fixed w-screen h-screen top-0 -z-10 ' style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className=' fixed w-screen h-screen top-0 -z-10 blur' style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div className='flex flex-col items-center '  >
             <AboutUsFirstSection onLinkClick={handleLinkClick} aboutRef={aboutRef} />
             <div className='flex w-[85%] flex-col ' ref={aboutRef}>

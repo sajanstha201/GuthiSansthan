@@ -81,7 +81,7 @@ export const HeaderTop=()=>{
                         {selectLanguage==='english'&&<img src={englishFlag} className="max-h-full max-w-full"></img>}
                         {selectLanguage==='mithila'&&<img src={mithilaFlag} className="max-h-full max-w-full"></img>}
                     </div>
-                    <div className={`${languageOptionHidden?'hidden':''} absolute flex flex-col -left-1 top-[80%] items-start w-[70px] z-10 gap-3 rounded-md bg-red-700 p-2`}>
+                    <div className={`${languageOptionHidden?'hidden':''} absolute flex flex-col -left-1 top-[100%] items-start w-[70px] z-10 gap-3 rounded-md bg-red-700 p-2`}>
                         <div className="flex flex-row items-centern justify-center gap-2">
                         <div 
                             className={`cursor-pointer transition-all overflow-hidden items-center flex justify-center gap-2`} 

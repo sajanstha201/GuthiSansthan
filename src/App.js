@@ -12,6 +12,8 @@ import { ServicePage } from './components/ServicePage/ServicePage';
 import { Login, Signin } from './components/LoginSignin';
 import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
 import bgVideo from './media/HomePage/My Movie.mp4'
+import { DonationPage } from './components/DonationPage/DonationPage';
+import { ArticleMainSection } from './components/Articles/ArticleMainSection';
 function App() {
   const location=useLocation()
   const isFirstPage=location.pathname.startsWith('/')
@@ -38,6 +40,8 @@ function App() {
             <Route path='/contact-us' element={<ContactUs/>}/>
             <Route path='/log-in' element={<Login/>}/>
             <Route path='/sign-in' element={<Signin/>}/>
+            <Route path='/donation' element={<DonationPage/>}/>
+            <Route path='/articles' element={<ArticleMainSection/>}/>
           </Routes>
       </div>
       {/* <Footer/> */}

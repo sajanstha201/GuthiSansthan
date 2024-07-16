@@ -4,18 +4,19 @@ import { useState } from "react"
 import { OneDonation } from "./OneDonation"
 import jatraImg from '../../media/DonationPage/image.png'
 import tempImg from '../../media/DonationPage/Pashupatinath_temple,kathmandu,Nepal.jpg'
+import bg from '../../media/DonationPage/5.png'
 export const DonationPage=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const [selectDonateSection,setSelectDonateSection]=useState('')
     return(
         <>
-        <div className="w-full h-full top-0 fixed bg-center bg-cover  -z-10" style={{backgroundImage:`url(${tempImg})`}}>
-        <div className="absolute inset-0 bg-neutral-900/50 backdrop-filter backdrop-blur-sm bg-opacity-50"></div>
+        <div className="w-full h-full top-0 fixed bg-center bg-cover  -z-10" style={{backgroundImage:`url(${bg})`}}>
+        <div className="absolute inset-0 bg-neutral-900/50 backdrop-filter-blur blur-sm bg-opacity-50"></div>
         </div>
             <div className="flex flex-col gap-3 mt-5">
                 <div className={`${isMobile?' gap-5':' gap-20'} flex flex-row flex-wrap  items-center justify-center w-full`}>
-                    <InstanceDonationSection name={'Jatra'} setSelectDonateSection={setSelectDonateSection} bgImg={jatraImg}/>
-                    <InstanceDonationSection name={'Temple'} setSelectDonateSection={setSelectDonateSection} bgImg={tempImg}/>
+                    <InstanceDonationSection  className='hover:scale-105 transition-all duration-100 ease-in-out' name={'Jatra'} setSelectDonateSection={setSelectDonateSection} bgImg={jatraImg}/>
+                    <InstanceDonationSection className='hover:scale-105 transition-all duration-100 ease-in-out' name={'Temple'} setSelectDonateSection={setSelectDonateSection} bgImg={tempImg}/>
                 </div>
                 
                 <div className="w-full flex items-center justify-center" >

@@ -5,7 +5,7 @@ export const InstanceDonationSection = ({ name, setSelectDonateSection, bgImg })
   const isMobile = useMediaQuery('(max-width:800px)')
 
   return (
-    <div className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[200px] w-[300px]'} relative  overflow-hidden rounded-lg`}>
+    <div className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[200px] w-[300px]'} relative  overflow-hidden rounded-lg hover:scale-105 transition-all duration-100 ease-in-out`}>
       <div
         className="emerge absolute h-full w-full rounded-lg flex items-center justify-center bg-center bg-cover"
         onClick={() => setSelectDonateSection(name)}

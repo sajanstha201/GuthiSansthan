@@ -79,9 +79,9 @@ export const HeaderTop = () => {
                         </div>
                     </div>
                 </div>
-                <div className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
+                <Link to='/donation' className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
                     {t('donate')}
-                </div>
+                </Link>
             </div>
         </div>
     );

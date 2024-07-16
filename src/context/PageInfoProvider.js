@@ -23,3 +23,6 @@ export const PageInfoProvider=({children})=>{
     )
 }
 export const useHomePage=()=>useContext(homePageContext)
+export const useAboutUsPage=()=>useContext(aboutUsPageContext)
+export const useContactUsPage=()=>useContext(contactUsPageContext)
+export const useServicePage=()=>useContext(servicePageContext)

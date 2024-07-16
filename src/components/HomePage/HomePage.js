@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { NepalFlagSlider } from "./NepalFlagSlider";
 import { Link, useLocation } from "react-router-dom";
 import homeBgVideo from '../../media/HomePage/My Movie.mp4';
 import { HomeFooter } from "./HomeFooter";
+import { useHomePage } from "../../context/PageInfoProvider";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { showAlert } from "../AlertLoader";
 export const HomePage = () => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery('(max-width:800px)');
-  const location=useLocation()
+  const location=useLocation();
+  const {homePage,setHomePage}=useHomePage()
+  const baseUrl=useSelector(state=>state.baseUrl).backend
+  useEffect(()=>{
+    console.log(baseUrl)
+    const fetchHomeData=async ()=>{
+      try{
+        if(Object.keys(homePage).length===0){
+          const response=await axios.get(baseUrl+'api/pages/home-page/')
+          console.log(response.data)
+        }
+      }
+      catch(error){
+        console.log(error)
+        showAlert(error,'red')
+      }
+
+    }
+    fetchHomeData();
+
+  },[])
   return (
     <div className="relative h-[90vh]">
       {/* {location.pathname!=='/'&&<video autoPlay loop muted className="video-background absolute inset-0 w-full h-full object-cover">

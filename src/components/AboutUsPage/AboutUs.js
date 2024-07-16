@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import {AboutUsFirstSection} from './AboutUsFirstSection';
+import { AboutUsFirstSection } from './AboutUsFirstSecton';
 import {HistoricalBackGround } from './HistoricalBackGround';
 import {Introduction} from './Introduction';
 import {Objectives} from './Objectives';
@@ -38,6 +38,7 @@ export const AboutUs = () => {
     return (
         <>
         <div className=' fixed w-screen h-screen top-0 -z-10 blur' style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div  className="fixed bg-zinc-800/25 bg-center top-0 w-screen h-screen"></div>
         <div className='flex flex-col items-center '  >
             <AboutUsFirstSection onLinkClick={handleLinkClick} aboutRef={aboutRef} />
             <div className='flex w-[85%] flex-col ' ref={aboutRef}>

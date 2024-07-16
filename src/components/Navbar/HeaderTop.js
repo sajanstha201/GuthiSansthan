@@ -56,7 +56,7 @@ export const HeaderTop = () => {
                         {selectLanguage === 'english' && <img src={englishFlag} className="max-h-full max-w-full" />}
                         {selectLanguage === 'mithila' && <img src={mithilaFlag} className="max-h-full max-w-full" />}
                     </div>
-                    <div onClick={()=>{console.log('sajan shrgasjkl')}}className={`${languageOptionHidden ? 'hidden' : ''} absolute flex flex-col -left-1 top-[100%] items-start w-[70px] z-10 gap-2 rounded-md bg-red-700 p-1`}>
+                    <div onClick={()=>{console.log('sajan shrgasjkl')}}className={`${languageOptionHidden ? 'hidden' : ''} absolute flex flex-col -left-1 top-[100%] items-start w-[70px] z-20 gap-2 rounded-md bg-red-700 p-1`}>
                         <div className="flex flex-row items-center justify-center gap-2">
                             <div className={`cursor-pointer items-center flex justify-center gap-2`}
                                 onClick={() => { handleDropDown('nepali'); }}>
@@ -79,7 +79,7 @@ export const HeaderTop = () => {
                         </div>
                     </div>
                 </div>
-                <Link to='/donation' className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
+                <Link to='/donation' className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} no-underline px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
                     {t('donate')}
                 </Link>
             </div>

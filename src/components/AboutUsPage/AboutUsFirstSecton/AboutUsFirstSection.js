@@ -15,7 +15,7 @@ export const AboutUsFirstSection = ({ onLinkClick }) => {
     return (
         <div className='flex items-center flex-col mb-6 w-full '>
             <div 
-                className={`${isMobile?'text-[30px] h-[30vh]':'text-[60px] h-[30vh]'} w-full  font-bold text-white  flex justify-center items-center z-10`}>
+                className={`${isMobile?'text-[30px] h-[30vh]':'text-[60px] h-[30vh]'} w-full  font-bold text-white  flex justify-center items-center z-1`}>
                {t('about-us')}
             </div>
             <div className={`${isMobile?'w-[95%]':'w-[80%] '}  rounded-md `}>

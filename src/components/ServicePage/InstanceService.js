@@ -3,7 +3,7 @@ import { useMediaQuery } from "@mui/material"
 export const InstanceService=({image,name,link ,des})=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     return(
-        <div className={`${isMobile?'w-[150px] h-[150px]':'w-[300px] h-[300px]'} relative overflow-hidden  backdrop-blur-sm  shadow-xl shadow-zinc-600 hover:shadow-red-600/50 rounded-lg  hover:scale-105 ease-in-out transition-all`}>
+        <div className={`${isMobile?'w-[150px] h-[150px]':'w-[300px] h-[300px]'} relative overflow-hidden  backdrop-blur-md  shadow-xl shadow-zinc-600 hover:shadow-red-600/50 rounded-lg  hover:scale-105 ease-in-out transition-all`}>
             <div className="absolute emerge no-underline w-full h-full">
                 <a href={link} className="no-underline w-full h-full">
                     <div className='p-3 flex  flex-col bg-transparent  h-full rounded-lg overflow-hidden '>
@@ -12,7 +12,7 @@ export const InstanceService=({image,name,link ,des})=>{
                                  <div className='bg-neutral-900/40 absolute h-full w-full ' ></div>
                            </div>
                           <div className='flex overflow-auto h-[50%]'>
-                              <p className={`${isMobile?'text-[10px] ':'text-sm '} text-neutral-300 font-semibold text-balance  w-full track`}>{des}</p>
+                              <p className={`${isMobile?'text-[10px] ':'text-sm '} text-white font-semibold text-balance  w-full track`}>{des}</p>
                           </div>
                     </div>
                 </a>

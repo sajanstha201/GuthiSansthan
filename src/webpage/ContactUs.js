@@ -62,7 +62,7 @@ export const ContactUs = () => {
                       <p className='hover:underline'>xyz@gmail.com</p>
                     </div>
                </div>
-               <div className='flex gap-4 w-full bg-white p-1 rounded-lg'>
+               <div className='flex gap-2 w-full bg-white   p-2 rounded-lg'>
                   <div className='w-1/2'>
                   <img src={loc1}/>
                   </div>

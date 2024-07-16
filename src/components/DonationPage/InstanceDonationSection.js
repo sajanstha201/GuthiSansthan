@@ -1,15 +1,21 @@
 import { useMediaQuery } from '@mui/material'
 import '../../App.css'
-export const InstanceDonatoinSection=({name,setSelectDonateSection})=>{
-    const isMobile=useMediaQuery('(max-width:800px)')
-    return(
-        <>
-        <div className={`${isMobile?'h-[150px] w-[200px]':'h-[250px] w-[300px] '} relative backdrop-blur-lg overflow-hidden rounded-lg`}>
-            <div className="emerge absolute bg-black h-full w-full rounded-lg flex items-center justify-center"
-                onClick={()=>setSelectDonateSection(name)}>
-                    <div className='text-white font-bold text-3xl z-1'>{name}</div>
-            </div>
-        </div>
-        </>
-    )
+
+export const InstanceDonationSection = ({ name, setSelectDonateSection, bgImg }) => {
+  const isMobile = useMediaQuery('(max-width:800px)')
+
+  return (
+    <div className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[200px] w-[300px]'} relative  overflow-hidden rounded-lg`}>
+      <div
+        className="emerge absolute h-full w-full rounded-lg flex items-center justify-center bg-center bg-cover"
+        onClick={() => setSelectDonateSection(name)}
+        style={{ backgroundImage: `url(${bgImg})` }}
+      >
+        <div className="text-white font-bold text-3xl z-1">{name}</div>
+        <div className='absolute w-full h-full bg-zinc-900/30'></div>
+        
+      </div>
+      
+    </div>
+  )
 }

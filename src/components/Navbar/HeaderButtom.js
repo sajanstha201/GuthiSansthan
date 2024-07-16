@@ -1,4 +1,4 @@
-import { faCog, faCogs, faContactBook, faHandsHelping, faHome, faInfoCircle, faUser, faUsers } from "@fortawesome/free-solid-svg-icons"
+import { faCog, faCogs, faContactBook, faFileAlt, faHandsHelping, faHome, faInfoCircle, faUser, faUsers } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useMediaQuery } from "@mui/material"
 import { useTranslation } from "react-i18next"
@@ -25,6 +25,10 @@ export const HeaderButtom=()=>{
                 <Link to='/contact-us' className={`flex flex-col no-underline font-bold md:text-xl sm:text-[10px] ${loc.pathname==="/contact-us"?'text-yellow-300':'text-white'}`}>
                 <FontAwesomeIcon icon={faContactBook}/>
                 {t('contact-us')}
+                </Link>
+                <Link to='/articles' className={`flex flex-col no-underline font-bold md:text-xl sm:text-[10px] ${loc.pathname==="/articles"?'text-yellow-300':'text-white'}`}>
+                <FontAwesomeIcon icon={faFileAlt}/>
+                {t('articles')}
                 </Link>
             </div>
         </div>

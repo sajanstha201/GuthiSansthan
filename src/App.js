@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Footer,HeaderMain } from './components/Navbar';
 import { HashRouter as Router, Routes,Route, HashRouter, useLocation } from 'react-router-dom';
@@ -19,13 +18,7 @@ function App() {
   const isFirstPage=location.pathname.startsWith('/')
   return (
     <div className={`App relative ${location.pathname===''?'':''}`}>
-      {location.pathname==='/'&&<><video autoPlay loop muted className="video-background absolute inset-0 w-full h-full object-cover">
-        <source src={bgVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20" ></div></>
-      }
-      
+    
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>

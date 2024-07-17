@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { NepalFlagSlider } from "./NepalFlagSlider";
 import { Link, useLocation } from "react-router-dom";
 import homeBgVideo from '../../media/HomePage/My Movie.mp4';
-import { HomeFooter } from "./HomeFooter";
+import { HomePageFooter } from "./HomePageFooter/HomePageFooter";
 import { useHomePage } from "../../context/PageInfoProvider";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -21,6 +21,7 @@ export const HomePage = () => {
       try{
         if(Object.keys(homePage).length===0){
           const response=await axios.get(baseUrl+'api/pages/home-page/')
+          const homePageDetail=response.data
           console.log(response.data)
         }
       }
@@ -34,13 +35,12 @@ export const HomePage = () => {
 
   },[])
   return (
-    <div className="relative h-[90vh]">
-      {/* {location.pathname!=='/'&&<video autoPlay loop muted className="video-background absolute inset-0 w-full h-full object-cover">
+    <div className="h-100vh-100px">
+       <video autoPlay loop muted className="top-0video-background absolute inset-0 w-full h-full object-cover -z-30">
         <source src={homeBgVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20"></div>
-      } */}
       
       <div className="flex flex-col items-center justify-center h-full relative overflow-hidden">
         <NepalFlagSlider />
@@ -54,7 +54,7 @@ export const HomePage = () => {
             {t('sign-in')}
           </Link>
         </div>
-        <HomeFooter/>
+        <HomePageFooter/>
       </div>
     </div>
   );

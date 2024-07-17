@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        '100vh-100px': 'calc(100vh - 100px)',
+      },
       keyframes: {
         rotateY: {
           '0%': { transform: 'rotateY(0deg)' },

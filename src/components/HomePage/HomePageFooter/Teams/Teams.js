@@ -10,7 +10,7 @@ export const Teams=()=>{
         <>     
         <div className="w-full h-full pb-[150px]">
         <h1 className="text-white">Our Teams</h1>
-        <div className="h-full w-full flex flex-col overflow-auto">
+        <div className="h-full w-full flex flex-col overflow-auto px-16">
         <LeftImageSlider image={firstPerson} name={'sajan shrestha'} desc={t('intro')+t('intro')}/>
         <RightImageSlider image={firstPerson} name={'sajan shresha'}  desc={t('intro')} />
         <LeftImageSlider image={firstPerson} name={'sajan shestha'} desc={t('intro')}/>

@@ -1,6 +1,6 @@
 import './App.css';
-import { Footer,HeaderMain } from './components/Navbar';
-import { HashRouter as Router, Routes,Route, HashRouter, useLocation } from 'react-router-dom';
+import { HeaderMain } from './components/Navbar';
+import {  Routes,Route,  useLocation } from 'react-router-dom';
 import { Testing } from './webpage';
 import { AboutUs } from './components/AboutUsPage/AboutUs';
 import { HomePage } from './components/HomePage/HomePage';
@@ -10,12 +10,10 @@ import { ArticleDisplay } from './components/HomePage/TempleDescription';
 import { ServicePage } from './components/ServicePage/ServicePage';
 import { Login, Signin } from './components/LoginSignin';
 import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
-import bgVideo from './media/HomePage/My Movie.mp4'
 import { DonationPage } from './components/DonationPage/DonationPage';
 import { ArticleMainSection } from './components/Articles/ArticleMainSection';
 function App() {
   const location=useLocation()
-  const isFirstPage=location.pathname.startsWith('/')
   return (
     <div className={`App relative ${location.pathname===''?'':''}`}>
     

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import img from '../../media/AboutUsPage/Patan-Durbar-square-scaled-e1644243944542.jpg'
-import { displayMoreDescription } from '../DisplayInfo/MoreDescription'
 import { CommonFirstSection } from './CommonFirstSection'
 import { useMediaQuery } from '@mui/material'
 export const HistoricalBackGround=()=>{

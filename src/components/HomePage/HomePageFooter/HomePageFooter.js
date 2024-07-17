@@ -4,7 +4,7 @@ import { useMediaQuery } from '@mui/material'
 import { useRef } from 'react'
 import { Calender } from './Calender'
 import { Parva } from './Parva'
-import { Teams } from './Teams'
+import { Teams } from './Teams/Teams'
 import FooterBg from '../../../media/HomePage/FooterBg.png'
 export const  HomePageFooter=()=>{
     const [selecedSection,setSelectedSection]=useState('')
@@ -41,7 +41,7 @@ export const  HomePageFooter=()=>{
         </div>
         <div ref={hiddenDivRef} className={`${selecedSection==='teams'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg  w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
             <div  className="fixed bg-zinc-800/25 bg-center top-0 w-full h-full"></div> 
-            <Teams/>
+            {selecedSection==='teams'&&<Teams/>}
         </div>
         </>
 

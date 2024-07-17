@@ -15,6 +15,8 @@ export const Teams=()=>{
         <RightImageSlider image={firstPerson} name={'sajan shresha'}  desc={t('intro')} />
         <LeftImageSlider image={firstPerson} name={'sajan shestha'} desc={t('intro')}/>
         <RightImageSlider image={firstPerson} name={'sajan ssha'} desc={t('intro')} />
+        <LeftImageSlider image={firstPerson} name={'sajan shestha'} desc={t('intro')}/>
+        <RightImageSlider image={firstPerson} name={'sajan ssha'} desc={t('intro')} />
         </div>
         </div>
         </>

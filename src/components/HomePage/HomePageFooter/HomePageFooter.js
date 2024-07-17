@@ -31,18 +31,21 @@ export const  HomePageFooter=()=>{
                 <div className={` ${isMobile?'px-3':'px-16'} home-footer-div bg-red-700`} onClick={()=>setSelectedSection('teams')}>Teams</div>
             </div>
         </div>
-        <div ref={hiddenDivRef}className={`${selecedSection==='calender'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
-            <div  className="fixed bg-zinc-800/25 bg-center top-0 w-full h-full"></div> 
-            <Calender/>
+        <div className='w-full' ref={hiddenDivRef}>
+            <div  className={`${selecedSection==='calender'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
+                
+                <Calender/>
+            </div>
+            <div  className={`${selecedSection==='parva'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
+                
+                <Parva/>
+            </div>
+            <div className={`${selecedSection==='teams'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg  w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
+                
+                {selecedSection==='teams'&&<Teams/>}
+            </div>
         </div>
-        <div ref={hiddenDivRef} className={`${selecedSection==='parva'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
-            <div  className="fixed bg-zinc-800/25 bg-center top-0 w-full h-full"></div> 
-            <Parva/>
-        </div>
-        <div ref={hiddenDivRef} className={`${selecedSection==='teams'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg  w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
-            <div  className="fixed bg-zinc-800/25 bg-center top-0 w-full h-full"></div> 
-            {selecedSection==='teams'&&<Teams/>}
-        </div>
+
         </>
 
     )

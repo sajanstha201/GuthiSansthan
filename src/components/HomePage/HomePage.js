@@ -35,7 +35,7 @@ export const HomePage = () => {
 
   },[])
   return (
-    <div className="h-100vh-100px">
+    <div style={{height:`${isMobile?'calc(100vh - 80px)':'calc(100vh - 100px)'}`}}>
        <video autoPlay loop muted className="top-0video-background absolute inset-0 w-full h-full object-cover -z-30">
         <source src={homeBgVideo} type="video/mp4" />
         Your browser does not support the video tag.

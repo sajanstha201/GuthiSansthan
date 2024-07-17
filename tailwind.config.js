@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       height: {
         '100vh-100px': 'calc(100vh - 100px)',
+        '100vh-80px':'calc(100vh - 80px)'
       },
       keyframes: {
         rotateY: {

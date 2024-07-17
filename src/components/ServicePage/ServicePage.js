@@ -1,6 +1,7 @@
 import { InstanceService } from "./InstanceService"
 import img from '../../media/AboutUsPage/Janaki_temple_in_Nepal.jpeg'
 import bgImage from '../../media/ServicePage/architecture.png'
+import {motion} from "framer-motion"
 
 export const ServicePage=()=>{
     return(

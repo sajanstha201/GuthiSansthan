@@ -49,7 +49,7 @@ export const HomePage = () => {
             to="/sign-in"
             className={`${
               isMobile ? 'text-xs p-2 px-3' : 'p-3 px-5'
-            } no-underline text-white font-bold bg-blue-800 rounded-full cursor-pointer hover:bg-blue-900`}
+            } no-underline text-white font-bold bg-blue-800 rounded-full cursor-pointer hover:bg-blue-900 z-20`}
           >
             {t('sign-in')}
           </Link>

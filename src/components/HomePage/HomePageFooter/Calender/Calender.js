@@ -1,7 +1,7 @@
 export const Calender=()=>{
     return(
         <>
-        <>This is vale</>
+        <h1 className="text-white">This is Calender Section</h1>
         </>
     )
 }

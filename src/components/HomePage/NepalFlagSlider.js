@@ -39,6 +39,9 @@ export const NepalFlagSlider=({content})=>{
                     <Link to='/contact-us' className='feature-div'>
                         {t('contact-us')}
                     </Link>
+                    <Link to='/articles' className='feature-div'>
+                        {t('articles')}
+                    </Link>
             </div>
         </div>
         </>

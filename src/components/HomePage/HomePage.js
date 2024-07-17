@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { NepalFlagSlider } from "./NepalFlagSlider";
 import { Link, useLocation } from "react-router-dom";
 import homeBgVideo from '../../media/HomePage/My Movie.mp4';
-import { HomeFooter } from "./HomeFooter";
+import { HomePageFooter } from "./HomePageFooter/HomePageFooter";
 import { useHomePage } from "../../context/PageInfoProvider";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -21,6 +21,7 @@ export const HomePage = () => {
       try{
         if(Object.keys(homePage).length===0){
           const response=await axios.get(baseUrl+'api/pages/home-page/')
+          const homePageDetail=response.data
           console.log(response.data)
         }
       }
@@ -54,7 +55,7 @@ export const HomePage = () => {
             {t('sign-in')}
           </Link>
         </div>
-        <HomeFooter/>
+        <HomePageFooter/>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Footer,HeaderMain } from './components/Navbar';
 import { HashRouter as Router, Routes,Route, HashRouter, useLocation } from 'react-router-dom';

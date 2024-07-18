@@ -5,7 +5,6 @@ export function addLanguage({key,nepali,english,newari,mithila}){
     lngs.map((value,index)=>{
         if(typeof value !=='undefined'){
             i18next.addResource(lngList[index],'translation',key,value)
-            console.log(key,value)
         }
         })
 }

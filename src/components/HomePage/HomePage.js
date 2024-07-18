@@ -10,7 +10,8 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../AlertLoader";
 import { setGuthiSansthanLogo } from "../../state/HomePageSlice";
-
+import i18next from "i18next";
+import { addLanguage } from "../LanguageAddition";
 export const HomePage = () => {
   const { t } = useTranslation(); 
   const isMobile = useMediaQuery('(max-width:800px)');
@@ -22,7 +23,7 @@ export const HomePage = () => {
   
 
   useEffect(() => {
-    console.log(t('sign-in'))
+    addLanguage({key:'welcome-to-guthi-sansthan',nepali:'Welcome to Guthi Sansthan',english:'english'})
     dispatch(setGuthiSansthanLogo({ logo: 'logo' }));
     const fetchHomeData = async () => {
       try {

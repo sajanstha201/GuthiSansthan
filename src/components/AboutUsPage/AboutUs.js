@@ -42,7 +42,7 @@ export const AboutUs = () => {
         <div  className="fixed bg-zinc-800/25 bg-center top-0 w-screen h-screen"></div>
         <div className='flex flex-col items-center '  >
             <AboutUsFirstSection onLinkClick={handleLinkClick} aboutRef={aboutRef} />
-            <div  initial={{ opacity:0 , y:40}} animate={{y:0,opacity:1}} transition={{duration:1.4}} className='flex w-[85%] flex-col ' ref={aboutRef}>
+            <div  className='flex w-[85%] flex-col ' ref={aboutRef}>
                 <div id='about-us-introduction'className={`${sectionSelected!=='introduction'?'hidden':''}`}>
                     <Introduction />
                 </div>

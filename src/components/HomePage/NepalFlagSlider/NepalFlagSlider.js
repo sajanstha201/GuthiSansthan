@@ -7,6 +7,7 @@ import './NepalFlagSlider.css'
 import { OneImage } from './OneImage'
 import img from '../../../media/guthi sansthan.png'
 import bg from '../../../media/TempleInformation/patandurbarsquare.png'
+import { useSelector } from 'react-redux'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     useEffect(()=>{
@@ -17,6 +18,7 @@ export const NepalFlagSlider=({content})=>{
     })
     const {t}=useTranslation()
     const isMobile=useMediaQuery('(max-width:1000px)')
+    const homePageDetail=useSelector(state=>state.homePageDetail)
     return(
         <>
         <div className={` ${isMobile?'h-[30vh]':'h-[40vh]'} flex flex-row items-center relative w-full  m-2 overflow-hidden`} onMouseLeave={()=>{setIsHover(false)}}>

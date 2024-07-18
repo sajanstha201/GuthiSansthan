@@ -9,28 +9,28 @@ import { useHomePage } from "../../context/PageInfoProvider";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../AlertLoader";
-import {  setHomePageWholeDetail } from "../../state/HomePageSlice";
 import i18next from "i18next";
 import { addLanguage } from "../ReuseableFunctions";
+import { setHomePageWholeDetail } from "../../state/HomePageSlice";
 export const HomePage = () => {
   const { t } = useTranslation(); 
   const isMobile = useMediaQuery('(max-width:800px)');
   const location = useLocation();
   const { homePage, setHomePage } = useHomePage();
   const baseUrl = useSelector(state => state.baseUrl).backend;
-  const homePageDetail = useSelector(state => state.homePageDetail);
-  const dispatch = useDispatch();
+  const homePageDetail=useSelector(state=>state.homePageDetail)
+  const dispact=useDispatch()
   
 
   useEffect(() => {
     addLanguage({key:'welcome-to-guthi-sansthan',nepali:'Welcome to Guthi Sansthan',english:'english'})
-    dispatch(setHomePageWholeDetail({ logo: 'logo' }));
     const fetchHomeData = async () => {
       try {
         if (Object.keys(homePage).length === 0) {
           const response = await axios.get(baseUrl + 'api/pages/home-page/');
-          const homePageDetail = response.data;
-          console.log(response.data);
+          console.log(response.data)
+          const data= response.data.components;
+          dispact(setHomePageWholeDetail(data))
         }
       } catch (error) {
         console.log(error);

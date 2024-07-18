@@ -12,6 +12,7 @@ import { Login, Signin } from './components/LoginSignin';
 import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
 import { DonationPage } from './components/DonationPage/DonationPage';
 import { ArticleMainSection } from './components/Articles/ArticleMainSection';
+import './i18n'
 function App() {
   const location=useLocation()
   return (

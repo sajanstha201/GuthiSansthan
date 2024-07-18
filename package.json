@@ -4,6 +4,8 @@
   "homepage": "https://sajanstha201.github.io/GUTHI/",
   "private": true,
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^42.0.1",
+    "@ckeditor/ckeditor5-react": "^8.0.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fortawesome/fontawesome-free": "^6.5.2",

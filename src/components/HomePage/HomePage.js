@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
 import { useTranslation } from "react-i18next"; 
-import { NepalFlagSlider } from "./NepalFlagSlider";
+import { NepalFlagSlider } from "./NepalFlagSlider/NepalFlagSlider";
 import { Link, useLocation } from "react-router-dom";
 import homeBgVideo from '../../media/HomePage/My Movie.mp4';
 import { HomePageFooter } from "./HomePageFooter/HomePageFooter";
@@ -9,9 +9,9 @@ import { useHomePage } from "../../context/PageInfoProvider";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../AlertLoader";
-import { setGuthiSansthanLogo } from "../../state/HomePageSlice";
+import {  setHomePageWholeDetail } from "../../state/HomePageSlice";
 import i18next from "i18next";
-import { addLanguage } from "../LanguageAddition";
+import { addLanguage } from "../ReuseableFunctions";
 export const HomePage = () => {
   const { t } = useTranslation(); 
   const isMobile = useMediaQuery('(max-width:800px)');
@@ -24,7 +24,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     addLanguage({key:'welcome-to-guthi-sansthan',nepali:'Welcome to Guthi Sansthan',english:'english'})
-    dispatch(setGuthiSansthanLogo({ logo: 'logo' }));
+    dispatch(setHomePageWholeDetail({ logo: 'logo' }));
     const fetchHomeData = async () => {
       try {
         if (Object.keys(homePage).length === 0) {

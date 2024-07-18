@@ -9,3 +9,5 @@ export function addLanguage({key,nepali,english,newari,mithila}){
         }
         })
 }
+export function giveURL({imageBinaryData}){
+}

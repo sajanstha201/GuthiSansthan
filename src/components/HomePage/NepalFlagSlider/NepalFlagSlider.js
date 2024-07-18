@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import nepalFlagGif from '../../media/Flag_of_Nepal.gif'
-import {TemplesDisplayMain} from './TempleDescription'
+import nepalFlagGif from '../../../media/Flag_of_Nepal.gif'
 import { useTranslation } from 'react-i18next'
 import { useMediaQuery } from '@mui/material'
 import { Link } from 'react-router-dom'
 import './NepalFlagSlider.css'
+import { OneImage } from './OneImage'
+import img from '../../../media/guthi sansthan.png'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     useEffect(()=>{
@@ -28,19 +29,23 @@ export const NepalFlagSlider=({content})=>{
             <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%] w-0'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute transition-left duration-500 ease-in-out flex items-center justify-center align-text overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
                     <Link to='/' className='feature-div'>
-                        {t('home')}
+                        <OneImage img={img} name={t('home')}/>
+                        
                     </Link>
                     <Link to='/services' className='feature-div'>
-                        {t('our-services')}
+                         <OneImage img={img} name={t('our-services')}/>
                     </Link>
                     <Link to='/about-us' className='feature-div'>
-                       {t('about-us')}
+                        <OneImage img={img} name={t('about-us')}/>
+                       
                     </Link>
                     <Link to='/contact-us' className='feature-div'>
-                        {t('contact-us')}
+                        <OneImage img={img} name={t('contact-us')}/>
+                        
                     </Link>
                     <Link to='/articles' className='feature-div'>
-                        {t('articles')}
+                        <OneImage img={img} name={t('articles')}/>
+                        
                     </Link>
             </div>
         </div>

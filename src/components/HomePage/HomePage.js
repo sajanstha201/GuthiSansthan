@@ -7,16 +7,21 @@ import homeBgVideo from '../../media/HomePage/My Movie.mp4';
 import { HomePageFooter } from "./HomePageFooter/HomePageFooter";
 import { useHomePage } from "../../context/PageInfoProvider";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../AlertLoader";
+import { setGuthiSansthanLogo } from "../../state/HomePageSlice";
 export const HomePage = () => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery('(max-width:800px)');
   const location=useLocation();
   const {homePage,setHomePage}=useHomePage()
   const baseUrl=useSelector(state=>state.baseUrl).backend
+  const homePageDetail=useSelector(state=>state.homePageDetail)
+  const dispatch=useDispatch()
   useEffect(()=>{
-    console.log(baseUrl)
+    
+    dispatch(setGuthiSansthanLogo({logo:'logo'}))
+    setTimeout(()=>{console.log(homePageDetail)},2000)
     const fetchHomeData=async ()=>{
       try{
         if(Object.keys(homePage).length===0){

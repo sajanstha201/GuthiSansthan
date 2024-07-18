@@ -17,7 +17,7 @@ export const HeaderTop = () => {
     const { selectLanguage, setSelectLanguage } = useSelectLanguage();
     const { i18n, t } = useTranslation();
     const loc = useLocation();
-    const [languageOptionHidden, setLanguageOptionHidden] = useState(false);
+    const [languageOptionHidden, setLanguageOptionHidden] = useState(true);
     const divRef = useRef();
     const [flagInfo,setFlagInfo]=useState({
         'nepali':nepaliFlag,

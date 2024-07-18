@@ -6,6 +6,7 @@ import jatraImg from '../../media/DonationPage/image.png'
 import tempImg from '../../media/DonationPage/Pashupatinath_temple,kathmandu,Nepal.jpg'
 import bg from '../../media/DonationPage/5.png'
 import {motion} from 'framer-motion'
+import { useSelector } from "react-redux"
 export const DonationPage=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const [selectDonateSection,setSelectDonateSection]=useState('')

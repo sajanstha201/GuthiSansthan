@@ -16,3 +16,7 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.slick-arrow{
+  height: 100px
+  bg-red
+}

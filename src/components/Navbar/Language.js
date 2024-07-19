@@ -5,7 +5,7 @@ export const Language=({name,img,handleLanguageClick,no})=>{
     const isMobile=useMediaQuery('(max-width:1000px)')
     return(
         <>
-            <div className={`${selectLanguage===name?'hidden w-0':`${isMobile ? 'h-[30px] w-[30px]' : 'h-[60px] w-[60px]'}`} shadow-lg absolute cursor-pointer  items-center flex justify-center bg-red-700 rounded-full overflow-hidden`}
+            <div className={`${selectLanguage===name?'hidden ':`${isMobile ? 'h-[15px] w-[15px]' : 'h-[40px] w-[40px]'}`}  shadow-lg cursor-pointer  items-center flex justify-centeroverflow-hidden`}
                 onClick={() => { handleLanguageClick(name) }}
                 style={{right:`${no/5*100}%`}}>
                 <img src={img} className={`${selectLanguage===name?'hidden w-0':``}`} />

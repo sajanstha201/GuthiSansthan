@@ -48,9 +48,9 @@ export const ServicePage=()=>{
         <div  className="fixed w-screen h-screen bg-cover bg-right-bottom top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
         <div className="text-[60px] text-white  font-bold h-[30vh] flex items-center justify-center "><div className="z-1 text-white ">Our Services</div></div>
             <div className='lg:mx-64  '>
-            <Slider className="bg-black/50 px-1 flex gap-2 lg:px-12 text-xl" {...settings}>
+            <Slider className="bg-red-500/20 px-1 flex gap-2 lg:px-12 w-full " {...settings}>
                 {data.map((d,index)=>(
-                    <InstanceService key={index} image={d.image} name={d.name} des={d.des}/>
+                    <InstanceService className="hover:scale-95" key={index} image={d.image} name={d.name} des={d.des}/>
                 ))}
             </Slider>
             

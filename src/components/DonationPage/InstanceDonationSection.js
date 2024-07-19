@@ -12,7 +12,7 @@ export const InstanceDonationSection = ({ name, setSelectDonateSection, bgImg })
         style={{ backgroundImage: `url(${bgImg})` }}
       >
         <div className="text-white font-bold text-3xl z-1">{name}</div>
-        <div className='absolute w-full h-full bg-zinc-900/30'></div>
+        <div className='absolute w-full h-full bg-zinc-900/50 hover:bg-zinc-900/30'></div>
         
       </div>
       

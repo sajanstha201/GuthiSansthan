@@ -11,7 +11,7 @@ export const ServicePage=()=>{
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
       };
       const data =[
@@ -45,25 +45,25 @@ export const ServicePage=()=>{
         },
     ]
     return(
-        <>
-        <div style={{backgroundImage:`url(${bgImage})`}} className="fixed w-screen h-screen bg-cover bg-center top-0 -z-10 blur-[1px]"></div>
-        <div  className="fixed w-screen h-screen bg-cover bg-right-bottom top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
+        <div className="overflow-hidden">
+        <div style={{backgroundImage:`url(${bgImage})`}} className="fixed w-full h-screen bg-cover bg-center top-0 -z-10 blur-[1px]"></div>
+        <div  className="fixed w-full h-screen bg-cover bg-right-bottom top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
         <div className="text-[60px] text-white  font-bold h-[30vh] flex items-center justify-center "><div className="z-1 text-white ">Our Services</div></div>
-              <div className='lg:mx-64  '>
-          {isMobile&&<Slider className="bg-red-500/20 px-1 flex gap-2 lg:px-12 w-full " {...settings}>
+              <div className=' '>
+          {isMobile&&<Slider className="bg-black/40  flex  lg:px-12 w-full " {...settings}>
                 {data.map((d,index)=>(
                     <InstanceService className="hover:scale-95" key={index} image={d.image} name={d.name} des={d.des}/>
                 ))}
             </Slider>}
-            {!isMobile&&<>
+            {!isMobile&&<div className="flex flex-wrap w-full gap-4 p-3 bg-black/50 mx-12 justify-center rounded-xl">
               {data.map((d,index)=>(
                     <InstanceService className="hover:scale-95" key={index} image={d.image} name={d.name} des={d.des}/>
                 ))}
-            </>}
+            </div>}
             </div>
         
        
-        </>
+        </div>
     )
 
 }

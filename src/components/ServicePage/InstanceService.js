@@ -5,7 +5,7 @@ import {motion} from "framer-motion"
 export const InstanceService=({image,name,link ,des})=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     return(
-        <motion.div   className={`${isMobile?'w-[150px] h-[150px]':'w-[300px] h-[300px]'} relative overflow-hidden flex backdrop-blur-md  shadow-xl shadow-zinc-600 hover:shadow-red-600/50 rounded-lg  hover:scale-105 ease-in-out transition-all`}>
+        <motion.div   className={`${isMobile?'w-[200px] h-[200px]':'w-[300px] h-[300px]'} relative overflow-hidden flex backdrop-blur-md  shadow-xl shadow-zinc-600 hover:shadow-red-600/50 rounded-lg  hover:scale-105 ease-in-out transition-all`}>
             <div className=" w-full h-full">
                 <a href={link} className="no-underline w-full h-full">
                     <div className='p-3 flex  flex-col bg-transparent  h-full rounded-lg overflow-hidden '>

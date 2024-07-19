@@ -28,9 +28,9 @@ export const NepalFlagSlider=({content})=>{
             onMouseEnter={()=>{setIsHover(true)}}
             src={homePageDetail['slider-img']['gif']} 
             className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}></img>
-            <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%] w-0'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute transition-left duration-500 ease-in-out flex items-center justify-center align-text gap-3 bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
+            <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%] w-0'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute  transition-all duration-300 ease-in-out flex items-center justify-between  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
-                    <Link to='/' className='feature-div'>
+                    <Link to='/' className='feature-div md:ml-2 lg:ml-3'>
                         <OneImage img={bg} name={t('home')}/>
                     </Link>
                     <Link to='/services' className='feature-div'>

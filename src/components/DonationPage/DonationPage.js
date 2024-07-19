@@ -11,7 +11,8 @@ export const DonationPage=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const [selectDonateSection,setSelectDonateSection]=useState('')
     const homePageDetail=useSelector(state=>state.homePageDetail)
-    console.log(homePageDetail)
+    const globalDetail=useSelector(state=>state.globalDetail)
+    console.log(homePageDetail['bg-video']['video'])
     return(
         <>
         <div className="w-full h-full top-0 fixed bg-center bg-cover  -z-10" style={{backgroundImage:`url(${bg})`}}>

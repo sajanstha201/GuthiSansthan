@@ -11,6 +11,7 @@ export const Testing = () => {
         const reader = new FileReader();
 
         reader.onload = (event) => {
+            console.log(event.target.result)
             setImgSrc(event.target.result);
         };
 

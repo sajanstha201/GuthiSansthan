@@ -5,18 +5,16 @@ export const GlobalSlice=createSlice({
     initialState:{
         isFetched:false,
         "details":{},
-        "guthi-sanstha-logo":{},
-        "lng-logo":{},
+        "guthi-sansthan-logo":false,
+        "lng-logo":false,
     },
     reducers:{
         setGlobalWholeDetail:(state,action)=>{
             state.isFetched=true
             state["details"]=action.payload
-            // state["guthi-sanstha-logo"]=action.payload["guthi-sansthan-logo"]
-            // state["lng-logo"]=action.payload["lng-logo"]
         },
         setGuthiSansthanLogo:(state,action)=>{
-            state['guthi-sanstha-logo']=action.payload
+            state["guthi-sansthan-logo"]=action.payload
         },
         setLngLogo:(state,action)=>{
             state['lng-logo']=action.payload

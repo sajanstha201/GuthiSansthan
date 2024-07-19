@@ -4,6 +4,8 @@
   "homepage": "https://sajanstha201.github.io/GUTHI/",
   "private": true,
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^42.0.1",
+    "@ckeditor/ckeditor5-react": "^8.0.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fortawesome/fontawesome-free": "^6.5.2",
@@ -25,6 +27,8 @@
     "i18next": "^23.12.1",
     "i18next-browser-languagedetector": "^8.0.0",
     "i18next-http-backend": "^2.5.2",
+    "i18next-localstorage-backend": "^4.2.0",
+    "i18next-multiload-backend-adapter": "^2.3.0",
     "pdf-viewer-reactjs": "^2.2.3",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",

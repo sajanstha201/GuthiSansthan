@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import nepalFlagGif from '../../../media/Flag_of_Nepal.gif'
 import { useTranslation } from 'react-i18next'
 import { useMediaQuery } from '@mui/material'
 import { Link } from 'react-router-dom'
@@ -7,6 +6,7 @@ import './NepalFlagSlider.css'
 import { OneImage } from './OneImage'
 import img from '../../../media/guthi sansthan.png'
 import bg from '../../../media/TempleInformation/patandurbarsquare.png'
+import { useSelector } from 'react-redux'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     useEffect(()=>{
@@ -17,6 +17,7 @@ export const NepalFlagSlider=({content})=>{
     })
     const {t}=useTranslation()
     const isMobile=useMediaQuery('(max-width:1000px)')
+    const homePageDetail=useSelector(state=>state.homePageDetail)
     return(
         <>
         <div className={` ${isMobile?'h-[30vh]':'h-[40vh]'} flex flex-row items-center relative w-full  m-2 overflow-hidden`} onMouseLeave={()=>{setIsHover(false)}}>
@@ -25,15 +26,12 @@ export const NepalFlagSlider=({content})=>{
             </div>
             <img 
             onMouseEnter={()=>{setIsHover(true)}}
-            src={nepalFlagGif} 
+            src={homePageDetail['slider-img']['gif']} 
             className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}></img>
-            <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%] w-0'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%] px-2 absolute transition-left duration-500 ease-in-out flex items-center justify-center align-text gap-3 bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
+            <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%] w-0'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute transition-left duration-500 ease-in-out flex items-center justify-center align-text gap-3 bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
                     <Link to='/' className='feature-div'>
                         <OneImage img={bg} name={t('home')}/>
-                        
-                        
-                        
                     </Link>
                     <Link to='/services' className='feature-div'>
                          <OneImage img={bg} name={t('our-services')}/>
@@ -43,12 +41,10 @@ export const NepalFlagSlider=({content})=>{
                        
                     </Link>
                     <Link to='/contact-us' className='feature-div'>
-                        <OneImage img={bg} name={t('contact-us')}/>
-                        
+                        <OneImage img={bg} name={t('contact-us')}/>    
                     </Link>
                     <Link to='/articles' className='feature-div'>
                         <OneImage img={bg} name={t('articles')}/>
-                        
                     </Link>
             </div>
         </div>

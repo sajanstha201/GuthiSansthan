@@ -49,17 +49,17 @@ export const HeaderTop = () => {
                 <HeaderButtom />
             </div>}
             <div className={`${isMobile ? 'gap-2 w-[50%]' : 'gap-7 w-[30%]'} relative flex-row flex h-full items-center justify-start px-2`}>
-                <div ref={divRef} className={`${isMobile ? 'gap-2 ' : 'gap-7 '} w-[40%]  relative flex-row flex h-full items-center justify-center  `}>
+                <div ref={divRef} className={`${isMobile ? 'gap-2 ' : 'gap-7 '} w-[40%]  relative flex-row flex h-full items-center justify-center `}>
                     <div className={`${isMobile ? 'h-[30px] w-[30px]':'h-[60px] w-[60px]'} relative cursor-pointer transition-all  items-center flex justify-center   `}
                             onClick={() => { setLanguageOptionHidden(!languageOptionHidden); }}>
-                                <div className="z-30 bg-red-700 rounded-full overflow-hidden h-full w-full items-center flex justify-center">
+                                <div className="z-30  bg-gray-300/70 rounded-md p-2 overflow-hidden h-full w-full items-center flex justify-center">
                                 {selectLanguage === 'nepali' && <img src={globalDetail['lng-logo']['nepali']}  />}
                                 {selectLanguage === 'newari' && <img src={globalDetail['lng-logo']['newari']}  />}
                                 {selectLanguage === 'english' && <img src={globalDetail['lng-logo']['english']}  />}
                                 {selectLanguage === 'mithila' && <img src={globalDetail['lng-logo']['mithila']}  />}
                                 </div>
 
-                            <div className={`${languageOptionHidden ? 'w-[200%] left-[5%]' : 'opacity-100 w-[400%] left-[-30px] '}   absolute h-full flex flex-row  items-start z-20 transition-all duration-500 rounded-full`}>
+                            <div className={`${languageOptionHidden ? 'opacity-0' : 'opacity-100'} absolute p-2 flex flex-col gap-2 items-start top-[110%] bg-gray-300/70 z-20 transition-all duration-500 rounded-sm`}>
                                 {['nepali','newari','english','mithila'].filter(lng=>lng!==selectLanguage).map(
                                     (key,index)=>(
                                     <Language name={key} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index}></Language>))}

@@ -1,30 +1,25 @@
 import { styled, useMediaQuery } from "@mui/material";
 import { useSelectLanguage } from "../../context/LanguageChoice";
 import { useTranslation } from "react-i18next";
-import nepaliFlag from '../../media/FlagInfo/NepalFlag.png';
-import newariFlag from '../../media/FlagInfo/NewariFlag.png';
-import englishFlag from '../../media/FlagInfo/EnglishFlag.svg';
-import mithilaFlag from '../../media/FlagInfo/MithilaFlag.png';
-import guthiLogo from '../../media/guthi sansthan.png';
 import nepalLogo from '../../media/nepalLogo.png';
 import { Link, useLocation } from "react-router-dom";
 import { HeaderButtom } from "./HeaderButtom";
 import { useEffect, useRef, useState } from "react";
 import { Language } from "./Language";
-
+import { useSelector } from "react-redux";
+import { fetchImageToURL } from "../ReuseableFunctions";
+import { useDispatch } from "react-redux";
+import { setLngLogo } from "../../state/GlobalSlice";
 export const HeaderTop = () => {
+    const globalDetail=useSelector(state=>state.globalDetail)
     const isMobile = useMediaQuery('(max-width:1000px)');
     const { selectLanguage, setSelectLanguage } = useSelectLanguage();
     const { i18n, t } = useTranslation();
     const loc = useLocation();
     const [languageOptionHidden, setLanguageOptionHidden] = useState(true);
     const divRef = useRef();
-    const [flagInfo,setFlagInfo]=useState({
-        'nepali':nepaliFlag,
-        'newari':newariFlag,
-        'english':englishFlag,
-        'mithila':mithilaFlag
-    })
+    const dispact=useDispatch()
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const handleClickOutside = (event) => {
         if (divRef.current && !divRef.current.contains(event.target)) {
             setLanguageOptionHidden(true);
@@ -48,7 +43,7 @@ export const HeaderTop = () => {
         <div className={`${isMobile ? 'h-[80px]' : 'flex-row px-20 h-[100px]'} flex w-screen justify-between items-center p-2`}>
             <Link to='/' className={`${isMobile ? 'flex-col justify-start items-center w-[50%]' : 'flex-row w-[30%] items-center'} h-full flex-row flex`}>
                 <img className={`${isMobile ? 'h-[40px]' : 'h-[80px]'} backdrop-blur-md`} src={nepalLogo} />
-                <img className={`${isMobile ? 'h-[40px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={guthiLogo} />
+                <img className={`${isMobile ? 'h-[40px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} />
             </Link>
             {loc.pathname !== '/' && !isMobile && <div className={`${isMobile ? 'h-[100px]' : ''} w-[40%] flex items-center justify-center`}>
                 <HeaderButtom />
@@ -58,16 +53,16 @@ export const HeaderTop = () => {
                     <div className={`${isMobile ? 'h-[30px] w-[30px]':'h-[60px] w-[60px]'} relative cursor-pointer transition-all  items-center flex justify-center   `}
                             onClick={() => { setLanguageOptionHidden(!languageOptionHidden); }}>
                                 <div className="z-30 bg-red-700 rounded-full overflow-hidden h-full w-full items-center flex justify-center">
-                                {selectLanguage === 'nepali' && <img src={nepaliFlag}  />}
-                                {selectLanguage === 'newari' && <img src={newariFlag}  />}
-                                {selectLanguage === 'english' && <img src={englishFlag}  />}
-                                {selectLanguage === 'mithila' && <img src={mithilaFlag}  />}
+                                {selectLanguage === 'nepali' && <img src={globalDetail['lng-logo']['nepali']}  />}
+                                {selectLanguage === 'newari' && <img src={globalDetail['lng-logo']['newari']}  />}
+                                {selectLanguage === 'english' && <img src={globalDetail['lng-logo']['english']}  />}
+                                {selectLanguage === 'mithila' && <img src={globalDetail['lng-logo']['mithila']}  />}
                                 </div>
 
                             <div className={`${languageOptionHidden ? 'w-[200%] left-[5%]' : 'opacity-100 w-[400%] left-[-30px] '}   absolute h-full flex flex-row  items-start z-20 transition-all duration-500 rounded-full`}>
                                 {['nepali','newari','english','mithila'].filter(lng=>lng!==selectLanguage).map(
                                     (key,index)=>(
-                                    <Language name={key} handleLanguageClick={handleLanguageClick} img={flagInfo[key]} no={index}></Language>))}
+                                    <Language name={key} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index}></Language>))}
                                 {/* <Language name={'nepali'} handleLanguageClick={handleLanguageClick} img={nepaliFlag} no={1} />
                                 <Language name={'newari'} handleLanguageClick={handleLanguageClick} img={newariFlag} no={2} />
                                 <Language name={'english'} handleLanguageClick={handleLanguageClick} img={englishFlag} no={3}/>

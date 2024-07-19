@@ -13,11 +13,11 @@ import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
 import { DonationPage } from './components/DonationPage/DonationPage';
 import { ArticleMainSection } from './components/Articles/ArticleMainSection';
 import './i18n'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGlobalWholeDetail, setLngLogo } from './state/GlobalSlice';
-import { setGuthiSansthanLogo } from './state/HomePageSlice';
+import { setGlobalWholeDetail, setLngLogo ,setGuthiSansthanLogo} from './state/GlobalSlice';
+import { fetchImageToURL } from './components/ReuseableFunctions';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -27,23 +27,23 @@ function App() {
     const fetchGlobalData=async()=>{
       try{
         const response=await axios.get(baseUrl+'api/global-components/get-all-components/')
-        console.log(response.data)
         dispact(setGlobalWholeDetail(response.data))
-        dispact(setGuthiSansthanLogo(response.data['guthi-sanstha-logo']))
-        dispact(setLngLogo(response.data['lng-logo']))
+        dispact(setGuthiSansthanLogo({'imgSrc':await fetchImageToURL(baseUrl+response.data['guthi-sansthan-logo'].image)}))
+        const lngLogo={}
+        await Promise.all(Object.entries(response.data['lng-logo']).map(async([key,value])=>{
+          lngLogo[key.split('-')[0]]=await fetchImageToURL(baseUrl+value.image)
+        }))
+        dispact(setLngLogo(lngLogo))
       }
       catch(error){
         console.log(error)
         showAlert(error,'red')
       }
     }
-    if(!globalDetail.isFetched){
-      fetchGlobalData()
-    }
+    if(!globalDetail.isFetched) fetchGlobalData()
   },[])
   return (
     <div className={`App relative ${location.pathname===''?'':''}`}>
-    
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>

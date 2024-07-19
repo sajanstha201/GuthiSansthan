@@ -27,6 +27,7 @@ function App() {
     const fetchGlobalData=async()=>{
       try{
         const response=await axios.get(baseUrl+'api/global-components/get-all-components/')
+        console.log(response)
         dispact(setGlobalWholeDetail(response.data))
         dispact(setGuthiSansthanLogo({'imgSrc':await fetchImageToURL(baseUrl+response.data['guthi-sansthan-logo'].image)}))
         const lngLogo={}

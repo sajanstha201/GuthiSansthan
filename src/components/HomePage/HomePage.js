@@ -17,8 +17,6 @@ export const HomePage = () => {
   const baseUrl = useSelector(state => state.baseUrl).backend;
   const homePageDetail = useSelector(state => state.homePageDetail);
   const dispatch = useDispatch();
-  const [bgVideoUrl, setBgVideoUrl] = useState();
-
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
@@ -27,9 +25,7 @@ export const HomePage = () => {
         dispatch(setHomePageWholeDetail(data));
         addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: data['welcome-to-guthi-sansthan'].text });
         dispatch(setSliderImg({ gif: await fetchGifToURL(baseUrl + data['slider-img'].image.substr(1)) }));
-        const video = await fetchBgVideoToUrl(baseUrl + data['bg-video'].video);
-        setBgVideoUrl(video);
-        dispatch(setBgVideo({ video: video }));
+        dispatch(setBgVideo({ video: await fetchBgVideoToUrl(baseUrl + data['bg-video'].video) }));
       } catch (error) {
         console.log(error);
         showAlert(error, 'red');
@@ -41,15 +37,15 @@ export const HomePage = () => {
 
   return (
     <div style={{ height: `${isMobile ? 'calc(100vh - 80px)' : 'calc(100vh - 100px)'}` }}>
-      {bgVideoUrl && (
+      {homePageDetail['bg-video']['video'] && (
         <video
-          key={bgVideoUrl} // Add key prop to force re-render
+          key={homePageDetail['bg-video']['video']} // Add key prop to force re-render
           autoPlay
           loop
           muted
           className="top-0 video-background absolute inset-0 w-full h-full object-cover -z-30"
         >
-          <source src={bgVideoUrl} type="video/mp4" />
+          <source src={homePageDetail['bg-video']['video']} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       )}

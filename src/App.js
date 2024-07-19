@@ -27,9 +27,9 @@ function App() {
     const fetchGlobalData=async()=>{
       try{
         const response=await axios.get(baseUrl+'api/global-components/get-all-components/')
-        console.log(response)
         dispact(setGlobalWholeDetail(response.data))
-        dispact(setGuthiSansthanLogo({'imgSrc':await fetchImageToURL(baseUrl+response.data['guthi-sansthan-logo'].image)}))
+        console.log(response.data)
+        dispact(setGuthiSansthanLogo({'imgSrc':await fetchImageToURL(baseUrl+response.data['guthi-sansthan-logo'].image),'id':response.data['guthi-sansthan-logo'].id}))
         const lngLogo={}
         await Promise.all(Object.entries(response.data['lng-logo']).map(async([key,value])=>{
           lngLogo[key.split('-')[0]]=await fetchImageToURL(baseUrl+value.image)

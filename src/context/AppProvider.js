@@ -2,6 +2,7 @@ import { PageInfoProvider } from "./PageInfoProvider"
 import { LanguageChoice } from "./LanguageChoice"
 import { ScreenProvider } from "./ScreenInfo"
 import { CurrentUserProvider } from "./CurrentUserProvider"
+import { EditingProvider } from "./EditingProvider"
 
 export const AppProvider=({children})=>{
     return(
@@ -10,7 +11,9 @@ export const AppProvider=({children})=>{
             <LanguageChoice>
                 <PageInfoProvider>
                     <CurrentUserProvider>
-                    {children}
+                        <EditingProvider>
+                        {children}
+                        </EditingProvider>
                     </CurrentUserProvider> 
                 </PageInfoProvider>
             </LanguageChoice>

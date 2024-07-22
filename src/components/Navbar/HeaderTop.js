@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { setLngLogo } from "../../state/GlobalSlice";
 export const HeaderTop = () => {
     const globalDetail=useSelector(state=>state.globalDetail)
-    const isMobile = useMediaQuery('(max-width:1000px)');
+    const isMobile = useMediaQuery('(max-width:1200px)');
     const { selectLanguage, setSelectLanguage } = useSelectLanguage();
     const { i18n, t } = useTranslation();
     const loc = useLocation();

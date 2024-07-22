@@ -3,6 +3,8 @@ import bgImage from '../../media/LoginSignin/rectangle.png'
 import nepalLandmark from '../../media/LoginSignin/nepalLandmark.png'
 import { useMediaQuery } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 export const Login = () => {
     const isMobile=useMediaQuery('(max-width:800px)')
@@ -30,13 +32,21 @@ export const Login = () => {
                     <div className='flex flex-col text-white '>
                         
                             <div> <label  className='items-start justify-start'>Name</label>            </div>
-                            <div>  <input type='text' className='text-black w-[350px] h-8 rounded'></input>       </div>
+                            <div>  <input type='text' className='text-black w-[350px] h-10 rounded'></input>       </div>
                             <div> <label>Password</label>           </div>
-                            <div> <input    className='text-black  w-[350px] h-8 rounded'></input> </div>
+                            <div> <input    className='text-black  w-[350px] h-10 rounded'></input> </div>
                          
                             <br/>
+                            <div className='w-full items-center justify-center flex'>
+                                 <div className='bg-zinc-800 h-[1px] w-1/3'></div>
+                                 <div className=' mx-3 text-white '> Or</div>
+                                 <div className='bg-zinc-800 h-[1px] w-1/3'></div>
+                            </div>
+                            <div className='w-full flex justify-center my-2  items-center bg-white h-24 '>
+                                  <button className='text-black px-3 h-fit border border-black rounded-md py-2 items-center justify-center gap-2 flex'><FontAwesomeIcon icon={faGoogle} />Sign In with Google </button>
+                            </div>
                              <div className='item-end justify-end'>
-                                <button className=' rounded-full w-[120px] h-[40px] font-bold text-white bg-blue-600 text-align-center'><h5>{t('log-in')} </h5></button>
+                                <button className=' rounded-full px-4 py-1 font-bold text-white bg-blue-600 text-align-center mt-2 '><h5>{t('log-in')} </h5></button>
                              </div>
                               
                     </div>

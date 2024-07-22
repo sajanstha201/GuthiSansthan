@@ -50,9 +50,9 @@ export const HeaderTop = () => {
             </div>}
             <div className={`${isMobile ? 'gap-1 w-[50%]' : 'gap-7 w-[30%]'} relative flex-row flex h-full items-center justify-start px-2`}>
                 <div ref={divRef} className={`gap-1 w-[40%]  relative flex-row flex items-center justify-end   `}>
-                    <div className="relative bg-gray-300/70 rounded-md flex flex-row items-center justify-center p-1">
-                        <div className="text-[10px] lg:text-[20px]">LNG</div>
-                        <div className={`h-[30px] w-[30px] md:h-[60px] md:w-[60px] cursor-pointer transition-all  items-center flex justify-center   `}
+                        <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">LNG</div>
+                    <div className="relative bg-gray-300/70 rounded-full flex flex-row items-center justify-center p-1">
+                        <div className={`h-[30px] w-[30px] md:h-[60px] md:w-[60px] cursor-pointer transition-all rounded-md p-1 items-center flex justify-center   `}
                                 onClick={() => { setLanguageOptionHidden(!languageOptionHidden); }}>
                                     <div className="z-30   p-2 overflow-hidden h-full w-full items-center flex justify-center">
                                     {selectLanguage === 'nepali' && <img src={globalDetail['lng-logo']['nepali']}  />}
@@ -61,7 +61,7 @@ export const HeaderTop = () => {
                                     {selectLanguage === 'mithila' && <img src={globalDetail['lng-logo']['mithila']}  />}
                                     </div>
 
-                                <div className={`${languageOptionHidden ? 'opacity-0' : 'opacity-100'} w-full absolute flex flex-col gap-2 items-center top-[110%] left-0 bg-gray-300/70 z-20 transition-all duration-500 rounded-sm`}>
+                                <div className={`${languageOptionHidden ? 'opacity-0' : 'opacity-100'} w-full absolute flex flex-col gap-2 items-center top-[110%] left-0 bg-gray-300/70 z-20 transition-all duration-500 rounded-md p-2`}>
                                     {['nepali','newari','english','mithila'].filter(lng=>lng!==selectLanguage).map(
                                         (key,index)=>(
                                         <Language name={key} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index}></Language>))}

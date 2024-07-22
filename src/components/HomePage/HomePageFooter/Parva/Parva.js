@@ -1,9 +1,13 @@
 import { ParvaInstance } from "./ParvaInstance"
 import img from '../../../../media/nepalLogo.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCancel, faClose, faCross } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom"
 export const Parva=()=>{
     return(
         <>
-        <div className="w-full h-full pb-[100px] flex flex-col ">
+        <div className="w-full h-full pb-[100px] flex flex-col relative ">
+            <Link to={'/'} > <FontAwesomeIcon icon={faClose} className="absolute top-0 right-20 text-red-600"/> </Link>
         <h1 className="text-white z-40 text-[60px]">Parva</h1>
         <div className="flex w-full h-full items-center justify-center overflow-auto">
             <div className=" w-[95%] flex  flex-wrap items-center justify-center gap-7">

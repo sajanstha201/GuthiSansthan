@@ -31,6 +31,7 @@ export const ContactUs = () => {
   return (
 <div className=" flex flex-col items-center justify-center verflow-hidden bg-cover bg-center " >
   <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${bg})`}}></div>
+  <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center bg-black/40 ' ></div>
 <h1 className="text-3xl font-bold text-white tracking-wide m-16">{t('contact-us')}</h1>
     <div className={`${isMobile?'flex-col':'flex-row '} flex   rounded-lg justify-center align-center gap-10`}>
             <div id="map" className='w-full lg:w-1/3'>

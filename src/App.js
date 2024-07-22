@@ -18,6 +18,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalWholeDetail, setLngLogo ,setGuthiSansthanLogo} from './state/GlobalSlice';
 import { fetchImageToURL } from './components/ReuseableFunctions';
+import Profile from './components/User/Profile';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -54,7 +55,7 @@ function App() {
       <div > 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
-            <Route path='' element={<HomePage/>}/>
+            <Route path='' element={<HomePage/>} />
             <Route path='/services' element={<ServicePage/>}/>
             <Route path='/about-us' element={<AboutUs/>}/>
             <Route path='/contact-us' element={<ContactUs/>}/>

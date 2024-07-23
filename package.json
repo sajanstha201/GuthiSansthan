@@ -1,7 +1,7 @@
 {
   "name": "guthi",
   "version": "0.1.0",
-  "homepage": "https://sajanstha201.github.io/GUTHI/",
+  "homepage": "https://sRoboticsAcademyofnepal.github.io/GhuthiSansthan/",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^42.0.1",

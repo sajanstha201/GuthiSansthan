@@ -10,9 +10,12 @@ import { useSelector } from "react-redux";
 import { fetchImageToURL } from "../ReuseableFunctions";
 import { useDispatch } from "react-redux";
 import { setLngLogo } from "../../state/GlobalSlice";
+import { EditImage } from "../EditComponents";
+import { useEditing } from "../../context/EditingProvider";
 export const HeaderTop = () => {
     const globalDetail=useSelector(state=>state.globalDetail)
-    const isMobile = useMediaQuery('(max-width:1200px)');
+    const isMobile = useMediaQuery('(max-width:1000px)');
+    const {isEditing,setIsEditing}=useEditing()
     const { selectLanguage, setSelectLanguage } = useSelectLanguage();
     const { i18n, t } = useTranslation();
     const loc = useLocation();
@@ -38,12 +41,18 @@ export const HeaderTop = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-
+    const handleInputClick = (event) => {
+        event.stopPropagation();
+    };
     return (
         <div className={`${isMobile ? 'h-[80px]' : 'flex-row px-20 h-[100px]'} flex w-screen justify-between items-center p-2`}>
-            <Link to='/' className={`${isMobile ? 'flex-col justify-start items-center w-[50%]' : 'flex-row w-[30%] items-center'} h-full flex-row flex`}>
+            <Link to='/' 
+            className={`${isMobile ? 'flex-col justify-start items-center w-[50%]' : 'flex-row w-[30%] items-center'} h-full flex-row flex`}
+            onClick={(e) => {isEditing&&e.preventDefault()}}>
                 <img className={`${isMobile ? 'h-[30px]' : 'h-[80px]'} backdrop-blur-md`} src={nepalLogo} />
-                <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} />
+                <EditImage imageId={globalDetail['guthi-sansthan-logo'].id} url={baseUrl+globalDetail.url}>
+                    <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} />
+                </EditImage>
             </Link>
             {loc.pathname !== '/' && !isMobile && <div className={`${isMobile ? 'h-[100px]' : ''} w-[40%] flex items-center justify-center`}>
                 <HeaderButtom />
@@ -65,10 +74,6 @@ export const HeaderTop = () => {
                                     {['nepali','newari','english','mithila'].filter(lng=>lng!==selectLanguage).map(
                                         (key,index)=>(
                                         <Language name={key} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index}></Language>))}
-                                    {/* <Language name={'nepali'} handleLanguageClick={handleLanguageClick} img={nepaliFlag} no={1} />
-                                    <Language name={'newari'} handleLanguageClick={handleLanguageClick} img={newariFlag} no={2} />
-                                    <Language name={'english'} handleLanguageClick={handleLanguageClick} img={englishFlag} no={3}/>
-                                    <Language name={'mithila'} handleLanguageClick={handleLanguageClick} img={mithilaFlag} no={4} /> */}
                                 </div>
                         </div> 
                     </div>

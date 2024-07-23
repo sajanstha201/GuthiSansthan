@@ -22,6 +22,7 @@ export const HomePage = () => {
       try {
         const response = await axios.get(baseUrl + 'api/pages/home-page/');
         const data = response.data.components;
+        console.log(data)
         dispatch(setHomePageWholeDetail(data));
         addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: data['welcome-to-guthi-sansthan'].text });
         dispatch(setSliderImg({ gif: await fetchGifToURL(baseUrl + data['slider-img'].image.substr(1)) }));

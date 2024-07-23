@@ -4,8 +4,9 @@ export const GlobalSlice=createSlice({
     name:'globalSlice',
     initialState:{
         isFetched:false,
+        url:'api/global-components/get-all-components/',
         "details":{},
-        "guthi-sansthan-logo":false,
+        "guthi-sansthan-logo":{'imgSrc':'','id':''},
         "lng-logo":false,
     },
     reducers:{

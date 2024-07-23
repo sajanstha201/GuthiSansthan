@@ -3,7 +3,7 @@ export const InstanceNotice=({desc,date,link})=>{
         <>
         <div className="flex justify-start">
 
-        <li className="font-semibold text-black text-lg">This is Instance Notice</li>
+        <li className="font-semibold text-white  text-lg">This is Instance Notice</li>
         </div>
         </>
     )

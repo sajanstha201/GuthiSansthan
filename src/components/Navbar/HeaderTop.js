@@ -9,7 +9,7 @@ import { Language } from "./Language";
 import { useSelector } from "react-redux";
 import { fetchImageToURL } from "../ReuseableFunctions";
 import { useDispatch } from "react-redux";
-import { setLngLogo } from "../../state/GlobalSlice";
+import { setNewGuthiSansthanLogo, setLngLogo } from "../../state/GlobalSlice";
 import { EditImage } from "../EditComponents";
 import { useEditing } from "../../context/EditingProvider";
 export const HeaderTop = () => {
@@ -50,7 +50,7 @@ export const HeaderTop = () => {
             className={`${isMobile ? 'flex-col justify-start items-center w-[50%]' : 'flex-row w-[30%] items-center'} h-full flex-row flex`}
             onClick={(e) => {isEditing&&e.preventDefault()}}>
                 <img className={`${isMobile ? 'h-[30px]' : 'h-[80px]'} backdrop-blur-md`} src={nepalLogo} />
-                <EditImage imageId={globalDetail['guthi-sansthan-logo'].id} url={baseUrl+globalDetail.url}>
+                <EditImage imageId={globalDetail['guthi-sansthan-logo'].id} url={baseUrl+globalDetail.url} setNewImage={setNewGuthiSansthanLogo}>
                     <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} />
                 </EditImage>
             </Link>

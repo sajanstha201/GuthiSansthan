@@ -6,7 +6,7 @@ export const GlobalSlice=createSlice({
         isFetched:false,
         url:'api/global-components/get-all-components/',
         "details":{},
-        "guthi-sansthan-logo":{'imgSrc':'','id':''},
+        "guthi-sansthan-logo":{'imgSrc':'','id':'','actualImgSrc':''},
         "lng-logo":false,
     },
     reducers:{
@@ -16,11 +16,20 @@ export const GlobalSlice=createSlice({
         },
         setGuthiSansthanLogo:(state,action)=>{
             state["guthi-sansthan-logo"]=action.payload
+            state["guthi-sansthan-logo"]["actualImgSrc"]=action.payload.imgSrc
         },
         setLngLogo:(state,action)=>{
             state['lng-logo']=action.payload
         },
+        setNewGuthiSansthanLogo:(state,action)=>{
+            if(action.payload["imgSrc"] === ''){
+                state["guthi-sansthan-logo"]["imgSrc"]=state["guthi-sansthan-logo"]["actualImgSrc"]
+            }
+            else{
+                state["guthi-sansthan-logo"]["imgSrc"]=action.payload["imgSrc"]
+            }
+        }
     }
 })
 export default GlobalSlice.reducer
-export const {setGlobalWholeDetail,setGuthiSansthanLogo,setLngLogo}=GlobalSlice.actions
+export const {setGlobalWholeDetail,setGuthiSansthanLogo,setLngLogo,setNewGuthiSansthanLogo}=GlobalSlice.actions

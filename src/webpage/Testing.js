@@ -32,9 +32,9 @@ export const Testing = () => {
             <h1>This is Testing Section</h1>
             <div>
                 <div>
-                <EditImage imageId={'2'} url={baseUrl+'api/components/'}>
+                {/* <EditImage imageId={'2'} url={baseUrl+'api/components/'}>
                         <img  src={img} />
-                    </EditImage>
+                    </EditImage> */}
                     <h2>CKEditor Example</h2>
                     <CKEditor
                         editor={ClassicEditor}

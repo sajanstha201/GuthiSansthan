@@ -1,3 +1,5 @@
+import { faClose } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useMediaQuery } from "@mui/material"
 import { motion } from "framer-motion"
 import { useState } from "react"
@@ -17,7 +19,8 @@ export const ParvaInstance=({name,detail,img})=>{
         </div>
         <motion.div  className={`${isHidden?'h-0 w-0':'h-full w-full'} absolute flex items-center justify-center z-80 backdrop-blur-xl overflow-auto transition-all duration-500 ease-out`}>
             <div  className="h-[75%] w-[80%] lg:w-[60%] relative backdrop-blur-xl bg-neutral-200/70 flex flex-col items-center justify-center shadow-lg rounded-xl">
-                <div onClick={()=>setIsHidden(true)}className="absolute bg-red-700 w-[30px] h-[30px] top-2 right-2 flex items-center justify-center rounded-full border-black border-2 cursor-pointer">x</div>
+            <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
+ 
                 <div className={`${isMobile?'text-[30px]':'text-[60px]'} text-black  font-bold`}>{name}</div>
                 <div><img src={img}></img></div>
                 <div>{detail}</div>

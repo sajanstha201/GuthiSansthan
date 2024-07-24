@@ -10,7 +10,7 @@ export const ServicePage=()=>{
     var settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 200,
         slidesToShow: 1,
         slidesToScroll: 1,
       };
@@ -66,9 +66,12 @@ export const ServicePage=()=>{
         <div  className="fixed w-full h-screen bg-cover bg-right-bottom top-0 -z-10 blur-[1px]  bg-black/50 "></div>
         <div className="text-[60px] text-white  font-bold h-[30vh] flex items-center justify-center "><div className="z-1 text-white ">Our Services</div></div>
               <div className='flex w-full items-center justify-center'>
-          {isMobile&&<Slider className="bg-black/40  flex justify-center px-4 w-[80%] " {...settings}>
+          {isMobile&& <Slider className="bg-black/40  flex justify-center px-4 w-full " {...settings}>
                 {data.map((d,index)=>(
-                    <InstanceService className="hover:scale-95" key={index} image={d.image} name={d.name} des={d.des}/>
+                  <div className="flex w-full item-center justify-center pl-16">
+                    <InstanceService className="hover:scale-95 " key={index} image={d.image} name={d.name} des={d.des}/>
+
+                  </div>
                 ))}
             </Slider>}
             {!isMobile&&<div className="w-[90%] flex flex-wrap gap-10  justify-center rounded-xl">

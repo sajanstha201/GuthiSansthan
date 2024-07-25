@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 export const DonationPageSlice=createSlice({
     name:"DonationPageSlice",
     initialState:{
-
+        isFetched:false,
+        url:'api/donations/'
+        
     },
     reducers:{
         setDonationpage:(state,action)=>{

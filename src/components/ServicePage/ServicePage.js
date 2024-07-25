@@ -5,8 +5,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useMediaQuery } from "@mui/material";
+import {useSelector} from 'react-redux'
+import { useEffect } from "react";
+import axios from "axios";
 export const ServicePage=()=>{
+  const servicePageDetail=useSelector(state=>state.servicePageDetail)
   const isMobile=useMediaQuery('(max-width:800px)')
+  const baseUrl=useSelector(state=>state.baseUrl).backend
+  useEffect(()=>{
+    const fetchData=async ()=>{
+      const response=await axios.get(baseUrl+servicePageDetail.url)
+      console.log(response.data)
+    }
+    if(!servicePageDetail.isFetched){
+      fetchData()
+    }
+  },[])
+  
     var settings = {
         dots: true,
         infinite: true,

@@ -5,20 +5,28 @@ import { useRef } from 'react'
 import { Calender } from './Calender/Calender'
 import { Parva } from './Parva/Parva'
 import { Teams } from './Teams/Teams'
-import FooterBg from '../../../media/HomePage/FooterBg.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faGopuram, faUsers ,faClose} from '@fortawesome/free-solid-svg-icons'
-import { faChurch } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux'
+import { setFooterBgImg } from '../../../state/HomePageSlice'
+import { fetchImageToURL } from '../../ReuseableFunctions'
 export const  HomePageFooter=()=>{
     const [selecedSection,setSelectedSection]=useState('')
     const isMobile=useMediaQuery('(max-width:800px)')
     const hiddenDivRef=useRef()
+    const homePageDetail=useSelector(state=>state.homePageDetail)
+    const dispatch=useDispatch()
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const handleHiddenDiv=(event)=>{
         if(!hiddenDivRef.current.contains(event.target)&&hiddenDivRef.current){
             setSelectedSection('')
         }
     }
     useEffect(()=>{
+        const fetchFooterImg=async ()=>{
+            dispatch(setFooterBgImg(await fetchImageToURL(baseUrl+homePageDetail.details['footer-bg-img'].image)))
+        }
+        if(!homePageDetail['footer-bg-img'].isFetched&&homePageDetail.isFetched) fetchFooterImg()
         document.addEventListener('mousedown',handleHiddenDiv)
         return ()=>{
             document.removeEventListener('mousedown',handleHiddenDiv)
@@ -27,7 +35,7 @@ export const  HomePageFooter=()=>{
     return(
         <>
         <div className="absolute bottom-0 h-[200px] w-full justify-center flex items-center overflow-hidden " >
-            <div className="-z-20 bg-cover bg-center h-full w-full opacity-70 "style={{backgroundImage:`url(${FooterBg})`}}></div>
+            <div className="-z-20 bg-cover bg-center h-full w-full opacity-70 "style={{backgroundImage:`url(${homePageDetail['footer-bg-img'].imgSrc})`}}></div>
             <div className={`${isMobile?'bg-gray-300/40 backdrop-blur-md rounded-tl-md rounded-tr-md':''} z-10 absolute bottom-0 w-full  justify-evenly  items-center flex flex-row  text-white font-bold`}>
                 <div className={`${isMobile?'px-3':'px-16 '} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3`} onClick={()=>setSelectedSection('calender')}><FontAwesomeIcon icon={faCalendarAlt}  size='2x' className=''/> <h2 className='text-base'>Calender</h2> </div>
                 <div className={`${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center  hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('parva')}><FontAwesomeIcon icon={faGopuram} size='2x' className='' /> <h2 className='text-base'>Parva</h2> </div>

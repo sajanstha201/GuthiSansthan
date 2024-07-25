@@ -18,12 +18,10 @@ export const NepalFlagSlider=({content})=>{
     const isMobile=useMediaQuery('(max-width:1000px)')
     useEffect(()=>{
         const fetchData=async()=>{
-             if(!homePageDetail['slider-img'].isFetched&&homePageDetail.isFetched){
                 addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: homePageDetail['details']['welcome-to-guthi-sansthan']['text'] });
                 dispatch(setSliderImg(await fetchGifToURL(baseUrl + homePageDetail['details']['slider-img'].image.substr(1))));
-             }
         }
-        fetchData()
+        if(!homePageDetail['slider-img'].isFetched&&homePageDetail.isFetched) fetchData()
     })
     return(
         <>
@@ -40,17 +38,17 @@ export const NepalFlagSlider=({content})=>{
                     {/* <TemplesDisplayMain/> */}
 
                     <Link to='/services' className='feature-div'>
-                         <OneImage img={bg} name={'our-services'}/>
+                         <OneImage  name={'Our-service-tab'}/>
                     </Link>
                     <Link to='/about-us' className='feature-div'>
-                        <OneImage img={bg} name={'about-us'}/>
+                        <OneImage  name={'About-us-tab'}/>
                        
                     </Link>
                     <Link to='/contact-us' className='feature-div'>
-                        <OneImage img={bg} name={'contact-us'}/>    
+                        <OneImage  name={'Contact-us-tab'}/>    
                     </Link>
                     <Link to='/articles' className='feature-div'>
-                        <OneImage img={bg} name={'articles'}/>
+                        <OneImage  name={'Article-tab'}/>
                     </Link>
                 </div>
             </div>

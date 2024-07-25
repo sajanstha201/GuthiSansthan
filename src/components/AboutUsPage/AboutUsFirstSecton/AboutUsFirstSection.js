@@ -20,11 +20,11 @@ export const AboutUsFirstSection = ({ onLinkClick }) => {
             </div>
             <div className={`${isMobile?'w-[95%]':'w-[80%] '}  rounded-md `}>
                 <div className={`${isMobile?'gap-7':' gap-24'} w-8/10 h-8/10 flex flex-wrap items-center justify-center  rounded-md `}>
-                        <InstanceFirstSection bgImage={introImg} name={'introduction'} onLinkClick={onLinkClick}/>
-                        <InstanceFirstSection bgImage={histoImg} name={'historical-background'} onLinkClick={onLinkClick}/>
-                        <InstanceFirstSection bgImage={rightImg} name={'right-and-duties'} onLinkClick={onLinkClick}/>
-                        <InstanceFirstSection bgImage={orgImg} name={'organizational-structure'} onLinkClick={onLinkClick}/>
-                        <InstanceFirstSection bgImage={objImg} name={'objectives'} onLinkClick={onLinkClick}/>
+                        <InstanceFirstSection bgImage={introImg} name={'introduction-tab'} onLinkClick={onLinkClick}/>
+                        <InstanceFirstSection bgImage={histoImg} name={'historical-background-tab'} onLinkClick={onLinkClick}/>
+                        <InstanceFirstSection bgImage={rightImg} name={'rights-and-duties-tab'} onLinkClick={onLinkClick}/>
+                        <InstanceFirstSection bgImage={orgImg} name={'organizational-structure-tab'} onLinkClick={onLinkClick}/>
+                        <InstanceFirstSection bgImage={objImg} name={'objectives-tab'} onLinkClick={onLinkClick}/>
                 </div>
 
             </div>

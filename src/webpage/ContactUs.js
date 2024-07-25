@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MdAddCall } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";import { MdOutlineMail } from "react-icons/md";
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
@@ -10,11 +10,14 @@ import { useMediaQuery } from '@mui/material';
 import loc1 from '../media/ContactUs/lalitpur.jpeg'
 import loc2 from '../media/ContactUs/patan.jpeg'
 import bg from '../media/ContactUs/bg.png'
-
+import {useDispatch, useSelector} from 'react-redux'
+import { setBgImg, setContactUsPageWholeDetail, setExtraImage1, setExtraImage2 } from '../state/ContactUsPageSlice';
+import {addLanguage, fetchImageToURL} from '../components/ReuseableFunctions'
 export const ContactUs = () => {
   const {t}=useTranslation()
   const isMobile=useMediaQuery('(max-width:800px)')
     const [mapLoaded, setMapLoaded] = useState(false);
+    const contactUsPageDetail=useSelector(state=>state.contactUsPageDetail)
     const defaultCenter = {
       lat: 27.681505372996934,
       lng: 85.32804964028425
@@ -28,11 +31,25 @@ export const ContactUs = () => {
       setMapLoaded(true);
       console.log('Map loaded successfully');
     };
+    const baseUrl=useSelector(state=>state.baseUrl).backend
+    const dispatch=useDispatch()
+    useEffect(()=>{
+      const fetchData=async()=>{
+        const response=await axios.get(baseUrl+contactUsPageDetail.url)
+        console.log(response.data.components)
+        dispatch(setContactUsPageWholeDetail(response.data.components))
+        dispatch(setExtraImage1(await fetchImageToURL(baseUrl+response.data.components['extra-image-1'].image)))
+        dispatch(setExtraImage2(await fetchImageToURL(baseUrl+response.data.components['extra-image-2'].image)))
+        dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-image'].image)))
+        addLanguage({key:'contact-us-heading',lngs:response.data.components['bg-image'].text})
+      }
+      if(!contactUsPageDetail.isFetched) fetchData()
+    })
   return (
 <div className=" flex flex-col items-center justify-center verflow-hidden bg-cover bg-center " >
-  <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${bg})`}}></div>
+  <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${contactUsPageDetail['bg-img'].imgSrc})`}}></div>
   <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center bg-black/40 ' ></div>
-<h1 className="text-3xl font-bold text-white tracking-wide m-16">{t('contact-us')}</h1>
+<h1 className="text-3xl font-bold text-white tracking-wide m-16">{t('contact-us-heading')}</h1>
     <div className={`${isMobile?'flex-col':'flex-row '} flex   rounded-lg justify-center align-center gap-10 mb-44`}>
             <div id="map" className='w-full lg:w-1/3 flex justify-center'>
             <LoadScript googleMapsApiKey="AIzaSyDR-Piy7y9bIfz9HzE_dN_TAXJbM9UtA24">
@@ -65,10 +82,10 @@ export const ContactUs = () => {
                </div>
                <div className='flex gap-2 w-full bg-white   p-2 rounded-lg'>
                   <div className='w-1/2'>
-                  <img src={loc1}/>
+                  <img src={contactUsPageDetail['extra-image-1'].imgSrc}/>
                   </div>
                   <div className='w-1/2'>
-                  <img src={loc2}/>
+                  <img src={contactUsPageDetail['extra-image-2'].imgSrc}/>
                      
                   </div>
                </div>

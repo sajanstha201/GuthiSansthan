@@ -5,20 +5,28 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useMediaQuery } from "@mui/material";
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { useEffect } from "react";
 import axios from "axios";
+import { setBgImg, setServicePageWholeDetail } from "../../state/ServicePageSlice";
+import { addLanguage, fetchImageToURL } from "../ReuseableFunctions";
+import { useTranslation } from "react-i18next"; 
 export const ServicePage=()=>{
   const servicePageDetail=useSelector(state=>state.servicePageDetail)
   const isMobile=useMediaQuery('(max-width:800px)')
   const baseUrl=useSelector(state=>state.baseUrl).backend
+  const dispatch=useDispatch()
+  const {t}=useTranslation()
   useEffect(()=>{
     const fetchData=async ()=>{
       const response=await axios.get(baseUrl+servicePageDetail.url)
       console.log(response.data)
+      dispatch(setServicePageWholeDetail(response.data.components))
+      dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['our-services'].image)))
+      addLanguage({key:'our-services',lngs:response.data.components['our-services'].text})
     }
     if(!servicePageDetail.isFetched){
-      fetchData()
+      fetchData();
     }
   },[])
   
@@ -77,9 +85,9 @@ export const ServicePage=()=>{
     ]
     return(
         <div className="">
-        <div style={{backgroundImage:`url(${bgImage})`}} className="fixed w-full h-screen bg-cover bg-center top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
+        <div style={{backgroundImage:`url(${servicePageDetail['bg-img'].imgSrc})`}} className="fixed w-full h-screen bg-cover bg-center top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
         <div  className="fixed w-full h-screen bg-cover bg-right-bottom top-0 -z-10 blur-[1px]  bg-black/50 "></div>
-        <div className="text-[60px] text-white  font-bold h-[30vh] flex items-center justify-center "><div className="z-1 text-white ">Our Services</div></div>
+        <div className="text-[60px] text-white  font-bold h-[30vh] flex items-center justify-center "><div className="z-1 text-white ">{t('our-services')} </div></div>
               <div className='flex w-full items-center justify-center'>
           {isMobile&& <Slider className="bg-black/40  flex justify-center px-4 w-full " {...settings}>
                 {data.map((d,index)=>(

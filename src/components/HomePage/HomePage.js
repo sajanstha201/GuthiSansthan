@@ -22,7 +22,6 @@ export const HomePage = () => {
       try {
         const response = await axios.get(baseUrl + homePageDetail.url);
         const data = response.data.components;
-        console.log(data)
         dispatch(setHomePageWholeDetail(data));
         addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: data['welcome-to-guthi-sansthan'].text });
        

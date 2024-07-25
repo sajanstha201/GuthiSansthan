@@ -8,6 +8,8 @@ import GlobalSlice from "./GlobalSlice";
 import ParvaSlice from "./ParvaSlice";
 import TeamsSlice from "./TeamsSlice";
 import CalenderSlice from "./CalenderSlice";
+import ContactUsPageSlice from "./ContactUsPageSlice";
+import ArticlePageSlice from "./ArticlePageSlice";
 export const store=configureStore({
     reducer:{
        baseUrl:BaseUrlReducer,
@@ -18,6 +20,8 @@ export const store=configureStore({
        donationPageDetail:DonationPageSlice,
        parvaDetail:ParvaSlice,
        teamsDetail:TeamsSlice,
-       calenderDetail:CalenderSlice
+       calenderDetail:CalenderSlice,
+       contactUsPageDetail:ContactUsPageSlice,
+       articlePageDetail:ArticlePageSlice
     }
 })

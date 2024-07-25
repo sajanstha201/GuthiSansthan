@@ -1,34 +1,43 @@
 import React, { useRef, useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+
+import { NepaliDatePicker } from "nepali-datepicker-reactjs"
+import "nepali-datepicker-reactjs/dist/index.css"
 
 const JatraForm = () => {
   const nameRef = useRef();
   const photoRef = useRef();
   const desRef = useRef();
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [date, setDate] = useState("")
 
   const handleSubmit = async () => {
     const name = nameRef.current.value.trim();
     const photo = photoRef.current.files[0]; // get the file object
     const description = desRef.current.value.trim();
 
-    if (!name || !selectedDate || !photo || !description) {
+    if (!name || !photo || !description) {
       alert("Please fill out all fields.");
       return;
     }
 
-    // Convert the date to Nepali format if necessary
-    const nepaliDate = selectedDate; // Placeholder for actual conversion
+    // Extracting date components
+    const [year, month, date] = date.split('-');
+    const start_month = month;
+    const end_month = month;
+    const start_date = date;
+    const end_date = date;
 
     const formData = new FormData();
     formData.append('name', name);
-    formData.append('date', nepaliDate); // Handle conversion to Nepali date
+    formData.append('year', year);
+    formData.append('start_month', start_month);
+    formData.append('end_month', end_month);
+    formData.append('start_date', start_date);
+    formData.append('end_date', end_date);
     formData.append('photo', photo);
     formData.append('description', description);
 
     try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
+      const response = await fetch('http://192.168.1.65:8000/api/festivals/', {
         method: 'POST',
         body: formData,
       });
@@ -54,12 +63,20 @@ const JatraForm = () => {
         <input type='text' ref={nameRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900' />
       </div>
       <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
-        <label className='font-semibold text-lg'>Festival Date:</label>
-        <DatePicker
-          selected={selectedDate}
-          onChange={date => setSelectedDate(date)}
-          className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'
-        />
+        <label className='font-semibold text-lg'>starting date (BS):</label>
+        <NepaliDatePicker inputClassName="form-control"
+                              className=""
+                              value={date}
+                              onChange={(value) => setDate(value)}
+                              options={{ calenderLocale: "ne", valueLocale: "en" }} />
+      </div>
+      <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
+        <label className='font-semibold text-lg'>Ending date (BS):</label>
+        <NepaliDatePicker inputClassName="form-control"
+                              className=""
+                              value={date}
+                              onChange={(value) => setDate(value)}
+                              options={{ calenderLocale: "ne", valueLocale: "en" }} />
       </div>
       <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
         <label className='font-semibold text-lg'>Upload Image:</label>

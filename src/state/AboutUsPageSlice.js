@@ -29,6 +29,10 @@ export const AboutUsPageSlice=createSlice({
                 actualImgSrc:action.payload
             }
         },
+        setNewBgImg:(state,action)=>{
+            if(action.payload) state["bg-img"]["imgSrc"]=action.payload
+            else state["bg-img"]["imgSrc"]=state["bg-img"]["actualImgSrc"]
+        },
         setImgTab:(state,action)=>{
             state[action.payload.name].isFetched=true;
             state[action.payload.name]={
@@ -41,4 +45,4 @@ export const AboutUsPageSlice=createSlice({
     }
 })
 export default AboutUsPageSlice.reducer
-export const {setAboutUsPageWholeDetail,setBgImg,setImgTab}=AboutUsPageSlice.actions
+export const {setAboutUsPageWholeDetail,setBgImg,setImgTab,setNewBgImg}=AboutUsPageSlice.actions

@@ -37,8 +37,12 @@ export const ContactUsPageSlice=createSlice({
                 actualImgSrc:action.payload,
                 id:state.details["bg-image"].id
             }
-        }
+        },
+        setNewBgImg:(state,action)=>{
+            if(action.payload) state["bg-img"]["imgSrc"]=action.payload
+            else state["bg-img"]["imgSrc"]=state["bg-img"]["actualImgSrc"]
+        },
     }
 })
 export default ContactUsPageSlice.reducer
-export const {setContactUsPageWholeDetail,setExtraImage1,setExtraImage2,setBgImg}=ContactUsPageSlice.actions
+export const {setContactUsPageWholeDetail,setExtraImage1,setExtraImage2,setBgImg,setNewBgImg}=ContactUsPageSlice.actions

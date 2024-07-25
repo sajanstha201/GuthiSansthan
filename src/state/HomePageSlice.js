@@ -37,8 +37,21 @@ export const HomePageSlice=createSlice({
                 id:state['details']['slider-img'].id
             }
         },
+        setNewSliderImg:(state,action)=>{
+            if(action.payload==="") state['slider-img'].gif=state['slider-img'].actualGif
+            else state['slider-img'].gif=action.payload
+        },
         setBgVideo:(state,action)=>{
-            state['bg-video']=action.payload
+            state['bg-video']={
+                video:action.payload,
+                actualVideo:action.payload,
+                id:state.details['bg-video'].id,
+                isFetched:true
+            }
+        },
+        setNewBgVideo:(state,action)=>{
+            if(action.payload) state['bg-video'].video=action.payload
+            else state['bg-video'].video=state['bg-video'].actualVideo
         },
         setTabDetail:(state,action)=>{
             state[action.payload.name]=getImageDetail(action.payload.detail,state['details'][action.payload.name].id)
@@ -50,8 +63,12 @@ export const HomePageSlice=createSlice({
                 id:state.details['footer-bg-img'].id,
                 actualImgSrc:action.payload
             }
-        }
+        },
+        setNewFooterBgImg:(state,action)=>{
+            if(action.payload) state['footer-bg-img'].imgSrc=action.payload
+            else state['footer-bg-img'].imgSrc=state['footer-bg-img'].actualImgSrc
+        },
     }
 })
 export default HomePageSlice.reducer
-export const {setHomePageWholeDetail,setGuthiSansthanLogo,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail} =HomePageSlice.actions
+export const {setHomePageWholeDetail,setGuthiSansthanLogo,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewFooterBgImg} =HomePageSlice.actions

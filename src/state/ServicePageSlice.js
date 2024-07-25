@@ -22,8 +22,12 @@ export const ServicePageSlice=createSlice({
                 id:state.details['our-services'].id,
                 actualImgSrc:action.payload
             }
+        },
+        setNewBgImg:(state,action)=>{
+            if(action.payload) state["bg-img"]["imgSrc"]=action.payload
+            else state["bg-img"]["imgSrc"]=state["bg-img"]["actualImgSrc"]
         }
     }
 })
 export default ServicePageSlice.reducer
-export const {setServicePageWholeDetail,setBgImg} =ServicePageSlice.actions
+export const {setServicePageWholeDetail,setBgImg,setNewBgImg} =ServicePageSlice.actions

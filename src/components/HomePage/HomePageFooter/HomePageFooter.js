@@ -8,8 +8,9 @@ import { Teams } from './Teams/Teams'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faGopuram, faUsers ,faClose} from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { setFooterBgImg } from '../../../state/HomePageSlice'
+import { setFooterBgImg, setNewFooterBgImg } from '../../../state/HomePageSlice'
 import { fetchImageToURL } from '../../ReuseableFunctions'
+import { EditBgImage } from '../../EditComponents/EditBgImage'
 export const  HomePageFooter=()=>{
     const [selecedSection,setSelectedSection]=useState('')
     const isMobile=useMediaQuery('(max-width:800px)')
@@ -34,8 +35,10 @@ export const  HomePageFooter=()=>{
     })
     return(
         <>
-        <div className="absolute bottom-0 h-[200px] w-full justify-center flex items-center overflow-hidden " >
-            <div className="-z-20 bg-cover bg-center h-full w-full opacity-70 "style={{backgroundImage:`url(${homePageDetail['footer-bg-img'].imgSrc})`}}></div>
+        <div className="absolute bottom-0 h-[200px] w-full justify-center flex items-center overflow-hidden" >
+            <EditBgImage imageId={homePageDetail['footer-bg-img'].id} url={homePageDetail.url} setNewImage={setNewFooterBgImg}>
+            <div className="fixed bottom-0 -z-20 bg-cover bg-center h-[200px] w-full opacity-70 "style={{backgroundImage:`url(${homePageDetail['footer-bg-img'].imgSrc})`}}></div>
+            </EditBgImage>
             <div className={`${isMobile?'bg-gray-300/40 backdrop-blur-md rounded-tl-md rounded-tr-md':''} z-10 absolute bottom-0 w-full  justify-evenly  items-center flex flex-row  text-white font-bold`}>
                 <div className={`${isMobile?'px-3':'px-16 '} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3`} onClick={()=>setSelectedSection('calender')}><FontAwesomeIcon icon={faCalendarAlt}  size='2x' className=''/> <h2 className='text-base'>Calender</h2> </div>
                 <div className={`${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center  hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('parva')}><FontAwesomeIcon icon={faGopuram} size='2x' className='' /> <h2 className='text-base'>Parva</h2> </div>

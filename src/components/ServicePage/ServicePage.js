@@ -8,9 +8,10 @@ import { useMediaQuery } from "@mui/material";
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect } from "react";
 import axios from "axios";
-import { setBgImg, setServicePageWholeDetail } from "../../state/ServicePageSlice";
+import { setBgImg, setNewBgImg, setServicePageWholeDetail } from "../../state/ServicePageSlice";
 import { addLanguage, fetchImageToURL } from "../ReuseableFunctions";
 import { useTranslation } from "react-i18next"; 
+import { EditBgImage } from "../EditComponents/EditBgImage";
 export const ServicePage=()=>{
   const servicePageDetail=useSelector(state=>state.servicePageDetail)
   const isMobile=useMediaQuery('(max-width:800px)')
@@ -85,7 +86,10 @@ export const ServicePage=()=>{
     ]
     return(
         <div className="">
-        <div style={{backgroundImage:`url(${servicePageDetail['bg-img'].imgSrc})`}} className="fixed w-full h-screen bg-cover bg-center top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
+          <EditBgImage imageId={servicePageDetail['bg-img'].id} url={servicePageDetail.url} setNewImage={setNewBgImg}>
+            <div style={{backgroundImage:`url(${servicePageDetail['bg-img'].imgSrc})`}} className="fixed w-full h-screen bg-cover bg-center top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
+          </EditBgImage>
+        
         <div  className="fixed w-full h-screen bg-cover bg-right-bottom top-0 -z-10 blur-[1px]  bg-black/50 "></div>
         <div className="text-[60px] text-white  font-bold h-[30vh] flex items-center justify-center "><div className="z-1 text-white ">{t('our-services')} </div></div>
               <div className='flex w-full items-center justify-center'>

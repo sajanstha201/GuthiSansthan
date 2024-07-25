@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalWholeDetail, setLngLogo ,setGuthiSansthanLogo} from './state/GlobalSlice';
 import { fetchImageToURL } from './components/ReuseableFunctions';
 import Profile from './components/User/Profile';
+import JatraMain from './components/JatrasForm/JatraMain';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -62,7 +63,10 @@ function App() {
             <Route path='/sign-in' element={<Signin/>}/>
             <Route path='/donation' element={<DonationPage/>}/>
             <Route path='/articles' element={<ArticleMainSection/>}/>
+            <Route path='/user' element={<Profile/>} />
+            <Route path='/jatra-form' element={<JatraMain/>}/>
           </Routes>
+         
       </div>
       {/* <Footer/> */}
     </div>

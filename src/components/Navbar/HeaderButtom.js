@@ -8,8 +8,8 @@ export const HeaderButtom=()=>{
     const loc=useLocation()
     const isMobile=useMediaQuery('(max-width:1200px)')
     return(
-        <div className={`${isMobile?'':''} w-full flex items-center justify-center fixed bottom-2`}>
-            <div className={`${isMobile?'max-w-[90%]':'w-full'}  rounded-full flex flex-row  items-center justify-between px-4  p-2 gap-6  bg-neutral-300/30  backdrop-blur-md bg-opacity-80  `}>
+        <div className={`${isMobile?'':''} w-full flex items-center justify-center  z-50`}>
+            <div className={`${isMobile?'max-w-[90%]':'w-full'}  rounded-full flex flex-row fixed bottom-2 items-center  px-4  p-2 gap-6 justify-evenly bg-neutral-900/30 z-50 backdrop-blur-md bg-opacity-80  `}>
                 <Link to='/' className={` flex flex-col no-underline font-bold md:text-xl text-[10px] hover:scale-125 transition-transform duration-100 ease-in ${loc.pathname==='/'?'text-yellow-300':'text-white'}`}>
                 <FontAwesomeIcon icon={faHome}/>
                 {t('home')}

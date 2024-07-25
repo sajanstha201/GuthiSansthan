@@ -34,9 +34,11 @@ export const NepalFlagSlider=({content})=>{
             <img 
             onMouseEnter={()=>{setIsHover(true)}}
             src={homePageDetail['slider-img']['gif']} 
+
             className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}></img>
             <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%]'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute  px-2 transition-all duration-300 ease-in-out flex items-center justify-center gap-2  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
+
                     <Link to='/services' className='feature-div'>
                          <OneImage img={bg} name={'our-services'}/>
                     </Link>
@@ -50,6 +52,7 @@ export const NepalFlagSlider=({content})=>{
                     <Link to='/articles' className='feature-div'>
                         <OneImage img={bg} name={'articles'}/>
                     </Link>
+                </div>
             </div>
         </div>
         </>

@@ -4,8 +4,8 @@ export const DonationPageSlice=createSlice({
     name:"DonationPageSlice",
     initialState:{
         isFetched:false,
-        url:'api/donations/'
-        
+        url:'api/donations/',
+        details:'',
     },
     reducers:{
         setDonationpage:(state,action)=>{

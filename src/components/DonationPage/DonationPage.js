@@ -6,8 +6,11 @@ import jatraImg from '../../media/DonationPage/image.png'
 import tempImg from '../../media/DonationPage/Pashupatinath_temple,kathmandu,Nepal.jpg'
 import bg from '../../media/DonationPage/5.png'
 import {motion} from 'framer-motion'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
+import { setBgImg, setDonationPageWholeDetail, setNewBgImg } from "../../state/DonationPageSlice"
+import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
+import {EditBgImage} from '../EditComponents/EditBgImage'
 export const DonationPage=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const [selectDonateSection,setSelectDonateSection]=useState('')
@@ -15,9 +18,12 @@ export const DonationPage=()=>{
     const globalDetail=useSelector(state=>state.globalDetail)
     const donationPageDetail=useSelector(state=>state.donationPageDetail)
     const baseUrl=useSelector(state=>state.baseUrl).backend
+    const dispatch=useDispatch()
     useEffect(()=>{
         const fetchData=async ()=>{
             const response=await axios.get(baseUrl+donationPageDetail.url)
+            dispatch(setDonationPageWholeDetail(response.data.components))
+            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-img'].image)))
             console.log(response.data)
         }
         if(!donationPageDetail.isFetched){
@@ -26,9 +32,11 @@ export const DonationPage=()=>{
     },[])
     return(
         <>
-        <div className="w-full h-full top-0 fixed bg-center bg-cover  -z-10" style={{backgroundImage:`url(${bg})`}}>
-        <div className="absolute inset-0 bg-neutral-900/50 backdrop-filter-blur blur-sm bg-opacity-50"></div>
-        </div>
+        <EditBgImage imageId={donationPageDetail['bg-img'].id} url={donationPageDetail.url} setNewImage={setNewBgImg}>
+        <div className="w-full h-full top-0 fixed bg-center bg-cover  -z-10" style={{backgroundImage:`url(${donationPageDetail['bg-img'].imgSrc})`}}></div>
+        </EditBgImage>
+  
+        <div className="absolute inset-0 bg-neutral-900/50 backdrop-filter-blur blur-sm bg-opacity-50 -z-10"></div>
             <div className="flex flex-col gap-3 mt-5">
                 <motion.div  initial={{opacity:0,x:-50}} animate={{opacity:1,x:0}} transition={{duration:1.9}} className={`${isMobile?' gap-5':' gap-20'} flex flex-row flex-wrap  items-center justify-center w-full`}>
                     <InstanceDonationSection  className='hover:scale-105 transition-all duration-100 ease-in-out animate-pulse' name={'Jatra'} setSelectDonateSection={setSelectDonateSection} bgImg={jatraImg}/>

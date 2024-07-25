@@ -1,8 +1,9 @@
 import React from 'react';
 
-const AccountDetails = () => {
+export const AccountDetails = () => {
   return (
-    <form className="space-y-4">
+    <>
+        <form className="space-y-4">
       <div>
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
           Username
@@ -45,7 +46,7 @@ const AccountDetails = () => {
         </button>
       </div>
     </form>
+    </>
+
   );
 };
-
-export default AccountDetails;

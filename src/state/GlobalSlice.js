@@ -22,11 +22,11 @@ export const GlobalSlice=createSlice({
             state['lng-logo']=action.payload
         },
         setNewGuthiSansthanLogo:(state,action)=>{
-            if(action.payload["imgSrc"] === ''){
-                state["guthi-sansthan-logo"]["imgSrc"]=state["guthi-sansthan-logo"]["actualImgSrc"]
+            if(action.payload){
+                state["guthi-sansthan-logo"]["imgSrc"]=action.payload
             }
             else{
-                state["guthi-sansthan-logo"]["imgSrc"]=action.payload["imgSrc"]
+                state["guthi-sansthan-logo"]["imgSrc"]=state["guthi-sansthan-logo"]["actualImgSrc"]
             }
         }
     }

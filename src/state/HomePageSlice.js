@@ -37,6 +37,10 @@ export const HomePageSlice=createSlice({
                 id:state['details']['slider-img'].id
             }
         },
+        setNewSliderImg:(state,action)=>{
+            if(action.payload==="") state['slider-img'].gif=state['slider-img'].actualGif
+            else state['slider-img'].gif=action.payload
+        },
         setBgVideo:(state,action)=>{
             state['bg-video']=action.payload
         },

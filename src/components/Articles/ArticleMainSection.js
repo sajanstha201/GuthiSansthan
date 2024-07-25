@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import {useDispatch, useSelector} from 'react-redux'
 import axios from "axios"
-import { setArticlePageWholeDetail, setBgImg } from "../../state/ArticlePageSlice";
+import { setArticlePageWholeDetail, setBgImg, setNewBgImg } from "../../state/ArticlePageSlice";
 import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
+import { EditBgImage } from "../EditComponents/EditBgImage";
 export const ArticleMainSection=()=>{
     const isMobile = useMediaQuery('(max-width:800px)');  
     const [isArticle,setArtical]=useState(true)
@@ -25,7 +26,10 @@ export const ArticleMainSection=()=>{
 
     return(
         <>
-         <div className="bg-cover bg-center h-screen w-full fixed -z-50 top-0"style={{backgroundImage:`url(${articlePageDetail['bg-img'].imgSrc})`}}></div>
+        <EditBgImage imageId={articlePageDetail['bg-img'].id} url={articlePageDetail.url} setNewImage={setNewBgImg}>
+            <div className="bg-cover bg-center h-screen w-full fixed -z-50 top-0"style={{backgroundImage:`url(${articlePageDetail['bg-img'].imgSrc})`}}></div>
+        </EditBgImage>
+         
          <div className="bg-cover bg-center h-screen w-full fixed -z-10 top-0 bg-black/40"></div>
          {isMobile ? <div className="w-full">
                    <div className="w-full py-2 flex justify-start bg-gray-400/80  gap-4 pl-16">

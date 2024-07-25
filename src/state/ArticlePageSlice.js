@@ -20,8 +20,12 @@ export const ArtilcePageSlice=createSlice({
                 id:state.details['bg-img'].id,
                 isFetched:true
             }
-        }
+        },
+        setNewBgImg:(state,action)=>{
+            if(action.payload) state["bg-img"]["imgSrc"]=action.payload
+            else state["bg-img"]["imgSrc"]=state["bg-img"]["actualImgSrc"]
+        },
     }
 })
 export default ArtilcePageSlice.reducer
-export const {setArticlePageWholeDetail,setBgImg}=ArtilcePageSlice.actions
+export const {setArticlePageWholeDetail,setBgImg,setNewBgImg}=ArtilcePageSlice.actions

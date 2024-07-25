@@ -11,8 +11,9 @@ import loc1 from '../media/ContactUs/lalitpur.jpeg'
 import loc2 from '../media/ContactUs/patan.jpeg'
 import bg from '../media/ContactUs/bg.png'
 import {useDispatch, useSelector} from 'react-redux'
-import { setBgImg, setContactUsPageWholeDetail, setExtraImage1, setExtraImage2 } from '../state/ContactUsPageSlice';
+import { setBgImg, setContactUsPageWholeDetail, setExtraImage1, setExtraImage2, setNewBgImg } from '../state/ContactUsPageSlice';
 import {addLanguage, fetchImageToURL} from '../components/ReuseableFunctions'
+import { EditBgImage } from '../components/EditComponents/EditBgImage';
 export const ContactUs = () => {
   const {t}=useTranslation()
   const isMobile=useMediaQuery('(max-width:800px)')
@@ -47,7 +48,9 @@ export const ContactUs = () => {
     })
   return (
 <div className=" flex flex-col items-center justify-center verflow-hidden bg-cover bg-center " >
-  <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${contactUsPageDetail['bg-img'].imgSrc})`}}></div>
+  <EditBgImage imageId={contactUsPageDetail['bg-img'].id} url={contactUsPageDetail.url} setNewImage={setNewBgImg}>
+      <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${contactUsPageDetail['bg-img'].imgSrc})`}}></div>
+  </EditBgImage>
   <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center bg-black/40 ' ></div>
 <h1 className="text-3xl font-bold text-white tracking-wide m-16">{t('contact-us-heading')}</h1>
     <div className={`${isMobile?'flex-col':'flex-row '} flex   rounded-lg justify-center align-center gap-10 mb-44`}>

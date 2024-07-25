@@ -9,6 +9,7 @@ import bg from '../../../media/TempleInformation/patandurbarsquare.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addLanguage ,fetchGifToURL} from '../../ReuseableFunctions'
 import { setSliderImg } from '../../../state/HomePageSlice'
+import { EditImage } from '../../EditComponents/EditImage'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     const dispatch=useDispatch()
@@ -29,11 +30,12 @@ export const NepalFlagSlider=({content})=>{
             <div className={`${isMobile?'text-[30px] w-[50%]':'text-[80px] p-[10%] w-[60%]'} ${isHover?'left-[-100%] opacity-0 ':''} absolute left-0  text-white font-bold   transition-left duration-500 font-reggaeOne`}>
                 {t('welcome-to-guthi-sansthan')}
             </div>
-            <img 
-            onMouseEnter={()=>{setIsHover(true)}}
-            src={homePageDetail['slider-img']['gif']} 
+                <img 
+                onMouseEnter={()=>{setIsHover(true)}}
+                src={homePageDetail['slider-img']['gif']} 
+                className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}></img>
+   
 
-            className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}></img>
             <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%]'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute  px-2 transition-all duration-300 ease-in-out flex items-center justify-center gap-2  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
 

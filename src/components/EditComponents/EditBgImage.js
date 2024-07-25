@@ -6,7 +6,7 @@ import { useEditing } from "../../context/EditingProvider"
 import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
-export const EditImage=({imageId,url,setNewImage,children})=>{
+export const EditBgImage=({imageId,url,setNewImage,children})=>{
     const [contentHidden,setContentHidden]=useState(false)
     const [image,setImage]=useState(false)
     const globalDetail=useSelector(state=>state.globalDetail)
@@ -35,27 +35,27 @@ export const EditImage=({imageId,url,setNewImage,children})=>{
     }
     return(
         <>
-        <div className="relative max-w-full max-h-full flex items-center justify-center">
+        <div className="relative w-full max-h-full flex items-center justify-center h-[100px]">
             {!contentHidden&&<>
-                {!image&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-10" onClick={()=>setContentHidden(true)}>Edit</div>}
+                {!image&&<div className="h-full w-full flex items-center justify-center" onClick={()=>setContentHidden(true)}>
+                    <div className="w-[80%] h-[80%] flex items-center justify-center bg-slate-600 rounded-lg cursor-pointer  text-white px-5 py-3   fill-zinc-100 z-10 text-xl">Click to edit background image</div>
+                </div>}
                 {children}
             </>}
             {contentHidden&&<>
                 <>
-                <label className="w-[90%] h-[90%] bg-slate-600 rounded-lg flex flex-col items-center justify-center p-1 cursor-pointer" htmlFor={'edit-image-'+imageId} onClick={(e)=>e.stopPropagation()}>
+                <label className="w-[80%] h-[80%] bg-slate-600 rounded-lg flex flex-col items-center justify-center p-1 cursor-pointer" htmlFor={'edit-image-'+imageId} onClick={(e)=>e.stopPropagation()}>
                     <FontAwesomeIcon icon={faAdd}  className="text-white"></FontAwesomeIcon>
                     <div className="text-white text-[10px]  md:text-[20px]">Upload image</div>
                 </label>
                 <input type="file" accept=".png,.jpeg,.jpg" id={'edit-image-'+imageId} className="hidden" onChange={handleUploadImage} onClick={(e)=>e.stopPropagation()}></input>
                 </>
             </>}
-            {image&&<div className="w-full h-full absolute z-100">
-                        <div className="absolute bottom-1 flex flex-row text-[10px] gap-1 right-1 text-white">
-                            <div className="px-2 py-1  rounded-md cursor-pointer bg-red-600  "
-                                onClick={restoreImage}>Remove</div>
-                            <div className="px-2 py-1  rounded-md cursor-pointer bg-green-600 "
-                                onClick={saveImage}>Save</div>
-                        </div>
+            {image&&<div className="w-[80%] h-[80%]  flex items-center justify-center text-white gap-5">
+                    <div className="px-5 py-3  rounded-md cursor-pointer bg-red-600  "
+                        onClick={restoreImage}>Remove</div>
+                    <div className="px-5 py-3   rounded-md cursor-pointer bg-green-600 "
+                        onClick={saveImage}>Save</div>
              </div>}
         </div>
         

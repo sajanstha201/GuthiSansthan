@@ -8,8 +8,9 @@ import { RightAndDuties } from './RightAndDuties';
 import aboutUsbackimg from '../../media/AboutUsPage/mountain.png';
 import axios from "axios"
 import {useDispatch, useSelector} from 'react-redux'
-import { setAboutUsPageWholeDetail, setBgImg } from '../../state/AboutUsPageSlice';
+import { setAboutUsPageWholeDetail, setBgImg, setNewBgImg } from '../../state/AboutUsPageSlice';
 import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
+import { EditBgImage } from '../EditComponents/EditBgImage';
 export const AboutUs = () => {
     const aboutRef = useRef();
     const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -52,8 +53,10 @@ export const AboutUs = () => {
 
     return (
         <>
-            <div className='fixed w-full h-screen top-0 -z-10 bg-cover' style={{ backgroundImage: `url(${aboutUsPageDetail['bg-img'].imgSrc})`, backgroundPosition: 'center' }}></div>
-            <div className="fixed bg-zinc-800/65 bg-center top-0 w-full h-screen"></div>
+        <EditBgImage imageId={aboutUsPageDetail['bg-img'].id} url={aboutUsPageDetail.url} setNewImage={setNewBgImg}>
+            <div className='fixed w-full h-screen top-0 -z-10 bg-cover' style={{ backgroundImage: `url(${aboutUsPageDetail['bg-img'].imgSrc})`, backgroundPosition: 'center' }}></div> 
+        </EditBgImage>
+        <div className="fixed bg-zinc-800/65 bg-center top-0 w-full h-screen -z-10"></div>
             <div className='flex flex-col items-center w-full'>
                 <AboutUsFirstSection onLinkClick={handleLinkClick} aboutRef={aboutRef} />
                 <div className='flex flex-col w-full lg:w-10/12 xl:w-8/12 mx-auto' ref={aboutRef}>

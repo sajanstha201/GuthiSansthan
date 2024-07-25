@@ -54,7 +54,6 @@ export const NepalFlagSlider=({content})=>{
                     </Link>
                 </div>
             </div>
-        </div>
         </>
     )
 }

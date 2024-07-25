@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AccountDetails from './setting/AccountDetails'
+import { AccountDetails } from './setting/Accountdetails';
 import PasswordSecurity from './setting/PasswordSecurity'
 const Profile = () => {
   const [selectedTab, setSelectedTab] = useState('account');

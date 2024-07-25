@@ -20,11 +20,12 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        const response = await axios.get(baseUrl + 'api/pages/home-page/');
+        const response = await axios.get(baseUrl + homePageDetail.url);
         const data = response.data.components;
+        console.log(data)
         dispatch(setHomePageWholeDetail(data));
         addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: data['welcome-to-guthi-sansthan'].text });
-        dispatch(setSliderImg({ gif: await fetchGifToURL(baseUrl + data['slider-img'].image.substr(1)) }));
+       
         dispatch(setBgVideo({ video: await fetchBgVideoToUrl(baseUrl + data['bg-video'].video) }));
       } catch (error) {
         console.log(error);

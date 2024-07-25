@@ -28,10 +28,9 @@ function App() {
   useEffect(()=>{
     const fetchGlobalData=async()=>{
       try{
-        const response=await axios.get(baseUrl+'api/global-components/get-all-components/')
-        console.log(response)
+        const response=await axios.get(baseUrl+globalDetail.url)
         dispact(setGlobalWholeDetail(response.data))
-        dispact(setGuthiSansthanLogo({'imgSrc':await fetchImageToURL(baseUrl+response.data['guthi-sansthan-logo'].image)}))
+        dispact(setGuthiSansthanLogo({'imgSrc':await fetchImageToURL(baseUrl+response.data['guthi-sansthan-logo'].image),'id':response.data['guthi-sansthan-logo'].id}))
         const lngLogo={}
         await Promise.all(Object.entries(response.data['lng-logo']).map(async([key,value])=>{
           lngLogo[key.split('-')[0]]=await fetchImageToURL(baseUrl+value.image)
@@ -53,7 +52,7 @@ function App() {
       <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
-      <div > 
+      <div className={`${location.pathname==='/'?'':'mb-[100px]'} `}> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />

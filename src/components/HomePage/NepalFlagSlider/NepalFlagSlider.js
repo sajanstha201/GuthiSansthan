@@ -6,18 +6,25 @@ import './NepalFlagSlider.css'
 import { OneImage } from './OneImage'
 import img from '../../../media/guthi sansthan.png'
 import bg from '../../../media/TempleInformation/patandurbarsquare.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addLanguage ,fetchGifToURL} from '../../ReuseableFunctions'
+import { setSliderImg } from '../../../state/HomePageSlice'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
-    useEffect(()=>{
-        // if(isMobile){
-        //     if(isHover) setTimeout(()=>{setIsHover(false)},5000)
-        //         else setTimeout(()=>{setIsHover(true)},1000)
-        // }        
-    })
+    const dispatch=useDispatch()
+    const baseUrl=useSelector(state=>state.baseUrl).backend
+    const homePageDetail=useSelector(state=>state.homePageDetail)
     const {t}=useTranslation()
     const isMobile=useMediaQuery('(max-width:1000px)')
-    const homePageDetail=useSelector(state=>state.homePageDetail)
+    useEffect(()=>{
+        const fetchData=async()=>{
+             if(!homePageDetail['slider-img'].isFetched&&homePageDetail.isFetched){
+                addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: homePageDetail['details']['welcome-to-guthi-sansthan']['text'] });
+                dispatch(setSliderImg(await fetchGifToURL(baseUrl + homePageDetail['details']['slider-img'].image.substr(1))));
+             }
+        }
+        fetchData()
+    })
     return(
         <>
         <div className={` ${isMobile?'h-[30vh]':'h-[40vh]'} flex flex-row items-center relative w-full  m-2 overflow-hidden`} onMouseLeave={()=>{setIsHover(false)}}>
@@ -27,23 +34,23 @@ export const NepalFlagSlider=({content})=>{
             <img 
             onMouseEnter={()=>{setIsHover(true)}}
             src={homePageDetail['slider-img']['gif']} 
-            className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out flex justify-center`}></img>
-            <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%] w-0'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute  transition-all duration-300 ease-in-out flex items-center justify-center  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
+
+            className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}></img>
+            <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%]'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute  px-2 transition-all duration-300 ease-in-out flex items-center justify-center gap-2  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
-                <div className='w-full  flex justify-center lg:gap-6 gap-1 lg:px-2'>
 
                     <Link to='/services' className='feature-div'>
-                         <OneImage img={bg} name={t('our-services')}/>
+                         <OneImage img={bg} name={'our-services'}/>
                     </Link>
                     <Link to='/about-us' className='feature-div'>
-                        <OneImage img={bg} name={t('about-us')}/>
+                        <OneImage img={bg} name={'about-us'}/>
                        
                     </Link>
                     <Link to='/contact-us' className='feature-div'>
-                        <OneImage img={bg} name={t('contact-us')}/>    
+                        <OneImage img={bg} name={'contact-us'}/>    
                     </Link>
                     <Link to='/articles' className='feature-div'>
-                        <OneImage img={bg} name={t('articles')}/>
+                        <OneImage img={bg} name={'articles'}/>
                     </Link>
                 </div>
             </div>

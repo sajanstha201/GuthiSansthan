@@ -1,18 +1,29 @@
 import { useMediaQuery } from "@mui/material"
 import { InstanceDonationSection } from "./InstanceDonationSection"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { OneDonation } from "./OneDonation"
 import jatraImg from '../../media/DonationPage/image.png'
 import tempImg from '../../media/DonationPage/Pashupatinath_temple,kathmandu,Nepal.jpg'
 import bg from '../../media/DonationPage/5.png'
 import {motion} from 'framer-motion'
 import { useSelector } from "react-redux"
+import axios from "axios"
 export const DonationPage=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const [selectDonateSection,setSelectDonateSection]=useState('')
     const homePageDetail=useSelector(state=>state.homePageDetail)
     const globalDetail=useSelector(state=>state.globalDetail)
-    console.log(homePageDetail['bg-video']['video'])
+    const donationPageDetail=useSelector(state=>state.donationPageDetail)
+    const baseUrl=useSelector(state=>state.baseUrl).backend
+    useEffect(()=>{
+        const fetchData=async ()=>{
+            const response=await axios.get(baseUrl+donationPageDetail.url)
+            console.log(response.data)
+        }
+        if(!donationPageDetail.isFetched){
+            fetchData()
+        }   
+    },[])
     return(
         <>
         <div className="w-full h-full top-0 fixed bg-center bg-cover  -z-10" style={{backgroundImage:`url(${bg})`}}>

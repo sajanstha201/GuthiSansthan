@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import { EditImage } from '../components/EditComponents';
+import img from '../media/ContactUs/bg.png'
+import {useSelector} from 'react-redux'
 export const Testing = () => {
     const [imgSrc, setImgSrc] = useState('');
     const [editorData, setEditorData] = useState('<h1>Hello from CKEditor 5!</h1>');
-
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const uploadImage = (event) => {
         const img = event.target.files[0];
         const reader = new FileReader();
@@ -30,10 +32,9 @@ export const Testing = () => {
             <h1>This is Testing Section</h1>
             <div>
                 <div>
-                    <input id='testing-input' type='file' accept='.png' onChange={uploadImage} />
-                    <img src={imgSrc} alt='Uploaded' style={{ maxWidth: '100%' }} />
-                </div>
-                <div>
+                {/* <EditImage imageId={'2'} url={baseUrl+'api/components/'}>
+                        <img  src={img} />
+                    </EditImage> */}
                     <h2>CKEditor Example</h2>
                     <CKEditor
                         editor={ClassicEditor}

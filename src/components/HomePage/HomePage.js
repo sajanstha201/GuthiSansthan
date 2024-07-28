@@ -58,7 +58,7 @@ export const HomePage = () => {
       )}
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20 -z-10"></div>
       
-      <div style={{ height: `${isEditing ? 'calc(100vh - 140px)' : '100%'}` }} 
+      <div style={{ height: `${isEditing ? 'calc(100vh - 160px)' : '100%'}` }} 
             className={` flex flex-col items-center justify-start h-full relative overflow-hidden`}>
         <NepalFlagSlider />
         <div className={` flex ${isMobile ? 'flex-col' : 'flex-row'}  gap-4 px-5 w-full`}>

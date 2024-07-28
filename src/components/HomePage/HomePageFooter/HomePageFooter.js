@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setFooterBgImg, setNewFooterBgImg } from '../../../state/HomePageSlice'
 import { fetchImageToURL } from '../../ReuseableFunctions'
 import { EditBgImage } from '../../EditComponents/EditBgImage'
+import { Temple } from './Temple/Temple';
 
 export const  HomePageFooter=()=>{
     const [selecedSection,setSelectedSection]=useState('')
@@ -43,6 +44,7 @@ export const  HomePageFooter=()=>{
             </EditBgImage>
             <div className={`${isMobile?'bg-gray-300/40 backdrop-blur-md rounded-tl-md rounded-tr-md':''} z-10 absolute bottom-0 w-full  justify-evenly  items-center flex flex-row  text-white font-bold`}>
                 <div className={`${isMobile?'px-3':'px-16 '} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3`} onClick={()=>setSelectedSection('calender')}><FontAwesomeIcon icon={faCalendarAlt}  size='2x' className=''/> <h2 className='text-base'>Calender</h2> </div>
+                <div className={` ${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('temple')}><FontAwesomeIcon icon={faUsers} size='2x' className='' /> <h2 className='text-base'>Temple</h2> </div>
                 <div className={`${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center  hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('parva')}><FontAwesomeIcon icon={faGopuram} size='2x' className='' /> <h2 className='text-base'>Parva</h2> </div>
                 <div className={` ${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('teams')}><FontAwesomeIcon icon={faUsers} size='2x' className='' /> <h2 className='text-base'>Teams</h2> </div>
             </div>
@@ -57,6 +59,11 @@ export const  HomePageFooter=()=>{
             <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer  absolute top-0 right-3 text-red-600 z-50" onClick={()=>setSelectedSection('')}/> 
               
                 <Parva />
+            </div>
+            <div  className={`${selecedSection==='temple'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
+            <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer  absolute top-0 right-3 text-red-600 z-50" onClick={()=>setSelectedSection('')}/> 
+              
+                <Temple/>
             </div>
             <div className={`${selecedSection==='teams'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg  w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
             <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer absolute top-0 right-3 text-red-600 z-50" onClick={()=>setSelectedSection('')}/> 

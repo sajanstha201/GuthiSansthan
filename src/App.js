@@ -20,6 +20,8 @@ import { setGlobalWholeDetail, setLngLogo ,setGuthiSansthanLogo} from './state/G
 import { fetchImageToURL } from './components/ReuseableFunctions';
 import Profile from './components/User/Profile';
 import JatraMain from './components/JatrasForm/JatraMain';
+import { ArticleAddition } from './components/Articles/ArticleAddition/ArticleAddition';
+import { NoticeAddition } from './components/Articles/ArticleAddition/NoticeAddition';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -65,6 +67,8 @@ function App() {
             <Route path='/articles' element={<ArticleMainSection/>}/>
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
+            <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
+            <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
           </Routes>
          
       </div>

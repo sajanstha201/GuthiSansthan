@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../AlertLoader";
 import i18next from "i18next";
 import { addLanguage, fetchBgVideoToUrl, fetchGifToURL } from "../ReuseableFunctions";
-import { setBgVideo, setHomePageWholeDetail, setSliderImg } from "../../state/HomePageSlice";
+import { setBgVideo, setHomePageWholeDetail, setNewBgVideo, setSliderImg } from "../../state/HomePageSlice";
 import { EditBgImage } from "../EditComponents/EditBgImage";
 import { EditBgVideo } from "../EditComponents/EditBgVideo";
 import { useEditing } from "../../context/EditingProvider";
@@ -41,8 +41,8 @@ export const HomePage = () => {
 
   return (
     <div style={{ height: `${isMobile ? 'calc(100vh - 80px)' : 'calc(100vh - 100px)'}` }}>
-      {homePageDetail['bg-video']['video'] && (
-        <EditBgVideo imageId={homePageDetail['bg-video']}>
+      {(
+        <EditBgVideo imageId={homePageDetail['bg-video']} url={homePageDetail.url} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].imgSrc===homePageDetail['bg-video'].actualImgSrc}>
           <video
               key={homePageDetail['bg-video']['video']} // Add key prop to force re-render
               autoPlay
@@ -58,7 +58,7 @@ export const HomePage = () => {
       )}
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20 -z-10"></div>
       
-      <div style={{ height: `${isEditing ? 'calc(100vh - 200px)' : '100%'}` }} 
+      <div style={{ height: `${isEditing ? 'calc(100vh - 140px)' : '100%'}` }} 
             className={` flex flex-col items-center justify-start h-full relative overflow-hidden`}>
         <NepalFlagSlider />
         <div className={` flex ${isMobile ? 'flex-col' : 'flex-row'}  gap-4 px-5 w-full`}>

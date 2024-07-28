@@ -6,11 +6,14 @@ import { useEditing } from "../../context/EditingProvider"
 import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
-export const EditBgVideo=({imageId,url,setNewImage,children})=>{
+export const EditBgVideo=({imageId,url,setNewImage,children,isActualUploadedSame})=>{
     const [contentHidden,setContentHidden]=useState(false)
-    const [image,setImage]=useState(false)
+    const [image,setImage]=useState(!isActualUploadedSame)
     const dispact=useDispatch()
     const {isEditing,setIsEditing}=useEditing()
+    useEffect(()=>{
+        console.log(isEditing,image,contentHidden)
+    })
     const handleUploadImage=(event)=>{
         event.stopPropagation();
         dispact(setNewImage(URL.createObjectURL(document.getElementById('edit-image-'+imageId).files[0])))
@@ -37,7 +40,7 @@ export const EditBgVideo=({imageId,url,setNewImage,children})=>{
         <>
         {!isEditing&&<>{children}</>}
         {isEditing&&
-              <div className="relative w-full max-h-full flex items-center justify-center h-[100px]">
+              <div className="relative w-full max-h-full flex items-center justify-center h-[60px]">
               {!contentHidden&&<>
                   {!image&&<div className="h-full w-full flex items-center justify-center" onClick={()=>setContentHidden(true)}>
                       <div className="w-[80%] h-[80%] flex items-center justify-center bg-slate-600 rounded-lg cursor-pointer  text-white px-5 py-3   fill-zinc-100 z-10 text-xl">Click to edit background Video</div>

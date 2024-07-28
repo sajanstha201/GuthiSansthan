@@ -7,6 +7,7 @@ import axios from "axios"
 import { setArticlePageWholeDetail, setBgImg, setNewBgImg } from "../../state/ArticlePageSlice";
 import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
 import { EditBgImage } from "../EditComponents/EditBgImage";
+import { showAlert } from "../AlertLoader";
 export const ArticleMainSection=()=>{
     const isMobile = useMediaQuery('(max-width:800px)');  
     const [isArticle,setArtical]=useState(true)
@@ -15,18 +16,32 @@ export const ArticleMainSection=()=>{
     const dispatch=useDispatch()
     
     useEffect(()=>{
-        const fetchData=async()=>{
-            const response=await axios.get(baseUrl+articlePageDetail.url)
-            dispatch(setArticlePageWholeDetail(response.data.components))
-            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-img'].image)))
-            addLanguage({key:'article-page-heading',lngs:response.data.components['bg-img'].text})
+        try{
+            const fetchData=async()=>{
+                try{
+                    const response=await axios.get(baseUrl+articlePageDetail.url)
+                    dispatch(setArticlePageWholeDetail(response.data.components))
+                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['articles-page'].image)))
+                    addLanguage({key:'article-page-heading',lngs:response.data.components['articles-page'].text})
+                }
+                catch(error){
+                    console.log(error)
+                    showAlert(error,'red')
+                }
+
+            }
+            if(!articlePageDetail.isFetched) fetchData()
         }
-        if(!articlePageDetail.isFetched) fetchData()
+        catch(error){
+            console.log(error)
+            showAlert(error,'red')
+        }
+
     })
 
     return(
         <>
-        <EditBgImage imageId={articlePageDetail['bg-img'].id} url={articlePageDetail.url} setNewImage={setNewBgImg}>
+        <EditBgImage imageId={articlePageDetail['bg-img'].id} url={articlePageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={articlePageDetail['bg-img'].imgSrc===articlePageDetail['bg-img'].actualImgSrc}>
             <div className="bg-cover bg-center h-screen w-full fixed -z-50 top-0"style={{backgroundImage:`url(${articlePageDetail['bg-img'].imgSrc})`}}></div>
         </EditBgImage>
          

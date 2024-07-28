@@ -17,8 +17,15 @@ export const InstanceFirstSection=({bgImage,name,onLinkClick})=>{
     useEffect(()=>{
         try{
             const fetchData=async()=>{
-                dispatch(setImgTab({name:name,detail:await fetchImageToURL(baseUrl+aboutUsPageDetail.details[name].image)}))
-                addLanguage({key:name+'-about-us',lngs:aboutUsPageDetail.details[name].text})
+                try{
+                    dispatch(setImgTab({name:name,detail:await fetchImageToURL(baseUrl+aboutUsPageDetail.details[name].image)}))
+                    addLanguage({key:name+'-about-us',lngs:aboutUsPageDetail.details[name].text})
+                }
+                catch(error){
+                    console.log(error)
+                    showAlert(error,'red')
+                }
+          
             }
             if(aboutUsPageDetail.isFetched && !aboutUsPageDetail[name].isFetched) fetchData()
         }

@@ -12,6 +12,7 @@ import { setBgImg, setNewBgImg, setServicePageWholeDetail } from "../../state/Se
 import { addLanguage, fetchImageToURL } from "../ReuseableFunctions";
 import { useTranslation } from "react-i18next"; 
 import { EditBgImage } from "../EditComponents/EditBgImage";
+import { showAlert } from "../AlertLoader";
 export const ServicePage=()=>{
   const servicePageDetail=useSelector(state=>state.servicePageDetail)
   const isMobile=useMediaQuery('(max-width:800px)')
@@ -19,16 +20,30 @@ export const ServicePage=()=>{
   const dispatch=useDispatch()
   const {t}=useTranslation()
   useEffect(()=>{
-    const fetchData=async ()=>{
-      const response=await axios.get(baseUrl+servicePageDetail.url)
-      console.log(response.data)
-      dispatch(setServicePageWholeDetail(response.data.components))
-      dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['our-services'].image)))
-      addLanguage({key:'our-services',lngs:response.data.components['our-services'].text})
+    try{
+      const fetchData=async ()=>{
+        try{
+          const response=await axios.get(baseUrl+servicePageDetail.url)
+          console.log(response.data)
+          dispatch(setServicePageWholeDetail(response.data.components))
+          dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['our-services'].image)))
+          addLanguage({key:'our-services',lngs:response.data.components['our-services'].text})
+        }
+        catch(error){
+          console.log(error)
+          showAlert(error,'red')
+        }
+
+      }
+      if(!servicePageDetail.isFetched){
+        fetchData();
+      }
     }
-    if(!servicePageDetail.isFetched){
-      fetchData();
+    catch(error){
+      console.log(error)
+      showAlert(error,'red')
     }
+
   },[])
   
     var settings = {
@@ -86,7 +101,7 @@ export const ServicePage=()=>{
     ]
     return(
         <div className="">
-          <EditBgImage imageId={servicePageDetail['bg-img'].id} url={servicePageDetail.url} setNewImage={setNewBgImg}>
+          <EditBgImage imageId={servicePageDetail['bg-img'].id} url={servicePageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={servicePageDetail['bg-img'].imgSrc===servicePageDetail['bg-img'].actualImgSrc}>
             <div style={{backgroundImage:`url(${servicePageDetail['bg-img'].imgSrc})`}} className="fixed w-full h-screen bg-cover bg-center top-0 -z-10 blur-[1px] bg-zinc-800/50"></div>
           </EditBgImage>
         

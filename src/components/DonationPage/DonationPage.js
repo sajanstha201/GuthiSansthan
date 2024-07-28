@@ -11,6 +11,7 @@ import axios from "axios"
 import { setBgImg, setDonationPageWholeDetail, setNewBgImg } from "../../state/DonationPageSlice"
 import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
 import {EditBgImage} from '../EditComponents/EditBgImage'
+import { showAlert } from "../AlertLoader"
 export const DonationPage=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const [selectDonateSection,setSelectDonateSection]=useState('')
@@ -20,19 +21,33 @@ export const DonationPage=()=>{
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const dispatch=useDispatch()
     useEffect(()=>{
-        const fetchData=async ()=>{
-            const response=await axios.get(baseUrl+donationPageDetail.url)
-            dispatch(setDonationPageWholeDetail(response.data.components))
-            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-img'].image)))
-            console.log(response.data)
+        try{
+            const fetchData=async ()=>{
+                try{
+                    const response=await axios.get(baseUrl+donationPageDetail.url)
+                    dispatch(setDonationPageWholeDetail(response.data.components))
+                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['donation-page'].image)))
+                    console.log(response.data)
+                }
+                catch(error){
+                    console.log(error)
+                    showAlert(error,'red')
+                }
+
+            }
+            if(!donationPageDetail.isFetched){
+                fetchData()
+            }   
         }
-        if(!donationPageDetail.isFetched){
-            fetchData()
-        }   
+        catch(error){
+            console.log(error)
+            showAlert(error,'red')
+        }
+  
     },[])
     return(
         <>
-        <EditBgImage imageId={donationPageDetail['bg-img'].id} url={donationPageDetail.url} setNewImage={setNewBgImg}>
+        <EditBgImage imageId={donationPageDetail['bg-img'].id} url={donationPageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={donationPageDetail['bg-img'].imgSrc===donationPageDetail['bg-img'].actualImgSrc}>
         <div className="w-full h-full top-0 fixed bg-center bg-cover  -z-10" style={{backgroundImage:`url(${donationPageDetail['bg-img'].imgSrc})`}}></div>
         </EditBgImage>
   

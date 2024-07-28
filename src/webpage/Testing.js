@@ -4,6 +4,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { EditImage } from '../components/EditComponents';
 import img from '../media/ContactUs/bg.png'
 import {useSelector} from 'react-redux'
+import { EditText } from '../components/EditComponents/EditText';
 export const Testing = () => {
     const [imgSrc, setImgSrc] = useState('');
     const [editorData, setEditorData] = useState('<h1>Hello from CKEditor 5!</h1>');
@@ -31,6 +32,9 @@ export const Testing = () => {
         <>
             <h1>This is Testing Section</h1>
             <div>
+                <EditText>
+                    my name is sajan shrestha
+                </EditText>
                 <div>
                 {/* <EditImage imageId={'2'} url={baseUrl+'api/components/'}>
                         <img  src={img} />

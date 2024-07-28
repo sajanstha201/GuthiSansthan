@@ -71,4 +71,4 @@ export const HomePageSlice=createSlice({
     }
 })
 export default HomePageSlice.reducer
-export const {setHomePageWholeDetail,setGuthiSansthanLogo,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewFooterBgImg} =HomePageSlice.actions
+export const {setHomePageWholeDetail,setGuthiSansthanLogo,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewFooterBgImg,setNewBgVideo} =HomePageSlice.actions

@@ -5,7 +5,7 @@ export function activate_loader(bool_value){
 export function showAlert(message, type) {
     const alertContainer = document.getElementById('alert-container');
     const alert = document.createElement('div');
-    alert.className = `alert ${type}`;
+    alert.className = `alert ${type} z-50`;
     alert.style.backgroundColor=type;
     alert.innerText = message;
     alertContainer.appendChild(alert);

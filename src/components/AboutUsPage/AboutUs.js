@@ -11,6 +11,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import { setAboutUsPageWholeDetail, setBgImg, setNewBgImg } from '../../state/AboutUsPageSlice';
 import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
 import { EditBgImage } from '../EditComponents/EditBgImage';
+import { showAlert } from '../AlertLoader';
 export const AboutUs = () => {
     const aboutRef = useRef();
     const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -18,13 +19,27 @@ export const AboutUs = () => {
     const aboutUsPageDetail=useSelector(state=>state.aboutUsPageDetail)
     const dispatch=useDispatch()
     useEffect(()=>{
-        const fetchData=async()=>{
-            const response=await axios.get(baseUrl+aboutUsPageDetail.url)
-            dispatch(setAboutUsPageWholeDetail(response.data.components))
-            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['about-us'].image)))
-            addLanguage({key:'about-us',lngs:response.data.components['about-us'].text})
+        try{
+            const fetchData=async()=>{
+                try{
+                    const response=await axios.get(baseUrl+aboutUsPageDetail.url)
+                    dispatch(setAboutUsPageWholeDetail(response.data.components))
+                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['about-us'].image)))
+                    addLanguage({key:'about-us',lngs:response.data.components['about-us'].text})
+                }
+                catch(error){
+                    console.log(error)
+                    showAlert(error,'red')
+                }
+
+            }
+            if(!aboutUsPageDetail.isFetched) fetchData()
         }
-        if(!aboutUsPageDetail.isFetched) fetchData()
+        catch(error){
+            console.log(error)
+            showAlert(error,'red')
+        }
+
     },[])
 
     const handleLinkClick = (section) => {
@@ -53,7 +68,7 @@ export const AboutUs = () => {
 
     return (
         <>
-        <EditBgImage imageId={aboutUsPageDetail['bg-img'].id} url={aboutUsPageDetail.url} setNewImage={setNewBgImg}>
+        <EditBgImage imageId={aboutUsPageDetail['bg-img'].id} url={aboutUsPageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={aboutUsPageDetail['bg-img'].imgSrc===aboutUsPageDetail['bg-img'].actualImgSrc}>
             <div className='fixed w-full h-screen top-0 -z-10 bg-cover' style={{ backgroundImage: `url(${aboutUsPageDetail['bg-img'].imgSrc})`, backgroundPosition: 'center' }}></div> 
         </EditBgImage>
         <div className="fixed bg-zinc-800/65 bg-center top-0 w-full h-screen -z-10"></div>

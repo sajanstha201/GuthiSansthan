@@ -35,20 +35,34 @@ export const ContactUs = () => {
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const dispatch=useDispatch()
     useEffect(()=>{
-      const fetchData=async()=>{
-        const response=await axios.get(baseUrl+contactUsPageDetail.url)
-        console.log(response.data.components)
-        dispatch(setContactUsPageWholeDetail(response.data.components))
-        dispatch(setExtraImage1(await fetchImageToURL(baseUrl+response.data.components['extra-image-1'].image)))
-        dispatch(setExtraImage2(await fetchImageToURL(baseUrl+response.data.components['extra-image-2'].image)))
-        dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-image'].image)))
-        addLanguage({key:'contact-us-heading',lngs:response.data.components['bg-image'].text})
+      try{
+        const fetchData=async()=>{
+          try{
+            const response=await axios.get(baseUrl+contactUsPageDetail.url)
+            console.log(response.data.components)
+            dispatch(setContactUsPageWholeDetail(response.data.components))
+            dispatch(setExtraImage1(await fetchImageToURL(baseUrl+response.data.components['extra-image-1'].image)))
+            dispatch(setExtraImage2(await fetchImageToURL(baseUrl+response.data.components['extra-image-2'].image)))
+            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['contact-us'].image)))
+            addLanguage({key:'contact-us-heading',lngs:response.data.components['contact-us'].text})
+          }
+          catch(error){
+            console.log(error)
+            showAlert(error,'red')
+          }
+
+        }
+        if(!contactUsPageDetail.isFetched) fetchData()
       }
-      if(!contactUsPageDetail.isFetched) fetchData()
+      catch(error){
+        console.log(error)
+        showAlert(error,'red')
+      }
+
     })
   return (
 <div className=" flex flex-col items-center justify-center verflow-hidden bg-cover bg-center " >
-  <EditBgImage imageId={contactUsPageDetail['bg-img'].id} url={contactUsPageDetail.url} setNewImage={setNewBgImg}>
+  <EditBgImage imageId={contactUsPageDetail['bg-img'].id} url={contactUsPageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={contactUsPageDetail['bg-img'].imgSrc===contactUsPageDetail['bg-img'].actualImgSrc}>
       <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${contactUsPageDetail['bg-img'].imgSrc})`}}></div>
   </EditBgImage>
   <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center bg-black/40 ' ></div>

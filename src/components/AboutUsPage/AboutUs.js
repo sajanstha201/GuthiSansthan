@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AboutUsFirstSection } from './AboutUsFirstSecton';
 import { HistoricalBackGround } from './HistoricalBackGround';
 import { Introduction } from './Introduction';
@@ -6,26 +6,42 @@ import { Objectives } from './Objectives';
 import { OrganizationalStructure } from './OrganizationalStructure';
 import { RightAndDuties } from './RightAndDuties';
 import aboutUsbackimg from '../../media/AboutUsPage/mountain.png';
-
+import axios from "axios"
+import {useDispatch, useSelector} from 'react-redux'
+import { setAboutUsPageWholeDetail, setBgImg, setNewBgImg } from '../../state/AboutUsPageSlice';
+import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
+import { EditBgImage } from '../EditComponents/EditBgImage';
 export const AboutUs = () => {
     const aboutRef = useRef();
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const [sectionSelected, setSectionSelected] = useState('');
+    const aboutUsPageDetail=useSelector(state=>state.aboutUsPageDetail)
+    const dispatch=useDispatch()
+    useEffect(()=>{
+        const fetchData=async()=>{
+            const response=await axios.get(baseUrl+aboutUsPageDetail.url)
+            dispatch(setAboutUsPageWholeDetail(response.data.components))
+            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['about-us'].image)))
+            addLanguage({key:'about-us',lngs:response.data.components['about-us'].text})
+        }
+        if(!aboutUsPageDetail.isFetched) fetchData()
+    },[])
 
     const handleLinkClick = (section) => {
         switch (section) {
-            case 'about-us-introduction':
+            case 'about-us-introduction-tab':
                 setSectionSelected('introduction');
                 break;
-            case 'about-us-historical-background':
+            case 'about-us-historical-background-tab':
                 setSectionSelected('historical-background');
                 break;
-            case 'about-us-right-and-duties':
+            case 'about-us-rights-and-duties-tab':
                 setSectionSelected('right-and-duties');
                 break;
-            case 'about-us-organizational-structure':
+            case 'about-us-organizational-structure-tab':
                 setSectionSelected('organizational-structure');
                 break;
-            case 'about-us-objectives':
+            case 'about-us-objectives-tab':
                 setSectionSelected('objectives');
                 break;
             default:
@@ -37,8 +53,10 @@ export const AboutUs = () => {
 
     return (
         <>
-            <div className='fixed w-full h-screen top-0 -z-10 bg-cover' style={{ backgroundImage: `url(${aboutUsbackimg})`, backgroundPosition: 'center' }}></div>
-            <div className="fixed bg-zinc-800/65 bg-center top-0 w-full h-screen"></div>
+        <EditBgImage imageId={aboutUsPageDetail['bg-img'].id} url={aboutUsPageDetail.url} setNewImage={setNewBgImg}>
+            <div className='fixed w-full h-screen top-0 -z-10 bg-cover' style={{ backgroundImage: `url(${aboutUsPageDetail['bg-img'].imgSrc})`, backgroundPosition: 'center' }}></div> 
+        </EditBgImage>
+        <div className="fixed bg-zinc-800/65 bg-center top-0 w-full h-screen -z-10"></div>
             <div className='flex flex-col items-center w-full'>
                 <AboutUsFirstSection onLinkClick={handleLinkClick} aboutRef={aboutRef} />
                 <div className='flex flex-col w-full lg:w-10/12 xl:w-8/12 mx-auto' ref={aboutRef}>

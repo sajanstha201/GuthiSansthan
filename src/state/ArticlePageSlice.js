@@ -1,31 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const DonationPageSlice=createSlice({
-    name:"DonationPageSlice",
+export const ArtilcePageSlice=createSlice({
+    name:"articlePage",
     initialState:{
         isFetched:false,
-        url:'api/pages/donation-page/',
         details:{},
-        "bg-img":{imgSrc:"",actualImgSrc:"",id:'',isFetched:false}
+        url:'api/pages/articles-page/',
+        "bg-img":{imgSrc:'',actualImgSrc:'',id:'',isFetched:false}
     },
     reducers:{
-        setDonationPageWholeDetail:(state,action)=>{
+        setArticlePageWholeDetail:(state,action)=>{
+            state.isFetched=true;
             state.details=action.payload
-            state.isFetched=true
         },
         setBgImg:(state,action)=>{
-            state["bg-img"]={
-                isFetched:true,
+            state['bg-img']={
                 imgSrc:action.payload,
                 actualImgSrc:action.payload,
-                id:state.details['bg-img'].id
+                id:state.details['bg-img'].id,
+                isFetched:true
             }
         },
         setNewBgImg:(state,action)=>{
             if(action.payload) state["bg-img"]["imgSrc"]=action.payload
             else state["bg-img"]["imgSrc"]=state["bg-img"]["actualImgSrc"]
-        }
+        },
     }
 })
-export default DonationPageSlice.reducer
-export const {setDonationPageWholeDetail,setBgImg,setNewBgImg}=DonationPageSlice.actions
+export default ArtilcePageSlice.reducer
+export const {setArticlePageWholeDetail,setBgImg,setNewBgImg}=ArtilcePageSlice.actions

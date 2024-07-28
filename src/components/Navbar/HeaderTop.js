@@ -14,7 +14,7 @@ import { EditImage } from "../EditComponents";
 import { useEditing } from "../../context/EditingProvider";
 export const HeaderTop = () => {
     const globalDetail=useSelector(state=>state.globalDetail)
-    const isMobile = useMediaQuery('(max-width:1000px)');
+    const isMobile = useMediaQuery('(max-width:800px)');
     const {isEditing,setIsEditing}=useEditing()
     const { selectLanguage, setSelectLanguage } = useSelectLanguage();
     const { i18n, t } = useTranslation();

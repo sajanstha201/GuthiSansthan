@@ -6,9 +6,9 @@ import { useEditing } from "../../context/EditingProvider"
 import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
-export const EditImage=({imageId,url,setNewImage,children})=>{
+export const EditImage=({imageId,url,setNewImage,children,isActualUploadedSame})=>{
     const [contentHidden,setContentHidden]=useState(false)
-    const [image,setImage]=useState(false)
+    const [image,setImage]=useState(!isActualUploadedSame)
     const globalDetail=useSelector(state=>state.globalDetail)
     const dispact=useDispatch()
     const handleUploadImage=(event)=>{

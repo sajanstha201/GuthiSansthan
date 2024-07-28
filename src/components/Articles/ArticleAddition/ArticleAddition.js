@@ -1,7 +1,8 @@
+import { TemplateMain } from "./Template/TemplateMain"
 export const ArticleAddition=()=>{
     return(
         <>
-        <h1>Add Article Section</h1>
+        <TemplateMain name={'article1'}/>
         </>
     )
 }

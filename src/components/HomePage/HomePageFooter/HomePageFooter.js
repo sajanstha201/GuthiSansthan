@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './HomePageFooter.css'
 import { useMediaQuery } from '@mui/material'
 import { useRef } from 'react'
 import { Calendar } from './Calender/Calender';

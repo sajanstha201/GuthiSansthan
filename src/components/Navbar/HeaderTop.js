@@ -59,7 +59,7 @@ export const HeaderTop = () => {
             </div>}
             <div className={`${isMobile ? 'gap-1 w-[50%]' : 'gap-7 w-[30%]'} relative flex-row flex h-full items-center justify-start px-2`}>
                 <div ref={divRef} className={`gap-1 w-[40%]  relative flex-row flex items-center justify-end   `}>
-                        <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">LNG</div>
+                        <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">LANG</div>
                     <div className="relative bg-gray-300/70 rounded-full flex flex-row items-center justify-center p-1">
                         <div className={`h-[30px] w-[30px] md:h-[60px] md:w-[60px] cursor-pointer transition-all rounded-md p-1 items-center flex justify-center   `}
                                 onClick={() => { setLanguageOptionHidden(!languageOptionHidden); }}>

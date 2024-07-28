@@ -20,6 +20,7 @@ import { setGlobalWholeDetail, setLngLogo ,setGuthiSansthanLogo} from './state/G
 import { fetchImageToURL } from './components/ReuseableFunctions';
 import Profile from './components/User/Profile';
 import JatraMain from './components/JatrasForm/JatraMain';
+import DonationForm from './components/DonationPage/Donationform/DonationForm';
 import { ArticleAddition } from './components/Articles/ArticleAddition/ArticleAddition';
 import { NoticeAddition } from './components/Articles/ArticleAddition/NoticeAddition';
 function App() {
@@ -67,6 +68,7 @@ function App() {
             <Route path='/articles' element={<ArticleMainSection/>}/>
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
+            <Route path='/donation-form' element={<DonationForm/>}/>
             <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
             <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
           </Routes>

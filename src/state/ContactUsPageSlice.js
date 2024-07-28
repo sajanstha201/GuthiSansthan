@@ -3,7 +3,7 @@ export const ContactUsPageSlice=createSlice({
     name:"contactUsPage",
     initialState:{
         isFetched:false,
-        url:'api/pages/contact-us/',
+        url:'api/pages/contact-us-page/',
         "bg-img":{imgSrc:"",id:"",actualImgSrc:"",isFetched:false},
         "details":{},
         "extra-image-1":{imgSrc:"",id:"",actualImgSrc:"",isFetched:false},

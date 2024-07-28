@@ -118,7 +118,7 @@ export const Calendar = () => {
   };
 
   return (
-    <div className="bg-gray-100/5 backdrop-blur-sm flex items-center justify-center h-screen ">
+    <div className="bg-red-400/35  backdrop-blur-sm flex items-center justify-center h-screen ">
       <div className="lg:w-full flex flex-wrap items-center justify-center md:w-9/12 sm:w-10/12 mx-auto p-4 overflow-auto">
         <div className="bg-red-400/70 shadow-lg rounded-lg overflow-hidden w-[90%] text-white font-bold flex lg:w-1/2 h-96 flex-col ">
           <div className="flex items-center justify-between px-6 py-3 bg-gray-700/50">
@@ -137,7 +137,7 @@ export const Calendar = () => {
           {renderCalendar()}
           </div>
           {selectedEvent && (
-            <div className="p-4  bg-gray-800 text-white rounded-lg mt-4 w-96">
+            <div className="p-2  bg-gray-800 text-white rounded-lg mt-4 w-full aspect-video lg:w-96">
               <h3 className="text-lg font-bold">{selectedEvent.name}</h3>
               <img src={`http://192.168.1.65:8000${selectedEvent.image}`} alt={selectedEvent.name} className="w-full h-auto mt-2" />
               <p className="mt-2">{selectedEvent.description}</p>

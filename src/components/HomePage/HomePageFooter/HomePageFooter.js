@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react'
 import './HomePageFooter.css'
 import { useMediaQuery } from '@mui/material'
 import { useRef } from 'react'
-import { Calender } from './Calender/Calender'
+import { Calendar } from './Calender/Calender';
 import { Parva } from './Parva/Parva'
 import { Teams } from './Teams/Teams'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faGopuram, faUsers ,faClose} from '@fortawesome/free-solid-svg-icons'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { setFooterBgImg, setNewFooterBgImg } from '../../../state/HomePageSlice'
 import { fetchImageToURL } from '../../ReuseableFunctions'
 import { EditBgImage } from '../../EditComponents/EditBgImage'
+
 export const  HomePageFooter=()=>{
     const [selecedSection,setSelectedSection]=useState('')
     const isMobile=useMediaQuery('(max-width:800px)')
@@ -49,7 +51,7 @@ export const  HomePageFooter=()=>{
             <div  className={`${selecedSection==='calender'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
             <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-3 text-red-600" onClick={()=>setSelectedSection('')}/> 
 
-                <Calender/>
+                <Calendar/>
             </div>
             <div  className={`${selecedSection==='parva'?'bottom-0 ':'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>
             <div onClick={()=>setSelectedSection('')}className="absolute bg-red-700 w-[30px] h-[30px] top-2 right-2 flex items-center justify-center rounded-full border-black border-2 cursor-pointer">x</div>

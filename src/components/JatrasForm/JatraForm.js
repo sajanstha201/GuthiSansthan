@@ -7,33 +7,27 @@ const JatraForm = () => {
   const nameRef = useRef();
   const photoRef = useRef();
   const desRef = useRef();
-  const [date, setDate] = useState("")
+  const [startDate, setstartDate] = useState("")
+  const [endDate, setendDate] = useState("")
 
   const handleSubmit = async () => {
     const name = nameRef.current.value.trim();
-    const photo = photoRef.current.files[0]; // get the file object
+    const image = photoRef.current.files[0]; // get the file object
     const description = desRef.current.value.trim();
 
-    if (!name || !photo || !description) {
+    if (!name ||!startDate || !endDate ||!image || !description) {
       alert("Please fill out all fields.");
       return;
     }
+ 
 
-    // Extracting date components
-    const [year, month, date] = date.split('-');
-    const start_month = month;
-    const end_month = month;
-    const start_date = date;
-    const end_date = date;
+
 
     const formData = new FormData();
     formData.append('name', name);
-    formData.append('year', year);
-    formData.append('start_month', start_month);
-    formData.append('end_month', end_month);
-    formData.append('start_date', start_date);
-    formData.append('end_date', end_date);
-    formData.append('photo', photo);
+    formData.append("start_date",startDate)
+    formData.append("end_date",endDate)
+    formData.append('image', image);
     formData.append('description', description);
 
     try {
@@ -56,7 +50,7 @@ const JatraForm = () => {
   };
 
   return (
-    <div className='flex flex-col w-[90%] bg-white/50 backdrop-blur-sm rounded-lg lg:w-[50%] p-3 gap-2'>
+    <div className='flex flex-col w-[90%] bg-white/50 backdrop-blur-sm rounded-lg lg:w-[50%] p-3 gap-2 mb-12'>
       <h1 className='font-semibold tracking-wider my-2'>Jatra Form</h1>
       <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
         <label className='font-semibold text-lg'>Festival Name:</label>
@@ -66,16 +60,16 @@ const JatraForm = () => {
         <label className='font-semibold text-lg'>starting date (BS):</label>
         <NepaliDatePicker inputClassName="form-control"
                               className=""
-                              value={date}
-                              onChange={(value) => setDate(value)}
+                              value={startDate}
+                              onChange={(value) => setstartDate(value)}
                               options={{ calenderLocale: "ne", valueLocale: "en" }} />
       </div>
       <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
         <label className='font-semibold text-lg'>Ending date (BS):</label>
         <NepaliDatePicker inputClassName="form-control"
                               className=""
-                              value={date}
-                              onChange={(value) => setDate(value)}
+                              value={endDate}
+                              onChange={(value) => setendDate(value)}
                               options={{ calenderLocale: "ne", valueLocale: "en" }} />
       </div>
       <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>

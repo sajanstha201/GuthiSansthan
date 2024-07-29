@@ -5,13 +5,13 @@ import { Calendar } from './Calender/Calender';
 import { Parva } from './Parva/Parva'
 import { Teams } from './Teams/Teams'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faGopuram, faUsers ,faClose} from '@fortawesome/free-solid-svg-icons'
+import { faCalendarAlt, faGopuram, faUsers ,faClose, faCalendarDay} from '@fortawesome/free-solid-svg-icons'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { setFooterBgImg, setNewFooterBgImg } from '../../../state/HomePageSlice'
 import { fetchImageToURL } from '../../ReuseableFunctions'
 import { EditBgImage } from '../../EditComponents/EditBgImage'
-import { Temple } from './Temple/Temple';
+import Temple  from './Temple/Temple';
 
 export const  HomePageFooter=()=>{
     const [selecedSection,setSelectedSection]=useState('')
@@ -43,8 +43,8 @@ export const  HomePageFooter=()=>{
             </EditBgImage>
             <div className={`${isMobile?'bg-gray-300/40 backdrop-blur-md rounded-tl-md rounded-tr-md':''} z-10 absolute bottom-0 w-full  justify-evenly  items-center flex flex-row  text-white font-bold`}>
                 <div className={`${isMobile?'px-3':'px-16 '} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3`} onClick={()=>setSelectedSection('calender')}><FontAwesomeIcon icon={faCalendarAlt}  size='2x' className=''/> <h2 className='text-base'>Calender</h2> </div>
-                <div className={` ${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('temple')}><FontAwesomeIcon icon={faUsers} size='2x' className='' /> <h2 className='text-base'>Temple</h2> </div>
-                <div className={`${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center  hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('parva')}><FontAwesomeIcon icon={faGopuram} size='2x' className='' /> <h2 className='text-base'>Parva</h2> </div>
+                <div className={` ${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('temple')}><FontAwesomeIcon icon={faGopuram} size='2x' className='' /> <h2 className='text-base'>Temple</h2> </div>
+                <div className={`${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center  hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('parva')}><FontAwesomeIcon icon={faCalendarDay} size='2x' className='' /> <h2 className='text-base'>Parva</h2> </div>
                 <div className={` ${isMobile?'px-3':'px-16'} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3 `} onClick={()=>setSelectedSection('teams')}><FontAwesomeIcon icon={faUsers} size='2x' className='' /> <h2 className='text-base'>Teams</h2> </div>
             </div>
         </div>

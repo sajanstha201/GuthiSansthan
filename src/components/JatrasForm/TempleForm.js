@@ -26,18 +26,33 @@ const TempleForm = () => {
        formData.append('location',location);
        formData.append('image',photo);
        formData.append('qr_code',qrcode)
-       formData.append('description',des)
+       formData.append('details',des)
        console.log(formData)
 
-          fetch('http://192.168.1.65:8000/api/temples',{
-           method:'post',
-           body:formData,
-          }).then((res)=>{
-            console.log(res.json());
-          }).catch((res)=>{
-             console(res)
-          })
-    }
+    
+       try {
+         const response = await fetch('http://guthi.pythonanywhere.com/api/temples/', {
+           method: 'POST',
+           body: formData,
+         });
+   
+         if (!response.ok) {
+           throw new Error('Network response was not ok');
+         }
+   
+         const result = await response.json();
+         console.log(result);
+         alert("Temple added successfully!");
+         
+          
+
+
+       } catch (error) {
+         console.error('Error:', error);
+         alert("Failed to add Temple.");
+       }
+     };
+    
   return (
     
              <div className='flex flex-col w-[90%] bg-white/50 backdrop-blur-sm rounded-lg lg:w-[50%] p-3 gap-2'>

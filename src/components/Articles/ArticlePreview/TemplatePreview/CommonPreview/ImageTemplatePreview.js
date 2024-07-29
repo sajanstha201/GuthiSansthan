@@ -13,7 +13,6 @@ export const ImageTemplatePreview=({image,name})=>{
             reader.readAsArrayBuffer(image)
             console.log(image)
         }
-
     },[image])
     return(
         <div className="flex items-center justify-center">

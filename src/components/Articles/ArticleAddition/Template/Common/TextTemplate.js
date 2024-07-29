@@ -6,17 +6,9 @@ export const TextTemplate=({data,setData,name})=>{
     const [language,setLanguage]=useState('nepali')
     const [textData,setTextData]=useState('')
     useEffect(()=>{
-        // const textarea = document.getElementById('textArea-'+name);
-        // textarea.addEventListener('input', () => {
-        //     textarea.style.height = 'auto';
-        //     textarea.style.height = textarea.scrollHeight+'px';
-        // });
-    },[name])
-    useEffect(()=>{
         setTextData(data[name]?.['text']?.[language] ?? '')
     },[language])
     const handleChange=(event,editor)=>{
-        console.log(editor.getData())
         setData(prevData=>({...prevData,[name]:{
             ...prevData[name],['text']:{...prevData[name]['text'],[language]:editor.getData()}
         }}))

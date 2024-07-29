@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { AppProvider } from './context/AppProvider';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import { HashRouter } from 'react-router-dom';

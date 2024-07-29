@@ -31,7 +31,7 @@ const JatraForm = () => {
     formData.append('description', description);
 
     try {
-      const response = await fetch('http://192.168.1.65:8000/api/festivals/', {
+      const response = await fetch('http://guthi.pythonanywhere.com/api/festivals/', {
         method: 'POST',
         body: formData,
       });

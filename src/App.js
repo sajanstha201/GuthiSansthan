@@ -23,6 +23,8 @@ import JatraMain from './components/JatrasForm/JatraMain';
 import DonationForm from './components/DonationPage/Donationform/DonationForm';
 import { ArticleAddition } from './components/Articles/ArticleAddition/ArticleAddition';
 import { NoticeAddition } from './components/Articles/ArticleAddition/NoticeAddition';
+import { ShowArticle } from './components/Articles/ArticleSection/ShowArticle';
+import { ShowNotice } from './components/Articles/NoticeSection/ShowNotice';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -66,6 +68,9 @@ function App() {
             <Route path='/sign-in' element={<Signin/>}/>
             <Route path='/donation' element={<DonationPage/>}/>
             <Route path='/articles' element={<ArticleMainSection/>}/>
+            <Route path='/show-article' element={<ShowArticle/>}/>
+            <Route path='/show-notice' element={<ShowNotice/>}/>
+
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/donation-form' element={<DonationForm/>}/>

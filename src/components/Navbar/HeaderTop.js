@@ -71,10 +71,10 @@ export const HeaderTop = () => {
                                     {selectLanguage === 'mithila' && <img src='http://guthi.pythonanywhere.com/media/global_component_image/MithilaFlag_VkTeQKY.png'/>}
                                     </div>
 
-                                <div className={`${languageOptionHidden ? 'opacity-0' : 'opacity-100'} w-full absolute flex flex-col gap-2 items-center top-[110%] left-0 bg-gray-300/70 z-20 transition-all duration-500 rounded-md p-2`}>
+                                <div className={`${languageOptionHidden ? 'opacity-0 h-0' : 'opacity-100 '}  absolute flex flex-col gap-2 items-center top-[110%] left-0 bg-gray-300/70 z-20 transition-all duration-500 rounded-md `}>
                                     {['nepali','newari','english','mithila'].filter(lng=>lng!==selectLanguage).map(
                                         (key,index)=>(
-                                        <Language name={key} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index}></Language>))}
+                                        <Language name={key} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index} languageOptionHidden={languageOptionHidden}></Language>))}
                                 </div>
                         </div> 
                     </div>

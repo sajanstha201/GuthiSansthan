@@ -43,8 +43,8 @@ export const ContactUs = () => {
             dispatch(setContactUsPageWholeDetail(response.data.components))
             dispatch(setExtraImage1(await fetchImageToURL(baseUrl+response.data.components['extra-image-1'].image)))
             dispatch(setExtraImage2(await fetchImageToURL(baseUrl+response.data.components['extra-image-2'].image)))
-            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['contact-us'].image)))
-            addLanguage({key:'contact-us-heading',lngs:response.data.components['contact-us'].text})
+            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-image'].image)))
+            addLanguage({key:'contact-us-heading',lngs:response.data.components['contact-us-heading'].text})
           }
           catch(error){
             console.log(error)

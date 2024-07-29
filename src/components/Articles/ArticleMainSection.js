@@ -23,8 +23,8 @@ export const ArticleMainSection=()=>{
                 try{
                     const response=await axios.get(baseUrl+articlePageDetail.url)
                     dispatch(setArticlePageWholeDetail(response.data.components))
-                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['articles-page'].image)))
-                    addLanguage({key:'article-page-heading',lngs:response.data.components['articles-page'].text})
+                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-img'].image)))
+                    addLanguage({key:'article-page-heading',lngs:response.data.components['bg-img'].text})
                 }
                 catch(error){
                     console.log(error)

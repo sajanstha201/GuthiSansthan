@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../AlertLoader";
 import i18next from "i18next";
 import { addLanguage, fetchBgVideoToUrl, fetchGifToURL } from "../ReuseableFunctions";
-import { setBgVideo, setHomePageWholeDetail, setNewBgVideo, setSliderImg } from "../../state/HomePageSlice";
+import { setBgVideo, setHomePageWholeDetail, setNewBgVideo, setSliderImg } from "../../state/HomePageSlices/HomePageSlice";
 import { EditBgImage } from "../EditComponents/EditBgImage";
 import { EditBgVideo } from "../EditComponents/EditBgVideo";
 import { useEditing } from "../../context/EditingProvider";

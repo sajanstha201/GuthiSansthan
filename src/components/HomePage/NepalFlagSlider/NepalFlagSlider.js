@@ -8,7 +8,7 @@ import img from '../../../media/guthi sansthan.png'
 import bg from '../../../media/TempleInformation/patandurbarsquare.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addLanguage ,fetchGifToURL} from '../../ReuseableFunctions'
-import { setSliderImg } from '../../../state/HomePageSlice'
+import { setSliderImg } from '../../../state/HomePageSlices/HomePageSlice'
 import { EditImage } from '../../EditComponents/EditImage'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)

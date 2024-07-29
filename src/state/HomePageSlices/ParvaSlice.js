@@ -4,12 +4,13 @@ export const ParvaSlice=createSlice({
     name:"parvaSlice",
     initialState:{
         isFetched:false,
-        url:'',
-        details:'',
+        url:'api/festivals/',
+        details:[],
     },
     reducers:{
         setParvaWholeDetails:(state,action)=>{
             state.details=action.payload
+            state.isFetched=true;
         }
     }
 })

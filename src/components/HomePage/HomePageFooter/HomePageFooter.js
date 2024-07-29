@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faGopuram, faUsers ,faClose, faCalendarDay} from '@fortawesome/free-solid-svg-icons'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { setFooterBgImg, setNewFooterBgImg } from '../../../state/HomePageSlice'
+import { setFooterBgImg, setNewFooterBgImg } from '../../../state/HomePageSlices/HomePageSlice'
 import { fetchImageToURL } from '../../ReuseableFunctions'
 import { EditBgImage } from '../../EditComponents/EditBgImage'
 import Temple  from './Temple/Temple';

@@ -11,9 +11,6 @@ export const EditBgVideo=({imageId,url,setNewImage,children,isActualUploadedSame
     const [image,setImage]=useState(!isActualUploadedSame)
     const dispact=useDispatch()
     const {isEditing,setIsEditing}=useEditing()
-    useEffect(()=>{
-        console.log(isEditing,image,contentHidden)
-    })
     const handleUploadImage=(event)=>{
         event.stopPropagation();
         dispact(setNewImage(URL.createObjectURL(document.getElementById('edit-image-'+imageId).files[0])))

@@ -1,5 +1,5 @@
 import {showAlert} from '../../../../AlertLoader'
-export const LanguageChangeButton=({language,setLanguage,nepaliText})=>{
+export const LanguageChangeButton=({name,data,setData,language,setLanguage,nepaliText})=>{
     return(
         <>
             <div>

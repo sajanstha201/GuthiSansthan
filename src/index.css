@@ -45,3 +45,10 @@ code {
 .modal-close {
   cursor: pointer;
 }
+ul, li {
+  /* Tailwind utility to override */
+  list-style: disc; /* Or any desired style */
+  margin: 0;
+  padding: 0;
+  text-align: start;
+}

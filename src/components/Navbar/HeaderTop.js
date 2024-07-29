@@ -34,6 +34,7 @@ export const HeaderTop = () => {
         i18n.changeLanguage(lang);
         setLanguageOptionHidden(true);
     };
+    console.log(globalDetail)
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -64,10 +65,10 @@ export const HeaderTop = () => {
                         <div className={`h-[30px] w-[30px] md:h-[60px] md:w-[60px] cursor-pointer transition-all rounded-md p-1 items-center flex justify-center   `}
                                 onClick={() => { setLanguageOptionHidden(!languageOptionHidden); }}>
                                     <div className="z-30   p-2 overflow-hidden h-full w-full items-center flex justify-center">
-                                    {selectLanguage === 'nepali' && <img src={globalDetail['lng-logo']['nepali']}  />}
-                                    {selectLanguage === 'newari' && <img src={globalDetail['lng-logo']['newari']}  />}
-                                    {selectLanguage === 'english' && <img src={globalDetail['lng-logo']['english']}  />}
-                                    {selectLanguage === 'mithila' && <img src={globalDetail['lng-logo']['mithila']}  />}
+                                    {selectLanguage === 'nepali' && <img src='http://guthi.pythonanywhere.com/media/global_component_image/NepaliFlag.png'/>}
+                                    {selectLanguage === 'newari' && <img src='http://guthi.pythonanywhere.com/media/global_component_image/NewariFlag.png'/>}
+                                    {selectLanguage === 'english' && <img src='http://guthi.pythonanywhere.com/media/global_component_image/EnglishFlag.png' />}
+                                    {selectLanguage === 'mithila' && <img src='http://guthi.pythonanywhere.com/media/global_component_image/MithilaFlag_VkTeQKY.png'/>}
                                     </div>
 
                                 <div className={`${languageOptionHidden ? 'opacity-0' : 'opacity-100'} w-full absolute flex flex-col gap-2 items-center top-[110%] left-0 bg-gray-300/70 z-20 transition-all duration-500 rounded-md p-2`}>

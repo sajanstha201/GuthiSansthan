@@ -1,19 +1,26 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { TextTemplate } from "../Common/TextTemplate"
-
+import { ChangeOrder } from "../Common/ChangeOrder"
+import { ViewEditButton } from "../Common/ViewEditButton"
+import {TemplatePreview1} from '../../../ArticlePreview/TemplatePreview/TempsPreview'
+import {useSelectLanguage} from '../../../../../context/LanguageChoice'
 export const Template1=({name,data,setData})=>{
-    useEffect(()=>{
-        if(!data?.name){
-            setData(prevData=>({...prevData,[name]:{
-                'templateName':'template1',
-                'text':{'nepali':''}
-            }}))
-        }
-    },[])
+    const [isPreview,setIsPreview]=useState(false)
+    const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     return(
-        <div className='relative flex flex-row w-full rounded-md border p-2'>
-            <TextTemplate setData={setData} data={data} name={name}/>
+        <div className="relative">
+            <ViewEditButton isPreview={isPreview} setIsPreview={setIsPreview}/>
+            {!isPreview&&
+                <div className='relative flex flex-row w-full rounded-md border p-2'>
+        
+                <TextTemplate setData={setData} data={data} name={name}/>
+                <ChangeOrder name={name} data={data} setData={setData}/>
+            </div>
+            }
+            {isPreview&&<TemplatePreview1 content={data[name].text[selectLanguage]}/>}
+            
         </div>
+
 
     )
 }

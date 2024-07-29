@@ -1,8 +1,16 @@
 import {showAlert} from '../../../../AlertLoader'
-export const LanguageChangeButton=({language,setLanguage,nepaliText})=>{
+export const LanguageChangeButton=({name,data,setData,language,setLanguage,nepaliText})=>{
+    const deleteElement=()=>{
+        const oldData={...data};
+        delete oldData[name]
+        setData(oldData)
+    }
     return(
         <>
             <div>
+                <div 
+                    className={`hover:bg-red-700 bg-red-600 cursor-pointer flex border  rounded-md px-2 py-1`} 
+                    onClick={deleteElement}>Remove</div>
                 <div 
                     className={`${language==='nepali'?'bg-blue-600':'bg-blue-400'} cursor-pointer flex border  rounded-md px-2 py-1`} 
                     onClick={()=>setLanguage('nepali')}>Nepali</div>

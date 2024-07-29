@@ -15,7 +15,7 @@ export const Parva = () => {
 
   const fetchParva = async () => {
     try {
-      const response = await axios.get('http://192.168.1.65:8000/api/festivals/');
+      const response = await axios.get('http://guthi.pythonanywhere.com/api/festivals/');
       setData(response.data);
       console.log(response.data);
     } catch (error) {

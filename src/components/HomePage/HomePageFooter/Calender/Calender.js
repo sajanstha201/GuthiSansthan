@@ -48,7 +48,7 @@ export const Calendar = () => {
 
   const fetchCalendarData = async (fetchYear, fetchMonth) => {
     try {
-      const response = await axios.get(`http://192.168.1.65:8000/api/calendar?year=${fetchYear}&month=${fetchMonth}`);
+      const response = await axios.get(`http://guthi.pythonanywhere.com/api/calendar?year=${fetchYear}&month=${fetchMonth}`);
       setCalendarData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -118,9 +118,9 @@ export const Calendar = () => {
   };
 
   return (
-    <div className="bg-red-400/35  backdrop-blur-sm flex items-center justify-center h-screen ">
-      <div className="lg:w-full flex flex-wrap items-center justify-center md:w-9/12 sm:w-10/12 mx-auto p-4 overflow-auto">
-        <div className="bg-red-400/70 shadow-lg rounded-lg overflow-hidden w-[90%] text-white font-bold flex lg:w-1/2 h-96 flex-col ">
+    <div className="bg-zinc-400/15  backdrop-blur-sm flex items-start md:items-center py-1 justify-center h-screen ">
+      <div className="w-full flex flex-wrap items-start  justify-center  mx-auto p-4 overflow-auto">
+        <div className="bg-cyan-400/70 shadow-lg rounded-lg overflow-hidden w-[90%] text-white font-bold flex md:w-1/2 h-96 flex-col ">
           <div className="flex items-center justify-between px-6 py-3 bg-gray-700/50">
             <div>
               <FontAwesomeIcon size="2x" icon={faArrowLeft} onClick={handlePrev} />
@@ -137,9 +137,9 @@ export const Calendar = () => {
           {renderCalendar()}
           </div>
           {selectedEvent && (
-            <div className="p-2  bg-gray-800 text-white rounded-lg mt-4 w-full aspect-video lg:w-96">
+            <div className="p-2  bg-gray-800 text-white rounded-lg  mt-4 w-full aspect-video md:w-96">
               <h3 className="text-lg font-bold">{selectedEvent.name}</h3>
-              <img src={`http://192.168.1.65:8000${selectedEvent.image}`} alt={selectedEvent.name} className="w-full h-auto mt-2" />
+              <img src={`http://guthi.pythonanywhere.com${selectedEvent.image}`} alt={selectedEvent.name} className="w-full h-auto mt-2" />
               <p className="mt-2">{selectedEvent.description}</p>
             </div>
           )}

@@ -1,9 +1,9 @@
 import { TextTemplatePreview } from "../CommonPreview/TextTemplatePreview"
-
-export const TemplatePreview1=({content})=>{
+import React from "react"
+export const TemplatePreview1=({content,name})=>{
     return(
         <>
-        <TextTemplatePreview content={content}/>
+        <TextTemplatePreview content={content} name={name}/>
         </>
     )
 }

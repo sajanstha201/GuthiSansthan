@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const ImageTemplatePreview=({image})=>{
+export const ImageTemplatePreview=({image,name})=>{
     const [src,setSrc]=useState('')
     useEffect(()=>{
         setSrc('')

@@ -2,10 +2,6 @@ import { InstanceArticles } from "./InstanceArticles"
 import bg from '../../../media/Article/pasupatibg.jpg'
 import { motion } from "framer-motion"
 import { duration } from "@mui/material"
-
-
-
-
 export const Articles=()=>{
     return(
         <>

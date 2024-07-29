@@ -1,6 +1,6 @@
 import { useSelectLanguage } from '../../../../context/LanguageChoice'
 import {TemplatePreview1,TemplatePreview2,TemplatePreview3,TemplatePreview4} from './TempsPreview'
-export const TemplatePreviewMain=({data,title})=>{
+export const TemplatePreviewMain=({data,title,date})=>{
     const {selectLanguage,setSelectLanguage}=useSelectLanguage()
     const chooseTemplatePreview=(key,value)=>{
         console.log(key)
@@ -20,6 +20,7 @@ export const TemplatePreviewMain=({data,title})=>{
     return(
         <div className='px-12'>
             <h1>{title}</h1>
+            <p className='flex '>{date}</p>
             {Object.entries(data).map(([key,value])=>(chooseTemplatePreview(key,value)))}
         </div>
     )

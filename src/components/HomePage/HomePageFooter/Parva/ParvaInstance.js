@@ -17,7 +17,7 @@ export const ParvaInstance=({name,detail,img})=>{
                 <div className="absolute bg-gray-900/50 h-full w-full "></div>
             </div>
         </div>
-        {!isHidden && <motion.div  className={` absolute rounded-xl bg-neutral-800/50 h-[80%] w-[80%]   flex flex-col items-center justify-start z-50   backdrop-blur-3xl overflow-auto transition-all duration-500 ease-out`}>
+        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%] w-[80%]'} absolute rounded-xl bg-neutral-800/50    flex flex-col items-center justify-start z-50   backdrop-blur-3xl overflow-auto transition-all duration-200 ease-out`}>
             
             <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
  

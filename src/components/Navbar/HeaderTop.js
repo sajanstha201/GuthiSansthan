@@ -34,7 +34,6 @@ export const HeaderTop = () => {
         i18n.changeLanguage(lang);
         setLanguageOptionHidden(true);
     };
-    console.log(globalDetail)
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);

@@ -65,6 +65,11 @@ export const DonationPage=()=>{
                         <OneDonation name={'sajan'}/>
                         <OneDonation name={'sajan'}/>
                         <OneDonation name={'sajan'}/>
+                        <OneDonation name={'sajan'}/>
+                        <OneDonation name={'sajan'}/>
+                        <OneDonation name={'sajan'}/>
+                        <OneDonation name={'sajan'}/>
+                        <OneDonation name={'sajan'}/>
                     </motion.div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
-import { setTabDetail } from "../../../state/HomePageSlice"
+import { setTabDetail } from "../../../state/HomePageSlices/HomePageSlice"
 import axios from "axios"
 import { addLanguage, fetchImageToURL } from "../../ReuseableFunctions"
 

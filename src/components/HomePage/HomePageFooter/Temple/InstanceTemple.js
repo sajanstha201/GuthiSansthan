@@ -18,7 +18,7 @@ const InstanceTemple = ({ name, detail, img, location, qr }) => {
                 <div className="absolute bg-gray-900/50 h-full w-full "></div>
             </div>
         </div>
-        {!isHidden && <motion.div  className={` absolute rounded-xl bg-neutral-900/30 h-[80%]  w-[98%] md:w-[90%] lg:w-[80%]   flex flex-col items-center justify-start z-50   backdrop-blur-lg overflow-auto transition-all duration-500 ease-out`}>
+        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%]  w-[98%] md:w-[90%] lg:w-[80%]'} absolute rounded-xl bg-neutral-900/30    flex flex-col items-center justify-start z-50   backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
             
             <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
  

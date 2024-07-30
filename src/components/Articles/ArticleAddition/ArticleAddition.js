@@ -6,6 +6,9 @@ export const ArticleAddition=()=>{
     const [date,setDate]=useState()
     const [title,setTitle]=useState()
     const [isPreview,setIsPreview]=useState(false)
+    const publicArticle=()=>{
+        
+    }
     return(
         <>
         {!isPreview&&
@@ -32,7 +35,7 @@ export const ArticleAddition=()=>{
         <div className="w-full flex flex-items-center justify-center m-2 gap-2">
             <div className="bg-blue-700 hover:bg-blue-800 hover:scale-105 transition-all cursor-pointer flex border  rounded-md px-5 py-4 h-[30px] w-fit items-center justify-center text-white" 
                 onClick={()=>setIsPreview(true)}>Preview</div>
-            <div className="bg-green-700 hover:bg-green-800 hover:scale-105 transition-all cursor-pointer flex border  rounded-md px-5 py-4 h-[30px] w-fit items-center justify-center text-white" >Submit</div>
+            <div className="bg-green-700 hover:bg-green-800 hover:scale-105 transition-all cursor-pointer flex border  rounded-md px-5 py-4 h-[30px] w-fit items-center justify-center text-white" onClick={publicArticle}>Submit</div>
         </div>
         </>
         }

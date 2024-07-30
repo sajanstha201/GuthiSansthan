@@ -45,7 +45,7 @@ export const ArticleMainSection=()=>{
         <>
         <div className={`${isEditing?'flex flex-row gap-3 px-2 ':''}`} >
             <EditBgImage imageId={articlePageDetail['bg-img'].id} url={articlePageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={articlePageDetail['bg-img'].imgSrc===articlePageDetail['bg-img'].actualImgSrc}>
-                <div className="bg-cover bg-center h-screen w-full fixed -z-50 top-0"style={{backgroundImage:`url(${articlePageDetail['bg-img'].imgSrc})`}}></div>
+                <div className="bg-cover bg-center h-screen w-full fixed -z-50 top-0 left-0"style={{backgroundImage:`url(${articlePageDetail['bg-img'].imgSrc})`}}></div>
             </EditBgImage>
             {isEditing&&
                 <>
@@ -70,13 +70,16 @@ export const ArticleMainSection=()=>{
          
          
          :
-            <div className="flex flex-wrap w-full " >
-                <div className="w-full lg:w-[70%] ">
-                    <Articles/>
+            <div className="flex items-center  justify-center w-full " >
+                <div className="flex flex-wrap w-[95%] ">
+                    <div className="w-full lg:w-[60%] ">
+                        <Articles/>
+                    </div>
+                    <div className="w-full lg:w-[40%] ">
+                        <Notices/>
+                    </div>
                 </div>
-                <div className="w-full lg:w-[30%] ">
-                    <Notices/>
-                </div>
+
                 
             </div>
             }

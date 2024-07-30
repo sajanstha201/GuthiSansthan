@@ -5,8 +5,8 @@ export const Notices=()=>{
         <>
         <div className="w-full  flex justify-center  h-full">
 
-         <div className="flex flex-col h-full  w-full mx-14 mt-3 border border-red-600 lg:mx-0 lg:w-2/3 rounded-lg overflow-hidden backdrop-blur-lg">
-              <div className="w-full flex justify-center items-center h-20 bg-yellow-600">
+         <div className="flex flex-col h-full  w-full  border ml-5 border-red-600  rounded-lg backdrop-blur-lg">
+              <div className="w-full flex justify-center items-center h-20 bg-yellow-600 rounded-lg">
                  <h1 className="font-semibold text-white underline">NOTICE</h1>
 
               </div>

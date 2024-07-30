@@ -36,7 +36,7 @@ const Temple = () => {
 
 
     return (
-    <div className="w-full h-full pb-[100px] flex flex-col relative ">
+    <div className="w-full h-full  pb-3 flex flex-col relative ">
     <h1 className="text-white z-40 text-[60px]">Temple</h1>
     <div className="flex w-full h-full items-center justify-center overflow-auto">
         <div className=" w-[95%] flex h-full flex-wrap items-center justify-center gap-7">

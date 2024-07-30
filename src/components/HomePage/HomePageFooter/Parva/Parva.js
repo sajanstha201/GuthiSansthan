@@ -35,7 +35,7 @@ export const Parva = () => {
   };
 
   return (
-    <div className="w-full h-full pb-[100px] flex flex-col relative">
+    <div className="w-full h-full pb-3 flex flex-col relative ">
       <h1 className="text-white z-10 text-[60px]">Parva</h1>
       <div className="flex w-full h-full items-center justify-center overflow-auto">
         <div className="w-[95%] flex h-full flex-wrap items-center justify-center gap-7 overflow-auto">

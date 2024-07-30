@@ -22,11 +22,11 @@ export const DonationPage=()=>{
     const dispatch=useDispatch()
     useEffect(()=>{
         try{
-            const fetchData=async ()=>{
+            const fetchStaticData=async ()=>{
                 try{
                     const response=await axios.get(baseUrl+donationPageDetail.url)
                     dispatch(setDonationPageWholeDetail(response.data.components))
-                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['donation-page'].image)))
+                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-img'].image)))
                     console.log(response.data)
                 }
                 catch(error){
@@ -35,9 +35,18 @@ export const DonationPage=()=>{
                 }
 
             }
-            if(!donationPageDetail.isFetched){
-                fetchData()
-            }   
+            const fetchDynamicData=async ()=>{
+                try{
+                    const response=await axios.get(baseUrl+donationPageDetail.dynamicUrl)
+                    console.log(response.data)
+                }
+                catch(error){
+                    console.log(error)
+                    showAlert(error,'red')
+                }
+            }
+            if(!donationPageDetail.isFetched) fetchStaticData()
+            if(!donationPageDetail.isDynamicFetched) fetchDynamicData()
         }
         catch(error){
             console.log(error)
@@ -54,12 +63,17 @@ export const DonationPage=()=>{
         <div className="absolute inset-0 bg-neutral-900/50 backdrop-filter-blur blur-sm bg-opacity-50 -z-10"></div>
             <div className="flex flex-col gap-3 mt-5">
                 <motion.div  initial={{opacity:0,x:-50}} animate={{opacity:1,x:0}} transition={{duration:1.9}} className={`${isMobile?' gap-5':' gap-20'} flex flex-row flex-wrap  items-center justify-center w-full`}>
-                    <InstanceDonationSection  className='hover:scale-105 transition-all duration-100 ease-in-out animate-pulse' name={'Jatra'} setSelectDonateSection={setSelectDonateSection} bgImg={jatraImg}/>
-                    <InstanceDonationSection className='hover:scale-105 transition-all duration-100 ease-in-out animate-pulse' name={'Temple'} setSelectDonateSection={setSelectDonateSection} bgImg={tempImg}/>
+                    <InstanceDonationSection  className='hover:scale-105 transition-all duration-100 ease-in-out animate-pulse' name={'jatra'} setSelectDonateSection={setSelectDonateSection} bgImg={jatraImg}/>
+                    <InstanceDonationSection className='hover:scale-105 transition-all duration-100 ease-in-out animate-pulse' name={'temple'} setSelectDonateSection={setSelectDonateSection} bgImg={tempImg}/>
                 </motion.div>
-                
                 <div className="w-full flex items-center justify-center" >
                     <motion.div initial={{opacity:0,y:100}} animate={{opacity:1,y:0}} transition={{duration:1.5 , delay:0.4}} className="flex w-[80%] flex-wrap items-center justify-center gap-7 p-3">
+                    {selectDonateSection==='jatra'&&<>
+                
+                    </>}
+                    {selectDonateSection==='temple'&&<>
+
+                    </>}
                         <OneDonation name={'sajan'}/>
                         <OneDonation name={'sajan'}/>
                         <OneDonation name={'sajan'}/>

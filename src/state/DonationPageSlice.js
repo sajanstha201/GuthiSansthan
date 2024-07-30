@@ -4,6 +4,9 @@ export const DonationPageSlice=createSlice({
     name:"DonationPageSlice",
     initialState:{
         isFetched:false,
+        isDynamicFetched:false,
+        dynamicUrl:'donation/',
+        dynamicDetail:[],
         url:'api/pages/donation-page/',
         details:{},
         "bg-img":{imgSrc:"",actualImgSrc:"",id:'',isFetched:false}
@@ -12,6 +15,10 @@ export const DonationPageSlice=createSlice({
         setDonationPageWholeDetail:(state,action)=>{
             state.details=action.payload
             state.isFetched=true
+        },
+        setDonationPageDynamicDetail:(state,action)=>{
+            state.dynamicDetail=action.payload
+            state.isDynamicFetched=true
         },
         setBgImg:(state,action)=>{
             state["bg-img"]={

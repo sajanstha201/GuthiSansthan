@@ -4,7 +4,7 @@ export const TempleSlice=createSlice({
     name:"TeamsSlice",
     initialState:{
         isFetched:false,
-        url:'api/temples',
+        url:'api/temples/',
         details:[],
     },
     reducers:{

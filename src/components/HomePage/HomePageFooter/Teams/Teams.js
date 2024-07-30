@@ -8,15 +8,12 @@ export const Teams=()=>{
     const {t}=useTranslation()
     return(
         <>     
-        <div className="w-full h-full pb-[150px]">
+        <div className="w-full h-full pb-5">
         <h1 className="text-white">Our Teams</h1>
-        <div className="h-full w-full flex flex-col overflow-auto px-16">
+        <div className="h-full w-full flex flex-col overflow-auto px-2">
         <LeftImageSlider image={firstPerson} name={'sajan shrestha'} desc={t('intro')+t('intro')}/>
         <RightImageSlider image={firstPerson} name={'sajan shresha'}  desc={t('intro')} />
         <LeftImageSlider image={firstPerson} name={'sajan shestha'} desc={t('intro')}/>
-        <RightImageSlider image={firstPerson} name={'sajan ssha'} desc={t('intro')} />
-        <LeftImageSlider image={firstPerson} name={'sajan shestha'} desc={t('intro')}/>
-        <RightImageSlider image={firstPerson} name={'sajan ssha'} desc={t('intro')} />
         </div>
         </div>
         </>

@@ -8,15 +8,13 @@ export const RightImageSlider=({name,image,desc})=>{
     })
     return(
         <>
-            <div className="min-h-[150px] w-full flex flex-row p-2">
-                <div className={` relative h-full w-[70%]   overflow-hidden`}> 
-                    <div id={name} className='absolute h-full w-full flex items-center justify-center p-2 left-[100%]  text-white'>
+            <div className="min-h-[150px] w-full flex flex-row p-2 items-center justify-center">
+                <div className={` relative h-full w-[80%]   overflow-hidden`}> 
+                    <div id={name} className='absolute h-full w-full flex items-center justify-center p-2 left-[100%]  text-white overflow-auto'>
                        {desc}
                     </div>
                 </div>
-                <div className=' relative h-full w-[30%] flex items-center justify-center overflow-hidden'>
-                    <img src={image} className='absolute emerge'></img>
-                </div>
+                <div className=' relative h-[80px] w-[80px] md:h-[200px] md:w-[200px] flex items-center justify-center overflow-hidden rounded-full bg-black'><img src={image} className='absolute emerge '></img></div>
             </div>
         </>
     )

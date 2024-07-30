@@ -9,7 +9,7 @@ export const ParvaInstance=({name,detail,img})=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     return(
         <>
-        <div className={`${isMobile?'h-[100px] w-[150px]':'h-[150px] w-[200px]'}  `} onClick={()=>setIsHidden(false)}>
+        <div className={`${isMobile?'h-[100px] w-[150px]':'h-[150px] w-[200px]'} rounded-md overflow-hidden `} onClick={()=>setIsHidden(false)}>
             <div className=" relative h-full w-full flex items-center justify-center bg-cover bg-center -z-10 bg-red-500 " style={{backgroundImage:`url(${img})`}}>
                 <div  className={`${isMobile?'text-[15px]':'text-[30px]'}  absolute h-full w-full items-center justify-center flex text-white font-bold  z-40`}>
                 {name}

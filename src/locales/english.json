@@ -1,7 +1,7 @@
 {
     "contact-us":"Contact Us",
     "head-office-address":"Head Office, M8JH+M52 Lalitpur, Nepal",
-    "welcome-to-guthi-sansthan":"Welcome to Guthi Sansthan",
+    "welcome-to-guthi-sansthans":"Welcome to Guthi Sansthan",
     "sign-in":"Sign In",
     "donate":"Donate",
     "home":"Home",
@@ -20,5 +20,12 @@
     "already-have-an-account":"ALready have an account",
     "sign-up":"Sign Up",
     "log-in":"Log In",
-    "articles":"Articles"
+    "articles":"Articles",
+    "Article-tab":"Articles",
+    "our-services":"Our Services",
+    "about-us":"About Us",
+    "calender":"Calendaer",
+    "temple":"Temple",
+    "parva":"Festival",
+    "teams":"Teams"
 }

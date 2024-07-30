@@ -56,6 +56,10 @@ export const HomePageSlice=createSlice({
         setTabDetail:(state,action)=>{
             state[action.payload.name]=getImageDetail(action.payload.detail,state['details'][action.payload.name].id)
         },
+        setNewTabDetail:(state,action)=>{
+            if(action.payload.detail) state[action.payload.name].imgSrc=action.payload.detail
+            else state[action.payload.name].imgSrc=state[action.payload.name].actualImgSrc
+        },
         setFooterBgImg:(state,action)=>{
             state['footer-bg-img']={
                 isFetched:true,
@@ -71,4 +75,4 @@ export const HomePageSlice=createSlice({
     }
 })
 export default HomePageSlice.reducer
-export const {setHomePageWholeDetail,setGuthiSansthanLogo,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewFooterBgImg,setNewBgVideo} =HomePageSlice.actions
+export const {setHomePageWholeDetail,setGuthiSansthanLogo,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewTabDetail,setNewFooterBgImg,setNewBgVideo} =HomePageSlice.actions

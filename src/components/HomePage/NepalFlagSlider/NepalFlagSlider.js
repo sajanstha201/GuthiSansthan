@@ -10,8 +10,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addLanguage ,fetchGifToURL} from '../../ReuseableFunctions'
 import { setSliderImg } from '../../../state/HomePageSlices/HomePageSlice'
 import { EditImage } from '../../EditComponents/EditImage'
+import { useEditing } from '../../../context/EditingProvider'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
+    const {isEditing,setIsEditing}=useEditing()
+    const [activateEdit,setActivateEdit]=useState(false)
     const dispatch=useDispatch()
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const homePageDetail=useSelector(state=>state.homePageDetail)
@@ -38,20 +41,21 @@ export const NepalFlagSlider=({content})=>{
 
             <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%]'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute  px-2 transition-all duration-300 ease-in-out flex items-center justify-center gap-2  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
-
-                    <Link to='/services' className='feature-div'>
-                         <OneImage  name={'Our-service-tab'}/>
+                    {isEditing&&!activateEdit&&<div onClick={()=>setActivateEdit(true)} className=' absolute top-1 flex bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded-md cursor-pointer'>Edit</div>}
+                    <Link to='/services' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>
+                         <OneImage  name={'Our-service-tab'} activateEdit={activateEdit}/>
                     </Link>
-                    <Link to='/about-us' className='feature-div'>
-                        <OneImage  name={'About-us-tab'}/>
+                    <Link to='/about-us' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>
+                        <OneImage  name={'About-us-tab'} activateEdit={activateEdit}/>
                        
                     </Link>
-                    <Link to='/contact-us' className='feature-div'>
-                        <OneImage  name={'Contact-us-tab'}/>    
+                    <Link to='/contact-us' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>
+                        <OneImage  name={'Contact-us-tab'} activateEdit={activateEdit}/>    
                     </Link>
-                    <Link to='/articles' className='feature-div'>
-                        <OneImage  name={'Article-tab'}/>
+                    <Link to='/articles' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>
+                        <OneImage  name={'Article-tab'} activateEdit={activateEdit}/>
                     </Link>
+                    {isEditing&&activateEdit&&<div className=' absolute top-1 flex bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded-md cursor-pointer' onClick={()=>setActivateEdit(false)}><div className=' flex bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded-md cursor-pointer'>No Edit</div></div>}
                 </div>
             </div>
 

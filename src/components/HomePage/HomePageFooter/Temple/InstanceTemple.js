@@ -28,9 +28,9 @@ const InstanceTemple = ({ name, detail, img, location, qr }) => {
                      </div>
                  <div className="flex flex-wrap mt-2  w-full">
                       <div className=" w-full lg:w-1/3 flex items-center flex-col ">
-                      <div><img src={img} className="w-full"></img></div>
+                      <img src={img} className="w-full"/>
                 </div>
-                   <div className="w-full mt-2 lg:w-2/3 flex flex-col px-2">
+                   <div className="w-full mt-2 lg:w-2/3 flex flex-col items-center px-2">
                 <p className="text-preety text-neutral-200 font-medium">{detail}</p>
                       
                    </div>

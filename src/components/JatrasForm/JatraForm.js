@@ -7,15 +7,17 @@ const JatraForm = () => {
   const nameRef = useRef();
   const photoRef = useRef();
   const desRef = useRef();
+  const qrRef=useRef();
   const [startDate, setstartDate] = useState("")
   const [endDate, setendDate] = useState("")
 
   const handleSubmit = async () => {
     const name = nameRef.current.value.trim();
     const image = photoRef.current.files[0]; // get the file object
+    const qrcode = qrRef.current.files[0]; // get the file object
     const description = desRef.current.value.trim();
 
-    if (!name ||!startDate || !endDate ||!image || !description) {
+    if (!name ||!startDate || !endDate ||!image || !description||!qrcode) {
       alert("Please fill out all fields.");
       return;
     }
@@ -29,6 +31,8 @@ const JatraForm = () => {
     formData.append("end_date",endDate)
     formData.append('image', image);
     formData.append('description', description);
+    formData.append('qr_code',qrcode)
+
 
     try {
       const response = await fetch('http://guthi.pythonanywhere.com/api/festivals/', {
@@ -80,6 +84,10 @@ const JatraForm = () => {
         <label className='font-semibold text-lg'>Description:</label>
         <textarea ref={desRef} className='w-full lg:w-2/3 rounded-md h-44 px-2 py-3 border border-cyan-400' />
       </div>
+      <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
+                <label className='font-semibold text-lg'>Upload QR Code:</label>
+                <input type='file' ref={qrRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'/>
+             </div>
       <div className='w-full flex justify-end px-5'>
         <button className='bg-red-600 px-4 py-1 rounded-md text-white font-semibold text-lg' onClick={handleSubmit}>Submit</button>
       </div>

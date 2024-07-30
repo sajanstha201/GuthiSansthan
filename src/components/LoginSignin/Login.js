@@ -1,14 +1,52 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import bgImage from '../../media/LoginSignin/rectangle.png'
 import nepalLandmark from '../../media/LoginSignin/nepalLandmark.png'
 import { useMediaQuery } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import axios from 'axios';
 
 export const Login = () => {
     const isMobile=useMediaQuery('(max-width:800px)')
     const {t}=useTranslation()
+    const userRef=useRef();
+    const passRef = useRef();
+  const  handelSubmit= async()=>{
+        const username =userRef.current.value.trim();
+        const password = passRef.current.value.trim();
+        if(!username||!password){
+            alert("you have't fill all data yet ")
+            return
+        }else{
+            const formData = new FormData();
+            formData.append("username",username);
+            formData.append('password',password);
+
+            try{
+                const response = await fetch('http://guthi.pythonanywhere.com/api/login/',{
+                    method:'post',
+                    body:formData
+                })
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                  }
+            
+                  const result = await response.json();
+                  console.log(result);
+                  alert(" added successfully!");
+                  
+                   
+         
+         
+                } catch (error) {
+                  console.error('Error:', error);
+                  alert("Something Error.");
+                }
+            }
+        }
+    
+
     return (
         <>
         <div className="fixed h-screen w-screen -z-10 top-0" style={{backgroundImage:`url(${bgImage})`}}></div>
@@ -31,10 +69,10 @@ export const Login = () => {
                 </div>
                     <div className='flex flex-col text-white '>
                         
-                            <div> <label  className='items-start justify-start'>Name</label>            </div>
-                            <div>  <input type='text' className='text-black w-[350px] h-10 rounded'></input>       </div>
+                            <div> <label  className='items-start justify-start'>Username</label>            </div>
+                            <div>  <input ref={userRef} type='text' className='text-black w-[350px] h-10 rounded'></input>       </div>
                             <div> <label>Password</label>           </div>
-                            <div> <input    className='text-black  w-[350px] h-10 rounded'></input> </div>
+                            <div> <input  ref={passRef}  className='text-black  w-[350px] h-10 rounded'></input> </div>
                          
                             <br/>
                             <div className='w-full items-center justify-center flex'>
@@ -46,7 +84,7 @@ export const Login = () => {
                                   <button className='text-black px-3 h-fit border border-black rounded-md py-2 items-center justify-center gap-2 flex'><FontAwesomeIcon icon={faGoogle} />Sign In with Google </button>
                             </div>
                              <div className='item-end justify-end'>
-                                <button className=' rounded-full px-4 py-1 font-bold text-white bg-blue-600 text-align-center mt-2 '><h5>{t('log-in')} </h5></button>
+                                <button  onClick={()=>handelSubmit()} className=' rounded-full px-4 py-1 font-bold text-white bg-blue-600 text-align-center mt-2 '><h5>{t('log-in')} </h5></button>
                              </div>
                               
                     </div>

@@ -19,9 +19,10 @@ const TempleDonation = () => {
           }
           
       return (
-        <div className='w-full lg:w-[70%] px-1 lg:px-5 py-7 flex flex-col gap-4 bg-green-500 rounded-xl mt-3 '>
+        <div className='w-full lg:w-[70%] px-1 lg:px-5 py-7 flex flex-col gap-4  bg-gradient-to-r from-green-500/30 to-green-900/40 backdrop-blur-xl rounded-xl mt-3 '>
+
                <div className='flex gap-2'>
-                 <label className='w-1/3 font-semibold'>Choose Jatra:</label>
+                 <label className='w-1/3 font-semibold text-white'>Choose Jatra:</label>
                  <select
                 id="temple"
                   ref={templeRef}
@@ -36,7 +37,7 @@ const TempleDonation = () => {
               </select>
                </div>
               <div className='flex gap-2'>
-                <label className='w-1/3 font-semibold'>Donation Amount</label>
+                <label className='w-1/3 font-semibold text-white'>Donation Amount</label>
               <input type='number' ref={donationRef} className='w-2/3 lg:w-1/3 h-10 rounded-md px-3 py-1' min={10}/>
                 </div> 
                 <div className='w-full flex justify-end px-12'>

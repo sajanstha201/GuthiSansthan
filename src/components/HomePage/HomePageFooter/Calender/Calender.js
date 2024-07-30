@@ -97,7 +97,7 @@ export const Calendar = () => {
       calendarGrid.push(
         <div
           key={day}
-          className={`text-center py-2 border cursor-pointer ${eventDates[day] ? 'bg-yellow-300' : ''}`}
+          className={`text-center py-2 border cursor-pointer ${eventDates[day] ? 'bg-red-500' : ''}`}
           onClick={() => handleDateClick(day)}
         >
           {day}
@@ -137,10 +137,10 @@ export const Calendar = () => {
           {renderCalendar()}
           </div>
           {selectedEvent && (
-            <div className="p-2  bg-gray-800 text-white rounded-lg  mt-4 w-full aspect-video md:w-96">
+            <div className="p-2  bg-gray-800 text-white rounded-lg h-96 mt-4 w-full aspect-video md:w-96 overflow-auto flex flex-col items-center justify-start">
               <h3 className="text-lg font-bold">{selectedEvent.name}</h3>
-              <img src={`http://guthi.pythonanywhere.com${selectedEvent.image}`} alt={selectedEvent.name} className="w-full h-auto mt-2" />
-              <p className="mt-2">{selectedEvent.description}</p>
+              <img src={`http://guthi.pythonanywhere.com${selectedEvent.image}`} alt={selectedEvent.name} className="w-1/2 h-auto mt-2" />
+              <p className="mt-2 tracking-tighter   leading-tight">{selectedEvent.description}</p>
             </div>
           )}
         

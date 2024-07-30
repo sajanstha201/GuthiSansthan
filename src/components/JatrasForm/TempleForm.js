@@ -74,7 +74,7 @@ const TempleForm = () => {
                 <textarea ref={desRef} className='w-full lg:w-2/3 rounded-md h-44 px-2 py-3 border border-cyan-400'/>
              </div>
              <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
-                <label className='font-semibold text-lg'>Upload Image:</label>
+                <label className='font-semibold text-lg'>Upload QR Code:</label>
                 <input type='file' ref={qrRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'/>
              </div>
              <div className='w-full flex justify-end px-5'>

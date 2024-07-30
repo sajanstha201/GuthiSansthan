@@ -41,8 +41,12 @@ export const AboutUsPageSlice=createSlice({
                 id:state.details[action.payload.name].id,
                 actualImgSrc:action.payload.detail
             }
+        },
+        setNewImgTab:(state,action)=>{
+            if(action.payload.detail) state[action.payload.name].imgSrc=action.payload.detail
+            else state[action.payload.name].imgSrc=state[action.payload.name].actualImgSrc
         }
     }
 })
 export default AboutUsPageSlice.reducer
-export const {setAboutUsPageWholeDetail,setBgImg,setImgTab,setNewBgImg}=AboutUsPageSlice.actions
+export const {setAboutUsPageWholeDetail,setBgImg,setImgTab,setNewImgTab,setNewBgImg}=AboutUsPageSlice.actions

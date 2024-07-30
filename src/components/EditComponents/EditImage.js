@@ -6,7 +6,7 @@ import { useEditing } from "../../context/EditingProvider"
 import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
-export const EditImage=({imageId,url,setNewImage,children,isActualUploadedSame})=>{
+export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedSame})=>{
     const [contentHidden,setContentHidden]=useState(false)
     const [image,setImage]=useState(!isActualUploadedSame)
     const globalDetail=useSelector(state=>state.globalDetail)
@@ -14,13 +14,15 @@ export const EditImage=({imageId,url,setNewImage,children,isActualUploadedSame})
     const {isEditing,setIsEditing}=useEditing()
     const handleUploadImage=(event)=>{
         event.stopPropagation();
-        dispact(setNewImage(URL.createObjectURL(document.getElementById('edit-image-'+imageId).files[0])))
+        if(name) dispact(setNewImage({'name':name,'detail':URL.createObjectURL(document.getElementById('edit-image-'+imageId).files[0])}))
+        else dispact(setNewImage(URL.createObjectURL(document.getElementById('edit-image-'+imageId).files[0])))
         setContentHidden(false)
         setImage(true)
     }
     const restoreImage=()=>{
         setImage(false)
-        dispact(setNewImage())
+        if(name) dispact(setNewImage({'name':name,'detail':null}))
+        else dispact(setNewImage())
 
     }
     const saveImage=async()=>{
@@ -40,7 +42,7 @@ export const EditImage=({imageId,url,setNewImage,children,isActualUploadedSame})
         {isEditing&&
                 <div className="relative max-w-full max-h-full flex items-center justify-center">
                 {!contentHidden&&<>
-                    {!image&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-10" onClick={()=>setContentHidden(true)}>Edit</div>}
+                    {!image&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer text-[10px] bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-10" onClick={()=>setContentHidden(true)}>Edit</div>}
                     {children}
                 </>}
                 {contentHidden&&<>

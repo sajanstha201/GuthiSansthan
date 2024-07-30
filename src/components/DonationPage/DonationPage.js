@@ -12,6 +12,10 @@ import { setBgImg, setDonationPageWholeDetail, setNewBgImg } from "../../state/D
 import {addLanguage, fetchImageToURL} from '../ReuseableFunctions'
 import {EditBgImage} from '../EditComponents/EditBgImage'
 import { showAlert } from "../AlertLoader"
+import { setTempleWholeDetail } from "../../state/HomePageSlices/TempleSlice"
+import { setParvaWholeDetails } from "../../state/HomePageSlices/ParvaSlice";
+
+
 export const DonationPage=()=>{
     const isMobile=useMediaQuery('(max-width:800px)')
     const [selectDonateSection,setSelectDonateSection]=useState('')
@@ -20,6 +24,49 @@ export const DonationPage=()=>{
     const donationPageDetail=useSelector(state=>state.donationPageDetail)
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const dispatch=useDispatch()
+    
+    const templeDetail=useSelector(state=>state.templeDetail)
+  const parvaDetail=useSelector(state=>state.parvaDetail)
+  const [isParva,setParva]=useEffect(true);
+  useEffect(() => {
+    try{    
+      const fetchParva = async () => {
+      try {
+        const response = await axios.get(baseUrl+parvaDetail.url);
+        dispatch(setParvaWholeDetails(response.data))
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if(!parvaDetail.isFetched) fetchParva();
+    }
+    catch(error){
+      console.log(error)
+      showAlert(error,'red')
+    }
+
+  }, []);
+    
+    useEffect(()=>{
+       try{
+          const fetchTemple =async()=>{
+             try{
+                const response = await axios.get(baseUrl+templeDetail.url)
+                 dispatch(setTempleWholeDetail(response.data))
+                 console.log("temple data:",response.data)
+             }
+             catch(error){
+                console.error("eroorrr")
+                showAlert(error,'red')
+             }
+           }
+          if(!templeDetail.isFetched) fetchTemple();
+       }
+       catch(error){
+          console.error(error)
+          showAlert(error,'red')
+       }
+       },[])
     useEffect(()=>{
         try{
             const fetchStaticData=async ()=>{
@@ -52,6 +99,7 @@ export const DonationPage=()=>{
             console.log(error)
             showAlert(error,'red')
         }
+        
   
     },[])
     return(
@@ -74,16 +122,11 @@ export const DonationPage=()=>{
                     {selectDonateSection==='temple'&&<>
 
                     </>}
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
-                        <OneDonation name={'sajan'}/>
+                    {templeDetail.details.map((temple)=>(
+
+                        <OneDonation key={temple.id} name={temple.name} detail={temple.details} img={temple.image} qr={temple.qr_code} location={temple.location} />
+                    ))}
+   
                     </motion.div>
                 </div>
             </div>

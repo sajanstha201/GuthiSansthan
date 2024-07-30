@@ -45,6 +45,7 @@ export const Parva = () => {
               img={festival.image}
               name={festival.name}
               detail={festival.description}
+              
             />
           ))}
         </div>

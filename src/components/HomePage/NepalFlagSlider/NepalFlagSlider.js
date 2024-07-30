@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { act, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useMediaQuery } from '@mui/material'
 import { Link } from 'react-router-dom'
@@ -8,9 +8,10 @@ import img from '../../../media/guthi sansthan.png'
 import bg from '../../../media/TempleInformation/patandurbarsquare.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addLanguage ,fetchGifToURL} from '../../ReuseableFunctions'
-import { setSliderImg } from '../../../state/HomePageSlices/HomePageSlice'
+import { setNewSliderImg, setSliderImg } from '../../../state/HomePageSlices/HomePageSlice'
 import { EditImage } from '../../EditComponents/EditImage'
 import { useEditing } from '../../../context/EditingProvider'
+import { EditGif } from '../../EditComponents/EditGif'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     const {isEditing,setIsEditing}=useEditing()
@@ -30,16 +31,27 @@ export const NepalFlagSlider=({content})=>{
     return(
         <>
         <div className={` ${isMobile?'h-[30vh]':'h-[40vh]'} flex flex-row items-center relative w-full  m-2 overflow-hidden`} onMouseLeave={()=>{setIsHover(false)}}>
-            <div className={`${isMobile?'text-[30px] w-[50%]':'text-[80px] p-[10%] w-[60%]'} ${isHover?'left-[-100%] opacity-0 ':''} absolute left-0  text-white font-bold   transition-left duration-500 font-reggaeOne`}>
-                {t('welcome-to-guthi-sansthan')}
+            <div className={`${isMobile?'text-[30px] w-[50%]':'text-[80px] p-[10%] w-[60%]'} ${activateEdit?'left-[-100%]':`${isHover?'left-[-100%] opacity-0 ':''}`}  absolute left-0  text-white font-bold   transition-left duration-500 font-reggaeOne`}>
+                {t('welcome-to-guthi-sansthans')}
             </div>
-                <img 
-                onMouseEnter={()=>{setIsHover(true)}}
-                src={homePageDetail['slider-img']['gif']} 
-                className={`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'} ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}></img>
-   
+                <div className={`${activateEdit?'left-[10%]':`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'}`}  ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}
+                onMouseEnter={()=>{setIsHover(true)}}>
+                    <EditGif 
+                        isActualUploadedSame={homePageDetail['slider-img'].gif===homePageDetail['slider-img'].actualGif} 
+                        setNewGif={setNewSliderImg} 
+                        url={homePageDetail.url} 
+                        gifId={homePageDetail['slider-img'].id}
+                    >
+                    <img src={homePageDetail['slider-img']['gif']} className=' flex items-center justify-center' ></img>
+                    </EditGif>
+                        
+                </div>
+                
+    
+      
 
-            <div className={`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:'left-[100%]'} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute  px-2 transition-all duration-300 ease-in-out flex items-center justify-center gap-2  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
+
+            <div className={`${activateEdit?'left-[25%]':`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:` left-[100%]`}`} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute ${isEditing?'pt-5':''} px-2 transition-all duration-300 ease-in-out flex items-center justify-center gap-2  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
                     {isEditing&&!activateEdit&&<div onClick={()=>setActivateEdit(true)} className=' absolute top-1 flex bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded-md cursor-pointer'>Edit</div>}
                     <Link to='/services' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>

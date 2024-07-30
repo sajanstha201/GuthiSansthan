@@ -13,12 +13,15 @@ import { addLanguage, fetchImageToURL } from "../ReuseableFunctions";
 import { useTranslation } from "react-i18next"; 
 import { EditBgImage } from "../EditComponents/EditBgImage";
 import { showAlert } from "../AlertLoader";
+import { useEditing } from "../../context/EditingProvider";
+import { ServiceAddition } from "./ServiceAddition";
 export const ServicePage=()=>{
   const servicePageDetail=useSelector(state=>state.servicePageDetail)
   const isMobile=useMediaQuery('(max-width:800px)')
   const baseUrl=useSelector(state=>state.baseUrl).backend
   const dispatch=useDispatch()
   const {t}=useTranslation()
+  const {isEditing,setIsEditing}=useEditing()
   useEffect(()=>{
     try{
       const fetchData=async ()=>{
@@ -73,31 +76,7 @@ export const ServicePage=()=>{
         {image:img,
          name:"sajan ",   
           des:"This setup creates a navigation bar that changes its background color and other styles when the user scrolls down the page. You can customize the styles andtup creates a navigation bar that changes its background color and other "
-        },
-        {image:img,
-         name:"sajan ",   
-          des:"This setup creates a navigation bar that changes its background color and other styles when the user scrolls down the page. You can customize the styles andtup creates a navigation bar that changes its background color and other "
-        },
-        {image:img,
-         name:"sajan ",   
-          des:"This setup creates a navigation bar that changes its background color and other styles when the user scrolls down the page. You can customize the styles andtup creates a navigation bar that changes its background color and other "
-        },
-        {image:img,
-          name:"sajan ",   
-           des:"This setup creates a navigation bar that changes its background color and other styles when the user scrolls down the page. You can customize the styles andtup creates a navigation bar that changes its background color and other "
-         },
-         {image:img,
-          name:"sajan ",   
-           des:"This setup creates a navigation bar that changes its background color and other styles when the user scrolls down the page. You can customize the styles andtup creates a navigation bar that changes its background color and other "
-         },
-         {image:img,
-          name:"sajan ",   
-           des:"This setup creates a navigation bar that changes its background color and other styles when the user scrolls down the page. You can customize the styles andtup creates a navigation bar that changes its background color and other "
-         },
-         {image:img,
-          name:"sajan ",   
-           des:"This setup creates a navigation bar that changes its background color and other styles when the user scrolls down the page. You can customize the styles andtup creates a navigation bar that changes its background color and other "
-         },
+        }
     ]
     return(
         <div className="">
@@ -120,6 +99,7 @@ export const ServicePage=()=>{
               {data.map((d,index)=>(
                     <InstanceService className="hover:scale-95" key={index} image={d.image} name={d.name} des={d.des}/>
                 ))}
+                {isEditing&&<ServiceAddition/>}
             </div>}
             </div>
         

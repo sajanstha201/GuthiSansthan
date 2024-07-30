@@ -38,8 +38,8 @@ export const HomePageSlice=createSlice({
             }
         },
         setNewSliderImg:(state,action)=>{
-            if(action.payload==="") state['slider-img'].gif=state['slider-img'].actualGif
-            else state['slider-img'].gif=action.payload
+            if(action.payload) state['slider-img'].gif=action.payload 
+            else state['slider-img'].gif=state['slider-img'].actualGif
         },
         setBgVideo:(state,action)=>{
             state['bg-video']={
@@ -75,4 +75,4 @@ export const HomePageSlice=createSlice({
     }
 })
 export default HomePageSlice.reducer
-export const {setHomePageWholeDetail,setGuthiSansthanLogo,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewTabDetail,setNewFooterBgImg,setNewBgVideo} =HomePageSlice.actions
+export const {setHomePageWholeDetail,setGuthiSansthanLogo,setNewSliderImg,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewTabDetail,setNewFooterBgImg,setNewBgVideo} =HomePageSlice.actions

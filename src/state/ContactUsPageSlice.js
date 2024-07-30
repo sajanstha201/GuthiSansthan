@@ -30,6 +30,10 @@ export const ContactUsPageSlice=createSlice({
                 id:state.details["extra-image-2"].id
             }
         },
+        setNewExtraImage:(state,action)=>{
+            if(action.payload.detail) state[action.payload.name].imgSrc=action.payload.detail
+            else state[action.payload.name].imgSrc=state[action.payload.name].actualImgSrc
+        },
         setBgImg:(state,action)=>{
             state['bg-img']={
                 isFetched:true,
@@ -45,4 +49,4 @@ export const ContactUsPageSlice=createSlice({
     }
 })
 export default ContactUsPageSlice.reducer
-export const {setContactUsPageWholeDetail,setExtraImage1,setExtraImage2,setBgImg,setNewBgImg}=ContactUsPageSlice.actions
+export const {setContactUsPageWholeDetail,setExtraImage1,setExtraImage2,setBgImg,setNewBgImg,setNewExtraImage}=ContactUsPageSlice.actions

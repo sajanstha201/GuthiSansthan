@@ -11,9 +11,10 @@ import loc1 from '../media/ContactUs/lalitpur.jpeg'
 import loc2 from '../media/ContactUs/patan.jpeg'
 import bg from '../media/ContactUs/bg.png'
 import {useDispatch, useSelector} from 'react-redux'
-import { setBgImg, setContactUsPageWholeDetail, setExtraImage1, setExtraImage2, setNewBgImg } from '../state/ContactUsPageSlice';
+import { setBgImg, setContactUsPageWholeDetail, setExtraImage1, setExtraImage2, setNewBgImg, setNewExtraImage } from '../state/ContactUsPageSlice';
 import {addLanguage, fetchImageToURL} from '../components/ReuseableFunctions'
 import { EditBgImage } from '../components/EditComponents/EditBgImage';
+import {EditImage} from '../components/EditComponents/EditImage'
 export const ContactUs = () => {
   const {t}=useTranslation()
   const isMobile=useMediaQuery('(max-width:800px)')
@@ -99,11 +100,26 @@ export const ContactUs = () => {
                </div>
                <div className='flex gap-2 w-full bg-white   p-2 rounded-lg'>
                   <div className='w-1/2'>
-                  <img src={contactUsPageDetail['extra-image-1'].imgSrc}/>
+                  <EditImage 
+                  isActualUploadedSame={contactUsPageDetail['extra-image-1'].imgSrc===contactUsPageDetail['extra-image-1'].actualImgSrc}
+                  url={contactUsPageDetail.url}
+                  name={'extra-image-1'}
+                  setNewImage={setNewExtraImage}
+                  
+                  >
+                    <img src={contactUsPageDetail['extra-image-1'].imgSrc}/>
+                  </EditImage>
+                  
                   </div>
                   <div className='w-1/2'>
-                  <img src={contactUsPageDetail['extra-image-2'].imgSrc}/>
-                     
+                  <EditImage 
+                  isActualUploadedSame={contactUsPageDetail['extra-image-2'].imgSrc===contactUsPageDetail['extra-image-2'].actualImgSrc}
+                  url={contactUsPageDetail.url}
+                  name={'extra-image-2'}
+                  setNewImage={setNewExtraImage}
+                  >
+                    <img src={contactUsPageDetail['extra-image-2'].imgSrc}/>
+                  </EditImage>  
                   </div>
                </div>
           </div>

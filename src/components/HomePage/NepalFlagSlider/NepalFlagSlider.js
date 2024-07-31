@@ -12,6 +12,7 @@ import { setNewSliderImg, setSliderImg } from '../../../state/HomePageSlices/Hom
 import { EditImage } from '../../EditComponents/EditImage'
 import { useEditing } from '../../../context/EditingProvider'
 import { EditGif } from '../../EditComponents/EditGif'
+import { EditText } from '../../EditComponents/TextEditor/EditText'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     const {isEditing,setIsEditing}=useEditing()
@@ -33,7 +34,7 @@ export const NepalFlagSlider=({content})=>{
         {isMobile&&<div className='w-full h-[20vh]'></div>}
         <div className={` ${isMobile?'h-[30vh]':'h-[40vh]'} flex flex-row items-center relative w-full  m-2 overflow-hidden`} onMouseLeave={()=>{setIsHover(false)}}>
             <div className={`${isMobile?'text-[30px] w-[50%]':'text-[80px] p-[10%] w-[60%]'} ${activateEdit?'left-[-100%]':`${isHover?'left-[-100%] opacity-0 ':''}`}  absolute left-0  text-white font-bold   transition-left duration-500 font-reggaeOne`}>
-                {t('welcome-to-guthi-sansthans')}
+                <EditText keyName={'welcome-to-guthi-sansthans'}>{t('welcome-to-guthi-sansthans')}</EditText>
             </div>
                 <div className={`${activateEdit?'left-[10%]':`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'}`}  ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}
                 onMouseEnter={()=>{setIsHover(true)}}>

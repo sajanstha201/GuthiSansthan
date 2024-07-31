@@ -1,13 +1,25 @@
 import { useState } from "react"
 import { TemplateMain } from "./Template/TemplateMain"
 import { ArticlePreviewMain } from "../ArticlePreview/ArticlePreviewMain"
+import { showAlert } from "../../AlertLoader"
+import axios from "axios"
+import {useSelector} from 'react-redux'
 export const ArticleAddition=()=>{
     const [data,setData]=useState({})
     const [date,setDate]=useState()
     const [title,setTitle]=useState()
     const [isPreview,setIsPreview]=useState(false)
-    const publicArticle=()=>{
-        
+    const baseUrl=useSelector(state=>state.baseUrl).backend
+    const articlePageDetail=useSelector(state=>state.articlePageDetail)
+    const publicArticle=async()=>{
+        try{
+            const response=await axios.post(baseUrl+articlePageDetail.dynamicUrl,{date:date,title:title,detail:data})
+            console.log(response.data)
+        }
+        catch(error){
+            showAlert(error,'red');
+            console.log(error)
+        }
     }
     return(
         <>

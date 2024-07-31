@@ -7,44 +7,7 @@ export const GlobalSlice=createSlice({
         url:'api/global-components/',
         "details":{},
         "guthi-sansthan-logo":{'imgSrc':'','id':'','actualImgSrc':''},
-        "lng-logo":{
-            "nepali-lng-chg": {
-                "id": 1,
-                "name": "nepali-lng-chg",
-                "component_type": "image",
-                "image": "/media/global_component_image/NepalFlag.png",
-                "text": {},
-                "video": null,
-                "styling": null
-            },
-            "newari-lng-chg": {
-                "id": 2,
-                "name": "newari-lng-chg",
-                "component_type": "image",
-                "image": "/media/global_component_image/NewariFlag.png",
-                "text": {},
-                "video": null,
-                "styling": null
-            },
-            "english-lng-chg": {
-                "id": 3,
-                "name": "english-lng-chg",
-                "component_type": "image",
-                "image": "/media/global_component_image/EnglishFlag.png",
-                "text": {},
-                "video": null,
-                "styling": null
-            },
-            "mithila-lng-chg": {
-                "id": 4,
-                "name": "mithila-lng-chg",
-                "component_type": "image",
-                "image": "/media/global_component_image/MithilaFlag_VkTeQKY.png",
-                "text": {},
-                "video": null,
-                "styling": null
-            }
-        },
+        "lng-logo":{ },
     },
     reducers:{
         setGlobalWholeDetail:(state,action)=>{

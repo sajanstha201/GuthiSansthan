@@ -12,7 +12,7 @@ import { setNewSliderImg, setSliderImg } from '../../../state/HomePageSlices/Hom
 import { EditImage } from '../../EditComponents/EditImage'
 import { useEditing } from '../../../context/EditingProvider'
 import { EditGif } from '../../EditComponents/EditGif'
-import { EditText } from '../../EditComponents/EditText'
+import { EditText } from '../../EditComponents/TextEditor/EditText'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     const {isEditing,setIsEditing}=useEditing()

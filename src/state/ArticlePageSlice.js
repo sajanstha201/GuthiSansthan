@@ -4,6 +4,9 @@ export const ArtilcePageSlice=createSlice({
     name:"articlePage",
     initialState:{
         isFetched:false,
+        isDynamicFetched:false,
+        dynamicDetail:[],
+        dynamicUrl:'api/article',
         details:{},
         url:'api/pages/articles-page/',
         "bg-img":{imgSrc:'',actualImgSrc:'',id:'',isFetched:false}
@@ -25,7 +28,10 @@ export const ArtilcePageSlice=createSlice({
             if(action.payload) state["bg-img"]["imgSrc"]=action.payload
             else state["bg-img"]["imgSrc"]=state["bg-img"]["actualImgSrc"]
         },
+        setArticlePageDynamicContent:(state,action)=>{
+            state.dynamicDetail=action.payload
+        }
     }
 })
 export default ArtilcePageSlice.reducer
-export const {setArticlePageWholeDetail,setBgImg,setNewBgImg}=ArtilcePageSlice.actions
+export const {setArticlePageWholeDetail,setBgImg,setNewBgImg,setArticlePageDynamicContent}=ArtilcePageSlice.actions

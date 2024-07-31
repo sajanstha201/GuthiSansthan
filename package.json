@@ -1,7 +1,7 @@
 {
   "name": "guthi",
   "version": "0.1.0",
-  "homepage": "https://github.com/sajanstha201/GuthiSansthan/",
+  "homepage": "https://sajanstha201.github.io/GuthiSansthan/",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-basic-styles": "^42.0.2",

@@ -1,11 +1,10 @@
 {
   "files": {
-    "main.css": "/GuthiSansthan/static/css/main.48886a09.css",
-    "main.js": "/GuthiSansthan/static/js/main.8d68c28a.js",
-    "static/media/architecture.png": "/GuthiSansthan/static/media/architecture.78ff4634ad5a7672924e.png",
+    "main.css": "/GuthiSansthan/static/css/main.013364dc.css",
+    "main.js": "/GuthiSansthan/static/js/main.f615102d.js",
     "static/media/bg.png": "/GuthiSansthan/static/media/bg.165d9ea365d7974edd34.png",
+    "static/media/jatra.png": "/GuthiSansthan/static/media/jatra.f14bec51ef0e8ac27908.png",
     "static/media/patandurbarsquare.png": "/GuthiSansthan/static/media/patandurbarsquare.05c078c3648671d1815e.png",
-    "static/media/jatra.png": "/GuthiSansthan/static/media/jatra.42a052e29522aa07cbae.png",
     "static/media/nepalLandmark.png": "/GuthiSansthan/static/media/nepalLandmark.f4a649f5f4a01c8375fa.png",
     "static/media/image.png": "/GuthiSansthan/static/media/image.b845c19e932b8813e42d.png",
     "static/media/shechen-tennyi-dargyeling-golden-temple-in-kathmandu-nepal.jpg": "/GuthiSansthan/static/media/shechen-tennyi-dargyeling-golden-temple-in-kathmandu-nepal.15e861379f2109d01a22.jpg",
@@ -15,6 +14,7 @@
     "static/media/Patan-Durbar-square-scaled-e1644243944542.jpg": "/GuthiSansthan/static/media/Patan-Durbar-square-scaled-e1644243944542.64f164b608901b16e0b2.jpg",
     "static/media/mountain.png": "/GuthiSansthan/static/media/mountain.bf13d36950febe61d7ed.png",
     "static/media/guthi sansthan.png": "/GuthiSansthan/static/media/guthi sansthan.78f5dfb1bebce1d3aaff.png",
+    "static/media/donation.png": "/GuthiSansthan/static/media/donation.3917094762bad5856516.png",
     "static/media/lalitpur.jpeg": "/GuthiSansthan/static/media/lalitpur.12fc5d0220566fccef58.jpeg",
     "static/media/pasupatibg.jpg": "/GuthiSansthan/static/media/pasupatibg.986ac5ce1c0cad175e67.jpg",
     "static/media/patan.jpeg": "/GuthiSansthan/static/media/patan.3ecb34c93924e7b97793.jpeg",
@@ -23,25 +23,23 @@
     "static/media/rectangle.png": "/GuthiSansthan/static/media/rectangle.075a923544428c431939.png",
     "static/media/sagar_shrestha_Resume (1).pdf": "/GuthiSansthan/static/media/sagar_shrestha_Resume (1).90503f7889d533156f0d.pdf",
     "static/media/images.png": "/GuthiSansthan/static/media/images.ee152c6ab1c273a47fd8.png",
-    "static/media/5.png": "/GuthiSansthan/static/media/5.ff81ef0d80f65efff588.png",
+    "static/media/p1.png": "/GuthiSansthan/static/media/p1.b465ecbfa708a68a15f0.png",
     "static/media/nepalLogo.png": "/GuthiSansthan/static/media/nepalLogo.db8d98d425bbf1ce8a0d.png",
+    "static/media/p3.png": "/GuthiSansthan/static/media/p3.91c86e9b8072689b481a.png",
     "static/media/bouddhanath.jpeg": "/GuthiSansthan/static/media/bouddhanath.b89fdb2d9a9bf0765691.jpeg",
     "static/media/images.jpeg": "/GuthiSansthan/static/media/images.b89fdb2d9a9bf0765691.jpeg",
     "static/media/janaki.jpeg": "/GuthiSansthan/static/media/janaki.a0edb29d221bd73918a5.jpeg",
+    "static/media/p4.png": "/GuthiSansthan/static/media/p4.3bb1617ab84a2f530565.png",
     "static/media/pashupati.jpeg": "/GuthiSansthan/static/media/pashupati.97c239635bca085a3ba7.jpeg",
     "static/media/NewariDescription.txt": "/GuthiSansthan/static/media/NewariDescription.1675dbb35312ff2a8622.txt",
-    "static/media/slick.svg": "/GuthiSansthan/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/GuthiSansthan/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/GuthiSansthan/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/GuthiSansthan/static/media/slick.295183786cd8a1389865.woff",
     "static/media/EnglishDescription.txt": "/GuthiSansthan/static/media/EnglishDescription.d2c323a9768069872a06.txt",
     "index.html": "/GuthiSansthan/index.html",
     "static/media/getFetch.cjs": "/GuthiSansthan/static/media/getFetch.c4cca45e22bc1b2c7d0d.cjs",
-    "main.48886a09.css.map": "/GuthiSansthan/static/css/main.48886a09.css.map",
-    "main.8d68c28a.js.map": "/GuthiSansthan/static/js/main.8d68c28a.js.map"
+    "main.013364dc.css.map": "/GuthiSansthan/static/css/main.013364dc.css.map",
+    "main.f615102d.js.map": "/GuthiSansthan/static/js/main.f615102d.js.map"
   },
   "entrypoints": [
-    "static/css/main.48886a09.css",
-    "static/js/main.8d68c28a.js"
+    "static/css/main.013364dc.css",
+    "static/js/main.f615102d.js"
   ]
 }

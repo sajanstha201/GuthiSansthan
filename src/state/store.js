@@ -19,7 +19,7 @@ export const store=configureStore({
        serviceDetail:ServiceSlice,
        aboutUsPageDetail:AboutUsPageSlice,
        donationPageDetail:DonationPageSlice,
-       parvaDetail:ParvaPageSlice,
+       parvaPageDetail:ParvaPageSlice,
        teamsDetail:TeamsSlice,
        templeDetail:TempleSlice,
        calenderDetail:CalenderSlice,

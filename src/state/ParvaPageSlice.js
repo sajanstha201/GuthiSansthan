@@ -16,11 +16,15 @@ export const ParvaPageSlice=createSlice({
             state.details=action.payload
             state.isFetched=true;
         },
+        setDynamicParvaPageWholeDetails:(state,action)=>{
+            state.isDynamicFetched=true
+            state.dynamicDetails=action.payload
+        },
         setBgImg:(state,action)=>{
             state['bg-img']={
                 isFetched:true,
                 imgSrc:action.payload,
-                id:state.details['our-services'].id,
+                id:state.details['parva-page'].id,
                 actualImgSrc:action.payload
             }
         },
@@ -31,4 +35,4 @@ export const ParvaPageSlice=createSlice({
     }
 })
 export default ParvaPageSlice.reducer
-export const {setParvaPageWholeDetails,setBgImg,setNewBgImg}=ParvaPageSlice.actions
+export const {setParvaPageWholeDetails,setDynamicParvaPageWholeDetails,setBgImg,setNewBgImg}=ParvaPageSlice.actions

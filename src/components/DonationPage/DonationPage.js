@@ -25,7 +25,7 @@ export const DonationPage = () => {
   const baseUrl = useSelector(state => state.baseUrl).backend;
   const dispatch = useDispatch();
   const templeDetail = useSelector(state => state.templeDetail);
-  const parvaDetail = useSelector(state => state.parvaDetail);
+  const parvaDetail = useSelector(state => state.parvaPageDetail);
   const [isParva, setParva] = useState(true);
   const token = sessionStorage.getItem('token');
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ export const DonationPage = () => {
     };
 
     if (!parvaDetail.isFetched) fetchParva();
-  }, [parvaDetail.url, parvaDetail.isFetched, baseUrl, dispatch]);
+  }, []);
 
   useEffect(() => {
     const fetchTemple = async () => {

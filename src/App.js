@@ -26,6 +26,7 @@ import { NoticeAddition } from './components/Articles/ArticleAddition/NoticeAddi
 import { ShowArticle } from './components/Articles/ArticleSection/ShowArticle';
 import { ShowNotice } from './components/Articles/NoticeSection/ShowNotice';
 import NoticeForm from './components/Articles/NoticeSection/NoticeForm';
+import { Parva } from './components/Parva/Parva';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -75,6 +76,8 @@ function App() {
 
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
+            <Route path='/jatra' element={<Parva/>}/>
+            
             <Route path='/donation-form' element={<DonationForm/>}/>
             <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
             <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>

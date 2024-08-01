@@ -45,7 +45,7 @@ export const HeaderTop = () => {
         event.stopPropagation();
     };
     return (
-        <div className={`${isMobile ? 'h-[80px]' : 'flex-row px-20 h-[100px]'} flex w-screen justify-between items-center p-2`}>
+        <div className={`${isMobile ? 'h-[80px] flex-wrap w-full' : 'flex-row px-20 h-[100px]'} flex w-full  top-0 justify-between items-center p-2`}>
             <Link to='/' 
             className={`${isMobile ? 'flex-col justify-start items-center w-[50%]' : 'flex-row w-[30%] items-center'} h-full flex-row flex`}
             onClick={(e) => {isEditing&&e.preventDefault()}}>

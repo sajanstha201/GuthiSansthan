@@ -3,7 +3,7 @@ import img from '../../../../media/TempleInformation/Pashupathi/images.png'
 import InstanceTemple from './InstanceTemple'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { setTempleWholeDetail } from '../../../../state/HomePageSlices/TempleSlice'
+import { setTempleWholeDetail,setDynamicTempleWholeDetail } from '../../../../state/HomePageSlices/TempleSlice'
 import {showAlert} from '../../../AlertLoader'
 import { AddTemple } from './AddTemple'
 import { useEditing } from '../../../../context/EditingProvider'
@@ -16,8 +16,8 @@ const Temple = () => {
    const {isEditing,setIsEditing}=useEditing()
    const fetchTemple =async()=>{
       try{
-         const response = await axios.get(baseUrl+templeDetail.url)
-          dispatch(setTempleWholeDetail(response.data))
+         const response = await axios.get(baseUrl+templeDetail.dynamicUrl)
+         dispatch(setDynamicTempleWholeDetail(response.data))
       }
       catch(error){
          console.error("error")
@@ -26,7 +26,7 @@ const Temple = () => {
     }
    useEffect(()=>{
       try{
-         if(!templeDetail.isFetched) fetchTemple();
+         if(!templeDetail.isDynamicFetched) fetchTemple();
       }
       catch(error){
          console.error(error)
@@ -40,7 +40,7 @@ const Temple = () => {
     <h1 className="text-white z-40 text-[60px]">Temple</h1>
     <div className="flex w-full h-full items-center justify-center overflow-auto">
         <div className=" w-[95%] flex h-full flex-wrap items-center justify-center gap-7">
-              {templeDetail.details.map((festivals)=> (
+              {templeDetail.dynamicDetails.map((festivals)=> (
                  <InstanceTemple key={festivals.id} name={festivals.name} detail={festivals.details} img={festivals.image} qr={festivals.qr_code} location={festivals.location} />
               ))}
               {isEditing&&<AddTemple fetchTemple={fetchTemple}/>}

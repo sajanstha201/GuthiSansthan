@@ -13,7 +13,7 @@ import { addLanguage, fetchImageToURL } from '../ReuseableFunctions';
 import { EditBgImage } from '../EditComponents/EditBgImage';
 import { showAlert } from '../AlertLoader';
 import { setTempleWholeDetail } from '../../state/HomePageSlices/TempleSlice';
-import { setParvaWholeDetails } from '../../state/HomePageSlices/ParvaSlice';
+import { setParvaPageWholeDetails } from '../../state/ParvaPageSlice';
 import { Signin } from '../LoginSignin';
 
 export const DonationPage = () => {
@@ -25,7 +25,7 @@ export const DonationPage = () => {
   const baseUrl = useSelector(state => state.baseUrl).backend;
   const dispatch = useDispatch();
   const templeDetail = useSelector(state => state.templeDetail);
-  const parvaDetail = useSelector(state => state.parvaDetail);
+  const parvaDetail = useSelector(state => state.parvaPageDetail);
   const [isParva, setParva] = useState(true);
   const token = sessionStorage.getItem('token');
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ export const DonationPage = () => {
     const fetchParva = async () => {
       try {
         const response = await axios.get(baseUrl + parvaDetail.url);
-        dispatch(setParvaWholeDetails(response.data));
+        dispatch(setParvaPageWholeDetails(response.data));
       } catch (error) {
         console.log(error);
         showAlert(error, 'red');
@@ -49,7 +49,7 @@ export const DonationPage = () => {
     };
 
     if (!parvaDetail.isFetched) fetchParva();
-  }, [parvaDetail.url, parvaDetail.isFetched, baseUrl, dispatch]);
+  }, []);
 
   useEffect(() => {
     const fetchTemple = async () => {

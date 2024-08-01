@@ -1,9 +1,9 @@
 import { TemplatePreviewMain } from "./TemplatePreview/TemplatePreviewMain"
 
-export const ArticlePreviewMain=({data,title,date})=>{
+export const ArticlePreviewMain=({data,title})=>{
 return(
     <div className="w-full">
-        <TemplatePreviewMain data={data} title={title} date={date}/>
+        <TemplatePreviewMain data={data} title={title} />
     </div>
 )
 }

@@ -16,7 +16,7 @@ export const AddParva= ({fetchParva}) => {
     const [addParvaActivate,setAddParvaActivate]=useState(false)
     const isMobile=useMediaQuery('(max-width:800px)')
     const baseUrl=useSelector(state=>state.baseUrl).backend
-    const parvaDetail=useSelector(state=>state.parvaDetail)
+    const parvaPageDetail=useSelector(state=>state.parvaPageDetail)
     const handleSubmit = async () => {
         const name = nameRef.current.value.trim();
         const image = photoRef.current.files[0]; // get the file object
@@ -32,7 +32,7 @@ export const AddParva= ({fetchParva}) => {
         formData.append('image', image);
         formData.append('description', description);
         try {
-            const response = await fetch(baseUrl+parvaDetail.url, {
+            const response = await fetch(baseUrl+parvaPageDetail.dynamicUrl, {
                 method: 'POST',
                 body: formData,
             });

@@ -10,8 +10,7 @@ export const AddTemplate=({name,data,setData})=>{
     const addTemplate=(templateName)=>{
         setData(prevData=>({...prevData,[name+'-section'+getCurrentDateTimeString()]:{
             'templateName':templateName,
-            'text':{'nepali':'','english':'','newari':'','mithila':''},
-            'image':''
+            'text':{'nepali':'','english':'','newari':'','mithila':''}
         }}))
     }
     return(

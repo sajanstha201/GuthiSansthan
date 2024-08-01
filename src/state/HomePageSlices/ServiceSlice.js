@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { act } from "react";
 
-export const ServicePageSlice=createSlice({
-    name:"ServicePageSlice",
+export const ServiceSlice=createSlice({
+    name:"ServiceSlice",
     initialState:{
         isFetched:false,
         url:'api/pages/our-services/',
+        isDynamicFetched:false,
+        dynamicUrl:'api/services/',
+        dynamicDetails:[],
         details:{},
         "bg-img":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         services:{}
@@ -14,6 +17,10 @@ export const ServicePageSlice=createSlice({
         setServicePageWholeDetail:(state,action)=>{
             state.isFetched=true;
             state.details=action.payload
+        },
+        setDynamicServicePageWholeDetail:(state,action)=>{
+            state.isDynamicFetched=true
+            state.dynamicDetails=action.payload
         },
         setBgImg:(state,action)=>{
             state['bg-img']={
@@ -29,5 +36,5 @@ export const ServicePageSlice=createSlice({
         }
     }
 })
-export default ServicePageSlice.reducer
-export const {setServicePageWholeDetail,setBgImg,setNewBgImg} =ServicePageSlice.actions
+export default ServiceSlice.reducer
+export const {setServicePageWholeDetail,setBgImg,setNewBgImg,setDynamicServicePageWholeDetail} =ServiceSlice.actions

@@ -4,15 +4,22 @@ export const TempleSlice=createSlice({
     name:"TeamsSlice",
     initialState:{
         isFetched:false,
-        url:'api/temples/',
+        isDynamicFetched:false,
+        dynamicUrl:'api/temples/',
+        dynamicDetails:[],
+        url:'',
         details:[],
     },
     reducers:{
         setTempleWholeDetail:(state,action)=>{
             state.details=action.payload
             state.isFetched=true
+        },
+        setDynamicTempleWholeDetail:(state,action)=>{
+            state.dynamicDetails=action.payload
+            state.isDynamicFetched=true
         }
     }
 })
 export default TempleSlice.reducer
-export const {setTempleWholeDetail}=TempleSlice.actions
+export const {setTempleWholeDetail,setDynamicTempleWholeDetail}=TempleSlice.actions

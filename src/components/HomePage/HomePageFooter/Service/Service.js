@@ -2,25 +2,28 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { ServiceInstance } from './ServiceInstance';
-import {AddServiceForm} from './AddServiceForm'
 import { ServiceAddition } from './ServiceAddition';
 import { useEditing } from '../../../../context/EditingProvider';
+import { useDispatch, useSelector } from 'react-redux';
+import { showAlert } from '../../../AlertLoader';
+import { setDynamicServicePageWholeDetail } from '../../../../state/HomePageSlices/ServiceSlice';
 export const Service = () => {
-    const [serviceData, setServiceData] = useState([]);
+    const serviceDetail=useSelector(state=>state.serviceDetail)
     const {isEditing,setIsEditing}=useEditing()
+    const baseUrl=useSelector(state=>state.baseUrl).backend
+    const dispatch=useDispatch()
     useEffect(() => {
-        fetchService();
+        console.log(serviceDetail)
+        if(!serviceDetail.isDynamicFetched) fetchService();
     }, []);
 
     const fetchService = async () => {
         try {
-            const response = await axios.get('https://guthi.pythonanywhere.com/api/services/');
-            if (response.status !== 200) {
-                throw new Error("Something went wrong");
-            }
-            setServiceData(response.data);
+            const response = await axios.get(baseUrl+serviceDetail.dynamicUrl);
+            dispatch(setDynamicServicePageWholeDetail(response.data))
         } catch (error) {
-            toast.error(error.message);
+            showAlert(error,'red')
+            console.log(error)
         }
     };
 
@@ -29,7 +32,7 @@ export const Service = () => {
             <h1 className="text-white z-10 text-[60px]">Service</h1>
             <div className="flex w-full h-full items-center justify-center overflow-auto">
                 <div className="w-[95%] flex h-full flex-wrap items-start justify-start gap-7 overflow-auto">
-                    {serviceData && serviceData.map((service) => (
+                    {serviceDetail.dynamicDetails.map((service) => (
                         <ServiceInstance
                             key={service.id}
                             img={service.image}
@@ -37,7 +40,7 @@ export const Service = () => {
                             detail={service.description}
                         />
                     ))}
-                    {isEditing&&<ServiceAddition/>}
+                    {isEditing&&<ServiceAddition fetchService={fetchService}/>}
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ import { addLanguage, fetchImageToURL } from '../ReuseableFunctions';
 import { EditBgImage } from '../EditComponents/EditBgImage';
 import { showAlert } from '../AlertLoader';
 import { setTempleWholeDetail } from '../../state/HomePageSlices/TempleSlice';
-import { setParvaWholeDetails } from '../../state/HomePageSlices/ParvaSlice';
+import { setParvaPageWholeDetails } from '../../state/ParvaPageSlice';
 import { Signin } from '../LoginSignin';
 
 export const DonationPage = () => {
@@ -41,7 +41,7 @@ export const DonationPage = () => {
     const fetchParva = async () => {
       try {
         const response = await axios.get(baseUrl + parvaDetail.url);
-        dispatch(setParvaWholeDetails(response.data));
+        dispatch(setParvaPageWholeDetails(response.data));
       } catch (error) {
         console.log(error);
         showAlert(error, 'red');

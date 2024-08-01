@@ -6,18 +6,12 @@ import { toast } from "react-toastify"
 import axios from "axios"
 import {showAlert} from '../../../AlertLoader'
 import {useSelector} from 'react-redux'
-export const ServiceAddition=()=>{
+export const ServiceAddition=({fetchService})=>{
     const [isActivate,setIsActivate]=useState(false)
-    const [imageData,setImageData]=useState()
     const [imageSrc,setImageSrc]=useState()
     const isMobile=useMediaQuery('(max-width:800px)')
     const addRef=useRef()
     const baseUrl=useSelector(state=>state.baseUrl).backend
-    const [formData, setFormData] = useState({
-        name: "",
-        url: "",
-        description: ""
-    });
     const showAddService=()=>{
         setIsActivate(true)
         addRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -42,6 +36,13 @@ export const ServiceAddition=()=>{
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            fetchService()
+            setIsActivate(false)
+            document.getElementById('service-addition-name').value=''
+            document.getElementById('service-addition-image').files=null
+            setImageSrc()
+            document.getElementById('service-addition-link').value=''
+            document.getElementById('service-addition-description').value=''
             console.log(response.data)
         } catch (error) {
             showAlert(error,'red')

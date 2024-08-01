@@ -6,7 +6,7 @@ export const ArtilcePageSlice=createSlice({
         isFetched:false,
         isDynamicFetched:false,
         dynamicDetail:[],
-        dynamicUrl:'api/article',
+        dynamicUrl:'api/articles/',
         details:{},
         url:'api/pages/articles-page/',
         "bg-img":{imgSrc:'',actualImgSrc:'',id:'',isFetched:false}

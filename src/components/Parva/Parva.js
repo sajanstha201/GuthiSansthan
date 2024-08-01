@@ -7,7 +7,7 @@ import jatraimg from '../../media/Jatraform/jatra.png'
 
 import {useDispatch, useSelector} from 'react-redux'
 import {showAlert} from '../AlertLoader'
-import { setParvaWholeDetails } from "../../state/HomePageSlices/ParvaSlice";
+import { setParvaPageWholeDetails } from "../../state/ParvaPageSlice";
 import { useEditing } from "../../context/EditingProvider";
 import { AddParva } from "./AddParva";
 export const Parva = () => {
@@ -28,7 +28,7 @@ export const Parva = () => {
     try {
       const response = await axios.get(baseUrl+parvaDetail.url);
       console.log(response.data)
-      dispatch(setParvaWholeDetails(response.data))
+      dispatch(setParvaPageWholeDetails(response.data))
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +43,7 @@ export const Parva = () => {
       <h1 className="text-white z-10 text-[60px]">Parva</h1>
       <div className="flex w-full h-full items-center justify-center overflow-auto">
         <div className="w-[95%] flex h-full flex-wrap items-center justify-center gap-7 overflow-auto">
-          {parvaDetail.details.map((festival) => (
+          {parvaDetail.dynamicDetails.map((festival) => (
             <ParvaInstance
             key={festival.id}
             img={festival.image}

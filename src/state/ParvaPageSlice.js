@@ -1,19 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react";
 
-export const ServicePageSlice=createSlice({
-    name:"ServicePageSlice",
+export const ParvaPageSlice=createSlice({
+    name:"parvaPageSlice",
     initialState:{
         isFetched:false,
-        url:'api/pages/our-services/',
-        details:{},
+        isDynamicFetched:false,
+        dynamicUrl:'api/festivals/',
+        dynamicDetails:[],
+        url:'api/pages/parva-page',
+        details:[],
         "bg-img":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
-        services:{}
     },
     reducers:{
-        setServicePageWholeDetail:(state,action)=>{
-            state.isFetched=true;
+        setParvaPageWholeDetails:(state,action)=>{
             state.details=action.payload
+            state.isFetched=true;
         },
         setBgImg:(state,action)=>{
             state['bg-img']={
@@ -29,5 +30,5 @@ export const ServicePageSlice=createSlice({
         }
     }
 })
-export default ServicePageSlice.reducer
-export const {setServicePageWholeDetail,setBgImg,setNewBgImg} =ServicePageSlice.actions
+export default ParvaPageSlice.reducer
+export const {setParvaPageWholeDetails,setBgImg,setNewBgImg}=ParvaPageSlice.actions

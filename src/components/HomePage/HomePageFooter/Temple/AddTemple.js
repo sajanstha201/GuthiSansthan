@@ -34,7 +34,7 @@ export const AddTemple = ({fetchTemple}) => {
        formData.append('details',des)
        console.log(formData)
        try {
-         const response = await fetch(baseUrl+templeDetail.url, {
+         const response = await fetch(baseUrl+templeDetail.dynamicUrl, {
            method: 'POST',
            body: formData,
          });

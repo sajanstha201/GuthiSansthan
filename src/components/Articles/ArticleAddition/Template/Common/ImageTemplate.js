@@ -34,7 +34,7 @@ export const ImageTemplate=({data,setData,name})=>{
                         <FontAwesomeIcon icon={faPlusCircle} size='2x'/>
                         Upload Image
                         </label>
-                    <input id={name+'-input'} type="file" className="hidden" onChange={handleChange}></input>
+                    <input id={name+'-input'} type="file" accept='.png,.jpg,.jpeg' className="hidden" onChange={handleChange}></input>
             </div>
      
             </>}

@@ -14,9 +14,9 @@ export const HeaderButtom=()=>{
                 <FontAwesomeIcon icon={faHome}/>
                 {t('home')}
                 </Link>
-                <Link to='/services' className={`flex flex-col no-underline font-bold md:text-xl text-[10px] hover:scale-125 transition-transform duration-100 ease-in ${loc.pathname==="/services"?'text-yellow-300':'text-white'}`}>
+                <Link to='/parva' className={`flex flex-col no-underline font-bold md:text-xl text-[10px] hover:scale-125 transition-transform duration-100 ease-in ${loc.pathname==="/parva"?'text-yellow-300':'text-white'}`}>
                 <FontAwesomeIcon icon={faHandsHelping}/>
-                {t('our-services')}
+                {t('parva')}
                 </Link>
                 <Link to='/about-us' className={`flex flex-col no-underline font-bold md:text-xl text-[10px] hover:scale-125 transition-transform duration-100 ease-in ${loc.pathname==="/about-us"?'text-yellow-300':'text-white'}`}>
                 <FontAwesomeIcon icon={faUsers}/>

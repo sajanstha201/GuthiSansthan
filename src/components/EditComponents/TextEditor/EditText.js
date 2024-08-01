@@ -11,12 +11,10 @@ export const EditText=({keyName,children})=>{
     const [textData,setTextData]=useState({'nepali':t(keyName),'english':'','newari':'','mithila':''})
     const [activateEdit,setActivateEdit]=useState(false)
     const {isEditing,setIsEditing}=useEditing()
-    console.log(textData)
     useEffect(()=>{
         setEditorData(textData[language])
     },[language])
     const handleChange=(event,editor)=>{
-        console.log(language,editor.getData())
         setTextData(prevData=>({...prevData,[language]:editor.getData()}))
     }
     const handleSubmit=()=>{

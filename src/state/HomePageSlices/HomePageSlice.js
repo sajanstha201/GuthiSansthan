@@ -19,7 +19,7 @@ export const HomePageSlice=createSlice({
         "slider-img":{isFetched:false,gif:'',id:'',actualGif:''},
         "bg-video":{isFetched:false,video:'',id:'',actualVideo:''},
         "footer-bg-img":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
-        "Our-service-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
+        "Parav-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         "Contact-us-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         "About-us-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         "Article-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''}

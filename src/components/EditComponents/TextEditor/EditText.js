@@ -22,6 +22,10 @@ export const EditText=({keyName,children})=>{
     const handleSubmit=()=>{
         console.log(textData)
     }
+    const removeUpdate=()=>{
+        setActivateEdit(false)
+        setTextData({'nepali':t(keyName),'english':'','newari':'','mithila':''})
+    }
     return(
         <>
         {!isEditing&&<>{children}</>}
@@ -45,7 +49,7 @@ export const EditText=({keyName,children})=>{
                     />
                 </div>
                 <div className='flex flex-row text-white items-center justify-center w-full gap-2'>
-                    <div className='cursor-pointer flex items-center justify-center m-2 bg-red-600 py-1 font-normal px-2 border border-white hover:bg-red-700 text-[15px] w-fit h-fit rounded-md' onClick={()=>setActivateEdit(false)} >Remove</div>
+                    <div className='cursor-pointer flex items-center justify-center m-2 bg-red-600 py-1 font-normal px-2 border border-white hover:bg-red-700 text-[15px] w-fit h-fit rounded-md' onClick={removeUpdate} >Remove</div>
                     <div className='cursor-pointer flex items-center justify-center m-2 bg-green-600 py-1 font-normal px-2 border border-white hover:bg-green-700 text-[15px] w-fit h-fit rounded-md' onClick={handleSubmit} >Save</div>
                 </div>
             </div>

@@ -56,7 +56,7 @@ export const NepalFlagSlider=({content})=>{
             <div className={`${activateEdit?'left-[25%]':`${isHover?`${isMobile?'left-[0%] ':'left-[25%]'}`:` left-[100%]`}`} ${isMobile?'w-[100%]':'max-w-[90%] '} h-[50%]  absolute ${isEditing?'pt-5':''} px-2 transition-all duration-300 ease-in-out flex items-center justify-center gap-2  bg-black/60 rounded-lg  backdrop:blur-sm overflow-auto `}>
                     {/* <TemplesDisplayMain/> */}
                     {isEditing&&!activateEdit&&<div onClick={()=>setActivateEdit(true)} className=' absolute top-1 flex bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded-md cursor-pointer'>Edit</div>}
-                    <Link to='/services' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>
+                    <Link to='/jatra' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>
                          <OneImage  name={'Our-service-tab'} activateEdit={activateEdit}/>
                     </Link>
                     <Link to='/about-us' className='feature-div' onClick={(e) => {isEditing&&activateEdit&&e.preventDefault()}}>

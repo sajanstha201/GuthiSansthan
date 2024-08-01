@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const NoticeForm = () => {
   const titleRef = useRef();
@@ -34,7 +37,7 @@ const NoticeForm = () => {
 
       if (response.ok) {
         // Handle successful response
-        console.log('Form submitted successfully');
+        toast.success("sucessfully added")
         navigate('/');
       } else {
         // Handle error response

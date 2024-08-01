@@ -36,7 +36,7 @@ export const Login = () => {
             });
 
             if (!response.ok) {
-                toast.error("Invalid username or password");
+                
                 throw new Error('Network response was not ok');
             }
 

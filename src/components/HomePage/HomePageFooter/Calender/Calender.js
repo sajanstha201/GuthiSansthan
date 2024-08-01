@@ -10,7 +10,7 @@ export const Calendar = () => {
   const [year, setYear] = useState(2081);
   const [month, setMonth] = useState(4);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const nepaliMonth = ['', 'Baisakh', 'Jestha', 'Asar', 'Sawan', 'Bhadau', 'Asoj', 'Kartik', 'Mangsir', 'Push', 'Magh', 'Fagun', 'Chaitra'];
+  const nepaliMonth = ['', 'Baisakh', 'Jestha', 'Ashad', 'Shrawan', 'Bhadra', 'Asoj', 'Kartik', 'Mangsir', 'Poush', 'Magh', 'Falgun', 'Chaitra'];
 
   const handlePrev = async () => {
     if (month === 1) {

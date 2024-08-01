@@ -36,7 +36,6 @@ export const AddServiceForm = ({ onServiceAdded }) => {
                 throw new Error("Something went wrong");
             }
             toast.success("Service added successfully!");
-            onServiceAdded(response.data); // Call the callback function to update the parent component
         } catch (error) {
             toast.error(error.message);
         }

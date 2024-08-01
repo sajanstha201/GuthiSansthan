@@ -45,7 +45,7 @@ export const HomePage = () => {
       {(
         <EditBgVideo imageId={homePageDetail['bg-video']} url={homePageDetail.url} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].imgSrc===homePageDetail['bg-video'].actualImgSrc}>
           <video
-              key={homePageDetail['bg-video']['video']} // Add key prop to force re-render
+              key={homePageDetail['bg-video']['video']} 
               autoPlay
               loop
               muted

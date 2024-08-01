@@ -7,7 +7,6 @@ import { HomePage } from './components/HomePage/HomePage';
 import { ContactUs } from './webpage/ContactUs';
 import { AlertBox, LoaderBox, showAlert } from './components/AlertLoader';
 import { ArticleDisplay } from './components/HomePage/TempleDescription';
-import { ServicePage } from './components/ServicePage/ServicePage';
 import { Login, Signin } from './components/LoginSignin';
 import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
 import { DonationPage } from './components/DonationPage/DonationPage';
@@ -63,7 +62,6 @@ function App() {
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />
-            <Route path='/services' element={<ServicePage/>}/>
             <Route path='/about-us' element={<AboutUs/>}/>
             <Route path='/contact-us' element={<ContactUs/>}/>
             <Route path='/log-in' element={<Login/>}/>

@@ -2,7 +2,7 @@ import { styled, useMediaQuery } from "@mui/material";
 import { useSelectLanguage } from "../../context/LanguageChoice";
 import { useTranslation } from "react-i18next";
 import nepalLogo from '../../media/nepalLogo.png';
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { HeaderButtom } from "./HeaderButtom";
 import { useEffect, useRef, useState } from "react";
 import { Language } from "./Language";
@@ -12,6 +12,8 @@ import { useDispatch } from "react-redux";
 import { setNewGuthiSansthanLogo, setLngLogo } from "../../state/GlobalSlice";
 import { EditImage } from "../EditComponents";
 import { useEditing } from "../../context/EditingProvider";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDeleteLeft, faRightFromBracket, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 export const HeaderTop = () => {
     const globalDetail=useSelector(state=>state.globalDetail)
     const isMobile = useMediaQuery('(max-width:800px)');
@@ -44,6 +46,18 @@ export const HeaderTop = () => {
     const handleInputClick = (event) => {
         event.stopPropagation();
     };
+    const token = sessionStorage.getItem('token')
+    const [isOpen, setIsOpen] = useState(false);
+   
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+    const navigate = useNavigate()
+    const handelLogOut=()=>{
+        sessionStorage.clear();
+         navigate('/')
+    }
+
     return (
         <div className={`${isMobile ? 'h-[80px] flex-wrap w-full' : 'flex-row px-20 h-[100px]'} flex w-full  top-0 justify-between items-center p-2`}>
             <Link to='/' 
@@ -92,9 +106,18 @@ export const HeaderTop = () => {
                 <Link to='/donation' className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} no-underline px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
                     {t('donate')}
                 </Link>
-                <div>
-                    
-                </div>
+               {token && <div className="relative inline-block text-left ">
+                    <div onClick={toggleDropdown} className="cursor-pointer flex items-center">
+                        <FontAwesomeIcon icon={faUserCircle} size="xl" className="text-white" />
+                    </div>
+                    {isOpen && (
+                        <div className="absolute right-0  px-1 bg-zinc-700/30 backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-10">
+                            <NavLink to="/user" className="block px-4 py-2 text-white hover:bg-white-100">Profile</NavLink>
+                        
+                            <button onClick={()=>handelLogOut()} className="flex px-4 py-2 text-white hover:bg-white-100 gap-2 items-center">Logout <FontAwesomeIcon icon={faRightFromBracket}/> </button>
+                        </div>
+                    )}
+                </div>}
             </div>
         </div>
     );

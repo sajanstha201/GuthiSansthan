@@ -1,1 +1,0 @@
-export {servicePage} from './ServicePage'

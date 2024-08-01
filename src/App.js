@@ -7,7 +7,6 @@ import { HomePage } from './components/HomePage/HomePage';
 import { ContactUs } from './webpage/ContactUs';
 import { AlertBox, LoaderBox, showAlert } from './components/AlertLoader';
 import { ArticleDisplay } from './components/HomePage/TempleDescription';
-import { ServicePage } from './components/ServicePage/ServicePage';
 import { Login, Signin } from './components/LoginSignin';
 import { MoreDescriptionDiv } from './components/DisplayInfo/MoreDescription';
 import { DonationPage } from './components/DonationPage/DonationPage';
@@ -37,11 +36,10 @@ function App() {
       try{
         const response=await axios.get(baseUrl+globalDetail.url)
         dispact(setGlobalWholeDetail(response.data))
-        console.log(response.data)
         dispact(setGuthiSansthanLogo({'imgSrc':await fetchImageToURL(baseUrl+response.data['guthi-sansthan-logo'].image),'id':response.data['guthi-sansthan-logo'].id}))
         const lngLogo={}
         await Promise.all(Object.entries(response.data['lng-logo']).map(async([key,value])=>{
-          lngLogo[key.split('-')[0]]=await fetchImageToURL(baseUrl+value.image.substr(0))
+          lngLogo[key.split('-')[0]]=await fetchImageToURL(baseUrl+value.image.substr(1))
         }))
         dispact(setLngLogo(lngLogo))
       }
@@ -64,7 +62,6 @@ function App() {
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />
-            <Route path='/services' element={<ServicePage/>}/>
             <Route path='/about-us' element={<AboutUs/>}/>
             <Route path='/contact-us' element={<ContactUs/>}/>
             <Route path='/log-in' element={<Login/>}/>
@@ -76,7 +73,7 @@ function App() {
 
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
-            <Route path='/jatra' element={<Parva/>}/>
+            <Route path='/parva' element={<Parva/>}/>
             
             <Route path='/donation-form' element={<DonationForm/>}/>
             <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>

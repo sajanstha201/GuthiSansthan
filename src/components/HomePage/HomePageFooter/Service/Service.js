@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { ServiceInstance } from './ServiceInstance';
-
+import {AddServiceForm} from './AddServiceForm'
+import { ServiceAddition } from './ServiceAddition';
+import { useEditing } from '../../../../context/EditingProvider';
 export const Service = () => {
     const [serviceData, setServiceData] = useState([]);
-
+    const {isEditing,setIsEditing}=useEditing()
     useEffect(() => {
         fetchService();
     }, []);
@@ -35,6 +37,7 @@ export const Service = () => {
                             detail={service.description}
                         />
                     ))}
+                    {isEditing&&<ServiceAddition/>}
                 </div>
             </div>
         </div>

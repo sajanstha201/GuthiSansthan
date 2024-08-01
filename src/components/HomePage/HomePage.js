@@ -22,7 +22,6 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const {isEditing,setIsEditing}=useEditing()
   const token = sessionStorage.getItem('token')
- 
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
@@ -30,7 +29,6 @@ export const HomePage = () => {
         const data = response.data.components;
         dispatch(setHomePageWholeDetail(data));
         addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: data['welcome-to-guthi-sansthan'].text });
-       
         dispatch(setBgVideo( await fetchBgVideoToUrl(baseUrl + data['bg-video'].video)));
       } catch (error) {
         console.log(error);
@@ -47,7 +45,7 @@ export const HomePage = () => {
       {(
         <EditBgVideo imageId={homePageDetail['bg-video']} url={homePageDetail.url} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].imgSrc===homePageDetail['bg-video'].actualImgSrc}>
           <video
-              key={homePageDetail['bg-video']['video']} // Add key prop to force re-render
+              key={homePageDetail['bg-video']['video']} 
               autoPlay
               loop
               muted

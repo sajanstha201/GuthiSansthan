@@ -4,15 +4,18 @@ import { useMediaQuery } from "@mui/material"
 import { useRef, useState } from "react"
 import { toast } from "react-toastify"
 import axios from "axios"
+import {showAlert} from '../../../AlertLoader'
+import {useSelector} from 'react-redux'
 export const ServiceAddition=()=>{
     const [isActivate,setIsActivate]=useState(false)
+    const [imageData,setImageData]=useState()
     const [imageSrc,setImageSrc]=useState()
     const isMobile=useMediaQuery('(max-width:800px)')
     const addRef=useRef()
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const [formData, setFormData] = useState({
         name: "",
         url: "",
-        image: null,
         description: ""
     });
     const showAddService=()=>{
@@ -24,34 +27,25 @@ export const ServiceAddition=()=>{
         reader.onload=(e)=>{
             setImageSrc(URL.createObjectURL(new Blob([e.target.result])))
         }
-        reader.readAsArrayBuffer(document.getElementById('service-addition-div').files[0])
-    }
-    const handleChange=(e)=>{
-        const { name, value, files } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: files ? files[0] : value
-        }));
+        reader.readAsArrayBuffer(document.getElementById('service-addition-image').files[0])
     }
     const addService=async(e)=>{
         e.preventDefault();
         const data = new FormData();
-        data.append("name", formData.name);
-        data.append("url", formData.url);
-        data.append("description", formData.description);
-
+        data.append("name", document.getElementById('service-addition-name').value);
+        data.append("image",document.getElementById('service-addition-image').files[0])
+        data.append("url", document.getElementById('service-addition-link').value);
+        data.append("description", document.getElementById('service-addition-description').value);
         try {
-            const response = await axios.post('https://guthi.pythonanywhere.com/api/services/', data, {
+            const response = await axios.post(baseUrl+'api/services/', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            if (response.status !== 201) {
-                throw new Error("Something went wrong");
-            }
-            toast.success("Service added successfully!");
+            console.log(response.data)
         } catch (error) {
-            toast.error(error.message);
+            showAlert(error,'red')
+            console.log(error)
         }
     }
     return(
@@ -66,25 +60,24 @@ export const ServiceAddition=()=>{
         }
 
             <div ref={addRef} className={`${isActivate?'w-full h-fit opacity-100':' h-0 opacity-0 hidden'} relative flex items-center justify-center transition-all duration-200 ease-out`}>
-                <div className="relative w-[40%] h-full flex rounded-md">
+                <div className="relative w-[60%] h-full flex rounded-md">
                 <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer  absolute top-2 right-2 text-red-600 z-50" onClick={()=>setIsActivate(false)}/> 
-                    <div className="w-full h-full text-white flex flex-col items-center ">
+                    <div className="w-full h-full text-white flex flex-col items-center border border-white">
                         <h1 className="text-white">Service Detail Form</h1>
-                        <div className="flex gap-4 flex-col items-center justify-center w-[60%] text-black" >
-                            <input type="text" className="p-2 rounded-md w-full" placeholder="Service Name" name="name" onChange={handleChange}></input>
-                            <input type="text" className="p-2 rounded-md w-full" placeholder="Service Link" onChange={handleChange}></input>
-                            <textarea type="text" className="p-2 rounded-md w-full" placeholder="Service Description" onChange={handleChange}></textarea>
+                        <div className="flex gap-4 flex-col items-center justify-center w-[80%] text-black" >
+                            <input type="text" id='service-addition-name' className="p-2 rounded-md w-full" placeholder="Service Name" name="name" ></input>
+                            <input type="text" id='service-addition-link' className="p-2 rounded-md w-full" placeholder="Service Link" ></input>
+                            <textarea type="text" id='service-addition-description' className="p-2 rounded-md w-full" placeholder="Service Description"></textarea>
                             <div>
                                 {!imageSrc&&
                                 <>
-                                <label htmlFor='service-addition-div' className="flex w-[150px] h-[150px] bg-gray-500 rounded-md items-center justify-center flex-col cursor-pointer hover:scale-105 transition-all duration-300 border border-white">
+                                <label htmlFor='service-addition-image' className="flex w-[150px] h-[150px] bg-gray-500 rounded-md items-center justify-center flex-col cursor-pointer hover:scale-105 transition-all duration-300 border border-white">
                                     <div className="text-[20px]">Upload Image</div>
                                         <FontAwesomeIcon icon={faPlus} size="3x"/>
                                 </label>
-                                <input id='service-addition-div' type="file" accept=".png,.jpeg,.jpg" className="hidden" onChange={uploadImage}></input>
                                 </>
-
                                 }
+                                <input id='service-addition-image' type="file" accept=".png,.jpeg,.jpg" className="hidden" onChange={uploadImage}></input>
                                 {imageSrc&&
                                 <>
                                 <div className="flex w-[200px] h-[200px]rounded-md items-center justify-center flex-col cursor-pointer ">

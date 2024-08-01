@@ -48,7 +48,7 @@ export const Calendar = () => {
 
   const fetchCalendarData = async (fetchYear, fetchMonth) => {
     try {
-      const response = await axios.get(`http://guthi.pythonanywhere.com/api/calendar?year=${fetchYear}&month=${fetchMonth}`);
+      const response = await axios.get(`https://guthi.pythonanywhere.com/api/calendar?year=${fetchYear}&month=${fetchMonth}`);
       setCalendarData(response.data);
       console.log(response.data);
     } catch (error) {

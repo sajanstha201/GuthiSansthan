@@ -26,6 +26,7 @@ import { ShowArticle } from './components/Articles/ArticleSection/ShowArticle';
 import { ShowNotice } from './components/Articles/NoticeSection/ShowNotice';
 import NoticeForm from './components/Articles/NoticeSection/NoticeForm';
 import { Parva } from './components/Parva/Parva';
+import { AddServiceForm } from './components/HomePage/HomePageFooter/Service/AddServiceForm';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -79,6 +80,7 @@ function App() {
             <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
             <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
             <Route path='/notice-form' element={<NoticeForm/>}/>
+            <Route path='/service-form' element={<AddServiceForm/>}/>
           </Routes>
          
       </div>

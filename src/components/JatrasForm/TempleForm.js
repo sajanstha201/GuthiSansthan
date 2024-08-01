@@ -1,4 +1,5 @@
 import {React,useRef} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const TempleForm = () => {
 
@@ -7,7 +8,7 @@ const TempleForm = () => {
     const  photoRef = useRef();
      const  qrRef = useRef();
     const  desRef = useRef();
-    
+    const navigate = useNavigate();
     const handelSubmit = async(value) =>{
        const name = nameRef.current.value.trim();
        const location = locationRef.current.value.trim();
@@ -41,7 +42,8 @@ const TempleForm = () => {
          }
    
          const result = await response.json();
-         console.log(result);
+
+          navigate('/')
          alert("Temple added successfully!");
          
           

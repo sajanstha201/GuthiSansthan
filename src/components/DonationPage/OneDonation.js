@@ -24,7 +24,7 @@ export const OneDonation = ({ name,img,qr,detail,location }) => {
        <div onClick={()=>setIsHidden(false)} className={`${isMobile ? 'text-sm' : 'text-3xl'} font-bold text-white bg-blue-700 rounded-full hover:scale-105 transition-all duration-100 py-2 mt-2`}>Donate</div>
       
       </div>
-      {<motion.div  className={`${isHidden?'h-0 w-0':' h-[60%] w-[90%] md:h-fit md:w-[50%] lg:w-[54%]'} left-3 md:left-[20%] top-[20%]  absolute rounded-xl bg-neutral-900/30    flex flex-col items-center justify-start z-50   backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
+      {<motion.div  className={`${isHidden?'h-0 w-0':' h-[60%] w-[90%] md:h-fit md:w-[50%] lg:w-[54%]'} left-3 md:left-[20%] top-[20%]  fixed rounded-xl bg-neutral-900/30    flex flex-col items-center justify-start z-50   backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
             
             <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
  
@@ -36,8 +36,8 @@ export const OneDonation = ({ name,img,qr,detail,location }) => {
                       <div className=" w-full lg:w-1/3 flex items-center flex-col ">
                        <img src={qr}/>
                 </div>
-                   <div className="w-full mt-2 lg:w-2/3 flex flex-col items-center justify-center px-2">
-                      <div><img src={img} className='w-1/2 aspect-video'></img></div>
+                   <div className="w-full mt-2 lg:w-2/3 flex flex-col items-center  px-2">
+                      <img src={img} className='w-1/2 aspect-video'></img>
                 <p className="text-preety text-neutral-200 font-medium">{detail}</p>
                       
                    </div>

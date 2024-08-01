@@ -25,6 +25,7 @@ import { ArticleAddition } from './components/Articles/ArticleAddition/ArticleAd
 import { NoticeAddition } from './components/Articles/ArticleAddition/NoticeAddition';
 import { ShowArticle } from './components/Articles/ArticleSection/ShowArticle';
 import { ShowNotice } from './components/Articles/NoticeSection/ShowNotice';
+import NoticeForm from './components/Articles/NoticeSection/NoticeForm';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -77,6 +78,7 @@ function App() {
             <Route path='/donation-form' element={<DonationForm/>}/>
             <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
             <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
+            <Route path='/notice-form' element={<NoticeForm/>}/>
           </Routes>
          
       </div>

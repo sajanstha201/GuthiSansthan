@@ -39,7 +39,7 @@ export const  HomePageFooter=()=>{
     })
     return(
         <>
-        <div className="absolute bottom-0 h-[200px] w-full justify-center flex items-center overflow-hidden" >
+        <div className="fixed bottom-0 h-[200px] w-full justify-center flex items-center  overflow-hidden" >
             <EditBgImage imageId={homePageDetail['footer-bg-img'].id} url={homePageDetail.url} setNewImage={setNewFooterBgImg} isActualUploadedSame={homePageDetail['footer-bg-img'].imgSrc===homePageDetail['footer-bg-img'].actualImgSrc}>
             <div className="fixed bottom-0 -z-20 bg-cover bg-center h-[200px] w-full opacity-70 "style={{backgroundImage:`url(${homePageDetail['footer-bg-img'].imgSrc})`}}></div>
             </EditBgImage>

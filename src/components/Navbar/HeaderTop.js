@@ -82,7 +82,7 @@ export const HeaderTop = () => {
                                 <div className={`${languageOptionHidden ? 'opacity-0 h-0' : 'opacity-100 '}  absolute flex flex-col gap-2 items-center top-[110%] left-0 bg-gray-300/70 z-20 transition-all duration-500 rounded-md `}>
                                     {['nepali','newari','english','mithila'].filter(lng=>lng!==selectLanguage).map(
                                         (key,index)=>(
-                                        <Language name={key} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index} languageOptionHidden={languageOptionHidden}></Language>))}
+                                        <Language name={key} key={index} handleLanguageClick={handleLanguageClick} img={globalDetail['lng-logo'][key]} no={index} languageOptionHidden={languageOptionHidden}></Language>))}
                                 </div>
                         </div> 
                     </div>
@@ -92,6 +92,9 @@ export const HeaderTop = () => {
                 <Link to='/donation' className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} no-underline px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
                     {t('donate')}
                 </Link>
+                <div>
+                    
+                </div>
             </div>
         </div>
     );

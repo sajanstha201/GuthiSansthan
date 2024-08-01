@@ -3,12 +3,13 @@ import bgImage from '../../media/LoginSignin/rectangle.png';
 import nepalLandmark from '../../media/LoginSignin/nepalLandmark.png';
 import { useMediaQuery } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const Signin = () => {
     const isMobile = useMediaQuery('(max-width:800px)');
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -53,6 +54,7 @@ export const Signin = () => {
                 password: formData.password
             });
             console.log(response.data);
+             navigate('/log-in')
             // Handle success (e.g., redirect to login page)
         } catch (error) {
             console.error('Error during form submission', error);

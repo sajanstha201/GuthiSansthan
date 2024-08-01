@@ -72,12 +72,12 @@ export const ArticleMainSection=()=>{
          :
             <div className="flex items-center  justify-center w-full " >
                 <div className="flex flex-wrap w-[95%] ">
-                    <div className="w-full lg:w-[60%] ">
+                    <div className="w-full lg:w-[100%] ">
                         <Articles/>
                     </div>
-                    <div className="w-full lg:w-[40%] ">
-                        <Notices/>
-                    </div>
+                        {/* <div className="w-full lg:w-[40%] ">
+                            <Notices/>
+                        </div> */}
                 </div>
 
                 

@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const InstanceTemple = ({ name, detail, img, location, qr }) => {
     const [isHidden, setIsHidden] = useState(true);
+    const [isDontaion, setisDontaion] = useState(false);
     const isMobile = useMediaQuery('(max-width:800px)');
+  
 
     return (
         <>
@@ -18,9 +21,9 @@ const InstanceTemple = ({ name, detail, img, location, qr }) => {
                 <div className="absolute bg-gray-900/50 h-full w-full "></div>
             </div>
         </div>
-        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%]  w-[98%] md:w-[90%] lg:w-[80%]'} absolute rounded-xl bg-neutral-900/30    flex flex-col items-center justify-start z-50   backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
+        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%]  w-[98%] md:w-[90%] lg:w-[80%]'} absolute rounded-xl bg-neutral-900/30    flex flex-col items-center justify-start z-40   backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
             
-            <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
+        <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
  
                 <div className="w-full py-2 bg-slate-300/40 flex flex-col items-center" >
                     <h1 className={`${isMobile?'text-[30px]':'text-[50px]'} text-black  font-bold`} >{name}</h1>
@@ -36,7 +39,17 @@ const InstanceTemple = ({ name, detail, img, location, qr }) => {
                    </div>
                  </div>
                 
-            
+                 <button onClick={()=>setisDontaion(true)}  className={`fixed bottom-2 right-2 py-2 no-underline px-5 text-lg bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
+                    donate
+                </button>
+                {isDontaion &&
+                   <div className="w-[95%] h-[95%] z-50 flex justify-center items-center bg-black/20 backdrop-blur-xl absolute">
+                                   <img src={qr} />
+            <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setisDontaion(false)}/> 
+
+                   </div>
+
+                }
         </motion.div>}
         </>
     );

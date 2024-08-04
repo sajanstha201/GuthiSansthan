@@ -11,6 +11,7 @@ import { fetchImageToURL } from '../../ReuseableFunctions'
 import { EditBgImage } from '../../EditComponents/EditBgImage'
 import Temple  from './Temple/Temple';
 import { useTranslation } from 'react-i18next';
+import TempleManagment from './TempleManagment/TempleManagment';
 
 export const HomePageFooter = () => {
     const [selectedSection, setSelectedSection] = useState('')
@@ -58,6 +59,7 @@ export const HomePageFooter = () => {
                 </EditBgImage>
                 <div className={`${isMobile ? 'bg-gray-300/40 backdrop-blur-md rounded-tl-md rounded-tr-md' : ''} z-10 absolute bottom-0 w-full justify-evenly items-center flex flex-row text-white font-bold`}>
                     {[
+                        { icon: faGopuram, label: 'temple Managment Community', section: 'templemanagment' },
                         { icon: faCalendarAlt, label: 'calender', section: 'calender' },
                         { icon: faGopuram, label: 'temple', section: 'temple' },
                         { icon: faUserGear, label: 'service', section: 'service' },
@@ -75,6 +77,7 @@ export const HomePageFooter = () => {
                     { component: Calendar, section: 'calender' },
                     { component: Service, section: 'service' },
                     { component: Temple, section: 'temple' },
+                    { component: TempleManagment, section: 'templemanagment' },
                     { component: Teams, section: 'teams' }
                 ].map(({ component: Component, section }) => (
                     <div key={section} className={`${selectedSection === section ? 'bottom-0' : 'bottom-[-300%]'} absolute backdrop-blur-lg w-full h-[80vh] transition-all ease-in-out duration-500 rounded-xl z-20`}>

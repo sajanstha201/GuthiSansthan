@@ -5,19 +5,18 @@ import thirdPerson from '../../../../media/Teams/p3.png'
 import fourthPerson from '../../../../media/Teams/p4.png'
 import { useEffect } from 'react'
 import './Teams.css'
-import {LeftImageSlider} from './LeftImageSlider'
-import {RightImageSlider} from './RightImageSlider'
+
+import InstantTeam from './InstantTeam'
 export const Teams=()=>{
     const {t}=useTranslation()
     return(
         <>     
         <div className="w-full h-full pb-5">
-        <h1 className="text-white">Our Teams</h1>
+        <h1 className="text-white font-bold text-6xl  ">Guthi Sansthan</h1>
         <div className="h-full w-full flex flex-col overflow-auto px-2">
-        <LeftImageSlider image={firstPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} desc={'Hi there, I am'}/>
-        <RightImageSlider image={secondPerson} name={'Mr. Sailesh Raj Kunwar'}  post={'Administrator'} desc={'Hi there, I am'} />
-        <LeftImageSlider image={thirdPerson} name={'Mr. Hari Prasad Subedi'} post={'Spokesperson'} desc={'Hi there, I am'}/>
-        <RightImageSlider image={fourthPerson} name={'Mr. Janak Pokhrel'} post={'Information Officer'} desc={'Hi there, I am'}/>
+            <InstantTeam image={firstPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={secondPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
+            <InstantTeam image={thirdPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={fourthPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
+      
         </div>
         </div>
         </>

@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        '3d': 'rotateY  infinite',
+      },
       height: {
         '100vh-100px': 'calc(100vh - 100px)',
         '100vh-80px':'calc(100vh - 80px)'

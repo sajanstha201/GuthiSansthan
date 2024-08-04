@@ -57,7 +57,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
             Guthi Name
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="guthiName"
             name="guthiName"
             type="text"
@@ -73,7 +73,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
           {members.map((member, index) => (
             <div key={index} className="flex items-center mb-2">
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
                 value={member}
                 onChange={(event) => handleMemberChange(index, event)}
@@ -96,7 +96,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
             Geo Location
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="geoLocation"
             name="geoLocation"
             type="text"
@@ -110,7 +110,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
             Bank Account
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="bankAccount"
             name="bankAccount"
             type="text"
@@ -128,7 +128,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
               Land
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="land"
               name="land"
               type="text"
@@ -142,7 +142,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
               Ornaments
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="ornaments"
               name="ornaments"
               type="text"
@@ -156,7 +156,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
               Cash
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="cash"
               name="cash"
               type="text"
@@ -170,7 +170,7 @@ export const AddTempleManagment = ({fetchTemple}) => {
               Buildings
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="buildings"
               name="buildings"
               type="text"

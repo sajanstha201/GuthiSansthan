@@ -66,14 +66,7 @@ Join us in our journey to uphold the legacy of our ancestors and contribute to a
       <div style={{ height: `${isEditing ? 'calc(100vh - 160px)' : '100%'}` }} 
             className={` flex flex-col items-center justify-start h-full relative overflow-hidden`}>
         <NepalFlagSlider />
-      {!token &&  <div className={` flex ${isMobile ? 'flex-col' : 'flex-row'}  gap-4 px-5 w-full`}>
-          <Link
-            to="/sign-in"
-            className={`${isMobile ? 'text-xs p-2 px-3' : 'p-3 px-5'} no-underline text-white font-bold bg-blue-800 rounded-full cursor-pointer hover:bg-blue-900 z-20`}
-          >
-            {t('sign-in')}
-          </Link>
-        </div>}
+
          
         <HomePageFooter />
       </div>

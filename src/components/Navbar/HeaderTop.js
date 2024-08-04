@@ -103,18 +103,19 @@ export const HeaderTop = () => {
 
 
                 </div>
-                <Link to='/donation' className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} no-underline px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
-                    {t('donate')}
-                </Link>
-               {token && <div className="relative inline-block text-left ">
+              { !token &&
+                <Link to='/sign-up' className={`${isMobile ? 'text-[10px] h-[25px]' : 'h-[60%] px-5 py-2'} no-underline px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}>
+                    {t('sign-up')}
+                </Link>}
+               {token && <div className="absolute right-4 inline-block text-left text-white hover:text-blue-500 ">
                     <div onClick={toggleDropdown} className="cursor-pointer flex items-center">
-                        <FontAwesomeIcon icon={faUserCircle} size="xl" className="text-white" />
+                        <FontAwesomeIcon icon={faUserCircle} size="3x" className="text-white hover:text-blue-500 " />
                     </div>
                     {isOpen && (
-                        <div className="absolute right-0  px-1 bg-zinc-700/30 backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-10">
-                            <NavLink to="/user" className="block px-4 py-2 text-white hover:bg-white-100">Profile</NavLink>
+                        <div className="absolute right-0  flex flex-col items-start gap-2 px-1 bg-zinc-700/30 backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-10">
+                            <NavLink to="/user" className=" text-white hover:text-red-500 no-underline  w-full border-b border-white">Profile</NavLink>
                         
-                            <button onClick={()=>handelLogOut()} className="flex px-4 py-2 text-white hover:bg-white-100 gap-2 items-center">Logout <FontAwesomeIcon icon={faRightFromBracket}/> </button>
+                            <button onClick={()=>handelLogOut()} className=" flex  text-white hover:text-red-500  gap-2 items-center">Logout <FontAwesomeIcon icon={faRightFromBracket}/> </button>
                         </div>
                     )}
                 </div>}

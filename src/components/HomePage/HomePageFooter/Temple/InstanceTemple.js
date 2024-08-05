@@ -57,16 +57,19 @@ const InstanceTemple = ({index,templeId,name,fetchAllTemple, detail, img, locati
     return (
         <>
          <div className={`${isMobile?'h-[100px] w-[150px]':'h-[150px] w-[200px]'}  rounded-md`} >
-            
-            <div className=" relative h-full w-full flex items-center justify-center bg-cover bg-center overflow-hidden rounded-md " style={{backgroundImage:`url(${templeDetail.dynamicDetails[index].image})`}} onClick={()=>setIsHidden(false)}>
-                <div  className={`${isMobile?'text-[15px]':'text-[25px]'}  absolute h-full w-full items-center justify-center flex text-white font-bold  z-20`}>
+         
+            <div className=" relative h-full w-full flex items-center justify-center bg-cover bg-center overflow-hidden rounded-md " style={{backgroundImage:`url(${templeDetail.dynamicDetails[index].image})`}} >
+            {isEditing&&<div className="absolute top-0 left-0 bg-red-600 cursor-pointer rounded-md px-2 py-1 text-white hover:bg-red-700 z-30 " onClick={removeTemple}>Remove</div>}
+                <div  className={`${isMobile?'text-[15px]':'text-[25px]'}  absolute h-full w-full items-center justify-center flex text-white font-bold  z-10`}
+                onClick={()=>setIsHidden(false)}
+                >
                 {name}
                 </div>
                 <div className="absolute bg-gray-900/50 h-full w-full "></div>
             </div>
-            {isEditing&&<div className=" bg-red-600 cursor-pointer rounded-md px-2 py-1 text-white hover:bg-red-700 " onClick={removeTemple}>Remove</div>}
+           
         </div>
-        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%]  w-[98%] md:w-[90%] lg:w-[80%]'} absolute rounded-xl bg-neutral-900/100    flex flex-col items-center justify-start z-40   backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
+        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%]  w-[98%] md:w-[90%] lg:w-[80%]'} absolute top-20 rounded-xl bg-neutral-900/100    flex flex-col items-center justify-start z-40   backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
             
         <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
  

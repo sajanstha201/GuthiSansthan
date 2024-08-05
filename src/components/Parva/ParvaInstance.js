@@ -36,16 +36,16 @@ export const ParvaInstance=({parvaId,fetchAllParva,name,detail,img})=>{
         <div className={`${isMobile?'h-[100px] w-[150px]':'h-[150px] w-[200px]'} rounded-md  `} >
             <div className={`${isEditing?'rounded-t-md':'rounded-md'} overflow-hidden relative h-full w-full flex items-center justify-center bg-cover bg-center  bg-red-500 `} 
             style={{backgroundImage:`url(${img})`}}
-            onClick={()=>setIsHidden(false)}
             >
-                <div  className={`${isMobile?'text-[15px]':'text-[30px]'}  absolute h-full w-full items-center justify-center flex text-white font-bold  z-40`}>
+                {isEditing&&<div className="absolute top-0 left-0 bg-red-600 cursor-pointer rounded-b-md px-2 py-1 text-white hover:bg-red-700 z-30" onClick={removeParva}>Remove</div>}
+                <div  className={`${isMobile?'text-[15px]':'text-[30px]'}  absolute h-full w-full items-center justify-center flex text-white font-bold  z-10`} onClick={()=>setIsHidden(false)}>
                 {name}
                 </div>
                 <div className="absolute bg-gray-900/50 h-full w-full "></div>
             </div>
-            {isEditing&&<div className=" bg-red-600 cursor-pointer rounded-b-md px-2 py-1 text-white hover:bg-red-700 " onClick={removeParva}>Remove</div>}
+            
         </div>
-        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%] w-[80%]'} absolute rounded-xl bg-neutral-800/50    flex flex-col items-center justify-start z-50   backdrop-blur-3xl overflow-auto transition-all duration-200 ease-out`}>
+        {<motion.div  className={`${isHidden?'h-0 w-0':'h-[80%] w-[80%]'} absolute top-20 rounded-xl bg-neutral-800/50    flex flex-col items-center justify-start z-50   backdrop-blur-3xl overflow-auto transition-all duration-200 ease-out`}>
             
             <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setIsHidden(true)}/> 
  

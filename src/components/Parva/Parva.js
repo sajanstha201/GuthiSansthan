@@ -65,8 +65,8 @@ export const Parva = () => {
 
     <div className="w-full h-full pb-3 flex flex-col relative ">
       <h1 className="text-white z-10 text-[60px]">{t('parva')}</h1>
-      <div className="flex w-full h-full items-center justify-center overflow-auto">
-        <div className="w-[95%] flex h-full flex-wrap items-center justify-center gap-16 overflow-auto">
+      <div className="flex w-full h-full justify-center overflow-auto">
+        <div className="w-[95%] flex flex-wrap items-center justify-center gap-16 overflow-auto">
           {parvaPageDetail.dynamicDetails.map((festival) => (
             <ParvaInstance
             parvaId={festival.id}
@@ -74,8 +74,7 @@ export const Parva = () => {
             key={festival.id}
             img={festival.image}
             name={festival.name}
-              detail={festival.description}
-              
+              detail={festival.description}  
             />
           ))}
           {isEditing&&<>

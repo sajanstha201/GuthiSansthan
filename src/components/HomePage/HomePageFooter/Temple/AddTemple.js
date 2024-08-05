@@ -72,7 +72,7 @@ export const AddTemple = ({fetchTemple}) => {
     <>
     {isAddTempleActivate&&
     <>
-    <div className='relative flex flex-col w-full  h-fit  p-3 gap-2 m-5 items-center justify-center'>
+    <div className='flex flex-col w-full  h-fit  p-3 gap-2 m-5 items-center justify-center'>
         <div className='w-[60%] bg-white/50 backdrop-blur-sm rounded-lg  text-black flex items-center flex-col justify-center px-24'>
 
           <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer  absolute top-2 right-2 text-red-600 z-50" onClick={()=>setIsAddTempleActivate(false)}/> 

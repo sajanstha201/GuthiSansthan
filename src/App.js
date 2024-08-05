@@ -61,19 +61,19 @@ function App() {
     <div className={`App relative ${location.pathname===''?'':''}`}>
            {popup &&
 
-<div className="fixed flex justify-center  w-full bg-black/30 items-center z-50 h-screen">
+            <div className="fixed flex justify-center  w-full bg-black/30 items-center z-50 h-screen">
 
-          <div className=" relative w-[90%] h-[80%] rounded-md bg-red-400 z-50 ">
-                  
-                  <FontAwesomeIcon
-                                    icon={faClose}
-                                    size={'2x'}
-                                    className="cursor-pointer absolute top-0 right-3 text-red-600 "
-                                    onClick={() => setPopup(false)}
-                                    />
-                                    <Popup/>
-                  </div>
-          </div>}
+                      <div className=" relative w-[90%] h-[80%] rounded-md bg-red-400 z-50 ">
+                              
+                              <FontAwesomeIcon
+                                                icon={faClose}
+                                                size={'2x'}
+                                                className="cursor-pointer absolute top-0 right-3 text-red-600 "
+                                                onClick={() => setPopup(false)}
+                                                />
+                                                <Popup/>
+                              </div>
+            </div>}
       <ConfirmBox/>
       <AlertBox/>
       <LoaderBox/>
@@ -81,7 +81,7 @@ function App() {
       <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
-      <div className={`${location.pathname==='/'?'':'mb-[100px]'} h-full relative`}> 
+      <div className={`${location.pathname==='/'?'':'mb-[100px]'} h-full `}> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />

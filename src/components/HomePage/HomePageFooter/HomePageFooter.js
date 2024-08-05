@@ -22,13 +22,6 @@ export const HomePageFooter = () => {
     const dispatch = useDispatch();
     const baseUrl = useSelector(state => state.baseUrl).backend;
     const token = sessionStorage.getItem('token');
-
-    const handleHiddenDiv = (event) => {
-        if (hiddenDivRef.current && !hiddenDivRef.current.contains(event.target)) {
-            setSelectedSection('');
-        }
-    };
-
     useEffect(() => {
         const fetchFooterImg = async () => {
             dispatch(setFooterBgImg(await fetchImageToURL(baseUrl + homePageDetail.details['footer-bg-img'].image)));
@@ -37,12 +30,6 @@ export const HomePageFooter = () => {
         if (!homePageDetail['footer-bg-img'].isFetched && homePageDetail.isFetched) {
             fetchFooterImg();
         }
-
-        document.addEventListener('mousedown', handleHiddenDiv);
-
-        return () => {
-            document.removeEventListener('mousedown', handleHiddenDiv);
-        };
     }, [dispatch, baseUrl, homePageDetail]);
 
     const sections = [

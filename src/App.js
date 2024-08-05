@@ -24,6 +24,7 @@ import { ShowArticle } from './components/Articles/ArticleSection/ShowArticle';
 import { ShowNotice } from './components/Articles/NoticeSection/ShowNotice';
 import NoticeForm from './components/Articles/NoticeSection/NoticeForm';
 import { Parva } from './components/Parva/Parva';
+import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -50,13 +51,14 @@ function App() {
   },[])
   return (
     <div className={`App relative ${location.pathname===''?'':''}`}>
+      <ConfirmBox/>
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>
       <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
-      <div className={`${location.pathname==='/'?'':'mb-[100px]'} `}> 
+      <div className={`${location.pathname==='/'?'':'mb-[100px]'} h-full relative`}> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />

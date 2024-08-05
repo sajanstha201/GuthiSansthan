@@ -22,6 +22,12 @@ export const ServiceSlice=createSlice({
             state.isDynamicFetched=true
             state.dynamicDetails=action.payload
         },
+        setDynamicImageUrl:(state,action)=>{
+            const oldData=state.dynamicDetails
+            oldData[action.payload.index].image=action.payload.image
+            oldData[action.payload.index]['isImageFetched']=true
+            state.dynamicDetails=oldData
+        },
         setBgImg:(state,action)=>{
             state['bg-img']={
                 isFetched:true,
@@ -37,4 +43,4 @@ export const ServiceSlice=createSlice({
     }
 })
 export default ServiceSlice.reducer
-export const {setServicePageWholeDetail,setBgImg,setNewBgImg,setDynamicServicePageWholeDetail} =ServiceSlice.actions
+export const {setServicePageWholeDetail,setBgImg,setNewBgImg,setDynamicServicePageWholeDetail,setDynamicImageUrl} =ServiceSlice.actions

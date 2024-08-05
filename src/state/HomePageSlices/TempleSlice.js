@@ -18,8 +18,21 @@ export const TempleSlice=createSlice({
         setDynamicTempleWholeDetail:(state,action)=>{
             state.dynamicDetails=action.payload
             state.isDynamicFetched=true
+        },
+        setImageUrl:(state,action)=>{
+            const oldData=state.dynamicDetails
+            oldData[action.payload.index].image=action.payload.image
+            oldData[action.payload.index]['isImageFetched']=true
+            state.dynamicDetails=oldData
+
+        },
+        setQRUrl:(state,action)=>{
+            const oldData=state.dynamicDetails
+            oldData[action.payload.index]['qr_code']=action.payload.qr
+            oldData[action.payload.index]['isQRFetched']=true
+            state.dynamicDetails=oldData
         }
     }
 })
 export default TempleSlice.reducer
-export const {setTempleWholeDetail,setDynamicTempleWholeDetail}=TempleSlice.actions
+export const {setTempleWholeDetail,setImageUrl,setQRUrl,setDynamicTempleWholeDetail}=TempleSlice.actions

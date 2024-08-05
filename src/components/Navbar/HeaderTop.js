@@ -68,13 +68,18 @@ export const HeaderTop = () => {
                     <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} />
                 </EditImage>
             </Link>
-            {isEditing?
-            <div className=" bg-red-700 flex items-center justify-center py-2 px-3 cursor-pointer rounded-md" onClick={()=>setIsEditing(false)}>
-                Deactivate Editing</div>
-            :
-            <div className="bg-green-700 flex items-center justify-center py-2 px-3 cursor-pointer rounded-md" onClick={()=>setIsEditing(true)}>
-                Activate Editing</div>
+            {!isMobile&&
+            <>
+                {isEditing?
+                <div className=" bg-red-700 flex items-center justify-center py-2 px-3 cursor-pointer rounded-md" onClick={()=>setIsEditing(false)}>
+                    Deactivate Editing</div>
+                :
+                <div className="bg-green-700 flex items-center justify-center py-2 px-3 cursor-pointer rounded-md" onClick={()=>setIsEditing(true)}>
+                    Activate Editing</div>
+                }
+            </>
             }
+
             
             
             {loc.pathname !== '/' && !isMobile && <div className={`${isMobile ? 'h-[100px]' : ''} w-[40%] flex items-center justify-center`}>

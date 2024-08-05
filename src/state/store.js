@@ -9,8 +9,10 @@ import ParvaPageSlice from "./ParvaPageSlice";
 import TeamsSlice from "./HomePageSlices/TeamsSlice";
 import CalenderSlice from "./HomePageSlices/CalenderSlice";
 import ContactUsPageSlice from "./ContactUsPageSlice";
-import ArticlePageSlice from "./ArticlePageSlice";
+import ArticlePageSlice from "./ArticleNoticeSlices/ArticlePageSlice";
 import TempleSlice from "./HomePageSlices/TempleSlice";
+import ArticleSectionSlice from "./ArticleNoticeSlices/ArticleSectionSlice";
+import NoticeSectionSlice from "./ArticleNoticeSlices/NoticeSectionSlice";
 export const store=configureStore({
     reducer:{
        baseUrl:BaseUrlReducer,
@@ -24,6 +26,8 @@ export const store=configureStore({
        templeDetail:TempleSlice,
        calenderDetail:CalenderSlice,
        contactUsPageDetail:ContactUsPageSlice,
-       articlePageDetail:ArticlePageSlice
+       articlePageDetail:ArticlePageSlice,
+       articelSectionDetail:ArticleSectionSlice,
+       noticeSectionDetail:NoticeSectionSlice
     }
 })

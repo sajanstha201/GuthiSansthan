@@ -31,10 +31,8 @@ export const Articles=()=>{
         <>
             <motion.div initial={{y:200 , opacity:0}} animate={{y:0,opacity:1}} transition={{duration:1.2,delay:0.5} } className="w-full bg-white p-1 rounded-md overflow-hidden mt-2" >
                { articleSectionDetail.details? articleSectionDetail.details.map(()=>(
-
-            <InstanceArticles  img={bg} title={'Title'} desc={'lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit debitis dicta, provident, similique laudantium reiciendis aut, iure distinctio in dolorem facere fugit sed atque incidunt ipsum fuga? Ullam, ducimus harum?'}/>
-               )):<h1>Empty articles</h1>
-
+                        <InstanceArticles  img={bg} title={'Title'} desc={'lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit debitis dicta, provident, similique laudantium reiciendis aut, iure distinctio in dolorem facere fugit sed atque incidunt ipsum fuga? Ullam, ducimus harum?'}/>
+                )):<h1>Empty articles</h1>
                }
             </motion.div>
         </>

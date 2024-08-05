@@ -8,7 +8,7 @@ export const ConfirmBox=()=>{
                 <div className=" text-white font-bold text-[20px]" id="confirm-box-information">
                     Do you want to delete?
                 </div>
-                <div className="rounded-md flex flex-row items-center justify-center gap-5">
+                <div className="rounded-md flex flex-row items-center justify-center gap-5 text-white">
                     <div id='confirm-box-reject-div'className="bg-red-600 hover:bg-red-700 cursor-pointer px-3 py-2 w-fit h-fit rounded-md" >Reject</div>
                     <div id='confirm-box-confirm-div' className="bg-green-600 hover:bg-green-700 cursor-pointer px-3 py-2 w-fit h-fit rounded-md">Confrim</div>
                 </div>

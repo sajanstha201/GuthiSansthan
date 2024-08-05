@@ -58,7 +58,7 @@ function App() {
       <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
-      <div className={`${location.pathname==='/'?'':'mb-[100px]'} h-full `}> 
+      <div className={`${location.pathname==='/'?'':'mb-[100px]'} h-full relative`}> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />

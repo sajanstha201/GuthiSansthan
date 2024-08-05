@@ -31,11 +31,12 @@ export const Service = () => {
         <div className="w-full h-full pb-3 flex flex-col relative">
             <h1 className="text-white z-10 text-[60px]">Service</h1>
             <div className="relative flex w-full h-full justify-center overflow-auto">
-                <div className=" w-[80%] flex h-fit flex-wrap gap-16 items-center justify-center">
+                <div className=" w-[90%] flex h-fit flex-wrap gap-4 lg:gap-16 items-center justify-center">
                     {serviceDetail.dynamicDetails.map((service,index) => (
                         <ServiceInstance
                             serviceId={service.id}
                             fetchAllService={fetchService}
+                            url={service.url}
                             index={index}
                             key={service.id}
                             img={service.image}

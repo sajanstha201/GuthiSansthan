@@ -29,10 +29,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMain';
 import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
+import { useEditing } from './context/EditingProvider';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
   const globalDetail=useSelector(state=>state.globalDetail)
+  const {isEditing,setIsEditing}=useEditing()
   const dispact=useDispatch()
   useEffect(()=>{
     const fetchGlobalData=async()=>{
@@ -92,14 +94,18 @@ function App() {
             <Route path='/articles' element={<ArticleMainSection/>}/>
             <Route path='/show-article' element={<ShowArticle/>}/>
             <Route path='/show-notice' element={<ShowNotice/>}/>
-
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/parva' element={<Parva/>}/>
             <Route path='/employee-details' element={<EmployeeDetailsMain/>}/>
-            <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
-            <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
-            <Route path='/notice-form' element={<NoticeForm/>}/>
+            {isEditing&&
+              <>
+                <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
+                <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
+                <Route path='/notice-form' element={<NoticeForm/>}/>
+              </>
+            }
+
           </Routes>
          
       </div>

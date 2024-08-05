@@ -45,7 +45,7 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
     return (
         <>
             <div 
-                className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[150px] w-[200px]'} rounded-md cursor-pointer my-3`}>
+                className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[150px] w-[200px]'} relative rounded-md cursor-pointer my-3`}>
                 <a href={url} target="_blank" className={` rounded-t-md relative h-full w-full flex items-center justify-center bg-cover bg-center  bg-red-500 overflow-hidden cursor-pointer`}
                     style={{ backgroundImage: `url(${img})` }}>
                     <div className={`${isMobile ? 'text-[15px]' : 'text-[30px]'} absolute h-full w-full items-center justify-center flex text-white font-bold z-10 cursor-pointer`}
@@ -53,8 +53,8 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
                         {name}
                     </div>
                     <div className="absolute bg-gray-900/50 h-full w-full"></div>
-                    {isEditing&&<div className="absolute top-0 left-0 bg-red-600 cursor-pointer rounded-b-md px-2 py-1 text-white hover:bg-red-700 z-20" onClick={removeService}>Remove</div>}
                 </a>
+                {isEditing&&<div className="absolute top-0 left-0 bg-red-600 cursor-pointer rounded-b-md px-2 py-1 text-white hover:bg-red-700 z-20" onClick={removeService}>Remove</div>}
                 <div className="cursor-pointer bg-blue-600 px-2 py-1 text-white rounded-b-md hover:bg-blue-800 "  onClick={() => setIsHidden(false)}>More Info...</div>
             </div>
             <motion.div

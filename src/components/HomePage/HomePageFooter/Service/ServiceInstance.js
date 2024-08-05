@@ -55,7 +55,7 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
                     <div className="absolute bg-gray-900/50 h-full w-full"></div>
                     {isEditing&&<div className="absolute top-0 left-0 bg-red-600 cursor-pointer rounded-b-md px-2 py-1 text-white hover:bg-red-700 z-20" onClick={removeService}>Remove</div>}
                 </a>
-                <div className="cursor-pointer bg-blue-600 px-2 py-1 text-white rounded-b-md "  onClick={() => setIsHidden(false)}>More Info...</div>
+                <div className="cursor-pointer bg-blue-600 px-2 py-1 text-white rounded-b-md hover:bg-blue-800 "  onClick={() => setIsHidden(false)}>More Info...</div>
             </div>
             <motion.div
                 className={`${isHidden ? 'h-0 w-0' : 'h-[90%] w-[90%]'} absolute top-0 rounded-xl bg-neutral-800 flex flex-col items-center justify-start z-50 backdrop-blur-3xl overflow-auto transition-all duration-200 ease-out`}

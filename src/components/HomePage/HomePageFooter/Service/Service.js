@@ -31,7 +31,7 @@ export const Service = () => {
         <div className="w-full h-full pb-3 flex flex-col relative">
             <h1 className="text-white z-10 text-[60px]">Service</h1>
             <div className="flex w-full h-full items-center justify-center overflow-auto">
-                <div className="w-[95%] flex h-full flex-wrap items-start justify-start gap-7 overflow-auto">
+                <div className="w-[95%] flex h-full flex-wrap items-center justify-center gap-7 overflow-auto">
                     {serviceDetail.dynamicDetails.map((service) => (
                         <ServiceInstance
                             key={service.id}

@@ -24,6 +24,10 @@ import { ShowArticle } from './components/Articles/ArticleSection/ShowArticle';
 import { ShowNotice } from './components/Articles/NoticeSection/ShowNotice';
 import NoticeForm from './components/Articles/NoticeSection/NoticeForm';
 import { Parva } from './components/Parva/Parva';
+import Popup from "./components/HomePage/Popup";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMain';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -47,9 +51,28 @@ function App() {
       }
     }
     if(!globalDetail.isFetched) fetchGlobalData()
+      setPopup(true)
   },[])
+  const[popup,setPopup]=useState(false)
+ 
   return (
+    
     <div className={`App relative ${location.pathname===''?'':''}`}>
+           {popup &&
+
+<div className="fixed flex justify-center  w-full bg-black/30 items-center z-50 h-screen">
+
+          <div className=" relative w-[90%] h-[80%] rounded-md bg-red-400 z-50 ">
+                  
+                  <FontAwesomeIcon
+                                    icon={faClose}
+                                    size={'2x'}
+                                    className="cursor-pointer absolute top-0 right-3 text-red-600 "
+                                    onClick={() => setPopup(false)}
+                                    />
+                                    <Popup/>
+                  </div>
+          </div>}
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>
@@ -71,7 +94,7 @@ function App() {
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/parva' element={<Parva/>}/>
-            
+            <Route path='/employee-details' element={<EmployeeDetailsMain/>}/>
             <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
             <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
             <Route path='/notice-form' element={<NoticeForm/>}/>

@@ -14,6 +14,7 @@ import { EditBgImage } from "../EditComponents/EditBgImage";
 import { EditBgVideo } from "../EditComponents/EditBgVideo";
 import { useEditing } from "../../context/EditingProvider";
 
+
 export const HomePage = () => {
   const { t } = useTranslation(); 
   const isMobile = useMediaQuery('(max-width:800px)');
@@ -22,6 +23,7 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const {isEditing,setIsEditing}=useEditing()
   const token = sessionStorage.getItem('token')
+   
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
@@ -42,6 +44,7 @@ export const HomePage = () => {
   return (
     
     <div style={{ height: `${isMobile ? 'calc(100vh - 80px)' : 'calc(100vh - 100px)'}` }}>
+      
       {(
         <EditBgVideo imageId={homePageDetail['bg-video']} url={homePageDetail.url} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].imgSrc===homePageDetail['bg-video'].actualImgSrc}>
           <video
@@ -57,6 +60,7 @@ export const HomePage = () => {
         </EditBgVideo>
  
       )}
+ 
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20 -z-10"></div>
        <marquee className="   w-full bg-red-500/40 backdrop-blur-sm py-2 text-white font-semibold">At Guthi Sanstha, we honor the rich cultural heritage and philanthropic spirit of Nepal. Founded with the vision to preserve and promote our ancient traditions, our organization is dedicated to the management and development of traditional Guthis—sacred trusts that sustain our cultural, religious, and social practices.
 
@@ -66,7 +70,8 @@ Join us in our journey to uphold the legacy of our ancestors and contribute to a
       <div style={{ height: `${isEditing ? 'calc(100vh - 160px)' : '100%'}` }} 
             className={` flex flex-col items-center justify-start h-full relative overflow-hidden`}>
         <NepalFlagSlider />
-
+       
+      
          
         <HomePageFooter />
       </div>

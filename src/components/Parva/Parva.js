@@ -74,7 +74,8 @@ export const Parva = () => {
             key={festival.id}
             img={festival.image}
             name={festival.name}
-              detail={festival.description}  
+              detail={festival.description}
+              qr={festival.qr_code}
             />
           ))}
           {isEditing&&<>

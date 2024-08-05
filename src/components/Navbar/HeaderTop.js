@@ -79,7 +79,6 @@ export const HeaderTop = () => {
                 }
             </>
             }
-
             
             
             {loc.pathname !== '/' && !isMobile && <div className={`${isMobile ? 'h-[100px]' : ''} w-[40%] flex items-center justify-center`}>

@@ -3,6 +3,7 @@ import './Teams.css'
 import { useEffect } from 'react';
 import '../../../../App.css'
 import logo from '../../../../media/logo192.png'
+import logo1 from '../../../../media/Teams/logo.gif'
 const InstantTeam = ({name,image,post,name1,post1,image1}) => {
 
   return (
@@ -16,7 +17,8 @@ const InstantTeam = ({name,image,post,name1,post1,image1}) => {
                 <h1 className='text-lg font-semibold text-white'>{name}</h1>
                 </div>
                 <div className={` relative h-full w-[70%] flex justify-center items-center   overflow-hidden`}> 
-                     <img src={logo} height={200} width={200} className='rotate-y-infinite   '/>
+                     <img src={logo1} height={250} width={250} className='   '/>
+                     
                 </div>
                 <div className='flex flex-col justify-center'>
 

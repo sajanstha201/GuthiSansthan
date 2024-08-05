@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/GuthiSansthan/static/css/main.5f50a199.css",
-    "main.js": "/GuthiSansthan/static/js/main.f38b2942.js",
+    "main.css": "/GuthiSansthan/static/css/main.1e7c8b8d.css",
+    "main.js": "/GuthiSansthan/static/js/main.7f8ce794.js",
     "static/media/bg.png": "/GuthiSansthan/static/media/bg.165d9ea365d7974edd34.png",
     "static/media/jatra.png": "/GuthiSansthan/static/media/jatra.f14bec51ef0e8ac27908.png",
     "static/media/patandurbarsquare.png": "/GuthiSansthan/static/media/patandurbarsquare.05c078c3648671d1815e.png",
+    "static/media/logo.gif": "/GuthiSansthan/static/media/logo.ee44f7108b492b75a0d3.gif",
     "static/media/nepalLandmark.png": "/GuthiSansthan/static/media/nepalLandmark.f4a649f5f4a01c8375fa.png",
-    "static/media/image.png": "/GuthiSansthan/static/media/image.b845c19e932b8813e42d.png",
     "static/media/shechen-tennyi-dargyeling-golden-temple-in-kathmandu-nepal.jpg": "/GuthiSansthan/static/media/shechen-tennyi-dargyeling-golden-temple-in-kathmandu-nepal.15e861379f2109d01a22.jpg",
     "static/media/Pashupatinath_temple,kathmandu,Nepal.jpg": "/GuthiSansthan/static/media/Pashupatinath_temple,kathmandu,Nepal.cdaefa12d57f3f29ca20.jpg",
     "static/media/2.png": "/GuthiSansthan/static/media/2.12159d43b381ad6fd57c.png",
@@ -14,14 +14,15 @@
     "static/media/Patan-Durbar-square-scaled-e1644243944542.jpg": "/GuthiSansthan/static/media/Patan-Durbar-square-scaled-e1644243944542.64f164b608901b16e0b2.jpg",
     "static/media/mountain.png": "/GuthiSansthan/static/media/mountain.bf13d36950febe61d7ed.png",
     "static/media/guthi sansthan.png": "/GuthiSansthan/static/media/guthi sansthan.78f5dfb1bebce1d3aaff.png",
-    "static/media/donation.png": "/GuthiSansthan/static/media/donation.3917094762bad5856516.png",
     "static/media/lalitpur.jpeg": "/GuthiSansthan/static/media/lalitpur.12fc5d0220566fccef58.jpeg",
     "static/media/pasupatibg.jpg": "/GuthiSansthan/static/media/pasupatibg.986ac5ce1c0cad175e67.jpg",
     "static/media/patan.jpeg": "/GuthiSansthan/static/media/patan.3ecb34c93924e7b97793.jpeg",
     "static/media/Temple-manakamana.jpg": "/GuthiSansthan/static/media/Temple-manakamana.aaa1116d748c92e4934b.jpg",
     "static/media/sajan shrestha  MIT  Resume.pdf": "/GuthiSansthan/static/media/sajan shrestha  MIT  Resume.22614ff7954a36f76d0c.pdf",
+    "static/media/logo192.png": "/GuthiSansthan/static/media/logo192.8c15471e4186158935a5.png",
     "static/media/rectangle.png": "/GuthiSansthan/static/media/rectangle.075a923544428c431939.png",
     "static/media/sagar_shrestha_Resume (1).pdf": "/GuthiSansthan/static/media/sagar_shrestha_Resume (1).90503f7889d533156f0d.pdf",
+    "static/media/image.png": "/GuthiSansthan/static/media/image.b845c19e932b8813e42d.png",
     "static/media/images.png": "/GuthiSansthan/static/media/images.ee152c6ab1c273a47fd8.png",
     "static/media/p1.png": "/GuthiSansthan/static/media/p1.b465ecbfa708a68a15f0.png",
     "static/media/nepalLogo.png": "/GuthiSansthan/static/media/nepalLogo.db8d98d425bbf1ce8a0d.png",
@@ -35,11 +36,11 @@
     "static/media/EnglishDescription.txt": "/GuthiSansthan/static/media/EnglishDescription.d2c323a9768069872a06.txt",
     "index.html": "/GuthiSansthan/index.html",
     "static/media/getFetch.cjs": "/GuthiSansthan/static/media/getFetch.c4cca45e22bc1b2c7d0d.cjs",
-    "main.5f50a199.css.map": "/GuthiSansthan/static/css/main.5f50a199.css.map",
-    "main.f38b2942.js.map": "/GuthiSansthan/static/js/main.f38b2942.js.map"
+    "main.1e7c8b8d.css.map": "/GuthiSansthan/static/css/main.1e7c8b8d.css.map",
+    "main.7f8ce794.js.map": "/GuthiSansthan/static/js/main.7f8ce794.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f50a199.css",
-    "static/js/main.f38b2942.js"
+    "static/css/main.1e7c8b8d.css",
+    "static/js/main.7f8ce794.js"
   ]
 }

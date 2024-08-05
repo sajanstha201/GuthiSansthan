@@ -19,7 +19,6 @@ export const Parva = () => {
   const {isEditing,setIsEditing}=useEditing()
   const dispatch=useDispatch()
   const {t}=useTranslation()
-  console.log(parvaPageDetail)
   useEffect(() => {
     try{    
       if(!parvaPageDetail.isDynamicFetched) fetchDynamicParva();
@@ -33,10 +32,8 @@ export const Parva = () => {
   const fetchParvaContent=async()=>{
     try{
       const response = await axios.get(baseUrl+parvaPageDetail.url)
-      console.log('respdsf',response.data)
       dispatch(setParvaPageWholeDetails(response.data.components))
       dispatch(setBgImg(await fetchImageToURL(baseUrl + response.data.components['parva-page'].image.substr(1))))
-      console.log('fetch done for images')
       addLanguage({ key: 'parva', lngs: response.data.components['parva-page'].text })
       dispatch(setParvaPageWholeDetails(response.data))
     }
@@ -69,9 +66,11 @@ export const Parva = () => {
     <div className="w-full h-full pb-3 flex flex-col relative ">
       <h1 className="text-white z-10 text-[60px]">{t('parva')}</h1>
       <div className="flex w-full h-full items-center justify-center overflow-auto">
-        <div className="w-[95%] flex h-full flex-wrap items-center justify-center gap-7 overflow-auto">
+        <div className="w-[95%] flex h-full flex-wrap items-center justify-center gap-16 overflow-auto">
           {parvaPageDetail.dynamicDetails.map((festival) => (
             <ParvaInstance
+            parvaId={festival.id}
+            fetchAllParva={fetchDynamicParva}
             key={festival.id}
             img={festival.image}
             name={festival.name}

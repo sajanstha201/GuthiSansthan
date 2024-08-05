@@ -1,8 +1,9 @@
 import {React,useRef, useState} from 'react'
 import { useMediaQuery } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus,faClose } from '@fortawesome/free-solid-svg-icons';
-import { showAlert } from '../../../AlertLoader';
+import { faPlus,faClose, faL } from '@fortawesome/free-solid-svg-icons';
+import {  showAlert } from '../../../AlertLoader';
+import { activate_loader } from '../../../AlertLoader/LoaderBox';
 import { useSelector } from 'react-redux';
 export const AddTemple = ({fetchTemple}) => {
 
@@ -34,6 +35,9 @@ export const AddTemple = ({fetchTemple}) => {
        formData.append('details',des)
        console.log(formData)
        try {
+        setIsAddTempleActivate(false)
+        console.log('afls')
+        activate_loader(true)
          const response = await fetch(baseUrl+templeDetail.dynamicUrl, {
            method: 'POST',
            body: formData,
@@ -45,10 +49,12 @@ export const AddTemple = ({fetchTemple}) => {
          console.log(result);
          showAlert('Temple Added Successfully','green')
          fetchTemple()
-         setIsAddTempleActivate(false)
        } catch (error) {
          console.error('Error:', error);
          showAlert(error,'red')
+       }
+       finally{
+        activate_loader(false)
        }
      };
     
@@ -62,38 +68,41 @@ export const AddTemple = ({fetchTemple}) => {
             <FontAwesomeIcon icon={faPlus} size='3x'/>
         </div>
     </>}
-
+  
     <>
     {isAddTempleActivate&&
-    <div className='relative flex flex-col w-[90%] bg-white/50 backdrop-blur-sm rounded-lg lg:w-[50%] p-3 gap-2'>
-            <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer  absolute top-2 right-2 text-red-600 z-50" onClick={()=>setIsAddTempleActivate(false)}/> 
+    <>
+    <div className='relative flex flex-col w-full  h-fit  p-3 gap-2 m-5 items-center justify-center'>
+        <div className='w-[60%] bg-white/50 backdrop-blur-sm rounded-lg  text-black flex items-center flex-col justify-center px-24'>
 
-           <h1 className='font-semibold tracking-wider my-2'>Temple Form</h1>
-             <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
-                <label className='font-semibold text-lg'>Temple Name:</label>
-                <input type='text' ref={nameRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'/>
-             </div>
-             <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
-                <label className='font-semibold text-lg'>location:</label>
-                <input type='text' ref={locationRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'/>
-             </div>
-             <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
+          <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer  absolute top-2 right-2 text-red-600 z-50" onClick={()=>setIsAddTempleActivate(false)}/> 
+
+            <h1 className='font-semibold tracking-wider my-2'>Temple Addition Form</h1>
+              <div className='flex w-full flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
+                <input type='text' ref={nameRef} placeholder='Temple Name' className='w-full h-12 rounded-md px-3 py-2 border border-zinc-900'/>
+              </div>
+              <div className='flex w-full flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
+                <input type='text' ref={locationRef} placeholder='Temple Location' className='w-full h-12 rounded-md px-3 py-2 border border-zinc-900'/>
+              </div>
+              <div className='flex  w-full flex-wrap flex-col py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
+                <textarea ref={desRef} placeholder='Description' className='w-full   rounded-md h-44 px-2 py-3 border border-cyan-400'/>
+              </div>
+              <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-start'>
                 <label className='font-semibold text-lg'>Upload Image:</label>
-                <input type='file' accept='.png,.jpg,.jpeg' ref={photoRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'/>
-             </div>
-             <div className='flex flex-wrap flex-col py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
-                <label className='font-semibold text-lg'>Description:</label>
-                <textarea ref={desRef} className='w-full lg:w-2/3 rounded-md h-44 px-2 py-3 border border-cyan-400'/>
-             </div>
-             <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
+                <input type='file'accept='.png,.jpg,.jpeg'  ref={photoRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'/>
+              </div>
+              <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-start'>
                 <label className='font-semibold text-lg'>Upload QR:</label>
                 <input type='file'accept='.png,.jpg,.jpeg'  ref={qrRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900'/>
-             </div>
-             <div className='w-full flex justify-end px-5 gap-3'>
-             <button className='bg-red-600 px-4 py-1 rounded-md text-white font-semibold text-lg' onClick={()=>setIsAddTempleActivate(false)}>Remove</button>
-             <button className='bg-green-600 px-4 py-1 rounded-md text-white font-semibold text-lg' onClick={handleSubmit}>Submit</button>
-             </div>
-       </div>}
+              </div>
+              <div className='w-full flex justify-end px-5 gap-3 py-2'>
+              <button className='bg-red-600 px-4 py-1 rounded-md text-white font-semibold text-lg' onClick={()=>setIsAddTempleActivate(false)}>Remove</button>
+              <button className='bg-green-600 px-4 py-1 rounded-md text-white font-semibold text-lg' onClick={handleSubmit}>Submit</button>
+              </div>
+        </div>
+
+       </div>
+       </>}
     </>
     </>
     

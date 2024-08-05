@@ -40,8 +40,8 @@ const Temple = () => {
     <h1 className="text-white z-40 text-[60px]">Temple</h1>
     <div className="flex w-full h-full items-center justify-center overflow-auto">
         <div className=" w-[95%] flex h-full flex-wrap items-center justify-center gap-7">
-              {templeDetail.dynamicDetails.map((festivals)=> (
-                 <InstanceTemple key={festivals.id} name={festivals.name} detail={festivals.details} img={festivals.image} qr={festivals.qr_code} location={festivals.location} />
+              {templeDetail.dynamicDetails.map((festivals,index)=> (
+                 <InstanceTemple index={index} key={festivals.id} templeId={festivals.id} fetchAllTemple={fetchTemple} name={festivals.name} detail={festivals.details} img={festivals.image} qr={festivals.qr_code} location={festivals.location} />
               ))}
               {isEditing&&<AddTemple fetchTemple={fetchTemple}/>}
         </div>

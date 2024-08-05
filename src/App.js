@@ -24,6 +24,7 @@ import { ShowArticle } from './components/Articles/ArticleSection/ShowArticle';
 import { ShowNotice } from './components/Articles/NoticeSection/ShowNotice';
 import NoticeForm from './components/Articles/NoticeSection/NoticeForm';
 import { Parva } from './components/Parva/Parva';
+import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -50,6 +51,7 @@ function App() {
   },[])
   return (
     <div className={`App relative ${location.pathname===''?'':''}`}>
+      <ConfirmBox/>
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>

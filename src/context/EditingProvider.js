@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 const editingContext=createContext()
 export const EditingProvider=({children})=>{
-    const [isEditing,setIsEditing]=useState(false)
+    const [isEditing,setIsEditing]=useState(true)
     return(
         <>
         <editingContext.Provider value={{isEditing,setIsEditing}}>

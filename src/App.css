@@ -68,3 +68,34 @@
 .emerge{
   animation: emerge 1s ease-out forwards;
 }
+
+/* Style for the loader container */
+.loader-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Style for the circular loader */
+.loader-box::before {
+  content: "";
+  display: block;
+  width: 120px; /* Adjusted size for increased radius */
+  height: 120px; /* Adjusted size for increased radius */
+  border: 10px solid transparent; /* Adjust border width to maintain proportion */
+  border-top: 10px solid green; /* Green color for the top border */
+  border-radius: 50%; /* Make it circular */
+  animation: spin 1s linear infinite; /* Animation to make it spin */
+}
+
+/* Keyframe animation for spinning */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

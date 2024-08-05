@@ -28,6 +28,7 @@ import Popup from "./components/HomePage/Popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMain';
+import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -73,13 +74,14 @@ function App() {
                                     <Popup/>
                   </div>
           </div>}
+      <ConfirmBox/>
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>
       <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
-      <div className={`${location.pathname==='/'?'':'mb-[100px]'} `}> 
+      <div className={`${location.pathname==='/'?'':'mb-[100px]'} h-full relative`}> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />

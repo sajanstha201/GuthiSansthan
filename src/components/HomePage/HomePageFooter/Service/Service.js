@@ -13,13 +13,13 @@ export const Service = () => {
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const dispatch=useDispatch()
     useEffect(() => {
-        console.log(serviceDetail)
         if(!serviceDetail.isDynamicFetched) fetchService();
     }, []);
 
     const fetchService = async () => {
         try {
             const response = await axios.get(baseUrl+serviceDetail.dynamicUrl);
+            console.log(response.data)
             dispatch(setDynamicServicePageWholeDetail(response.data))
         } catch (error) {
             showAlert(error,'red')
@@ -30,10 +30,14 @@ export const Service = () => {
     return (
         <div className="w-full h-full pb-3 flex flex-col relative">
             <h1 className="text-white z-10 text-[60px]">Service</h1>
-            <div className="flex w-full h-full items-center justify-center overflow-auto">
-                <div className="w-[95%] flex h-full flex-wrap items-center justify-center gap-7 overflow-auto">
-                    {serviceDetail.dynamicDetails.map((service) => (
+            <div className="relative flex w-full h-full justify-center overflow-auto">
+                <div className=" w-[90%] flex h-fit flex-wrap gap-4 lg:gap-16 items-center justify-center">
+                    {serviceDetail.dynamicDetails.map((service,index) => (
                         <ServiceInstance
+                            serviceId={service.id}
+                            fetchAllService={fetchService}
+                            url={service.url}
+                            index={index}
                             key={service.id}
                             img={service.image}
                             name={service.name}

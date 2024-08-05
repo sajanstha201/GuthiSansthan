@@ -16,6 +16,7 @@ export const AddTemple = ({fetchTemple}) => {
     const isMobile = useMediaQuery('(max-width:800px)');
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const templeDetail=useSelector(state=>state.templeDetail)
+    const showRef=useRef();
     const handleSubmit = async(value) =>{
        const name = nameRef.current.value.trim();
        const location = locationRef.current.value.trim();
@@ -62,7 +63,11 @@ export const AddTemple = ({fetchTemple}) => {
     <>
     {!isAddTempleActivate&&<>
     <div 
-            onClick={()=>setIsAddTempleActivate(true)}
+            
+            onClick={()=>{
+              setIsAddTempleActivate(true)
+            }}
+
             className={`${isMobile?'h-[100px] w-[150px]':'h-[150px] w-[200px] '}  hover:scale-105  bg-gray-600 rounded-md border border-white flex flex-col text-white items-center justify-center`} >
             <div>Add Temple</div>
             <FontAwesomeIcon icon={faPlus} size='3x'/>
@@ -72,7 +77,7 @@ export const AddTemple = ({fetchTemple}) => {
     <>
     {isAddTempleActivate&&
     <>
-    <div className='flex flex-col w-full  h-fit  p-3 gap-2 m-5 items-center justify-center'>
+    <div className='flex flex-col w-full  h-fit  gap-2  items-center justify-center'>
         <div className='w-[60%] bg-white/50 backdrop-blur-sm rounded-lg  text-black flex items-center flex-col justify-center px-24'>
 
           <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer  absolute top-2 right-2 text-red-600 z-50" onClick={()=>setIsAddTempleActivate(false)}/> 

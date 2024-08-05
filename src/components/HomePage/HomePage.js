@@ -55,7 +55,7 @@ export const HomePage = () => {
         With a deep-rooted commitment to nurturing the values of community, spirituality, and heritage, Guthi Sanstha undertakes the stewardship of Guthi properties, supports charitable activities, and fosters educational and cultural programs. Our mission is to ensure the vitality of our cultural legacies while addressing contemporary needs and challenges.
 
         Join us in our journey to uphold the legacy of our ancestors and contribute to a thriving, culturally enriched society.</marquee>
-      <div style={{ height: `${isEditing ? 'calc(100vh - 160px)' : '100%'}` }} 
+      <div style={{ height: `${isEditing ? 'calc(100vh - 100px)' : '100%'}` }} 
             className={` w-full flex flex-col items-center justify-start h-full relative overflow-hidden`}>
 {(
         <EditBgVideo imageId={homePageDetail['bg-video']} url={homePageDetail.url} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].imgSrc===homePageDetail['bg-video'].actualImgSrc}>
@@ -73,9 +73,6 @@ export const HomePage = () => {
  
       )}
         <NepalFlagSlider />
-       
-      
-         
         <HomePageFooter />
       </div>
     </div>

@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import './Teams.css'
 
 import InstantTeam from './InstantTeam'
+import { AddTeam } from './AddTeam'
 export const Teams=()=>{
     const {t}=useTranslation()
     return(
@@ -16,7 +17,7 @@ export const Teams=()=>{
         <div className="h-full w-full flex flex-col overflow-auto px-2">
             <InstantTeam image={firstPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={secondPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
             <InstantTeam image={thirdPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={fourthPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
-      
+            <AddTeam/>
         </div>
         </div>
         </>

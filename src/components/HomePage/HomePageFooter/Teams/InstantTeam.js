@@ -26,7 +26,7 @@ const InstantTeam = ({name,image,post,name1,post1,image1}) => {
                         <h1 className='text-2xl font-bold text-yellow-500'>{post1}</h1>
                         <h1 className='text-lg font-semibold text-white'>{name1}</h1>
                         </div>
-                </div>
+        </div>
   )
 }
 

@@ -7,8 +7,11 @@ import { useEffect } from 'react'
 import './Teams.css'
 
 import InstantTeam from './InstantTeam'
+import { AddTeam } from './AddTeam'
+import { useEditing } from '../../../../context/EditingProvider'
 export const Teams=()=>{
     const {t}=useTranslation()
+    const {isEditing,setIsEditing}=useEditing()
     return(
         <>     
         <div className="w-full h-full pb-5">
@@ -16,7 +19,8 @@ export const Teams=()=>{
         <div className="h-full w-full flex flex-col overflow-auto px-2">
             <InstantTeam image={firstPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={secondPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
             <InstantTeam image={thirdPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={fourthPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
-      
+            
+            {isEditing&&<AddTeam/>}
         </div>
         </div>
         </>

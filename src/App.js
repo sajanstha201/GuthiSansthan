@@ -28,11 +28,14 @@ import Popup from "./components/HomePage/Popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMain';
-import AddBranches from './Branches/AddBranches';
+import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
+import { useEditing } from './context/EditingProvider';
+
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
   const globalDetail=useSelector(state=>state.globalDetail)
+  const {isEditing,setIsEditing}=useEditing()
   const dispact=useDispatch()
   useEffect(()=>{
     const fetchGlobalData=async()=>{
@@ -61,26 +64,27 @@ function App() {
     <div className={`App relative ${location.pathname===''?'':''}`}>
            {popup &&
 
-<div className="fixed flex justify-center  w-full bg-black/30 items-center z-50 h-screen">
+            <div className="fixed flex justify-center  w-full bg-black/30 items-center z-50 h-screen">
 
-          <div className=" relative w-[90%] h-[80%] rounded-md bg-red-400 z-50 ">
-                  
-                  <FontAwesomeIcon
-                                    icon={faClose}
-                                    size={'2x'}
-                                    className="cursor-pointer absolute top-0 right-3 text-red-600 "
-                                    onClick={() => setPopup(false)}
-                                    />
-                                    <Popup/>
-                  </div>
-          </div>}
+                      <div className=" relative w-[90%] h-[80%] rounded-md bg-red-400 z-50 ">
+                              
+                              <FontAwesomeIcon
+                                                icon={faClose}
+                                                size={'2x'}
+                                                className="cursor-pointer absolute top-0 right-3 text-red-600 "
+                                                onClick={() => setPopup(false)}
+                                                />
+                                                <Popup/>
+                              </div>
+            </div>}
+      <ConfirmBox/>
       <AlertBox/>
       <LoaderBox/>
       <ArticleDisplay/>
       <MoreDescriptionDiv/>
       {/* <PopInfo information={'hello my name is sajan shrestha'}/> */}
       <HeaderMain/> 
-      <div className={`${location.pathname==='/'?'':'mb-[100px]'} `}> 
+      <div className={`${location.pathname==='/'?'':'mb-[100px]'} h-full `}> 
           <Routes>
             <Route path='/testing' element={<Testing/>}/>
             <Route path='' element={<HomePage/>} />
@@ -91,15 +95,18 @@ function App() {
             <Route path='/articles' element={<ArticleMainSection/>}/>
             <Route path='/show-article' element={<ShowArticle/>}/>
             <Route path='/show-notice' element={<ShowNotice/>}/>
-
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/parva' element={<Parva/>}/>
             <Route path='/employee-details' element={<EmployeeDetailsMain/>}/>
-            <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
-            <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
-            <Route path='/notice-form' element={<NoticeForm/>}/>
-            <Route path='/add-branch' element={<AddBranches/>}/>
+            {isEditing&&
+              <>
+                <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
+                <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
+                <Route path='/notice-form' element={<NoticeForm/>}/>
+              </>
+            }
+
           </Routes>
          
       </div>

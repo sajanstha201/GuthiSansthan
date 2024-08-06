@@ -2,6 +2,7 @@ import { styled, useMediaQuery } from "@mui/material";
 import { useSelectLanguage } from "../../context/LanguageChoice";
 import { useTranslation } from "react-i18next";
 import nepalLogo from '../../media/nepalLogo.png';
+import logo from '../../media/logo192.png'
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { HeaderButtom } from "./HeaderButtom";
 import { useEffect, useRef, useState } from "react";
@@ -63,9 +64,13 @@ export const HeaderTop = () => {
             <Link to='/' 
             className={`${isMobile ? 'flex-col justify-start items-center w-[50%]' : 'flex-row w-[30%] items-center'} h-full flex-row flex`}
             onClick={(e) => {isEditing&&e.preventDefault()}}>
-                <img className={`${isMobile ? 'h-[30px]' : 'h-[80px]'} backdrop-blur-md`} src={nepalLogo} />
+                <img className={`${isMobile ? 'h-[30px]' : 'h-[80px]'} `} src={nepalLogo} />
                 <EditImage imageId={globalDetail['guthi-sansthan-logo'].id} url={baseUrl+globalDetail.url} setNewImage={setNewGuthiSansthanLogo} isActualUploadedSame={globalDetail['guthi-sansthan-logo'].imgSrc===globalDetail['guthi-sansthan-logo'].actualImgSrc}>
-                    <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} />
+                    {/* <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} /> */}
+                  <div className="flex items-center">
+                      <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] '} `} src={logo} />
+                      <h5>Guthi Sansthan</h5>
+                    </div>
                 </EditImage>
             </Link>
             {!isMobile&&
@@ -86,7 +91,7 @@ export const HeaderTop = () => {
             </div>}
             <div className={`${isMobile ? 'gap-1 w-[50%]' : 'gap-7 w-[30%]'} relative flex-row flex h-full items-center justify-start px-2`}>
                 <div ref={divRef} className={`gap-1 w-[40%]  relative flex-row flex items-center justify-end   `}>
-                        <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">LANG</div>
+                        <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">Language</div>
                     <div className="relative bg-gray-300/70 rounded-full flex flex-row items-center justify-center p-1">
                         <div className={`h-[30px] w-[30px] md:h-[60px] md:w-[60px] cursor-pointer transition-all rounded-md p-1 items-center flex justify-center   `}
                                 onClick={() => { setLanguageOptionHidden(!languageOptionHidden); }}>

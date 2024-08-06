@@ -9,19 +9,20 @@ export const ImageTemplate=({data,setData,name})=>{
             reader.onload=(e)=>{
                 setImage(URL.createObjectURL(new Blob([e.target.result])))
             }
-            reader.readAsArrayBuffer(data[name]?.binaryImage)
+            reader.readAsArrayBuffer(data[name].binaryImage)
         }
     },[data])
     const handleChange=()=>{
         const data=document.getElementById(name+'-input').files[0]
         const dataFrom=new FormData()
         dataFrom.append('image',data)
-        setData(prevData=>({...prevData,[name]:{...prevData[name],['image']:dataFrom['image'],['binaryImage']:data}}))
+        setData(prevData=>({...prevData,[name]:{...prevData[name],['image']:data,['binaryImage']:data}}))
         const reader=new FileReader()
         reader.onload=(e)=>{
             setImage(URL.createObjectURL(new Blob([e.target.result])))
+            console.log(URL.createObjectURL(new Blob([e.target.result])))
         }
-        reader.readAsArrayBuffer(data)
+        reader.readAsArrayBuffer(document.getElementById(name+'-input').files[0])
     }
     const deleteImage=()=>{
         setImage(false)
@@ -42,8 +43,8 @@ export const ImageTemplate=({data,setData,name})=>{
             </>}
             {image&&<>
             <div className='relative flex items-center justify-center h-[100px] w-[100px] md:h-[300px] md:w-[300px]'>
-                <div className=' flex items-center justify-center'>
-                    <img src={image}/>
+                <div className=' flex items-center justify-center h-full w-full'>
+                    <img src={image} className='max-h-full max-w-full'/>
                     <div className='absolute bottom-1  right-1 flex flex-row gap-2'>
                         <div className={`  bg-red-700 hover:bg-red-900 cursor-pointer flex border  rounded-md px-2 py-1 h-[30px] items-center justify-center text-white`} onClick={deleteImage}>Remove</div></div>
                 </div>

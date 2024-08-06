@@ -98,7 +98,8 @@ const InstanceTemple = ({ index, templeId, name, fetchAllTemple, detail, img, lo
                 <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={() => setIsHidden(true)} />
                 {isEditing && (
                         <div className="absolute top-0 left-0 bg-blue-600 cursor-pointer rounded-md px-4 py-1 text-white hover:bg-blue-700 z-30" onClick={() => setIsEditingTemple(true)}>Edit</div>
-                    )}
+                     
+                     )}
                 {isEditingTemple ? (
                     <div className="w-full py-2 bg-slate-300/40 flex flex-col items-center">
                         <h1 className={`${isMobile ? 'text-[30px]' : 'text-[50px]'} text-black font-bold`}>Edit Temple</h1>

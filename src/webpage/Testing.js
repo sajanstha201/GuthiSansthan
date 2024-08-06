@@ -5,6 +5,7 @@ import { EditImage } from '../components/EditComponents';
 import img from '../media/ContactUs/bg.png'
 import {useSelector} from 'react-redux'
 import { EditText } from '../components/EditComponents/TextEditor/EditText';
+import AddBranches from '../components/BranchPage/AddBranches';
 export const Testing = () => {
     const [imgSrc, setImgSrc] = useState('');
     const [editorData, setEditorData] = useState('<h1>Hello from CKEditor 5!</h1>');
@@ -27,33 +28,29 @@ export const Testing = () => {
         console.log(data)
         console.log(editorData)
     };
+    const [imageData,setImageData]=useState()
+    const [url,setUrl]=useState()
+    const handleImageChange=()=>{
+        const file=document.getElementById('input-sajan').files[0]
+        const reader=new FileReader();
+        reader.readAsArrayBuffer(file)
+        reader.onload=(e)=>{
+            console.log(e.target.result)
+            const url=URL.createObjectURL(new Blob([e.target.result]))
+            console.log(url)
+            setUrl(url)
 
+        }
+    }
     return (
         <>
             <h1>This is Testing Section</h1>
+            <AddBranches/>
             <div>
-                <EditText>
-                    my name is sajan shrestha
-                </EditText>
-                <div>
-                {/* <EditImage imageId={'2'} url={baseUrl+'api/components/'}>
-                        <img  src={img} />
-                    </EditImage> */}
-                    <h2>CKEditor Example</h2>
-                    <CKEditor
-                        editor={ClassicEditor}
-                        data={editorData}
-                        onChange={handleEditorChange}
-                        config={{
-                            toolbar: [
-                                'undo', 'redo', '|',
-                                'heading', '|', 'bold', 'italic', '|',
-                                'link', 'insertTable', 'mediaEmbed', '|',
-                                'bulletedList', 'numberedList', 'indent', 'outdent'
-                            ]
-                        }}
-                    />
-                </div>
+                <label htmlFor='input-sajan'>Click me </label>
+                <br></br>
+                <input type='file' id='input-sajan' className='' onChange={handleImageChange}></input>
+                <img src={url}></img>
             </div>
         </>
     );

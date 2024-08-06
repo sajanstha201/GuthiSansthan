@@ -4,17 +4,19 @@ import { useEffect, useState } from 'react';
 export const ImageTemplate=({data,setData,name})=>{
     const [image,setImage]=useState(false)
     useEffect(()=>{
-        if(data[name]['image']){
+        if(data[name]?.binaryImage??false){
             const reader=new FileReader()
             reader.onload=(e)=>{
                 setImage(URL.createObjectURL(new Blob([e.target.result])))
             }
-            reader.readAsArrayBuffer(data[name]['image'])
+            reader.readAsArrayBuffer(data[name]?.binaryImage)
         }
     },[data])
     const handleChange=()=>{
         const data=document.getElementById(name+'-input').files[0]
-        setData(prevData=>({...prevData,[name]:{...prevData[name],['image']:data}}))
+        const dataFrom=new FormData()
+        dataFrom.append('image',data)
+        setData(prevData=>({...prevData,[name]:{...prevData[name],['image']:dataFrom['image'],['binaryImage']:data}}))
         const reader=new FileReader()
         reader.onload=(e)=>{
             setImage(URL.createObjectURL(new Blob([e.target.result])))
@@ -23,7 +25,7 @@ export const ImageTemplate=({data,setData,name})=>{
     }
     const deleteImage=()=>{
         setImage(false)
-        setData(prevData=>({...prevData,[name]:{...prevData[name],['image']:''}}))
+        setData(prevData=>({...prevData,[name]:{...prevData[name],['image']:'',['binaryImage']:''}}))
     }
     return(
         <div className="flex  m-2 cursor-pointer items-center justify-center  ">

@@ -8,12 +8,9 @@ export const TextTemplate=({data,setData,name})=>{
     const usedLngs=['nepali','english','newari','mithila']
     useEffect(()=>{
         setTextData(data[name]['text'][language])
-        console.log('changed the alnguage to',language)
-
     },[language,name])
     const handleChange=(event,editor,language)=>{
         const newData=editor.getData()
-        console.log(language,newData)
         setData(prevData=>({...prevData,[name]:{
             ...prevData[name],['text']:{...prevData[name]['text'],[language]:newData}
         }}))

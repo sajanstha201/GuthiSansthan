@@ -18,9 +18,12 @@ export const TemplatePreviewMain=({data,title})=>{
         }
     }
     return(
-        <div className='px-12'>
+        <div className='flex items-center justify-center w-full'>
+        <div className='w-[50%]'>
             <h1>{title}</h1>
             {Object.entries(data).map(([key,value])=>(chooseTemplatePreview(key,value)))}
         </div>
+        </div>
+
     )
 }

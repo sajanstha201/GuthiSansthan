@@ -21,10 +21,13 @@ export const TemplateMain=({name,data,setData})=>{
         }
     }
     return(
-        <div className="px-32 gap-5 flex flex-col">
+        <div className="w-full flex items-center justify-center">
+        <div className="w-[50%] gap-5 flex flex-col">
             {Object.entries(data).map(([key,value])=>(chooseTemplate(value,key)))}
             <AddTemplate data={data} setData={setData} name={name}/>
         </div>
+        </div>
+
 
     )
 }

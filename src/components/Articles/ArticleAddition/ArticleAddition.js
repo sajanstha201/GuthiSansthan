@@ -14,19 +14,26 @@ export const ArticleAddition=()=>{
     const publishArticle=async()=>{
         try{
             console.log(data)
-            const articleData=[]
+            const articleTextData=[]
             const articleList=[]
             Object.keys(data).map((key)=>{
                 articleList.push(data[key])
             })  
+            const formImageData=new FormData()
             articleList.map((value,index)=>{
-                const data=value
+                if(value?.image??false) formImageData.append(index,value.image)
+                const data={}
                 data['order']=index
-                articleData.push(data)
+                data['templateName']=value.templateName
+                data['text']=value.text
+                articleTextData.push(data)
             })
-            const postingData={title:title,detail:articleData,tags:[tag],'created_by':1}
+            const finalFormData=new FormData()
+            finalFormData.append('article',articleTextData)
+            finalFormData.append('image',formImageData)
+            const postingData={title:title,detail:articleTextData,tags:[tag],'created_by':1}
             console.log(postingData)
-            const response=await axios.post(baseUrl+articlePageDetail.dynamicUrl,postingData)
+            const response=await axios.post(baseUrl+articlePageDetail.dynamicUrl,finalFormData)
             console.log('respose',response.data)
             // console.log(response.data)
         }

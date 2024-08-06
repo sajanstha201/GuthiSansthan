@@ -73,6 +73,8 @@ export const Parva = () => {
             parvaId={festival.id}
             fetchAllParva={fetchDynamicParva}
             key={festival.id}
+            startDate={festival.start_date}
+            endDate={festival.end_date}
             img={festival.image}
             name={festival.name}
               detail={festival.description}

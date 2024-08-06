@@ -39,6 +39,7 @@ export const Parva = () => {
       console.log('fetch done for images')
       addLanguage({ key: 'parva', lngs: response.data.components['parva-page'].text })
       dispatch(setParvaPageWholeDetails(response.data))
+      
     }
     catch(error){
       console.log(error)

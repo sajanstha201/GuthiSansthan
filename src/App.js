@@ -28,6 +28,7 @@ import Popup from "./components/HomePage/Popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMain';
+import AddBranches from './Branches/AddBranches';
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend
@@ -98,6 +99,7 @@ function App() {
             <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
             <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
             <Route path='/notice-form' element={<NoticeForm/>}/>
+            <Route path='/add-branch' element={<AddBranches/>}/>
           </Routes>
          
       </div>

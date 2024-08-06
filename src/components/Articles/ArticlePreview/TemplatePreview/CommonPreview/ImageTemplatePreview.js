@@ -17,7 +17,7 @@ export const ImageTemplatePreview=({image,name})=>{
     return(
         <div className="flex items-center justify-center">
             <div className={`${image?' w-[150px] h-[150px] md:w-[300px] md:h-[300px]':''} flex items-center justify-center`}>
-                <img src={src}></img>
+                <img src={src} className="max-w-full max-h-full"></img>
             </div>
         </div>
 

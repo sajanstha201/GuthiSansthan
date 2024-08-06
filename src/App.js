@@ -30,6 +30,7 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMain';
 import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
 import { useEditing } from './context/EditingProvider';
+
 function App() {
   const location=useLocation()
   const baseUrl=useSelector(state=>state.baseUrl).backend

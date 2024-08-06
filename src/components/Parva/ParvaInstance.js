@@ -67,7 +67,7 @@ export const ParvaInstance=({parvaId,fetchAllParva,name,detail,img})=>{
                 </button>
                 {isDontaion &&
                    <div className="w-[95%] h-[95%] z-50 flex justify-center items-center bg-black/20 backdrop-blur-xl absolute">
-                                   <img src={qr} />
+                                   <img src/>
             <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={()=>setisDontaion(false)}/> 
 
                    </div>

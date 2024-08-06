@@ -58,7 +58,7 @@ const EmployeePersonalDetails = () => {
             </div>
             <div className='flex gap-2 items-center'>
                 <label className='font-semibold'>number</label>
-                <input type='number' max={10} min={9} className='h-10 w-54 border border-black rounded-md focus:outline-none active:border-cyan-400'/>
+                <input type='number' required maxLength={10} className='h-10 w-54 border border-black rounded-md focus:outline-none active:border-cyan-400'/>
             </div>
         </div>
         <div className='flex w-full gap-6'>
@@ -90,7 +90,9 @@ const EmployeePersonalDetails = () => {
             </div>
         </div>
         </div>
-        <h1>Correspondence</h1>
+       <div className='w-full flex justify-start'>
+         <h1>Correspondence</h1>
+        </div>
         <div className='flex w-full gap-6'>
         <div className='flex gap-2 items-center'>
                 <label className='font-semibold'>District</label>

@@ -11,7 +11,7 @@ export const Template1=({name,data,setData})=>{
         <div className="relative">
             <ViewEditButton isPreview={isPreview} setIsPreview={setIsPreview} data={data} setData={setData} name={name}/>
             {!isPreview&&
-                <div className='relative flex flex-row w-[90%] rounded-md border p-2'>
+                <div className='relative flex flex-row w-full rounded-md border p-2'>
                     <TextTemplate setData={setData} data={data} name={name}/>
                     <ChangeOrder name={name} data={data} setData={setData}/>
             </div>}

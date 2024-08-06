@@ -30,6 +30,8 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMain';
 import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
 import { useEditing } from './context/EditingProvider';
+import { BranchMainPage } from './components/BranchPage/BranchMainPage';
+import { EachBranchInfo } from './components/BranchPage/EachBranchInfo';
 
 function App() {
   const location=useLocation()
@@ -62,21 +64,6 @@ function App() {
   return (
     
     <div className={`App relative ${location.pathname===''?'':''}`}>
-           {popup &&
-
-            <div className="fixed flex justify-center  w-full bg-black/30 items-center z-50 h-screen">
-
-                      <div className=" relative w-[90%] h-[80%] rounded-md bg-red-400 z-50 ">
-                              
-                              <FontAwesomeIcon
-                                                icon={faClose}
-                                                size={'2x'}
-                                                className="cursor-pointer absolute top-0 right-3 text-red-600 "
-                                                onClick={() => setPopup(false)}
-                                                />
-                                                <Popup/>
-                              </div>
-            </div>}
       <ConfirmBox/>
       <AlertBox/>
       <LoaderBox/>
@@ -99,11 +86,12 @@ function App() {
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/parva' element={<Parva/>}/>
             <Route path='/employee-details' element={<EmployeeDetailsMain/>}/>
+            <Route path='/branches' element={<BranchMainPage/>}/>
+            <Route path='/branche-full-info' element={<EachBranchInfo/>}/> 
             {isEditing&&
               <>
                 <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
-                <Route path='/super-user/add-notices' element={<NoticeAddition/>}/>
-                <Route path='/notice-form' element={<NoticeForm/>}/>
+                <Route path='/super-user/add-notices' element={<NoticeForm/>}/>
               </>
             }
 

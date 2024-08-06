@@ -41,8 +41,7 @@ const Certificate = () => {
   // Remove a certificate
   const removeCertificate = (index) => {
     if (certificates.length > 1) {
-      const newCertificates = certificates.filter((_, i) => i !== index);
-      setCertificates(newCertificates);
+      setCertificates(certificates.filter((_, i) => i !== index));
     }
   };
 
@@ -55,56 +54,61 @@ const Certificate = () => {
         <form className="flex flex-col gap-6">
           {certificates.map((cert, index) => (
             <div key={index} className="flex flex-col gap-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="flex flex-col">
-                  <label className="font-medium">Educational Establishment</label>
+                  <label htmlFor={`educationalEstablishment-${index}`} className="font-medium">Educational Establishment</label>
                   <input
+                    id={`educationalEstablishment-${index}`}
                     name="educationalEstablishment"
                     type="text"
                     value={cert.educationalEstablishment}
                     onChange={(e) => handleInputChange(index, e)}
-                    placeholder="Enter educational establishment"
                     className="border-solid border-2 border-gray-300 rounded-lg p-2"
+                    placeholder="Enter educational establishment"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-medium">Layer</label>
+                  <label htmlFor={`layer-${index}`} className="font-medium">Layer</label>
                   <input
+                    id={`layer-${index}`}
                     name="layer"
                     type="text"
                     value={cert.layer}
                     onChange={(e) => handleInputChange(index, e)}
-                    placeholder="Enter layer"
                     className="border-solid border-2 border-gray-300 rounded-lg p-2"
+                    placeholder="Enter layer"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-medium">Category</label>
+                  <label htmlFor={`category-${index}`} className="font-medium">Category</label>
                   <input
+                    id={`category-${index}`}
                     name="category"
                     type="text"
                     value={cert.category}
                     onChange={(e) => handleInputChange(index, e)}
-                    placeholder="Enter category"
                     className="border-solid border-2 border-gray-300 rounded-lg p-2"
+                    placeholder="Enter category"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-medium">Percentage</label>
+                  <label htmlFor={`percentage-${index}`} className="font-medium">Percentage</label>
                   <input
+                    id={`percentage-${index}`}
                     name="percentage"
                     type="number"
                     min="0"
                     max="100"
                     value={cert.percentage}
                     onChange={(e) => handleInputChange(index, e)}
-                    placeholder="Enter percentage"
                     className="border-solid border-2 border-gray-300 rounded-lg p-2"
+                    placeholder="Enter percentage"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-medium">Passing Date</label>
+                  <label htmlFor={`passingDate-${index}`} className="font-medium">Passing Date</label>
                   <input
+                    id={`passingDate-${index}`}
                     name="passingDate"
                     type="date"
                     value={cert.passingDate}
@@ -113,38 +117,31 @@ const Certificate = () => {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-medium">Study Duration</label>
+                  <label htmlFor={`studyDuration-${index}`} className="font-medium">Study Duration</label>
                   <input
+                    id={`studyDuration-${index}`}
                     name="studyDuration"
                     type="text"
                     value={cert.studyDuration}
                     onChange={(e) => handleInputChange(index, e)}
-                    placeholder="Enter study duration"
                     className="border-solid border-2 border-gray-300 rounded-lg p-2"
+                    placeholder="Enter study duration"
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-medium">Remarks</label>
+                  <label htmlFor={`remarks-${index}`} className="font-medium">Remarks</label>
                   <input
+                    id={`remarks-${index}`}
                     name="remarks"
                     type="text"
                     value={cert.remarks}
                     onChange={(e) => handleInputChange(index, e)}
-                    placeholder="Enter remarks"
                     className="border-solid border-2 border-gray-300 rounded-lg p-2"
+                    placeholder="Enter remarks"
                   />
                 </div>
               </div>
-              <div className="flex justify-between mt-4">
-                {certificates.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeCertificate(index)}
-                    className="border-solid border-2 border-red-500 text-red-500 rounded-lg px-4 py-2 font-medium"
-                  >
-                    Remove Certificate
-                  </button>
-                )}
+              <div className="flex justify-end gap-2">
                 {index === certificates.length - 1 && (
                   <button
                     type="button"
@@ -152,6 +149,15 @@ const Certificate = () => {
                     className="border-solid border-2 border-blue-500 text-blue-500 rounded-lg px-4 py-2 font-medium"
                   >
                     Add New Certificate
+                  </button>
+                )}
+                {certificates.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeCertificate(index)}
+                    className="border-solid border-2 border-red-500 text-red-500 rounded-lg px-4 py-2 font-medium"
+                  >
+                    Remove
                   </button>
                 )}
               </div>

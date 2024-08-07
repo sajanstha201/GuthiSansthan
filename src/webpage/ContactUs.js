@@ -63,7 +63,7 @@ export const ContactUs = () => {
     })
   return (
 <div className=" flex flex-col items-center justify-center verflow-hidden bg-cover bg-center " >
-  <EditBgImage imageId={contactUsPageDetail['bg-img'].id} url={contactUsPageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={contactUsPageDetail['bg-img'].imgSrc===contactUsPageDetail['bg-img'].actualImgSrc}>
+  <EditBgImage imageId={contactUsPageDetail['bg-img'].id} url={contactUsPageDetail['bg-img'].imgSrc} setNewImage={setNewBgImg} isActualUploadedSame={contactUsPageDetail['bg-img'].imgSrc===contactUsPageDetail['bg-img'].actualImgSrc}>
       <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${contactUsPageDetail['bg-img'].imgSrc})`}}></div>
   </EditBgImage>
   <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center bg-black/40 ' ></div>

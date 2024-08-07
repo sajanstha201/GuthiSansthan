@@ -6,12 +6,14 @@ import { useEditing } from "../../context/EditingProvider"
 import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
+import { showAlert } from "../AlertLoader"
 export const EditBgImage=({imageId,url,setNewImage,children,isActualUploadedSame})=>{
     const [contentHidden,setContentHidden]=useState(false)
     const [image,setImage]=useState(!isActualUploadedSame)
     const globalDetail=useSelector(state=>state.globalDetail)
     const dispact=useDispatch()
     const {isEditing,setIsEditing}=useEditing()
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const handleUploadImage=(event)=>{
         event.stopPropagation();
         dispact(setNewImage(URL.createObjectURL(document.getElementById('edit-image-'+imageId).files[0])))
@@ -23,17 +25,24 @@ export const EditBgImage=({imageId,url,setNewImage,children,isActualUploadedSame
         dispact(setNewImage())
 
     }
-    const saveImage=async()=>{
-        const imageForm=new FormData()
-        console.log(imageId,url)
-        console.log(url)
-        const response=await axios.patch(url+imageId+'/',{
-            'text':{
-                'nepali':"sajan"
-            }
-        })
-        console.log(response.data)
-    }
+    const saveImage = async () => {
+        const imageForm = new FormData();
+        console.log(url);
+        try {
+            const response = await fetch(url);
+            const blob = await response.blob();
+            const newFile = new File([blob], 'image.jpg', { type: blob.type });
+            imageForm.append('image', newFile);
+            const apiResponse = await axios.patch(baseUrl + 'api/components/' + imageId + '/', imageForm);
+            dispact(setNewImage(URL.createObjectURL(newFile)))
+            setContentHidden(false);
+            setImage(false)
+            showAlert('successfully changed the background image','green')
+        } catch (error) {
+            showAlert(error, 'red');
+            console.error('Error converting URL to Blob:', error);
+        }
+    };
     return(
         <>
         {!isEditing&&<>{children}</>}

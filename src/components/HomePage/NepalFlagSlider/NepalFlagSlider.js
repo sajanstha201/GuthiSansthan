@@ -41,7 +41,7 @@ export const NepalFlagSlider=({content})=>{
                     <EditGif 
                         isActualUploadedSame={homePageDetail['slider-img'].gif===homePageDetail['slider-img'].actualGif} 
                         setNewGif={setNewSliderImg} 
-                        url={homePageDetail.url} 
+                        url={homePageDetail['slider-img'].gif} 
                         gifId={homePageDetail['slider-img'].id}
                     >
                     <img src={homePageDetail['slider-img']['gif']} className={`${isEditing?'':'h-full'} flexitems-center justify-center`}  ></img>

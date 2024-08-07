@@ -59,6 +59,7 @@ export const HomePage = () => {
             className={` w-full flex flex-col items-center justify-start h-full relative overflow-hidden`}>
 {(
         <EditBgVideo imageId={homePageDetail['bg-video']} url={homePageDetail.url} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].imgSrc===homePageDetail['bg-video'].actualImgSrc}>
+          <div className='bg-cover bg-center fixed -z-10 w-full h-screen top-0' style={{backgroundImage:`url(${homePageDetail['bg-video']['video']})`}} ></div>
           <video
               key={homePageDetail['bg-video']['video']} 
               autoPlay
@@ -69,6 +70,7 @@ export const HomePage = () => {
               <source src={homePageDetail['bg-video']['video']} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            
         </EditBgVideo>
  
       )}

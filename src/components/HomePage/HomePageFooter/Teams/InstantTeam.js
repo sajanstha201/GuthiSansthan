@@ -18,7 +18,7 @@ const InstantTeam = ({name,image,post,name1,post1,image1}) => {
                 <h1 className='text-lg font-semibold text-white'>{name}</h1>
                 </div>
                 <div className={` flex-col relative h-full w-[70%] flex justify-center items-center   overflow-hidden`}> 
-                     <img src={logo1} height={250} width={250} className='   '/>
+                     {/* <img src={logo1} height={250} width={250} className='   '/> */}
                      {isEditing&&<div className='bg-red-700 rounded-md cursor-pointer px-3 py-2 hover:bg-red-800 text-white'>Remove</div>}
                 </div>
                 <div className='flex flex-col justify-center'>

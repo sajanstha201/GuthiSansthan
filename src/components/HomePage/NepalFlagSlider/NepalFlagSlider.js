@@ -44,7 +44,7 @@ export const NepalFlagSlider=({content})=>{
                         url={homePageDetail['slider-img'].gif} 
                         gifId={homePageDetail['slider-img'].id}
                     >
-                    <img src={homePageDetail['slider-img']['gif']} className={`${isEditing?'':'h-full'} flexitems-center justify-center`}  ></img>
+                    <img src={homePageDetail['slider-img']['gif']} className={`${isEditing?'':''} h-full flexitems-center justify-center`} ></img>
                     </EditGif>
                         
                 </div>

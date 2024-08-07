@@ -45,6 +45,7 @@ export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedS
             setContentHidden(false);
             setImage(false);
             console.log(apiResponse.data);
+            showAlert('Successfully Uploded ','green')
         } catch (error) {
             showAlert(error, 'red');
             console.error('Error converting URL to Blob:', error);

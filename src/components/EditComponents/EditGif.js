@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
 import { showAlert } from "../AlertLoader"
+import { activate_loader } from "../AlertLoader/LoaderBox"
 export const EditGif=({name,gifId,url,setNewGif,children,isActualUploadedSame})=>{
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const [contentHidden,setContentHidden]=useState(false)
@@ -30,6 +31,7 @@ export const EditGif=({name,gifId,url,setNewGif,children,isActualUploadedSame})=
         const imageForm = new FormData();
         console.log(url);
         try {
+            activate_loader(true)
             const response = await fetch(url);
             const blob = await response.blob();
             const newFile = new File([blob], 'image.jpg', { type: blob.type });
@@ -39,19 +41,23 @@ export const EditGif=({name,gifId,url,setNewGif,children,isActualUploadedSame})=
             console.log(baseUrl + 'api/components/' + gifId + '/');
     
             const apiResponse = await axios.patch(baseUrl + 'api/components/' + gifId + '/', imageForm);
-            setContentHidden(true);
+            setContentHidden(false);
             setGif(false);
             console.log(apiResponse.data);
+            showAlert('Successfully Uploaded','green')
         } catch (error) {
             showAlert(error, 'red');
             console.error('Error converting URL to Blob:', error);
+        }
+        finally{
+            activate_loader(false)
         }
     };
     return(
         <>
         {!isEditing&&<>{children}</>}
         {isEditing&&
-                <div className="relative max-w-full max-h-full flex items-center justify-center">
+                <div className="relative w-full h-full">
                 {!contentHidden&&<>
                     {!gif&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer text-[20px] bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-30" onClick={()=>setContentHidden(true)}>Edit</div>}
                     {children}
@@ -65,14 +71,14 @@ export const EditGif=({name,gifId,url,setNewGif,children,isActualUploadedSame})=
                     <input type="file" accept=".png,.jpeg,.jpg,.gif" id={'edit-gif-'+gifId} className="hidden" onChange={handleUploadGif} onClick={(e)=>e.stopPropagation()}></input>
                     </>
                 </>}
-                {gif&&<div className="w-full h-full absolute z-30">
-                            <div className="absolute bottom-1 flex flex-row text-[10px] gap-1 right-1 text-white z-30">
+                {gif&&<>
+                            <div className="absolute bottom-1 flex flex-row text-[10px] gap-1 right-1 text-white z-20">
                                 <div className="px-2 py-1  rounded-md cursor-pointer bg-red-600  "
                                     onClick={restoreGif}>Remove</div>
                                 <div className="px-2 py-1  rounded-md cursor-pointer bg-green-600 "
                                     onClick={saveGif}>Save</div>
                             </div>
-                </div>}
+                </>}
             </div>
         }
 

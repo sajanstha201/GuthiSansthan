@@ -7,7 +7,7 @@ export const BaseUrlSlice=createSlice({
         //  'backend':'http://20.198.220.208:8001/',
          'backend':'https://guthi.pythonanywhere.com/',
 
-    //    'backend':' http://127.0.0.1:8000/',
+    //    'backend':'http://127.0.0.1:8000/',
         // 'backend':'http://192.168.1.65:8000/',
         'frontend':'http://localhost:3000/',
         // 'frontend':'https://sajanstha201.github.io/GuthiSansthan/'

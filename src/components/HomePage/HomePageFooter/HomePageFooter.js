@@ -49,7 +49,7 @@ export const HomePageFooter = () => {
             <div className="fixed bottom-0 h-[200px] w-full justify-center flex items-center overflow-hidden">
                 <EditBgImage
                     imageId={homePageDetail['footer-bg-img'].id}
-                    url={homePageDetail.url}
+                    url={homePageDetail['footer-bg-img'].imgSrc }
                     setNewImage={setNewFooterBgImg}
                     isActualUploadedSame={homePageDetail['footer-bg-img'].imgSrc === homePageDetail['footer-bg-img'].actualImgSrc}
                 >

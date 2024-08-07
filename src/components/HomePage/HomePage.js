@@ -8,7 +8,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../AlertLoader";
 import i18next from "i18next";
-import { addLanguage, fetchBgVideoToUrl, fetchGifToURL } from "../ReuseableFunctions";
+import { addLanguage, fetchBgVideoToUrl, fetchGifToURL, fetchImageToURL } from "../ReuseableFunctions";
 import { setBgVideo, setHomePageWholeDetail, setNewBgVideo, setSliderImg } from "../../state/HomePageSlices/HomePageSlice";
 import { EditBgImage } from "../EditComponents/EditBgImage";
 import { EditBgVideo } from "../EditComponents/EditBgVideo";
@@ -20,10 +20,10 @@ export const HomePage = () => {
   const isMobile = useMediaQuery('(max-width:800px)');
   const baseUrl = useSelector(state => state.baseUrl).backend;
   const homePageDetail = useSelector(state => state.homePageDetail);
+  console.log(homePageDetail)
   const dispatch = useDispatch();
   const {isEditing,setIsEditing}=useEditing()
   const token = sessionStorage.getItem('token')
-   
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
@@ -31,7 +31,8 @@ export const HomePage = () => {
         const data = response.data.components;
         dispatch(setHomePageWholeDetail(data));
         addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: data['welcome-to-guthi-sansthan'].text });
-        dispatch(setBgVideo( await fetchBgVideoToUrl(baseUrl + data['bg-video'].video)));
+        if(data['bg-video']?.image) dispatch(setBgVideo(await fetchImageToURL(baseUrl+data['bg-video'].image)))
+        else dispatch(setBgVideo( await fetchBgVideoToUrl(baseUrl + data['bg-video'].video)));
       } catch (error) {
         console.log(error);
         showAlert(error, 'red');
@@ -58,8 +59,10 @@ export const HomePage = () => {
       <div style={{ height: `${isEditing ? 'calc(100vh - 100px)' : '100%'}` }} 
             className={` w-full flex flex-col items-center justify-start h-full relative overflow-hidden`}>
 {(
-        <EditBgVideo imageId={homePageDetail['bg-video']} url={homePageDetail.url} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].imgSrc===homePageDetail['bg-video'].actualImgSrc}>
-          <video
+        <EditBgVideo imageId={homePageDetail['bg-video'].id} url={homePageDetail['bg-video'].video} setNewImage={setNewBgVideo} isActualUploadedSame={homePageDetail['bg-video'].video===homePageDetail['bg-video'].actualVideo}>
+          {homePageDetail.details['bg-video']?.image?
+            <div className='bg-cover bg-center fixed -z-10 w-full h-screen top-0' style={{backgroundImage:`url(${homePageDetail['bg-video']['video']})`}} ></div>
+          :<video
               key={homePageDetail['bg-video']['video']} 
               autoPlay
               loop
@@ -69,6 +72,7 @@ export const HomePage = () => {
               <source src={homePageDetail['bg-video']['video']} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+}
         </EditBgVideo>
  
       )}

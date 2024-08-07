@@ -6,7 +6,10 @@ import { useEditing } from "../../context/EditingProvider"
 import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
+import { showAlert } from "../AlertLoader"
+import { activate_loader } from "../AlertLoader/LoaderBox"
 export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedSame})=>{
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const [contentHidden,setContentHidden]=useState(false)
     const [image,setImage]=useState(!isActualUploadedSame)
     const globalDetail=useSelector(state=>state.globalDetail)
@@ -25,17 +28,32 @@ export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedS
         else dispact(setNewImage())
 
     }
-    const saveImage=async()=>{
-        const imageForm=new FormData()
-        console.log(imageId,url)
-        console.log(url)
-        const response=await axios.patch(url+imageId+'/',{
-            'text':{
-                'nepali':"sajan"
-            }
-        })
-        console.log(response.data)
-    }
+    const saveImage = async () => {
+        const imageForm = new FormData();
+        console.log(url);
+        try {
+            activate_loader(true)
+            const response = await fetch(url);
+            const blob = await response.blob();
+            const newFile = new File([blob], 'image.jpg', { type: blob.type });
+            console.log(newFile);
+    
+            imageForm.append('image', newFile);
+            console.log(baseUrl + 'api/components/' + imageId + '/');
+    
+            const apiResponse = await axios.patch(baseUrl + 'api/components/' + imageId + '/', imageForm);
+            setContentHidden(false);
+            setImage(false);
+            console.log(apiResponse.data);
+            showAlert('Successfully Uploded ','green')
+        } catch (error) {
+            showAlert(error, 'red');
+            console.error('Error converting URL to Blob:', error);
+        }
+        finally{
+            activate_loader(false)
+        }
+    };
     return(
         <>
         {!isEditing&&<>{children}</>}

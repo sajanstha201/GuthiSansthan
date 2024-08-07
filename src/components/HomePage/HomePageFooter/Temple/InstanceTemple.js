@@ -64,7 +64,6 @@ const InstanceTemple = ({ index, templeId, name, fetchAllTemple, detail, img, lo
     }
     const closeTemple=()=>{
         setIsHidden(true)
-        setIsEditingTempleActivate(false)
 
     }
 

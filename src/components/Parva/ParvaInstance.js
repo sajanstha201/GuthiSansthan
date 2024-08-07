@@ -27,7 +27,6 @@ export const ParvaInstance = ({ parvaId, fetchAllParva, name, detail, img, qr, s
     }
     const hideContent=()=>{
         setIsHidden(true)
-        setIsParvaEditingActivate(false)
     }
     const removeParva = async () => {
         if (await showConfirmBox('Do you want to delete', name)) {

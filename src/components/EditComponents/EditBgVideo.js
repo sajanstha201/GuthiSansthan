@@ -8,29 +8,27 @@ import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
 import { showAlert } from "../AlertLoader"
 import { activate_loader } from "../AlertLoader/LoaderBox"
-export const EditBgVideo=({imageId,url,setNewImage,children,isActualUploadedSame})=>{
+export const EditBgVideo=({imageId,url,setNewImage,children,isActualUploadedSame,fetchHomeData})=>{
     const [contentHidden,setContentHidden]=useState(false)
     const [image,setImage]=useState(!isActualUploadedSame)
     const dispact=useDispatch()
     const {isEditing,setIsEditing}=useEditing()
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const homePageDetail=useSelector(state=>state.homePageDetail)
-    const [isVideoUploaded,setIsVideoUploaded]=useState(homePageDetail.details['bg-video']?.image)
-    console.log(homePageDetail)
+    const [isVideoUploaded,setIsVideoUploaded]=useState(homePageDetail.details['bg-video']?.image??false)
+    
     const handleUploadImage=(event)=>{
         event.stopPropagation();
-        console.log(document.getElementById('edit-image-'+imageId).files[0])
-        if (document.getElementById('edit-image-'+imageId).files[0].type.startsWith('image/')) setIsVideoUploaded(false)
-        else setIsVideoUploaded(true)
+        if (document.getElementById('edit-image-'+imageId).files[0].type.startsWith('image/')) setIsVideoUploaded(true)
+        else setIsVideoUploaded(false)
         dispact(setNewImage(URL.createObjectURL(document.getElementById('edit-image-'+imageId).files[0])))
-        console.log(document.getElementById('edit-image-'+imageId).files[0])
         setContentHidden(false)
         setImage(true)
     }
     const restoreImage=()=>{
         setImage(false)
         dispact(setNewImage())
-        setIsVideoUploaded(!homePageDetail.details['bg-video'].image)
+        setIsVideoUploaded(homePageDetail.details['bg-video']?.image??false)
     }
     const saveImage = async () => {
         const imageForm = new FormData();
@@ -41,7 +39,6 @@ export const EditBgVideo=({imageId,url,setNewImage,children,isActualUploadedSame
             const blob = await response.blob();
             const fileType = blob.type;
             if (fileType.startsWith('image/')) {
-                setIsVideoUploaded(false)
                 const newFile = new File([blob], 'image.jpg', { type: blob.type });
                 imageForm.append('image', newFile);
                 imageForm.append('video','');
@@ -50,17 +47,21 @@ export const EditBgVideo=({imageId,url,setNewImage,children,isActualUploadedSame
                 setContentHidden(false);
                 setImage(false)
                 showAlert('successfully changed the background image','green')
-            } else{
                 setIsVideoUploaded(true)
-                const newFile = new File([blob], 'image.mp4', { type: blob.type });
+            } else{
+                console.log("uploading the video")
+                const newFile = new File([blob], 'video.mp4', { type: blob.type });
+                console.log(newFile)
                 imageForm.append('video', newFile);
                 imageForm.append('image','');
-                const apiResponse = await axios.patch(baseUrl + 'api/components/' + imageId + '/', imageForm);
+                const apiResponse = await axios.patch(baseUrl + 'api/components/' + imageId, imageForm);
                 dispact(setNewImage(URL.createObjectURL(newFile)))
                 setContentHidden(false);
                 setImage(false)
                 showAlert('successfully changed the background image','green')
+                setIsVideoUploaded(false)
             }
+            fetchHomeData()
         } catch (error) {
             console.error('Error fetching Blob:', error);
             showAlert(error,'red')
@@ -73,7 +74,7 @@ export const EditBgVideo=({imageId,url,setNewImage,children,isActualUploadedSame
         <>
         {!isEditing&&<>{children}</>}
         {isEditing&&<>
-            {!isVideoUploaded?
+            {isVideoUploaded?
                 <div className='bg-cover bg-center fixed -z-10 w-full h-screen top-0' style={{backgroundImage:`url(${homePageDetail['bg-video']['video']})`}} ></div>
             :
                 <video

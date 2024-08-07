@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
 import { showAlert } from "../AlertLoader"
+import { activate_loader } from "../AlertLoader/LoaderBox"
 export const EditBgImage=({imageId,url,setNewImage,children,isActualUploadedSame})=>{
     const [contentHidden,setContentHidden]=useState(false)
     const [image,setImage]=useState(!isActualUploadedSame)
@@ -29,6 +30,7 @@ export const EditBgImage=({imageId,url,setNewImage,children,isActualUploadedSame
         const imageForm = new FormData();
         console.log(url);
         try {
+            activate_loader(true)
             const response = await fetch(url);
             const blob = await response.blob();
             const newFile = new File([blob], 'image.jpg', { type: blob.type });
@@ -41,6 +43,9 @@ export const EditBgImage=({imageId,url,setNewImage,children,isActualUploadedSame
         } catch (error) {
             showAlert(error, 'red');
             console.error('Error converting URL to Blob:', error);
+        }
+        finally{
+            activate_loader(false)
         }
     };
     return(

@@ -25,7 +25,6 @@ export const EditGif=({name,gifId,url,setNewGif,children,isActualUploadedSame})=
         setGif(false)
         if(name) dispact(setNewGif({'name':name,'detail':null}))
         else dispact(setNewGif())
-
     }
     const saveGif = async () => {
         const imageForm = new FormData();
@@ -63,7 +62,7 @@ export const EditGif=({name,gifId,url,setNewGif,children,isActualUploadedSame})=
                         <FontAwesomeIcon icon={faAdd}  className="text-white"></FontAwesomeIcon>
                         <div className="text-white text-[10px]  md:text-[20px]">Upload gif</div>
                     </label>
-                    <input type="file" accept=".png,.jpeg,.jpg" id={'edit-gif-'+gifId} className="hidden" onChange={handleUploadGif} onClick={(e)=>e.stopPropagation()}></input>
+                    <input type="file" accept=".png,.jpeg,.jpg,.gif" id={'edit-gif-'+gifId} className="hidden" onChange={handleUploadGif} onClick={(e)=>e.stopPropagation()}></input>
                     </>
                 </>}
                 {gif&&<div className="w-full h-full absolute z-30">

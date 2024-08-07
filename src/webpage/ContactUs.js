@@ -102,10 +102,10 @@ export const ContactUs = () => {
                   <div className='w-1/2'>
                   <EditImage 
                   isActualUploadedSame={contactUsPageDetail['extra-image-1'].imgSrc===contactUsPageDetail['extra-image-1'].actualImgSrc}
-                  url={contactUsPageDetail.url}
+                  url={contactUsPageDetail['extra-image-1'].imgSrc}
                   name={'extra-image-1'}
                   setNewImage={setNewExtraImage}
-                  
+                  imageId={contactUsPageDetail['extra-image-1'].id}
                   >
                     <img src={contactUsPageDetail['extra-image-1'].imgSrc}/>
                   </EditImage>
@@ -114,9 +114,10 @@ export const ContactUs = () => {
                   <div className='w-1/2'>
                   <EditImage 
                   isActualUploadedSame={contactUsPageDetail['extra-image-2'].imgSrc===contactUsPageDetail['extra-image-2'].actualImgSrc}
-                  url={contactUsPageDetail.url}
+                  url={contactUsPageDetail['extra-image-2'].imgSrc}
                   name={'extra-image-2'}
                   setNewImage={setNewExtraImage}
+                  imageId={contactUsPageDetail['extra-image-2'].id}
                   >
                     <img src={contactUsPageDetail['extra-image-2'].imgSrc}/>
                   </EditImage>  

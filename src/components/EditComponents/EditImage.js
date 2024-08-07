@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { setGuthiSansthanLogo } from "../../state/GlobalSlice"
 import { useSelector } from "react-redux"
 import { showAlert } from "../AlertLoader"
+import { activate_loader } from "../AlertLoader/LoaderBox"
 export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedSame})=>{
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const [contentHidden,setContentHidden]=useState(false)
@@ -31,6 +32,7 @@ export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedS
         const imageForm = new FormData();
         console.log(url);
         try {
+            activate_loader(true)
             const response = await fetch(url);
             const blob = await response.blob();
             const newFile = new File([blob], 'image.jpg', { type: blob.type });
@@ -40,12 +42,15 @@ export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedS
             console.log(baseUrl + 'api/components/' + imageId + '/');
     
             const apiResponse = await axios.patch(baseUrl + 'api/components/' + imageId + '/', imageForm);
-            setContentHidden(true);
+            setContentHidden(false);
             setImage(false);
             console.log(apiResponse.data);
         } catch (error) {
             showAlert(error, 'red');
             console.error('Error converting URL to Blob:', error);
+        }
+        finally{
+            activate_loader(false)
         }
     };
     return(
@@ -54,7 +59,7 @@ export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedS
         {isEditing&&
                 <div className="relative max-w-full max-h-full flex items-center justify-center">
                 {!contentHidden&&<>
-                    {!image&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer text-[10px] bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-10" onClick={()=>setContentHidden(true)}>Edit</div>}
+                    {!image&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer text-[10px] bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-30" onClick={()=>setContentHidden(true)}>Edit</div>}
                     {children}
                 </>}
                 {contentHidden&&<>

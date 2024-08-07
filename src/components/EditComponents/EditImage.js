@@ -42,7 +42,7 @@ export const EditImage=({name,imageId,url,setNewImage,children,isActualUploadedS
         {isEditing&&
                 <div className="relative max-w-full max-h-full flex items-center justify-center">
                 {!contentHidden&&<>
-                    {!image&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer text-[10px] bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-30" onClick={()=>setContentHidden(true)}>Edit</div>}
+                    {!image&&<div className="absolute px-2 py-1 rounded-lg cursor-pointer text-[10px] bg-slate-600 text-white left-1 top-1 fill-zinc-100 z-10" onClick={()=>setContentHidden(true)}>Edit</div>}
                     {children}
                 </>}
                 {contentHidden&&<>

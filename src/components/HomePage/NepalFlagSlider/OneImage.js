@@ -21,7 +21,7 @@ export const OneImage=({name,activateEdit})=>{
     return(
         <>
         {activateEdit&&
-                <EditImage 
+        <EditImage 
                 isActualUploadedSame={homePageDetail[name].imgSrc===homePageDetail[name].actualImgSrc} 
                 setNewImage={setNewTabDetail} 
                 imageId={homePageDetail[name].id}

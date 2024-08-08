@@ -82,7 +82,7 @@ export const Parva = () => {
             />
           ))}
           {isEditing&&<>
-          <AddParva fetchParva={fetchDynamicParva} />
+          <AddParva fetchAllParva={fetchDynamicParva} parvaAddingUrl={baseUrl + parvaPageDetail.dynamicUrl}/>
           </>}
         </div>
       </div>

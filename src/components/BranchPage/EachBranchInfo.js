@@ -14,8 +14,8 @@ export const EachBranchInfo=()=>{
             <BranchHeader/>
           {!isMobile ?
           <div className="flex flex-col items-center md:flex-row">
-              <BranchArticles/>
-            <BranchNotice/>
+              <BranchArticles branchName={'kathmandu'}/>
+            <BranchNotice branchName={'kathmandu'}/>
             </div> :
 
             
@@ -29,7 +29,7 @@ export const EachBranchInfo=()=>{
                    </div>
          </div>
           }
-            <BranchFestival/>
+            <BranchFestival branchName={'kathmandu'}/>
         </div>
     )
 }

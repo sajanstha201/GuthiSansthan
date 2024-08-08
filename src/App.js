@@ -91,12 +91,10 @@ function App() {
             <Route path='/employee-details' element={<EmployeeDetailsMain/>}/>
             <Route path='/branches' element={<BranchMainPage/>}/>
             <Route path='/branche-full-info' element={<EachBranchInfo/>}/> 
-            {isEditing&&
               <>
                 <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
                 <Route path='/super-user/add-notices' element={<NoticeForm/>}/>
               </>
-            }
 
           </Routes>
          

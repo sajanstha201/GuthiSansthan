@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faClose } from '@fortawesome/free-solid-svg-icons';
 import { showAlert } from '../AlertLoader';
 
-export const AddParva = ({ fetchParva }) => {
+export const AddParva = ({ fetchAllParva,parvaAddingUrl }) => {
     const nameRef = useRef();
     const branchRef = useRef();
     const photoRef = useRef();
@@ -18,8 +18,6 @@ export const AddParva = ({ fetchParva }) => {
     const [endDate, setEndDate] = useState("");
     const [addParvaActivate, setAddParvaActivate] = useState(false);
     const isMobile = useMediaQuery('(max-width:800px)');
-    const baseUrl = useSelector(state => state.baseUrl).backend;
-    const parvaPageDetail = useSelector(state => state.parvaPageDetail);
 
     const handleSubmit = async () => {
         const name = nameRef.current.value.trim();
@@ -47,7 +45,7 @@ export const AddParva = ({ fetchParva }) => {
         formData.append('qr_code', qrcode);
 
         try {
-            const response = await fetch(baseUrl + parvaPageDetail.dynamicUrl, {
+            const response = await fetch(parvaAddingUrl, {
                 method: 'POST',
                 body: formData,
             });
@@ -59,7 +57,7 @@ export const AddParva = ({ fetchParva }) => {
             const result = await response.json();
             console.log(result);
             showAlert("Festival added successfully!", 'green');
-            fetchParva();
+            fetchAllParva();
             setAddParvaActivate(false);
         } catch (error) {
             console.error('Error:', error);
@@ -71,7 +69,7 @@ export const AddParva = ({ fetchParva }) => {
             {!addParvaActivate && (
                 <div 
                     onClick={() => setAddParvaActivate(true)}
-                    className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[150px] w-[200px]'} hover:scale-105 bg-gray-600 rounded-md border border-white flex flex-col text-white items-center justify-center`}
+                    className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[150px] w-[200px]'} hover:scale-105 bg-gray-500 hover:bg-gray-600 rounded-md border border-white flex flex-col text-white items-center justify-center transition-all duration-300`}
                 >
                     <div>Add Parva</div>
                     <FontAwesomeIcon icon={faPlus} size='3x' />

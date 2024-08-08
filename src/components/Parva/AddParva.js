@@ -78,7 +78,7 @@ export const AddParva = ({ fetchParva }) => {
                 </div>
             )}
             {addParvaActivate && (
-                <div className='flex w-full h-[60vh] items-center justify-center my-3 relative'>
+                <div className='flex w-full h-fit items-center justify-center relative'>
                     <div className='flex flex-col w-[90%] bg-white/50 backdrop-blur-sm rounded-lg lg:w-[50%] p-3 gap-2 mb-12'>
                         <FontAwesomeIcon icon={faClose} size={'2x'} className="cursor-pointer absolute top-2 right-2 text-red-600 z-50" onClick={() => setAddParvaActivate(false)} />
                         <h1 className='font-semibold tracking-wider my-2'>Jatra Form</h1>

@@ -44,7 +44,7 @@ export const ArticleMainSection=()=>{
     return(
         <>
         <div className={`${isEditing?'flex flex-row gap-3 px-2 ':''}`} >
-            <EditBgImage imageId={articlePageDetail['bg-img'].id} url={articlePageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={articlePageDetail['bg-img'].imgSrc===articlePageDetail['bg-img'].actualImgSrc}>
+            <EditBgImage imageId={articlePageDetail['bg-img'].id} url={articlePageDetail['bg-img'].imgSrc} setNewImage={setNewBgImg} isActualUploadedSame={articlePageDetail['bg-img'].imgSrc===articlePageDetail['bg-img'].actualImgSrc}>
                 <div className="bg-cover bg-center h-screen w-full fixed -z-50 top-0 left-0"style={{backgroundImage:`url(${articlePageDetail['bg-img'].imgSrc})`}}></div>
             </EditBgImage>
             {isEditing&&
@@ -57,16 +57,7 @@ export const ArticleMainSection=()=>{
                 </Link>
             </>}
         </div>
-         <div className="bg-cover bg-center h-screen w-full fixed -z-10 top-0 bg-black/40"></div>
-         <div className="w-full">
-                   <div className="w-full py-2 flex justify-start bg-gray-400/80  gap-4 pl-16">
-                       <button onClick={()=>setArtical(true)} className={`font-bold border-b-2  hover:border-red-600 transition-all duration-200 ease-linear ${isArticle ? ' border-red-600 ': 'border-none'} `}>Article</button>
-                       <button onClick={()=>setArtical(false)} className={`font-bold border-b-2  hover:border-red-600 transition-all duration-200 ease-linear ${!isArticle ? ' border-red-600 ': 'border-none'} `}>Notices</button>
-                   </div>
-                   <div className="w-full">
-                        {isArticle ? <Articles/> : <Notices/>}
-                   </div>
-         </div>
+        
         </>
 
     )

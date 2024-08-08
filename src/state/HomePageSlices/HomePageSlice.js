@@ -50,6 +50,7 @@ export const HomePageSlice=createSlice({
             }
         },
         setNewBgVideo:(state,action)=>{
+            console.log('action payload',action.payload)
             if(action.payload) state['bg-video'].video=action.payload
             else state['bg-video'].video=state['bg-video'].actualVideo
         },

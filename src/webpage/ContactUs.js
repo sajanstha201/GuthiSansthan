@@ -63,7 +63,7 @@ export const ContactUs = () => {
     })
   return (
 <div className=" flex flex-col items-center justify-center verflow-hidden bg-cover bg-center " >
-  <EditBgImage imageId={contactUsPageDetail['bg-img'].id} url={contactUsPageDetail.url} setNewImage={setNewBgImg} isActualUploadedSame={contactUsPageDetail['bg-img'].imgSrc===contactUsPageDetail['bg-img'].actualImgSrc}>
+  <EditBgImage imageId={contactUsPageDetail['bg-img'].id} url={contactUsPageDetail['bg-img'].imgSrc} setNewImage={setNewBgImg} isActualUploadedSame={contactUsPageDetail['bg-img'].imgSrc===contactUsPageDetail['bg-img'].actualImgSrc}>
       <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${contactUsPageDetail['bg-img'].imgSrc})`}}></div>
   </EditBgImage>
   <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center bg-black/40 ' ></div>
@@ -102,10 +102,10 @@ export const ContactUs = () => {
                   <div className='w-1/2'>
                   <EditImage 
                   isActualUploadedSame={contactUsPageDetail['extra-image-1'].imgSrc===contactUsPageDetail['extra-image-1'].actualImgSrc}
-                  url={contactUsPageDetail.url}
+                  url={contactUsPageDetail['extra-image-1'].imgSrc}
                   name={'extra-image-1'}
                   setNewImage={setNewExtraImage}
-                  
+                  imageId={contactUsPageDetail['extra-image-1'].id}
                   >
                     <img src={contactUsPageDetail['extra-image-1'].imgSrc}/>
                   </EditImage>
@@ -114,9 +114,10 @@ export const ContactUs = () => {
                   <div className='w-1/2'>
                   <EditImage 
                   isActualUploadedSame={contactUsPageDetail['extra-image-2'].imgSrc===contactUsPageDetail['extra-image-2'].actualImgSrc}
-                  url={contactUsPageDetail.url}
+                  url={contactUsPageDetail['extra-image-2'].imgSrc}
                   name={'extra-image-2'}
                   setNewImage={setNewExtraImage}
+                  imageId={contactUsPageDetail['extra-image-2'].id}
                   >
                     <img src={contactUsPageDetail['extra-image-2'].imgSrc}/>
                   </EditImage>  

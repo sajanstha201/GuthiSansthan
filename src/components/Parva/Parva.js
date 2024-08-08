@@ -58,7 +58,7 @@ export const Parva = () => {
       isActualUploadedSame={parvaPageDetail['bg-img'].imgSrc===parvaPageDetail['bg-img'].actualImgSrc} 
       setNewImage={setNewBgImg} 
       imageId={parvaPageDetail['bg-img'].id} 
-      url={parvaPageDetail['bg-img'].url}>
+      url={parvaPageDetail['bg-img'].imgSrc}>
       <div className='bg-cover bg-center fixed -z-10 w-full h-screen top-0' style={{backgroundImage:`url(${parvaPageDetail['bg-img'].imgSrc})`}} ></div>
     </EditBgImage>
     

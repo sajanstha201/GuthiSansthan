@@ -37,7 +37,7 @@ export const InstanceFirstSection=({bgImage,name,onLinkClick})=>{
     })
     return(
         <>
-        <EditImage isActualUploadedSame={aboutUsPageDetail[name].imgSrc===aboutUsPageDetail[name].actualImgSrc} setNewImage={setNewImgTab} name={name} imageId={aboutUsPageDetail[name].id} url={aboutUsPageDetail.url}>
+        <EditImage isActualUploadedSame={aboutUsPageDetail[name].imgSrc===aboutUsPageDetail[name].actualImgSrc} setNewImage={setNewImgTab} name={name} imageId={aboutUsPageDetail[name].id} url={aboutUsPageDetail[name].imgSrc}>
             <motion.div initial={{ opacity:0 , y:40}} animate={{y:0,opacity:1}} transition={{duration:1.4}}>
                     <motion.div whileHover={{scale:1.05}} transition={{duration:0.1}}    className={` overflow-hidden     ${isMobile ? 'about-us-img-div-mobile' : 'about-us-img-div'} `} >
                         <div  onClick={() => onLinkClick('about-us-'+name)} 

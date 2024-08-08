@@ -50,7 +50,7 @@ export const AddTeam=()=>{
                 </div>
 
                 <div className={` relative h-full w-[70%] flex flex-col justify-center items-center   overflow-hidden`}> 
-                     <img src={logo1} height={250} width={250} className='   '/>
+                     {/* <img src={logo1} height={250} width={250} className='   '/> */}
                      <div className="cursor-pointer bg-green-600 hover:bg-green-700 px-3 py-2 rounded-md text-[20px]" onClick={()=>uploadPersonDetail}>Save</div>
                 </div>
 

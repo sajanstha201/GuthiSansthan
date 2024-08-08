@@ -85,6 +85,7 @@ function App() {
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/parva' element={<Parva/>}/>
+
             <Route path='/employee-details' element={<EmployeeDetailsMain/>}/>
             <Route path='/branches' element={<BranchMainPage/>}/>
             <Route path='/branche-full-info' element={<EachBranchInfo/>}/> 

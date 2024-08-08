@@ -21,11 +21,11 @@ export const OneImage=({name,activateEdit})=>{
     return(
         <>
         {activateEdit&&
-                <EditImage 
+        <EditImage 
                 isActualUploadedSame={homePageDetail[name].imgSrc===homePageDetail[name].actualImgSrc} 
                 setNewImage={setNewTabDetail} 
                 imageId={homePageDetail[name].id}
-                url={homePageDetail.url}
+                url={homePageDetail[name].imgSrc}
                 name={name}
             >
                 <div className=" flex justify-center items-center bg-cover relative bg-center h-12 lg:h-24 rounded-lg overflow-hidden aspect-video" style={{backgroundImage:`url(${homePageDetail[name].imgSrc})`}}>

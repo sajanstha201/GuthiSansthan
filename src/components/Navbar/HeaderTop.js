@@ -2,7 +2,7 @@ import { styled, useMediaQuery } from "@mui/material";
 import { useSelectLanguage } from "../../context/LanguageChoice";
 import { useTranslation } from "react-i18next";
 import nepalLogo from '../../media/nepalLogo.png';
-import logo from '../../media/logo192.png'
+import logo from '../../media/guthi.png'
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { HeaderButtom } from "./HeaderButtom";
 import { useEffect, useRef, useState } from "react";
@@ -60,7 +60,7 @@ export const HeaderTop = () => {
     }
 
     return (
-        <div className={`${isMobile ? 'h-[80px] flex-wrap w-full' : 'flex-row px-20 h-[100px]'} flex w-full  top-0 justify-between items-center p-2`}>
+        <div className={`${isMobile ? 'h-[80px] flex-wrap w-full' : 'flex-row px-20 h-[100px]'} flex w-full bg-black/20 top-0 justify-between items-center p-2`}>
             <Link to='/' 
             className={`${isMobile ? 'flex-col justify-start items-center w-[50%]' : 'flex-row w-[30%] items-center'} h-full flex-row flex`}
             onClick={(e) => {isEditing&&e.preventDefault()}}>
@@ -69,7 +69,7 @@ export const HeaderTop = () => {
                     {/* <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} /> */}
                   <div className="flex items-center">
                       <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] '} `} src={logo} />
-                      <h5 className="font-semibold text-white">Guthi Sansthan</h5>
+                      {/* <h5 className="font-semibold text-white">Guthi Sansthan</h5> */}
                     </div>
                 </EditImage>
             </Link>

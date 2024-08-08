@@ -18,8 +18,6 @@ export const Teams=()=>{
         <h1 className="text-white font-bold text-6xl  ">Guthi Sansthan</h1>
         <div className="h-full w-full flex flex-col overflow-auto px-2">
             <InstantTeam image={firstPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={secondPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
-            <InstantTeam image={thirdPerson} name={'Dr. Shivraj Pandit'} post={'Chairman'} image1={fourthPerson} name1={'Mr. Sailesh Raj Kunwar'}  post1={'Administrator'}   />
-            
             {isEditing&&<AddTeam/>}
         </div>
         </div>

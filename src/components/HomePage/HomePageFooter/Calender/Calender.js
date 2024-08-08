@@ -90,14 +90,14 @@ export const Calendar = () => {
 
     const calendarGrid = [];
     for (let i = 0; i < startDayIndex; i++) {
-      calendarGrid.push(<div key={`empty-${i}`} className="text-center py-2 border"></div>);
+      calendarGrid.push(<div key={`empty-${i}`} className="text-center py-2 border-2 "></div>);
     }
 
     daysArray.forEach((day) => {
       calendarGrid.push(
         <div
           key={day}
-          className={`text-center py-2 border cursor-pointer ${eventDates[day] ? 'bg-red-500' : ''}`}
+          className={`text-center py-1 border border-black bg-white hover:bg-cyan-200  rounded-md cursor-pointer ${eventDates[day] ? ' text-red-600 font-bold ' : ''}`}
           onClick={() => handleDateClick(day)}
         >
           {day}
@@ -108,7 +108,7 @@ export const Calendar = () => {
     return (
       <div className="grid grid-cols-7 gap-2 p-4">
         {daysOfWeek.map((day) => (
-          <div key={day} className="text-center font-semibold">
+          <div key={day} className="text-center font-semibold  border-2 border-cyan-400 rounded-md backdrop-blur-lg text-lg ">
             {day.slice(0, 3)}
           </div>
         ))}
@@ -118,9 +118,9 @@ export const Calendar = () => {
   };
 
   return (
-    <div className="bg-zinc-400/15  backdrop-blur-sm flex items-start md:items-center py-1 justify-center h-screen ">
+    <div className="bg-zinc-600/15  backdrop-blur-sm flex items-start md:items-center py-1 justify-center h-screen ">
       <div className="w-full flex flex-wrap items-start  justify-center  mx-auto p-4 overflow-auto">
-        <div className="bg-cyan-400/70 shadow-lg rounded-lg overflow-hidden w-[90%] text-white font-bold flex md:w-1/2 h-96 flex-col ">
+        <div className="bg-neutral-200 shadow-lg rounded-lg overflow-hidden w-[90%] text-black font-bold flex md:w-1/2 h-96 flex-col ">
           <div className="flex items-center justify-between px-6 py-3 bg-gray-700/50">
             <div>
               <FontAwesomeIcon size="2x" icon={faArrowLeft} onClick={handlePrev} />

@@ -67,7 +67,7 @@ export const ContactUs = () => {
       <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center' style={{backgroundImage:`url(${contactUsPageDetail['bg-img'].imgSrc})`}}></div>
   </EditBgImage>
   <div className='w-screen h-screen fixed top-0 -z-10 bg-cover bg-center bg-black/40 ' ></div>
-<h1 className="text-3xl font-bold text-white tracking-wide m-16">{t('contact-us-heading')}</h1>
+<h1 className="text-5xl font-bold text-white tracking-wide m-16">{t('contact-us-heading')}</h1>
     <div className={`${isMobile?'flex-col':'flex-row '} flex   rounded-lg justify-center align-center gap-10 mb-44`}>
             <div id="map" className='w-full lg:w-1/3 flex justify-center'>
             <LoadScript googleMapsApiKey="AIzaSyDR-Piy7y9bIfz9HzE_dN_TAXJbM9UtA24">

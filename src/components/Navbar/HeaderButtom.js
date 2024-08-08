@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom"
 export const HeaderButtom=()=>{
     const {t}=useTranslation()
     const loc=useLocation()
-    const isMobile=useMediaQuery('(max-width:1200px)')
+    const isMobile=useMediaQuery('(max-width:700px)')
     return(
         <div className={`${isMobile?'':''} w-full flex items-center justify-center  z-50`}>
             <div className={`${isMobile?'max-w-[90%]':'w-full'}  rounded-full flex flex-row fixed bottom-2 items-center  px-4  p-2 gap-6 justify-evenly bg-neutral-900/30 z-50 backdrop-blur-md bg-opacity-80  `}>

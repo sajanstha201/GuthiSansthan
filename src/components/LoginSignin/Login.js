@@ -43,8 +43,8 @@ export const Login = () => {
             const result = await response.json();
             sessionStorage.setItem('token', result.token);
             console.log("User response:", result.token);
-            navigate('/');
             toast.success("Login successful");
+            navigate('/');
 
         } catch (error) {
             console.error('Error:', error);
@@ -69,20 +69,20 @@ export const Login = () => {
                     
                     <div className='flex flex-col items-center justify-center'>
                         <div className='text-white flex items-center justify-center'>
-                            <h1>Welcome Back!</h1>
+                            <h1 className='text-yellow-400 text-5xl mb-6 border-b-2 border-red-500'>Welcome Back!</h1>
                         </div>
                         <div className='flex flex-col text-white'>
                             <div>
                                 <label className='items-start justify-start'>Username</label>
                             </div>
                             <div>
-                                <input ref={userRef} type='text' className='text-black w-[350px] h-10 rounded' />
+                                <input ref={userRef} type='text' className='text-black w-[350px] h-10 rounded border  focus:outline-cyan-600' />
                             </div>
                             <div>
                                 <label>Password</label>
                             </div>
                             <div>
-                                <input ref={passRef} type='password' className='text-black w-[350px] h-10 rounded' />
+                                <input ref={passRef} type='password' className='text-black w-[350px] h-10 rounded focus:outline-cyan-600' />
                             </div>
                             <br />
                             <div className='w-full items-center justify-center flex'>
@@ -90,7 +90,7 @@ export const Login = () => {
                                 <div className='mx-3 text-white'> Or</div>
                                 <div className='bg-zinc-800 h-[1px] w-1/3'></div>
                             </div>
-                            <div className='w-full flex justify-center my-2 items-center bg-white h-24'>
+                            <div className='w-full flex justify-center my-2 items-center bg-white hover:bg-blue-500 h-24'>
                                 <button className='text-black px-3 h-fit border border-black rounded-md py-2 items-center justify-center gap-2 flex'>
                                     <FontAwesomeIcon icon={faGoogle} /> Sign In with Google
                                 </button>

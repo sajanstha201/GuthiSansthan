@@ -72,28 +72,28 @@ export const Signin = () => {
                     </div>
                     <div className='flex flex-col items-center justify-center p-3'>
                         <div className='text-white flex items-center justify-center'>
-                            <h1>Create an Account</h1>
+                            <h1 className='text-yellow-400 text-5xl mb-6 border-b-2 border-red-500'>Create an Account</h1>
                         </div>
                         <form onSubmit={handleSubmit} className='flex flex-col text-white gap-3'>
                             <div className='flex gap-3'>
-                                <div className='flex flex-col'>
+                                <div className='flex flex-col w-full'>
                                     <label><h5>First Name</h5></label>
                                     <input
                                         type="text"
                                         name="firstName"
-                                        className='border-2 border-white rounded-md p-2 w-[150px] md:w-[200px] lg:w-[300px] text-black'
+                                        className='border  rounded-md focus:outline-cyan-600 border-black p-2 w-[150px] md:w-[200px] lg:w-[300px] text-black'
                                         placeholder="First Name"
                                         value={formData.firstName}
                                         onChange={handleChange}
                                     />
                                     {errors.firstName && <span className="text-red-500">{errors.firstName}</span>}
                                 </div>
-                                <div className='flex flex-col'>
+                                <div className='flex flex-col w-full lg:w-fit'>
                                     <label><h5>Last Name</h5></label>
                                     <input
                                         type="text"
                                         name="lastName"
-                                        className='border-2 border-white rounded-md p-2 w-[150px] md:w-[200px] lg:w-[300px] text-black'
+                                        className='border  rounded-md focus:outline-cyan-600 border-black p-2 w-full md:w-[200px] lg:w-[300px] text-black'
                                         placeholder="Last Name"
                                         value={formData.lastName}
                                         onChange={handleChange}
@@ -107,7 +107,7 @@ export const Signin = () => {
                                     type="email"
                                     name="email"
                                     required
-                                    className='border-2 border-white rounded-md p-2 w-[150px] md:w-[200px] lg:w-[500px] text-black'
+                                    className='border  rounded-md focus:outline-cyan-600 border-black p-2 w-full text-black'
                                     placeholder="Email"
                                     value={formData.email}
                                     onChange={handleChange}
@@ -119,20 +119,21 @@ export const Signin = () => {
                                 <input
                                     type="text"
                                     name="username"
-                                    className='border-2 border-white rounded-md p-2 w-[150px] md:w-[200px] lg:w-[500px] text-black'
+                                    className='border  rounded-md focus:outline-cyan-600 border-black p-2 w-full  text-black'
                                     placeholder="Username"
                                     value={formData.username}
                                     onChange={handleChange}
                                 />
                                 {errors.username && <span className="text-red-500">{errors.username}</span>}
                             </div>
+                                <h5>Passwords</h5>
                             <div className='flex gap-3'>
                                 <div className='flex flex-col'>
-                                    <label><h5>Password</h5></label>
+                                    <label><h5></h5></label>
                                     <input
                                         type="password"
                                         name="password"
-                                        className='border-2 border-white rounded-md p-2 w-[150px] md:w-[200px] lg:w-[300px] text-black'
+                                        className='border  rounded-md focus:outline-cyan-600 border-black p-2 w-[150px] md:w-[200px] lg:w-[300px] text-black'
                                         placeholder="Password"
                                         value={formData.password}
                                         onChange={handleChange}
@@ -140,11 +141,11 @@ export const Signin = () => {
                                     {errors.password && <span className="text-red-500">{errors.password}</span>}
                                 </div>
                                 <div className='flex flex-col'>
-                                    <label><h5>Confirm Password</h5></label>
+                                    <label><h5></h5></label>
                                     <input
                                         type="password"
                                         name="confirmPassword"
-                                        className='border-2 border-white rounded-md p-2 w-[150px] md:w-[200px] lg:w-[300px] text-black'
+                                        className='border  rounded-md focus:outline-cyan-600 border-black p-2 w-[150px] md:w-[200px] lg:w-[300px] text-black'
                                         placeholder="Confirm Password"
                                         value={formData.confirmPassword}
                                         onChange={handleChange}
@@ -152,10 +153,10 @@ export const Signin = () => {
                                     {errors.confirmPassword && <span className="text-red-500">{errors.confirmPassword}</span>}
                                 </div>
                             </div>
-                            <Link to='/log-in'>Already have an account?</Link>
+                            <Link to='/log-in' className='text-lg text-cyan-500 hover:text-cyan-400'>Already have an account?</Link>
                             <div className='flex justify-center lg:justify-end mt-5'>
                                 <button type="submit" className='rounded-full px-6 py-1 font-bold text-white bg-blue-600'>
-                                    <h5>{t('sign-in')}</h5>
+                                    <h5>{t('sign-up')}</h5>
                                 </button>
                             </div>
                         </form>

@@ -69,7 +69,7 @@ export const HeaderTop = () => {
                     {/* <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} /> */}
                   <div className="flex items-center">
                       <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] '} `} src={logo} />
-                      <h5>Guthi Sansthan</h5>
+                      <h5 className="font-semibold text-white">Guthi Sansthan</h5>
                     </div>
                 </EditImage>
             </Link>
@@ -92,7 +92,7 @@ export const HeaderTop = () => {
             <div className={`${isMobile ? 'gap-1 w-[50%]' : 'gap-7 w-[30%]'} relative flex-row flex h-full items-center justify-start px-2`}>
                 <div ref={divRef} className={`gap-1 w-[40%]  relative flex-row flex items-center justify-end   `}>
                         <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">Language</div>
-                    <div className="relative bg-gray-300/70 rounded-full flex flex-row items-center justify-center p-1">
+                    <div className="relative bg-gray-300/70 rounded-full flex flex-row items-center justify-center ">
                         <div className={`h-[30px] w-[30px] md:h-[60px] md:w-[60px] cursor-pointer transition-all rounded-md p-1 items-center flex justify-center   `}
                                 onClick={() => { setLanguageOptionHidden(!languageOptionHidden); }}>
                                     <div className="z-30   p-2 overflow-hidden h-full w-full items-center flex justify-center">

@@ -41,7 +41,7 @@ export const HomePageFooter = () => {
     ];
 
     if (token) {
-        sections.push( { icon: faGopuram, label: 'Guthi Community', section: 'templemanagment' });
+        sections.push( { icon: faGopuram, label: 'Temple managment  Community', section: 'templemanagment' });
     }
 
     return (
@@ -64,7 +64,7 @@ export const HomePageFooter = () => {
                     {sections.map(({ icon, label, section }) => (
                         <div
                             key={section}
-                            className={`${isMobile ? 'px-3' : 'px-16'} home-footer-div flex flex-col items-center justify-center hover:scale-150 transition-transform duration-75 ease-in hover:-translate-y-3`}
+                            className={`${isMobile ? 'px-3' : 'px-16'} home-footer-div flex flex-col items-center justify-center hover:scale-150 hover:text-cyan-300 transition-transform duration-75 ease-in hover:-translate-y-3`}
                             onClick={() => setSelectedSection(section)}
                         >
                             <FontAwesomeIcon icon={icon} size='2x' />

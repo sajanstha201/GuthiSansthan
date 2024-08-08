@@ -32,6 +32,7 @@ import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
 import { useEditing } from './context/EditingProvider';
 import { BranchMainPage } from './components/BranchPage/BranchMainPage';
 import { EachBranchInfo } from './components/BranchPage/EachBranchInfo';
+import Report from './components/Report/Report';
 
 function App() {
   const location=useLocation()
@@ -85,6 +86,7 @@ function App() {
             <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/parva' element={<Parva/>}/>
+            <Route path='/report' element={<Report/>} />
 
             <Route path='/employee-details' element={<EmployeeDetailsMain/>}/>
             <Route path='/branches' element={<BranchMainPage/>}/>

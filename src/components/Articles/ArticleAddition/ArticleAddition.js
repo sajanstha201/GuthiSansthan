@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useState,useEffect} from "react"
 import { TemplateMain } from "./Template/TemplateMain"
 import { ArticlePreviewMain } from "../ArticlePreview/ArticlePreviewMain"
 import { showAlert } from "../../AlertLoader"
 import axios from "axios"
 import {useSelector} from 'react-redux'
+import { useLocation } from "react-router-dom";
 export const ArticleAddition=()=>{
     const [data,setData]=useState({})
     const [tag,setTag]=useState('')
@@ -11,6 +12,10 @@ export const ArticleAddition=()=>{
     const [isPreview,setIsPreview]=useState(false)
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const articlePageDetail=useSelector(state=>state.articlePageDetail)
+    const loc=useLocation()
+    useEffect(()=>{
+        console.log(loc.state)
+    })
     const publishArticle=async()=>{
         try{
             console.log(data)

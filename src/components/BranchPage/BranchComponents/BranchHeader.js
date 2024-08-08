@@ -20,7 +20,6 @@ export const BranchHeader=()=>{
     
   }
     return(
-    
        <div className="w-full py-4 px-4 flex-wrap flex-col gap-2 border-b-4 mb-3 border-red-500">
            <div className="w-full flex flex-col items-center justify-center">
                      <h1>Guthi Sansthan ,kathmandu office</h1>
@@ -35,25 +34,17 @@ export const BranchHeader=()=>{
                       <div className="relative rounded-full bg-gray-900 bg-cover bg-center flex flex-col h-24 w-24 md:h-36 md:w-36 justify-center items-center overflow-hidden">
                           
                           {!img1 && <>
-                          <label htmlFor="branch-addition-head-1"> 
-                              <FontAwesomeIcon icon={faAdd} size="4x" className="text-white"/> 
-                              </label>
-                            </>}
-                            {img1&&
-                            <>
-                            
-                            <img src={img1} className=""></img>
-                            </>
-                            }
+                            <label htmlFor="branch-addition-head-1"> 
+                                <FontAwesomeIcon icon={faAdd} size="4x" className="text-white"/> 
+                            </label>
+                          </>}
+                          {img1&&<><img src={img1} className=""></img></>}
                       </div>
-
                       <input type="file" id="branch-addition-head-1"  className="hidden" onChange={()=>handelimg1()}/>
                       <input type="text" className="font-semibold p-2 text-yellow-400 text-xl w-fit border border-cyan-300 rounded-md outline-none" placeholder="Person Post"/>
                       <input type="text" className="font-semibold p-2 text-black text-xl w-fit border border-cyan-300 rounded-md outline-none" placeholder="Person Post"/>               
                     </div>
                           <div className="px-3 py-2 bg-green-700 hover:bg-green-800 rounded-md cursor-pointer" onClick={handleSubmit}>Save</div>
-
-             
            </div>
        </div>
     

@@ -1,3 +1,3 @@
 export {EditImage} from './EditImage'
-export {EditBgVideo} from './EditBgVideo'
+export {EditBgHome} from './EditBgHome'
 export {EditBgImage} from './EditBgImage'

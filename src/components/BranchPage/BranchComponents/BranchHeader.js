@@ -24,7 +24,7 @@ export const BranchHeader=()=>{
            <div className="w-full flex flex-col items-center justify-center">
                      <h1>Guthi Sansthan ,kathmandu office</h1>
                      <h4>Golfutar,kathmandu</h4>
-                     <p>9861481528,9767845367</p>
+                     <p>9861481528</p>
            </div>
            <div className="w-full flex  items-center justify-between">
                    <div className="flex w-1/2 md:w-1/4  md:justify-center gap-2 flex-col  md:items-center">

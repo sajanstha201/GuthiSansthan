@@ -69,7 +69,7 @@ export const HeaderTop = () => {
                     {/* <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] pr-10'} backdrop-blur-md bg-yellow-50 rounded-full shadow-lg`} src={globalDetail['guthi-sansthan-logo'].imgSrc} /> */}
                   <div className="flex items-center">
                       <img className={`${isMobile ? 'h-[30px] pr-4' : 'h-[80px] '} `} src={logo} />
-                      {/* <h5 className="font-semibold text-white">Guthi Sansthan</h5> */}
+
                     </div>
                 </EditImage>
             </Link>

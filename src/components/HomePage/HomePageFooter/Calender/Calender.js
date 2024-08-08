@@ -97,7 +97,9 @@ export const Calendar = () => {
       calendarGrid.push(
         <div
           key={day}
-          className={`text-center py-1 border border-black bg-white px-1 hover:bg-cyan-200  rounded-md cursor-pointer ${eventDates[day] ? ' text-red-600 font-bold ' : ''}`}
+
+          className={`text-center py-1 border border-black bg-white hover:bg-cyan-200  rounded-md cursor-pointer ${eventDates[day] ? ' text-red-600 font-bold ' : ''}`}
+
           onClick={() => handleDateClick(day)}
         >
           {day}

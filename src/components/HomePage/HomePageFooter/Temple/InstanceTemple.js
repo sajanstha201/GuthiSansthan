@@ -60,7 +60,7 @@ const InstanceTemple = ({ index, templeId, name, fetchAllTemple, detail, img, lo
     };
     const activateEditing=()=>{
         setIsEditingTempleActivate(true)
-        setIsHidden(true)
+        setIsHidden(false)
     }
     const closeTemple=()=>{
         setIsHidden(true)
@@ -83,12 +83,13 @@ const InstanceTemple = ({ index, templeId, name, fetchAllTemple, detail, img, lo
                     <div className={`${isMobile ? 'text-[15px]' : 'text-[25px]'} absolute h-full w-full items-center justify-center flex text-white font-bold z-10`} onClick={showContent}>
                         {name}
                     </div>
+                    <div className="absolute bg-gray-900/50 h-full w-full"></div>
                 </div>
             </div>
-                    {isEditingTempleActivate&&<EditTemple name={name} location={location} index={index} templeDetail={detail} templeId={templeId} fetchAllTemple={fetchAllTemple}/>}
             {<motion.div className={`${isHidden ? 'h-0 w-0' : 'h-[87%] w-[98%] md:w-[95%] lg:w-[90%]'} absolute top-20 rounded-xl bg-neutral-900/100 flex flex-col items-center justify-start z-40 backdrop-blur-lg overflow-auto transition-all duration-200 ease-out`}>
                 <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={closeTemple} />
-                    {!isEditingTempleActivate&&<TempleDescription name={name} location={location} img={img} detail={detail} index={index} templeDetail={templeDetail}/>}
+                    {!isEditingTempleActivate&&<TempleDescription  name={name} location={location} img={img} detail={detail} index={index} templeDetail={templeDetail}/>}
+                    {isEditingTempleActivate&&<EditTemple  name={name} detail={detail}  img={img} qr={qr} location={location} index={index} templeDetail={templeDetail} templeId={templeId} fetchAllTemple={fetchAllTemple}/>}
             </motion.div>}
         </>
     );

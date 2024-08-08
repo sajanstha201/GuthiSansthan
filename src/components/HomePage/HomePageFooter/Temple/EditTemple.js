@@ -11,7 +11,7 @@ export const EditTemple=({name,detail,location,templeDetail,templeId,fetchAllTem
     const [editName, setEditName] = useState(name);
     const [editLocation, setEditLocation] = useState(location);
 
-    const [editDetail, setEditDetail] = useState(detail);
+    const [editDetail, setEditDetail] = useState(templeDetail);
     const baseUrl=useSelector(state=>state.baseUrl).backend
     const isMobile = useMediaQuery('(max-width:800px)');
     const saveEdits = async () => {

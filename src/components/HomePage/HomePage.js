@@ -26,7 +26,6 @@ export const HomePage = () => {
     try {
       const response = await axios.get(baseUrl + homePageDetail.url);
       const data = response.data.components;
-      console.log("home Data :", data);
       dispatch(setHomePageWholeDetail(data));
 
       if (data['welcome-to-guthi-sansthan'] && data['welcome-to-guthi-sansthan'].text) {

@@ -8,14 +8,14 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {useSelector} from 'react-redux'
 export const Login = () => {
     const isMobile = useMediaQuery('(max-width:800px)');
     const { t } = useTranslation();
     const userRef = useRef();
     const passRef = useRef();
     const navigate = useNavigate();
-
+    const baseUrl=useSelector(state=>state.baseUrl).backend
     const handleSubmit = async () => {
         const username = userRef.current.value.trim();
         const password = passRef.current.value.trim();
@@ -30,7 +30,7 @@ export const Login = () => {
         formData.append('password', password);
 
         try {
-            const response = await fetch('http://guthi.pythonanywhere.com/api/login/', {
+            const response = await fetch(baseUrl+'api/login/', {
                 method: 'POST',
                 body: formData
             });
@@ -41,6 +41,7 @@ export const Login = () => {
             }
 
             const result = await response.json();
+            console.log(result)
             sessionStorage.setItem('token', result.token);
             console.log("User response:", result.token);
             toast.success("Login successful");

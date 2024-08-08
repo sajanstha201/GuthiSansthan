@@ -17,23 +17,7 @@ const TempleManagement = () => {
   const { isEditing } = useEditing();
 
   const fetchTemple = async () => {
-    try {
-      const response = await axios.get(baseUrl + templeDetail.url);
-      dispatch(setTempleWholeDetail(response.data));
-    } catch (error) {
-      console.error("error");
-      showAlert(error, 'red');
-    }
   };
-
-  useEffect(() => {
-    try {
-      if (!templeDetail.isFetched) fetchTemple();
-    } catch (error) {
-      console.error(error);
-      showAlert(error, 'red');
-    }
-  }, []);
 
   return (
     <div className="w-full h-full pb-3 flex flex-col relative">

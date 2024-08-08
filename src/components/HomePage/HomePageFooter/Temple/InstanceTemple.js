@@ -66,6 +66,10 @@ const InstanceTemple = ({ index, templeId, name, fetchAllTemple, detail, img, lo
         setIsHidden(true)
 
     }
+    const showContent=()=>{
+        setIsHidden(false)
+        setIsEditingTempleActivate(false)
+    }
 
     return (
         <>
@@ -76,7 +80,7 @@ const InstanceTemple = ({ index, templeId, name, fetchAllTemple, detail, img, lo
                         <div className="absolute top-0 right-0 bg-blue-600 cursor-pointer rounded-md px-4 py-1 text-white hover:bg-blue-700 z-30" onClick={activateEditing}>Edit</div>
                     </>)}
                   
-                    <div className={`${isMobile ? 'text-[15px]' : 'text-[25px]'} absolute h-full w-full items-center justify-center flex text-white font-bold z-10`} onClick={() => setIsHidden(false)}>
+                    <div className={`${isMobile ? 'text-[15px]' : 'text-[25px]'} absolute h-full w-full items-center justify-center flex text-white font-bold z-10`} onClick={showContent}>
                         {name}
                     </div>
                     <div className="absolute bg-gray-900/50 h-full w-full"></div>

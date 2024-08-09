@@ -33,12 +33,12 @@ export const HomePage = () => {
       console.log(data)
         if (data['bg-video']['component_type']==='image') {
           console.log('this is bg image')
-          const imageUrl = await fetchImageToURL(baseUrl + data['bg-video'].image);
-          dispatch(setBgVideo({url:imageUrl,isVideo:false,isImage:true,actualFile:null}));
+          // const imageUrl = await fetchImageToURL(baseUrl + data['bg-video'].image);
+          dispatch(setBgVideo({url:baseUrl + data['bg-video'].image,isVideo:false,isImage:true,actualFile:null}));
         } else{
           console.log('this is bg video')
-          const videoUrl = await fetchBgVideoToUrl(baseUrl + data['bg-video'].video);
-          dispatch(setBgVideo({url:videoUrl,isVideo:true,isImage:false,actualFile:null}));
+          // const videoUrl = await fetchBgVideoToUrl(baseUrl + data['bg-video'].video);
+          dispatch(setBgVideo({url:baseUrl + data['bg-video'].image,isVideo:true,isImage:false,actualFile:null}));
         }
     } catch (error) {
       console.log(error);
@@ -68,6 +68,7 @@ export const HomePage = () => {
               {homePageDetail['bg-video'].isImage&&<div className='bg-cover bg-center fixed -z-10 w-full h-screen top-0' style={{ backgroundImage: `url(${homePageDetail['bg-video'].url})` }}></div>}
                {homePageDetail['bg-video'].isVideo&&
                <>
+               <h1>THis is Vidoe</h1>
                   <video
                     key={homePageDetail['bg-video'].id}
                     autoPlay
@@ -75,7 +76,7 @@ export const HomePage = () => {
                     muted
                     className="top-0 video-background fixed inset-0 w-full h-screen object-cover -z-30"
                   >
-                    <source src={homePageDetail['bg-video'].url} type="video/mp4" />
+                    <source src='http://4.145.89.69/media/My_Movie-2_rApOxSO.mp4' type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                </>}

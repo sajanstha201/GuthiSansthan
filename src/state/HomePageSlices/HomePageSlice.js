@@ -17,7 +17,7 @@ export const HomePageSlice=createSlice({
         url:'api/pages/home-page/',
         "details":{},
         "slider-img":{isFetched:false,gif:'',id:'',actualGif:''},
-        "bg-video":{isFetched:false,video:'',id:'',actualVideo:''},
+        "bg-video":{isFetched:false,url:'',id:'',actualUrl:'',isVideo:false,isImage:false,prevUrl:''},
         "footer-bg-img":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         "Parav-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         "Contact-us-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
@@ -42,17 +42,30 @@ export const HomePageSlice=createSlice({
             else state['slider-img'].gif=state['slider-img'].actualGif
         },
         setBgVideo:(state,action)=>{
-            state['bg-video']={
-                video:action.payload,
-                actualVideo:action.payload,
+            const data={
+                url:action.payload.url,
+                actualUrl:action.payload.url,
                 id:state.details['bg-video'].id,
-                isFetched:true
+                isFetched:true,
+                isVideo:action.payload.isVideo,
+                isImage:action.payload.isImage,
+                prevUrl:action.payload.isVideo?'video':'image'
             }
+            console.log('updated data',data)
+            state['bg-video']=data
         },
         setNewBgVideo:(state,action)=>{
             console.log('action payload',action.payload)
-            if(action.payload) state['bg-video'].video=action.payload
-            else state['bg-video'].video=state['bg-video'].actualVideo
+            if(action.payload){
+                state['bg-video'].url=action.payload.url
+                state['bg-video'].isVideo=action.payload.isVideo
+                state['bg-video'].isImage=action.payload.isImage
+            } 
+            else{
+                state['bg-video'].url=state['bg-video'].actualUrl
+                state['bg-video'].isVideo=state['bg-video'].prevUrl==='video'
+                state['bg-video'].isImage=state['bg-video'].prevUrl==='image'
+            } 
         },
         setTabDetail:(state,action)=>{
             state[action.payload.name]=getImageDetail(action.payload.detail,state['details'][action.payload.name].id)

@@ -25,10 +25,10 @@ const InstanceTemple = ({ index, templeId, name, fetchAllTemple, detail, img, lo
 
     useEffect(() => {
         const fetchImage = async () => {
-            dispatch(setImageUrl({ index: index, image: await fetchImageToURL(img) }));
+            dispatch(setImageUrl({ index: index, image: img }));
         };
         const fetchQR = async () => {
-            dispatch(setQRUrl({ index: index, qr: await fetchImageToURL(qr) }));
+            dispatch(setQRUrl({ index: index, qr:qr }));
         };
         if (!templeDetail.dynamicDetails[index]?.isImageFetched) fetchImage();
         if (!templeDetail.dynamicDetails[index]?.isQRFetched) fetchQR();

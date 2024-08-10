@@ -33,7 +33,7 @@ export const Parva = () => {
     try{
       const response = await axios.get(baseUrl+parvaPageDetail.url)
       dispatch(setParvaPageWholeDetails(response.data.components))
-      dispatch(setBgImg(await fetchImageToURL(baseUrl + response.data.components['parva-page'].image.substr(1))))
+      dispatch(setBgImg(baseUrl + response.data.components['parva-page'].image.substr(1)))
       addLanguage({ key: 'parva', lngs: response.data.components['parva-page'].text })
       dispatch(setParvaPageWholeDetails(response.data))
       

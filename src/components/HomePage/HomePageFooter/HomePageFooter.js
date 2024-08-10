@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faGopuram, faUsers, faClose, faUserGear } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFooterBgImg, setNewFooterBgImg } from '../../../state/HomePageSlices/HomePageSlice';
-import { fetchImageToURL } from '../../ReuseableFunctions';
 import { EditBgImage } from '../../EditComponents/EditBgImage';
 import Temple from './Temple/Temple';
 import { useTranslation } from 'react-i18next';
@@ -24,7 +23,7 @@ export const HomePageFooter = () => {
     const token = sessionStorage.getItem('token');
     useEffect(() => {
         const fetchFooterImg = async () => {
-            dispatch(setFooterBgImg(await fetchImageToURL(baseUrl + homePageDetail.details['footer-bg-img'].image)));
+            dispatch(setFooterBgImg(baseUrl + homePageDetail.details['footer-bg-img'].image));
         };
 
         if (!homePageDetail['footer-bg-img'].isFetched && homePageDetail.isFetched) {

@@ -13,7 +13,7 @@ export const OneImage=({name,activateEdit})=>{
     const baseUrl=useSelector(state=>state.baseUrl).backend
     useEffect(()=>{
         const fetchData=async()=>{
-            dispatch(setTabDetail({name:name,detail:await fetchImageToURL(baseUrl+homePageDetail['details'][name].image.substr(0))}))
+            dispatch(setTabDetail({name:name,detail:baseUrl+homePageDetail['details'][name].image.substr(0)}))
             addLanguage({key:name,lngs:homePageDetail.details[name].text})
         }
         if(!homePageDetail[name].isFetched&&homePageDetail.isFetched) fetchData();

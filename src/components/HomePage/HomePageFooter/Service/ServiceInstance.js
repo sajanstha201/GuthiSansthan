@@ -23,7 +23,7 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
     const [isServiceEditingActivate,setIsServiceEditingActivate]=useState(false)
     useEffect(()=>{
         const fetchImage=async()=>{
-            dispatch(setDynamicImageUrl({index:index,image:await fetchImageToURL(img)}))
+            dispatch(setDynamicImageUrl({index:index,image:img}))
         }
         if(!serviceDetail.dynamicDetails[index]?.isDynamicFetched??false) fetchImage()
     },[name])

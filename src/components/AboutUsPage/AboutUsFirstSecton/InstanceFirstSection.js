@@ -18,7 +18,7 @@ export const InstanceFirstSection=({bgImage,name,onLinkClick})=>{
         try{
             const fetchData=async()=>{
                 try{
-                    dispatch(setImgTab({name:name,detail:await fetchImageToURL(baseUrl+aboutUsPageDetail.details[name].image)}))
+                    dispatch(setImgTab({name:name,detail:baseUrl+aboutUsPageDetail.details[name].image}))
                     addLanguage({key:name+'-about-us',lngs:aboutUsPageDetail.details[name].text})
                 }
                 catch(error){

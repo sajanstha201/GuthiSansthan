@@ -25,7 +25,7 @@ export const NepalFlagSlider=({content})=>{
     useEffect(()=>{
         const fetchData=async()=>{
                 addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: homePageDetail['details']['welcome-to-guthi-sansthan']['text'] });
-                dispatch(setSliderImg(await fetchGifToURL(baseUrl + homePageDetail['details']['slider-img'].image.substr(1))));
+                dispatch(setSliderImg(baseUrl + homePageDetail['details']['slider-img'].image.substr(1)));
         }
         if(!homePageDetail['slider-img'].isFetched&&homePageDetail.isFetched) fetchData()
     })

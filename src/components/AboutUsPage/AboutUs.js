@@ -24,7 +24,7 @@ export const AboutUs = () => {
                 try{
                     const response=await axios.get(baseUrl+aboutUsPageDetail.url)
                     dispatch(setAboutUsPageWholeDetail(response.data.components))
-                    dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['about-us'].image)))
+                    dispatch(setBgImg(baseUrl+response.data.components['about-us'].image))
                     addLanguage({key:'about-us',lngs:response.data.components['about-us'].text})
                 }
                 catch(error){

@@ -42,9 +42,9 @@ export const ContactUs = () => {
             const response=await axios.get(baseUrl+contactUsPageDetail.url)
             console.log(response.data.components)
             dispatch(setContactUsPageWholeDetail(response.data.components))
-            dispatch(setExtraImage1(await fetchImageToURL(baseUrl+response.data.components['extra-image-1'].image.substr(0))))
-            dispatch(setExtraImage2(await fetchImageToURL(baseUrl+response.data.components['extra-image-2'].image.substr(0))))
-            dispatch(setBgImg(await fetchImageToURL(baseUrl+response.data.components['bg-image'].image)))
+            dispatch(setExtraImage1(baseUrl+response.data.components['extra-image-1'].image.substr(0)))
+            dispatch(setExtraImage2(baseUrl+response.data.components['extra-image-2'].image.substr(0)))
+            dispatch(setBgImg(baseUrl+response.data.components['bg-image'].image))
             addLanguage({key:'contact-us-heading',lngs:response.data.components['contact-us-heading'].text})
           }
           catch(error){

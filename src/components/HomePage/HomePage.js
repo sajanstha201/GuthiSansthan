@@ -33,12 +33,8 @@ export const HomePage = () => {
       }
       console.log(data)
         if (data['bg-video']['component_type']==='image') {
-          console.log('this is bg image')
-          // const imageUrl = await fetchImageToURL(baseUrl + data['bg-video'].image);
           dispatch(setBgVideo({url:baseUrl + data['bg-video'].image.substr(1),isVideo:false,isImage:true,actualFile:null}));
         } else{
-          console.log('this is bg video')
-          // const videoUrl = await fetchBgVideoToUrl(baseUrl + data['bg-video'].video);
           dispatch(setBgVideo({url:baseUrl + data['bg-video'].video.substr(1),isVideo:true,isImage:false,actualFile:null}));
         }
     } catch (error) {

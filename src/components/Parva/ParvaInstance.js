@@ -28,6 +28,10 @@ export const ParvaInstance = ({ parvaId, fetchAllParva, name, detail, img, qr, s
     const hideContent=()=>{
         setIsHidden(true)
     }
+    const handleContent=()=>{
+        setIsHidden(false)
+        setIsParvaEditingActivate(false)
+    }
     const removeParva = async () => {
         if (await showConfirmBox('Do you want to delete', name)) {
             try {
@@ -54,7 +58,7 @@ export const ParvaInstance = ({ parvaId, fetchAllParva, name, detail, img, qr, s
                         </>
                     )}
                     <div className={`${isMobile ? 'text-[15px]' : 'text-[30px]'} absolute h-full w-full items-center justify-center flex text-white font-bold z-10`} 
-                    onClick={() => setIsHidden(false)}>
+                    onClick={handleContent}>
                         {name}
                     </div>
                     <div className="absolute bg-gray-900/50 h-full w-full"></div>

@@ -31,7 +31,7 @@ import EmployeeDetailsMain from './components/EmployeeDetails/EmployeeDetailsMai
 import { ConfirmBox } from './components/AlertLoader/ConfirmBox';
 import { useEditing } from './context/EditingProvider';
 import { BranchMainPage } from './components/BranchPage/BranchMainPage';
-import { EachBranchInfo } from './components/BranchPage/EachBranchInfo';
+import { EachBranchInfo } from './components/BranchPage/BranchComponents/EachBranchInfo';
 import Report from './components/Report/Report';
 
 function App() {

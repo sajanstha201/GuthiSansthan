@@ -55,4 +55,4 @@ export const EditService=(name,detail,img,url)=>{
         
         </>
     )
-}
+}acco

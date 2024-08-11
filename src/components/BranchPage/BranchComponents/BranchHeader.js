@@ -18,6 +18,9 @@ export const BranchHeader=({branchName})=>{
       }
       reader.readAsArrayBuffer(file)
   }
+  const handleChange=(key,e)=>{
+    setBranchDetail(prevData=>({...prevData,[key]:e.target.value}))
+  }
   const handleSubmit=()=>{
     
   }

@@ -15,7 +15,6 @@ export const BranchHeader=()=>{
       }
       reader.readAsArrayBuffer(file)
   }
- 
   const handleSubmit=()=>{
     
   }

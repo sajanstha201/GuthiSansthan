@@ -20,6 +20,8 @@ const JatraForm = () => {
     if (!name ||!startDate || !endDate ||!image || !description||!qrcode) {
       alert("Please fill out all fields.");
       return;
+    }else if(startDate>endDate){
+      alert("please check the date again !!")
     }
  
 

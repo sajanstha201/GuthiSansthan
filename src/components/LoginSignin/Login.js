@@ -42,6 +42,10 @@ export const Login = () => {
 
             const result = await response.json();
             console.log(result)
+            sessionStorage.setItem('username',result.username)
+            sessionStorage.setItem('email',result.email)
+            sessionStorage.setItem('firstname',result.first_name)
+            sessionStorage.setItem('lastname',result.last_name)
             sessionStorage.setItem('token', result.token);
             console.log("User response:", result.token);
             toast.success("Login successful");

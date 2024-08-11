@@ -14,7 +14,7 @@ import "nepali-datepicker-reactjs/dist/index.css";
 import { ParvaDetailDescription } from "./ParvaDetailDescription";
 import { EditParva } from "./EditParva";
 
-export const ParvaInstance = ({ parvaId, fetchAllParva, name, detail, img, qr, startDate, endDate }) => {
+export const ParvaInstance = ({ parvaId, fetchAllParva, name, detail, img, qr, startDate, endDate,loc }) => {
     const [isHidden, setIsHidden] = useState(true);
     const isMobile = useMediaQuery('(max-width:800px)');
     const { isEditing } = useEditing();
@@ -66,7 +66,7 @@ export const ParvaInstance = ({ parvaId, fetchAllParva, name, detail, img, qr, s
             </div>
             {<motion.div className={`${isHidden ? 'h-0 w-0' : 'h-[60vh] w-[90%]'} absolute top-20 rounded-xl bg-neutral-800 flex flex-col items-center justify-start z-50 backdrop-blur-3xl overflow-auto transition-all duration-200 ease-out`}>
                 <FontAwesomeIcon icon={faClose} size={'2x'} className="absolute top-0 right-1 text-red-600" onClick={hideContent} />
-                    {!isParvaEditingActivate&&<ParvaDetailDescription qr={qr} name={name} startDate={startDate} endDate={endDate} detail={detail} img={img}/>}
+                    {!isParvaEditingActivate&&<ParvaDetailDescription qr={qr} name={name} loc={loc} startDate={startDate} endDate={endDate} detail={detail} img={img}/>}
                     {isParvaEditingActivate&&<EditParva qr={qr} name={name} startDate={startDate} endDate={endDate} detail={detail} img={img} fetchAllParva={fetchAllParva}/>}
             </motion.div>}
         </>

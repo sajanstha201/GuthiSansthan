@@ -15,7 +15,7 @@ const Profile = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-ancient-paper bg-cover flex justify-center items-start py-10 bg-gradient-to-r from-orange-400 to-yellow-600">
+    <div className="min-h-screen bg-ancient-paper bg-cover flex justify-center items-start py-10 bg-gradient-to-r from-red-500 to-blue-600">
     <div className="w-full max-w-4xl p-6 bg-white bg-opacity-80 rounded-lg shadow-lg">
       <div className="flex justify-center mb-4">
         <button

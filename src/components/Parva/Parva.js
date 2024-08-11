@@ -75,6 +75,7 @@ export const Parva = () => {
             key={festival.id}
             startDate={festival.start_date}
             endDate={festival.end_date}
+            loc={festival.location}
             img={festival.image}
             name={festival.name}
               detail={festival.description}

@@ -11,10 +11,11 @@ export const EditText=({keyName,children})=>{
     const [textData,setTextData]=useState({'nepali':t(keyName),'english':'','newari':'','mithila':''})
     const [activateEdit,setActivateEdit]=useState(false)
     const {isEditing,setIsEditing}=useEditing()
+    const usedLngs=['nepali','english','newari','mithila']
     useEffect(()=>{
         setEditorData(textData[language])
     },[language])
-    const handleChange=(event,editor)=>{
+    const handleChange=(event,editor,language)=>{
         setTextData(prevData=>({...prevData,[language]:editor.getData()}))
     }
     const handleSubmit=()=>{
@@ -37,21 +38,33 @@ export const EditText=({keyName,children})=>{
             <div className='text-[10px]'>
                 <LanguageChangeButton language={language} setLanguage={setLanguage} nepaliText={textData['nepali']}/>
             </div>
-            <div className='h-auto w-full p-2 text-black font-normal flex flex-col'>
-                <div>
-                    <CKEditor
-                        editor={ClassicEditor}
-                        data={editorData}
-                        onChange={handleChange}
-                        config={{toolbar: ['heading', '|', 'bold', 'italic']}}
-                    />
+            <div className='flex flex-col items-center justify-center w-full'>
+                <div className='h-[12vh] w-full p-2 text-black font-normal flex flex-col overflow-hidden '>
+                {
+                        usedLngs.map((value,index)=>(
+                            <>
+                            {language===value&&
+                                <CKEditor
+                                        editor={ClassicEditor}
+                                        data={textData[value]}
+                                        onChange={(event,editor)=>handleChange(event,editor,value)}
+                                        config={{
+                                        toolbar: [
+                                            'heading', '|', 'bold', 'italic', '|',
+                                        ],
+                                        }}
+                                />}
+                            </>
+                        ))
+                    }
+
                 </div>
                 <div className='flex flex-row text-white items-center justify-center w-full gap-2'>
-                    <div className='cursor-pointer flex items-center justify-center m-2 bg-red-600 py-1 font-normal px-2 border border-white hover:bg-red-700 text-[15px] w-fit h-fit rounded-md' onClick={removeUpdate} >Remove</div>
-                    <div className='cursor-pointer flex items-center justify-center m-2 bg-green-600 py-1 font-normal px-2 border border-white hover:bg-green-700 text-[15px] w-fit h-fit rounded-md' onClick={handleSubmit} >Save</div>
-                </div>
+                        <div className='cursor-pointer flex items-center justify-center m-2 bg-red-600 py-1 font-normal px-2 border border-white hover:bg-red-700 text-[15px] w-fit h-fit rounded-md' onClick={removeUpdate} >Remove</div>
+                        <div className='cursor-pointer flex items-center justify-center m-2 bg-green-600 py-1 font-normal px-2 border border-white hover:bg-green-700 text-[15px] w-fit h-fit rounded-md' onClick={handleSubmit} >Save</div>
+                    </div>
             </div>
- 
+
         </div>
         </>}</>}
         </>

@@ -11,7 +11,7 @@ export const BranchFestival=({branchName})=>{
     }
     return(
         <>
-            <div className="w-full border-2 border-cyan-400 rounded-md h-fit flex items-center justify-center flex-col">this is branch festival section
+            <div className="w-full  rounded-md h-fit flex items-center justify-center flex-col">
                 {isEditing&&<AddParva fetchAllParva={fetchBranchAllParva} parvaAddingUrl={baseUrl}/>}
             </div>
         </>

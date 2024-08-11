@@ -4,32 +4,27 @@ import { BranchFestival } from "./BranchComponents/BranchFestival"
 import { BranchHeader } from "./BranchComponents/BranchHeader"
 import { BranchNotice } from "./BranchComponents/BranchNotice"
 import { useMediaQuery } from "@mui/material"
+import { useLocation } from "react-router-dom"
 
 export const EachBranchInfo=()=>{
     const isMobile = useMediaQuery('(max-width:800px)');  
-    const [isArticle,setArtical]=useState(true)
-    
+    const [section,setSection]=useState('article')
+    const loc=useLocation()
     return(
         <div className="flex flex-col items-center gap-3">
-            <BranchHeader/>
-          {!isMobile ?
-          <div className="flex flex-col items-center md:flex-row">
-              <BranchArticles branchName={'kathmandu'}/>
-            <BranchNotice branchName={'kathmandu'}/>
-            </div> :
-
-            
+            <BranchHeader branchName={loc.state}/>
          <div className="w-full">
-                   <div className="w-full py-2 flex justify-start bg-gray-400/80  gap-4 pl-16">
-                       <button onClick={()=>setArtical(true)} className={`font-bold border-b-2  hover:border-red-600 transition-all duration-200 ease-linear ${isArticle ? ' border-red-600 ': 'border-none'} `}>Article</button>
-                       <button onClick={()=>setArtical(false)} className={`font-bold border-b-2  hover:border-red-600 transition-all duration-200 ease-linear ${!isArticle ? ' border-red-600 ': 'border-none'} `}>Notices</button>
-                   </div>
-                   <div className="w-full">
-                        {isArticle ? <BranchArticles/> : <BranchNotice/>}
-                   </div>
+                <div className="w-full py-4 flex justify-start bg-gray-600/80  gap-8 pl-16 shadow-sm blur-border">
+                    <button onClick={()=>setSection('article')} className={`font-bold border-b-2  hover:border-red-600 transition-all duration-200 ease-linear text-white text-xl ${section==='article' ? ' border-red-600 ': 'border-none'} `}>Article</button>
+                    <button onClick={()=>setSection('notice')} className={`font-bold border-b-2  hover:border-red-600 transition-all duration-200 ease-linear text-white text-xl ${section==='notice' ? ' border-red-600 ': 'border-none'} `}>Notices</button>
+                    <button onClick={()=>setSection('festival')} className={`font-bold border-b-2  hover:border-red-600 transition-all duration-200 ease-linear text-white text-xl ${section==='festival'? ' border-red-600 ': 'border-none'} `}>Festivals</button>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                    {section==='article'&&<BranchArticles branchName={loc.state}/>}
+                    {section==='notice'&&<BranchNotice branchName={loc.state}/>}
+                    {section==='festival'&&<BranchFestival branchName={loc.state}/>}
+                </div>
          </div>
-          }
-            <BranchFestival branchName={'kathmandu'}/>
         </div>
     )
 }

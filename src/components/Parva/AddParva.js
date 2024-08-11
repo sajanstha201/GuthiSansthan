@@ -69,7 +69,7 @@ export const AddParva = ({ fetchAllParva,parvaAddingUrl }) => {
             {!addParvaActivate && (
                 <div 
                     onClick={() => setAddParvaActivate(true)}
-                    className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[150px] w-[200px]'} hover:scale-105 bg-gray-500 hover:bg-gray-600 rounded-md border border-white flex flex-col text-white items-center justify-center transition-all duration-300`}
+                    className={`${isMobile ? 'h-[100px] w-[150px]' : 'h-[150px] w-[200px]'} hover:scale-105 m-1 bg-gray-500 hover:bg-gray-600 rounded-md border border-white flex flex-col text-white items-center justify-center transition-all duration-300`}
                 >
                     <div>Add Parva</div>
                     <FontAwesomeIcon icon={faPlus} size='3x' />

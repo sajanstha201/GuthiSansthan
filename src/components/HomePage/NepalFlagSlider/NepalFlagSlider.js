@@ -13,6 +13,8 @@ import { EditImage } from '../../EditComponents/EditImage'
 import { useEditing } from '../../../context/EditingProvider'
 import { EditGif } from '../../EditComponents/EditGif'
 import { EditText } from '../../EditComponents/TextEditor/EditText'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 export const NepalFlagSlider=({content})=>{
     const [isHover,setIsHover]=useState(false)
     const {isEditing,setIsEditing}=useEditing()
@@ -36,16 +38,17 @@ export const NepalFlagSlider=({content})=>{
             <div className={`${isMobile?'text-[30px] w-[50%]':'text-[80px] p-[10%] w-[60%]'} ${activateEdit?'left-[-100%]':`${isHover?'left-[-100%] opacity-0 ':''}`}  absolute left-0  text-white font-bold   transition-left duration-500 font-reggaeOne`}>
                 <EditText keyName={'welcome-to-guthi-sansthans'}>{t('welcome-to-guthi-sansthans')}</EditText>
             </div>
-                <div className={`${activateEdit?'left-[10%]':`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'}`}  ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}
+                <div className={`${activateEdit?'left-[10%]':`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'}`}  ${isMobile?'w-[20vh]':'w-[30vh]'} absolute   h-full z-10 flex items-center transition-all duration-300 ease-in-out`}
                 onMouseEnter={()=>{setIsHover(true)}}>
-                    <EditGif 
+                    {/* <EditGif 
                         isActualUploadedSame={homePageDetail['slider-img'].gif===homePageDetail['slider-img'].actualGif} 
                         setNewGif={setNewSliderImg} 
                         url={homePageDetail['slider-img'].gif} 
                         gifId={homePageDetail['slider-img'].id}
-                    >
-                    <img src={homePageDetail['slider-img']['gif']} className={`${isEditing?'':''} h-full flexitems-center justify-center`} ></img>
-                    </EditGif>
+                    > */}
+                    {/* <img src={homePageDetail['slider-img']['gif']} className={`${isEditing?'':''} h-full flexitems-center justify-center`} ></img> */}
+                    <FontAwesomeIcon  className='h-20 touchme text-white' icon={faArrowAltCircleRight}/>
+                    {/* </EditGif> */}
                         
                 </div>
                 

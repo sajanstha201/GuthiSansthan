@@ -33,6 +33,8 @@ import { useEditing } from './context/EditingProvider';
 import { BranchMainPage } from './components/BranchPage/BranchMainPage';
 import { EachBranchInfo } from './components/BranchPage/BranchComponents/EachBranchInfo';
 import Report from './components/Report/Report';
+import { ProfileSection } from './components/User/Profile/ProfileSection';
+import { SettingMainPage } from './components/User/Setting/SettingMainPage';
 
 function App() {
   const location=useLocation()
@@ -95,7 +97,10 @@ function App() {
                 <Route path='/super-user/add-articles' element={<ArticleAddition/>}/>
                 <Route path='/super-user/add-notices' element={<NoticeForm/>}/>
               </>
-
+            <>
+              <Route path='/user/profile' element={<ProfileSection/>}/>
+              <Route path='/user/setting' element={<SettingMainPage/>}/>
+            </>
           </Routes>
          
       </div>

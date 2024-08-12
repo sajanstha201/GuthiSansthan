@@ -39,6 +39,7 @@ export const Service = () => {
                             fetchAllService={fetchService}
                             url={service.url}
                             index={index}
+                            id={service.id}
                             key={service.id}
                             img={service.image}
                             name={service.name}

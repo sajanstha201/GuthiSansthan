@@ -1,8 +1,9 @@
+
 import axios, { Axios } from 'axios';
 import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
-export const AccountDetails = () => {
+export const ProfileUpdateSection = () => {
   const firstname =sessionStorage.getItem('firstname')
   const lastname =sessionStorage.getItem('lastname')
   const username =sessionStorage.getItem('username')
@@ -105,6 +106,5 @@ export const AccountDetails = () => {
       </div>
     </form>
     </>
-
-  );
-};
+    )
+}

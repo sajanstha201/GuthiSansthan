@@ -2,13 +2,15 @@ import { useMediaQuery } from "@mui/material";
 import {useState} from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose} from "@fortawesome/free-solid-svg-icons"
-export const ParvaDetailDescription=({startDate,endDate,img,detail,qr,name})=>{
+export const ParvaDetailDescription=({startDate,endDate,img,detail,qr,name,loc})=>{
     const [isDonation,setIsDonation]=useState(false)
     const isMobile = useMediaQuery('(max-width:800px)');
+    console.log(loc)
     return(
         <>
             <div className="w-full py-2 bg-slate-600/40 flex flex-col items-center">
                 <h1 className={`${isMobile ? 'text-[30px]' : 'text-[50px]'} text-white font-bold`}>{name}</h1>
+                <h3>{loc}</h3>
                 <p className="text-white font-semibold">{startDate} <span className="text-blue-600 text-xl mx-1 font-bold">To</span> {endDate}</p>
             </div>
             <div className="flex flex-wrap mt-2 w-full">

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faClose } from '@fortawesome/free-solid-svg-icons';
 import { showAlert } from '../AlertLoader';
 
-export const AddParva = ({ fetchAllParva,parvaAddingUrl }) => {
+export const AddParva = ({ fetchAllParva, parvaAddingUrl }) => {
     const nameRef = useRef();
     const branchRef = useRef();
     const photoRef = useRef();
@@ -22,24 +22,24 @@ export const AddParva = ({ fetchAllParva,parvaAddingUrl }) => {
     const handleSubmit = async () => {
         const name = nameRef.current.value.trim();
         const location = branchRef.current.value.trim();
-        const images = photoRef.current.files; // get the file objects
+        const image = photoRef.current.files[0]; // get the file objects
         const qrcode = qrRef.current.files[0]; // get the file object
         const description = desRef.current.value.trim();
 
-        if (!name || !startDate || !endDate || images.length === 0 || !description || !qrcode) {
+        // Validate if all fields are filled
+        if (!name || !startDate || !endDate || !image  || !description || !qrcode) {
             alert("Please fill out all fields.");
             return;
         }
 
         const formData = new FormData();
         formData.append('name', name);
+        formData.append('image', image);
         formData.append('location', location);
         formData.append("start_date", startDate);
         formData.append("end_date", endDate);
 
-        for (let i = 0; i < images.length; i++) {
-            formData.append('images', images[i]);
-        }
+       
 
         formData.append('description', description);
         formData.append('qr_code', qrcode);
@@ -61,6 +61,7 @@ export const AddParva = ({ fetchAllParva,parvaAddingUrl }) => {
             setAddParvaActivate(false);
         } catch (error) {
             console.error('Error:', error);
+            alert("There was an error submitting the form.");
         }
     };
 
@@ -89,7 +90,7 @@ export const AddParva = ({ fetchAllParva,parvaAddingUrl }) => {
                             <input type='text' ref={branchRef} className='w-full lg:w-2/3 h-12 rounded-md px-3 py-2 border border-zinc-900' />
                         </div>
                         <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>
-                            <label className='font-semibold text-lg'>starting date (BS):</label>
+                            <label className='font-semibold text-lg'>Starting date (BS):</label>
                             <NepaliDatePicker inputClassName="form-control" className="" value={startDate} onChange={(value) => setStartDate(value)} options={{ calenderLocale: "ne", valueLocale: "en" }} />
                         </div>
                         <div className='flex flex-col flex-wrap py-1 border-y-2 border-b-zinc-700/5 lg:flex-row gap-2 items-center'>

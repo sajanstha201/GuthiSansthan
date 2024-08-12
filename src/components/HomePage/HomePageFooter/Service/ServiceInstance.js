@@ -13,7 +13,7 @@ import { showAlert } from "../../../AlertLoader";
 import { activate_loader } from "../../../AlertLoader/LoaderBox";
 import { ServiceDescription } from "./ServiceDescription";
 import { EditService } from "./EditService";
-export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, img,url }) => {
+export const ServiceInstance = ({index,serviceId,fetchAllService,id ,name, detail, img,url }) => {
     const [isHidden, setIsHidden] = useState(true);
     const isMobile = useMediaQuery('(max-width:800px)');
     const {isEditing,setIsEditing}=useEditing()
@@ -56,6 +56,7 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
     const closeService=()=>{
         setIsHidden(true)
     }
+    
     return (
         <>
             <div 
@@ -73,7 +74,7 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
                 <div className="cursor-pointer bg-blue-600 px-2 py-1 text-white rounded-b-md hover:bg-blue-800 "  onClick={showMoreInfo}>More Info...</div>
             </div>
             <motion.div
-                className={`${isHidden ? 'h-0 w-0' : 'h-[90%] w-[90%]'} absolute top-0 rounded-xl bg-neutral-800 flex flex-col items-center justify-start z-50 backdrop-blur-3xl overflow-auto transition-all duration-200 ease-out`}
+                className={`${isHidden ? 'h-0 w-0' : 'h-[90%] w-[80%]'} absolute top-0 rounded-xl bg-neutral-800/85 flex flex-col items-center justify-start z-50 backdrop-blur-3xl overflow-auto transition-all duration-200 ease-out`}
             >
                 <FontAwesomeIcon 
                     icon={faTimes} 
@@ -82,7 +83,7 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
                     onClick={closeService} 
                 />
                 {!isServiceEditingActivate&&<ServiceDescription name={name} detail={detail} img={img}/>}
-                {isServiceEditingActivate&&<EditService name={name} detail={detail} img={img} url={url} />}
+                {isServiceEditingActivate&&<EditService name={name} id={id} detail={detail} img={img} url={url} />}
             </motion.div>
         </>
     );

@@ -1,7 +1,6 @@
-import React from 'react';
-
-export const AccountDetails = () => {
-  return (
+export const ProfileUpdateSection=()=>{
+    return(
+        <>
     <>
         <form className="space-y-4">
       <div>
@@ -47,6 +46,6 @@ export const AccountDetails = () => {
       </div>
     </form>
     </>
-
-  );
-};
+        </>
+    )
+}

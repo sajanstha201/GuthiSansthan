@@ -119,7 +119,8 @@ export const HeaderTop = () => {
                     </div>
                     {isOpen && (
                         <div className="absolute right-0 flex flex-col items-start gap-2 px-1 bg-zinc-700/30 backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-10">
-                            <NavLink to="/user" className="text-white hover:text-red-500 no-underline w-full border-b border-white">Profile</NavLink>
+                            <Link to="/user/profile" className="text-white hover:text-red-500 no-underline w-full border-b border-white">Profile</Link>
+                            <Link to="/user/setting" className="text-white hover:text-red-500 no-underline w-full border-b border-white">Setting</Link>
                             <button onClick={handleLogOut} className="flex text-white hover:text-red-500 gap-2 items-center">Logout <FontAwesomeIcon icon={faRightFromBracket} /></button>
                         </div>
                     )}

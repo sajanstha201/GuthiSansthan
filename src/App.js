@@ -16,7 +16,6 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalWholeDetail, setLngLogo ,setGuthiSansthanLogo} from './state/GlobalSlice';
 import { fetchImageToURL } from './components/ReuseableFunctions';
-import Profile from './components/User/Profile';
 import JatraMain from './components/JatrasForm/JatraMain';
 import { ArticleAddition } from './components/Articles/ArticleAddition/ArticleAddition';
 import { NoticeAddition } from './components/Articles/ArticleAddition/NoticeAddition';
@@ -85,7 +84,6 @@ function App() {
             <Route path='/articles' element={<ArticleMainSection/>}/>
             <Route path='/show-article' element={<ShowArticle/>}/>
             <Route path='/show-notice' element={<ShowNotice/>}/>
-            <Route path='/user' element={<Profile/>} />
             <Route path='/jatra-form' element={<JatraMain/>}/>
             <Route path='/parva' element={<Parva/>}/>
             <Route path='/report' element={<Report/>} />

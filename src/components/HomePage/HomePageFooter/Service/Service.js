@@ -7,6 +7,7 @@ import { useEditing } from '../../../../context/EditingProvider';
 import { useDispatch, useSelector } from 'react-redux';
 import { showAlert } from '../../../AlertLoader';
 import { setDynamicServicePageWholeDetail } from '../../../../state/HomePageSlices/ServiceSlice';
+import { EditService } from './EditService';
 export const Service = () => {
     const serviceDetail=useSelector(state=>state.serviceDetail)
     const {isEditing,setIsEditing}=useEditing()
@@ -45,6 +46,7 @@ export const Service = () => {
                         />
                     ))}
                     {isEditing&&<ServiceAddition fetchService={fetchService}/>}
+                   
                 </div>
             </div>
         </div>

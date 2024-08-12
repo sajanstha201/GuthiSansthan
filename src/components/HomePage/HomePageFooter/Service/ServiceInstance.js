@@ -82,7 +82,7 @@ export const ServiceInstance = ({index,serviceId,fetchAllService ,name, detail, 
                     onClick={closeService} 
                 />
                 {!isServiceEditingActivate&&<ServiceDescription name={name} detail={detail} img={img}/>}
-                {isServiceEditingActivate&&<EditService/>}
+                {isServiceEditingActivate&&<EditService name={name} detail={detail} img={img} url={url} />}
             </motion.div>
         </>
     );

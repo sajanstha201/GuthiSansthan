@@ -4,7 +4,7 @@ import i18next from "i18next";
 
 export function addLanguage({ key, lngs }) {
     Object.entries(lngs).forEach(([k, value]) => {
-        if (typeof value !== 'undefined') {
+        if (typeof value !== 'undefined'&&value!=='') {
             i18next.addResource(k, 'translation', key, value);
         }
     });

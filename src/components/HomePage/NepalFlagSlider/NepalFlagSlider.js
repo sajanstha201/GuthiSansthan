@@ -8,7 +8,7 @@ import img from '../../../media/guthi sansthan.png'
 import bg from '../../../media/TempleInformation/patandurbarsquare.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addLanguage ,fetchGifToURL} from '../../ReuseableFunctions'
-import { setNewSliderImg, setSliderImg } from '../../../state/HomePageSlices/HomePageSlice'
+import { setNewSliderImg, setNewWelcomeToGuthiSansthan, setSliderImg, setWelcomeToGuthiSansthan } from '../../../state/HomePageSlices/HomePageSlice'
 import { EditImage } from '../../EditComponents/EditImage'
 import { useEditing } from '../../../context/EditingProvider'
 import { EditGif } from '../../EditComponents/EditGif'
@@ -25,6 +25,7 @@ export const NepalFlagSlider=({content})=>{
     useEffect(()=>{
         const fetchData=async()=>{
                 addLanguage({ key: 'welcome-to-guthi-sansthan', lngs: homePageDetail['details']['welcome-to-guthi-sansthan']['text'] });
+                dispatch(setWelcomeToGuthiSansthan({id:homePageDetail['details']['welcome-to-guthi-sansthan'].id,text:homePageDetail['details']['welcome-to-guthi-sansthan'].text,styling:homePageDetail['details']['welcome-to-guthi-sansthan'].styling}))
                 dispatch(setSliderImg(baseUrl + homePageDetail['details']['slider-img'].image.substr(1)));
         }
         if(!homePageDetail['slider-img'].isFetched&&homePageDetail.isFetched) fetchData()
@@ -34,7 +35,13 @@ export const NepalFlagSlider=({content})=>{
         {isMobile&&<div className='w-full h-[20vh]'></div>}
         <div className={` ${isMobile?'h-[30vh]':'h-[40vh]'} flex flex-row items-center relative w-full  m-2 overflow-hidden`} onMouseLeave={()=>{setIsHover(false)}}>
             <div className={`${isMobile?'text-[30px] w-[50%]':'text-[80px] p-[10%] w-[60%]'} ${activateEdit?'left-[-100%]':`${isHover?'left-[-100%] opacity-0 ':''}`}  absolute left-0  text-white font-bold   transition-left duration-500 font-reggaeOne`}>
-                <EditText keyName={'welcome-to-guthi-sansthans'}>{t('welcome-to-guthi-sansthans')}</EditText>
+                <EditText 
+                    keyName={'welcome-to-guthi-sansthan'} 
+                    textId={homePageDetail['welcome-to-guthi-sansthan'].id} 
+                    styling={homePageDetail['welcome-to-guthi-sansthan'].styling}
+                    setNewData={setNewWelcomeToGuthiSansthan}
+                    prevTextData={homePageDetail['welcome-to-guthi-sansthan'].text}
+                    ></EditText>
             </div>
                 <div className={`${activateEdit?'left-[10%]':`${isHover?` ${isMobile?'opacity-0 left-[-100%]':''} left-[10%]`:'left-[60%]'}`}  ${isMobile?'w-[20vh]':'w-[30vh]'} absolute  h-full z-10  transition-all duration-300 ease-in-out`}
                 onMouseEnter={()=>{setIsHover(true)}}>

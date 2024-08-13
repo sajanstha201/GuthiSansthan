@@ -20,7 +20,7 @@ export const AddTemplate=({name,data,setData})=>{
                     <FontAwesomeIcon icon={faPlus} size='2x'/>
                     Template1
                 </div>
-                <div className="add-template-div" onClick={()=>addTemplate('template2')}>
+                {/* <div className="add-template-div" onClick={()=>addTemplate('template2')}>
                     <FontAwesomeIcon icon={faPlus} size='2x'/>
                     Template2
                 </div>
@@ -31,7 +31,7 @@ export const AddTemplate=({name,data,setData})=>{
                 <div className="add-template-div" onClick={()=>addTemplate('template4')}>
                     <FontAwesomeIcon icon={faPlus} size='2x'/>
                     Template4
-                </div>
+                </div> */}
             </div>
         </div>
     )

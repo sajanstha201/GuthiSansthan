@@ -74,7 +74,9 @@ export const EditService = ({ name, detail, img, url, id }) => {
         <div className="flex justify-end">
           <button className="bg-green-600 hover:bg-green-700 px-5 py-2 font-semibold text-lg text-white rounded-md" onClick={handleSubmit}>Submit</button>
         </div>
+
       </div>
     </div>
   );
 };
+

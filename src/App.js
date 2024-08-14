@@ -34,6 +34,7 @@ import { EachBranchInfo } from './components/BranchPage/BranchComponents/EachBra
 import Report from './components/Report/Report';
 import { ProfileSection } from './components/User/Profile/ProfileSection';
 import { SettingMainPage } from './components/User/Setting/SettingMainPage';
+import Darbandi from './components/Darbandi/Darbandi';
 
 function App() {
   const location=useLocation()
@@ -98,6 +99,7 @@ function App() {
             <>
               <Route path='/user/profile' element={<ProfileSection/>}/>
               <Route path='/user/setting' element={<SettingMainPage/>}/>
+              <Route path='/darbandi' element={<Darbandi/>}/>
             </>
           </Routes>
          

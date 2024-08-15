@@ -64,15 +64,15 @@ ul, li {
 
 @keyframes swipe {
   0% {
-   right: 100px;
+   right: 50px;
   }
   50% {
     right: 00px;
   }
   75% {
-    right: 100px;
+    right: 50px;
   }
   100%{
-    right: 20px;
+    right: 50px;
   }
 }

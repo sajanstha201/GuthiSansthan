@@ -6,6 +6,16 @@ import AntarikMahasakha from "./AntarikMahasakha";
 
 const Darbandi = () => {
   const [mahasakha, setmahasakha] = useState(null);
+  const sakha = [
+    { name: "गुठी संस्थान शाखा कार्यालय काठमाडौं" },
+    { name: "गुठी संस्थान शाखा कार्यालय ललितपुर" },
+    { name: "गुठी संस्थान शाखा कार्यालय भक्तपुर" },
+    { name: "गुठी संस्थान शाखा कार्यालय काभ्रेपलाञ्चोक" },
+    { name: "केन्द्रीय लगत तथा अभिलेख शाखा कार्यालय भद्रकाली" },
+    { name: "पशुपती गोश्वारा कार्यालय पशुपती" },
+    { name: "गुठी संस्थान शाखा कार्यालय पर्सा" },
+    { name: "गुठी संस्थान शाखा कार्यालय धनुषा जनकपुरधाम" },
+  ];
   return (
     <div className="flex flex-col items-center justify-center gap-8    ">
       <h3 className="font-bold">गुठी संस्थान</h3>
@@ -56,7 +66,7 @@ const Darbandi = () => {
         <div className="flex justify-between w-full lg:px-4">
           <div className="flex flex-col items-start ">
             <div
-              className="px-2 border border-black rounded-sm py-1 bg-cyan-600 "
+              className="px-2 border border-black rounded-sm py-1 hover:cursor-pointer hover:bg-cyan-700 bg-cyan-500 "
               onClick={() => setmahasakha("shroth")}
             >
               <h4 className="font-semibold text-sm text-white">
@@ -73,7 +83,7 @@ const Darbandi = () => {
           </div>
           <div className="flex flex-col items-start ">
             <div
-              className="px-2 border border-black rounded-sm py-1 bg-cyan-600"
+              className="px-2 border border-black rounded-sm py-1 hover:cursor-pointer hover:bg-cyan-700 bg-cyan-500"
               onClick={() => setmahasakha("antarik")}
             >
               <h4 className="font-semibold text-sm text-white">
@@ -102,7 +112,13 @@ const Darbandi = () => {
           {mahasakha === "antarik" && <AntarikMahasakha />}
         </div>
       )}
-      <div className="flex flex-wrap gap-3"></div>
+      <div className="flex flex-wrap gap-3 justify-center">
+        {sakha.map((items) => (
+          <h4 className="bg-cyan-500 rounded-sm px-2 py-1 max-w-40 font-semibold text-sm">
+            {items.name}
+          </h4>
+        ))}
+      </div>
     </div>
   );
 };

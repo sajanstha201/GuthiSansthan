@@ -8,7 +8,7 @@ const InstantMahasakhaDetails = ({ name }) => {
     <>
       <h5
         onClick={() => setOpen(true)}
-        className="text-sm font-semibold pb-1 border-b border-b-black"
+        className="text-sm font-semibold pb-1 border-b border-b-black hover:cursor-pointer hover:underline"
       >
         {name} (1)
       </h5>

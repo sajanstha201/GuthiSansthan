@@ -57,7 +57,7 @@ const Darbandi = () => {
         </div>
         <div className="flex flex-col  items-center bg-yellow-300 h-fit border mt-10 border-black w-64  rounded-sm ">
           <h4 className="bg-green-500 w-full py-1 font-semibold text-base">
-            गुठी संस्थान सञ्चालक समिति
+            गुठी संस्थान प्रधान कार्यालय
           </h4>
           <h6 className=" text-sm w-full text-black text-wrap  h-full">79</h6>
         </div>

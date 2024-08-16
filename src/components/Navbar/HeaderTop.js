@@ -69,7 +69,7 @@ export const HeaderTop = () => {
     <div
       className={`${
         isMobile ? "h-[80px] flex-wrap w-full" : "flex-row px-20 h-[100px]"
-      } flex w-full bg-black/20 top-0 justify-between items-center p-2`}
+      } flex w-full bg-neutral-100/50 lg:bg-neutral-200/30 lg:backdrop-blur-lg backdrop-blur-xl top-0 justify-between items-center p-2`}
     >
       <Link
         to="/"
@@ -83,7 +83,7 @@ export const HeaderTop = () => {
         }}
       >
         <img
-          className={`${isMobile ? "h-[30px]" : "h-[80px]"}`}
+          className={`${isMobile ? "h-[50px]" : "h-[80px]"}`}
           src={nepalLogo}
           alt="Nepal Logo"
         />
@@ -98,8 +98,8 @@ export const HeaderTop = () => {
         >
           <img
             className={`${
-              isMobile ? "h-[30px] pr-4" : "h-[80px] pr-10"
-            } backdrop-blur-md bg-neutral-200/40 rounded-full shadow-lg`}
+              isMobile ? "h-[50px] pr-4" : "h-[80px] pr-10"
+            } rounded-full `}
             src={globalDetail["guthi-sansthan-logo"].imgSrc}
             alt="Guthi Sansthan Logo"
           />
@@ -143,9 +143,9 @@ export const HeaderTop = () => {
           ref={divRef}
           className={`gap-1 w-[40%] relative flex-row flex items-center justify-end`}
         >
-          <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">
+          {/* <div className="text-[10px] lg:text-[20px] font-semibold bg-gray-900/40 px-3 py-1 flex justify-center text-white items-center">
             Language
-          </div>
+          </div> */}
           <div className="relative bg-gray-300/70 rounded-full flex flex-row items-center justify-center">
             <div
               className={`h-[30px] w-[30px] md:h-[60px] md:w-[60px] cursor-pointer transition-all rounded-md p-1 items-center flex justify-center`}
@@ -156,24 +156,28 @@ export const HeaderTop = () => {
               <div className="z-30 p-2 overflow-hidden h-full w-full items-center flex justify-center">
                 {selectLanguage === "nepali" && (
                   <img
+                    sizes="2x"
                     src={globalDetail["lng-logo"]["nepali"]}
                     alt="Nepali Language"
                   />
                 )}
                 {selectLanguage === "newari" && (
                   <img
+                    sizes="2x"
                     src={globalDetail["lng-logo"]["newari"]}
                     alt="Newari Language"
                   />
                 )}
                 {selectLanguage === "english" && (
                   <img
+                    sizes="2x"
                     src={globalDetail["lng-logo"]["english"]}
                     alt="English Language"
                   />
                 )}
                 {selectLanguage === "mithila" && (
                   <img
+                    sizes="2x"
                     src={globalDetail["lng-logo"]["mithila"]}
                     alt="Mithila Language"
                   />
@@ -205,10 +209,11 @@ export const HeaderTop = () => {
           <Link
             to="/sign-up"
             className={`${
-              isMobile ? "text-[10px] h-[25px]" : "h-[60%] px-5 py-2"
-            } no-underline px-3 bg-red-600 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}
+              isMobile ? "text-[12px] " : " px-5 py-1"
+            } no-underline  bg-red-600 py-1 text-white flex items-center justify-center mx-2 rounded-full hover:bg-red-700 cursor-pointer shadow-sm font-bold`}
           >
             {t("sign-up")}
+            <FontAwesomeIcon icon={faUserCircle} size="2x" />
           </Link>
         )}
         {token && (

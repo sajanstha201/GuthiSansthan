@@ -22,9 +22,19 @@ export const HomePageSlice=createSlice({
         "Parav-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         "Contact-us-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
         "About-us-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
-        "Article-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''}
+        "Article-tab":{isFetched:false,imgSrc:'',id:'',actualImgSrc:''},
+        "welcome-to-guthi-sansthan":{id:'',text:{'nepali':'','english':'','newari':'','mithila':''},styling:{'bold':false,'fontSize':12,'italic':false,'color':'#FFFFFF','underline':false}}
     },
     reducers:{
+        setWelcomeToGuthiSansthan:(state,action)=>{
+            state['welcome-to-guthi-sansthan'].id=action.payload.id
+            state['welcome-to-guthi-sansthan'].text=action.payload.text
+            state['welcome-to-guthi-sansthan'].styling=action.payload.styling
+        },
+        setNewWelcomeToGuthiSansthan:(state,action)=>{
+            state['welcome-to-guthi-sansthan'].text=action.payload.text
+            state['welcome-to-guthi-sansthan'].styling=action.payload.styling
+        },
         setHomePageWholeDetail:(state,action)=>{
             state.isFetched=true
             state["details"]=action.payload
@@ -51,7 +61,6 @@ export const HomePageSlice=createSlice({
                 isImage:action.payload.isImage,
                 prevUrl:action.payload.isVideo?'video':'image'
             }
-            console.log('updated data',data)
             state['bg-video']=data
         },
         setNewBgVideo:(state,action)=>{
@@ -89,4 +98,4 @@ export const HomePageSlice=createSlice({
     }
 })
 export default HomePageSlice.reducer
-export const {setHomePageWholeDetail,setGuthiSansthanLogo,setNewSliderImg,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewTabDetail,setNewFooterBgImg,setNewBgVideo} =HomePageSlice.actions
+export const {setHomePageWholeDetail,setGuthiSansthanLogo,setNewWelcomeToGuthiSansthan,setNewSliderImg,setSliderImg,setBgVideo,setFooterBgImg,setTabDetail,setNewTabDetail,setNewFooterBgImg,setNewBgVideo,setWelcomeToGuthiSansthan} =HomePageSlice.actions

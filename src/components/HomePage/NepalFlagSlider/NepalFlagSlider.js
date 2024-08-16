@@ -1,3 +1,4 @@
+
 import { act, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "@mui/material";
@@ -86,6 +87,7 @@ export const NepalFlagSlider = ({ content }) => {
           }}
         >
           {/* <EditGif 
+
                         isActualUploadedSame={homePageDetail['slider-img'].gif===homePageDetail['slider-img'].actualGif} 
                         setNewGif={setNewSliderImg} 
                         url={homePageDetail['slider-img'].gif} 

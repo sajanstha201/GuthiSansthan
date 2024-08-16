@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { NepalFlagSlider } from "./NepalFlagSlider/NepalFlagSlider";
@@ -28,13 +28,17 @@ export const HomePage = () => {
   const homePageDetail = useSelector((state) => state.homePageDetail);
   const dispatch = useDispatch();
   const { isEditing } = useEditing();
+
   const token = sessionStorage.getItem("token");
-  console.log(homePageDetail);
+
+
   const fetchHomeData = async () => {
     try {
       const response = await axios.get(baseUrl + homePageDetail.url);
       const data = response.data.components;
+
       console.log("response ", response.data);
+
       dispatch(setHomePageWholeDetail(data));
       if (
         data["welcome-to-guthi-sansthan"] &&
@@ -65,9 +69,19 @@ export const HomePage = () => {
           })
         );
       }
+
+        if (data['bg-video']['component_type']==='image') {
+          dispatch(setBgVideo({url:baseUrl + data['bg-video'].image.substr(1),isVideo:false,isImage:true,actualFile:null}));
+        } else{
+          dispatch(setBgVideo({url:baseUrl + data['bg-video'].video.substr(1),isVideo:true,isImage:false,actualFile:null}));
+        }
+
     } catch (error) {
       console.log(error);
       showAlert(error, "red");
+    }
+    finally{
+
     }
   };
   useEffect(() => {
@@ -150,7 +164,7 @@ export const HomePage = () => {
             )}
           </EditBgHome>
 
-          <NepalFlagSlider />
+          <NepalFlagSlider/>
           <HomePageFooter />
         </div>
       </div>
